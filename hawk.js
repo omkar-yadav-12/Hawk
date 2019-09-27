@@ -47,8 +47,8 @@ app.use(log4js.connectLogger(logging.getLogger('express'), {
 app.use('/', require('./app/controllers/login'));
 app.use('/login', require('./app/controllers/login'));
 // Register
-//app.use('/', require('./hawk/controllers/register'));
-//app.use('/register', require('./hawk/controllers/register'));
+app.use('/', require('./app/controllers/register'));
+app.use('/register', require('./app/controllers/register'));
 // Home Page
 //app.use(require('./hawk/controllers/home'));
 //app.use('/home', require('./hawk/controllers/home'));
@@ -58,7 +58,7 @@ app.use('/login', require('./app/controllers/login'));
 // Authenticated routes
 
 // Catch-all 404 error
-//app.use(require('./hawk/controllers/404'));
+app.use(require('./app/controllers/404'));
 
 
 // Start server
