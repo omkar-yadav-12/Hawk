@@ -1,0 +1,30 @@
+{
+  "name": "hawk",
+  "version": "0.0.0",
+  "description": "Hawk FTC",
+  "main": "hawk.js",
+  "scripts": {
+    "start": "nodemon hawk.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omkar-yadav-12/Hawk.git"
+  },
+  "author": "Omkar Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
+    "log4js": "^4.5.1",
+    "mongoose": "^5.6.7",
+    "nunjucks": "^3.2.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1"
+  }
+}
