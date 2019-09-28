@@ -7,7 +7,12 @@
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-
+<script type="text/javascript"> 
+//function getInfo(){
+//var username = document.getElementById('textfield_new_first_name');
+//console.log("username");
+//}
+</script> 
 <style>
     .util-center {
         margin: auto;
@@ -47,7 +52,7 @@
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_first_name">Last Name</label>
-                        <input class="mdl-textfield__input" type="text" id="textfield_new_first_name" name="first_name" pattern="^[A-z]{1,20}" required/>
+                        <input class="mdl-textfield__input" type="text" id="textfield_new_last_name" name="first_name" pattern="^[A-z]{1,20}" required/>
                         <span class="mdl-textfield__error">Characters only</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
@@ -74,7 +79,7 @@
                     <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_password_confirm">Password Confirm</label>
                     <input class="mdl-textfield__input" type="password" id="textfield_password_confirm" name="password_confirm" required/>
                 </div>
-                <a href="http://localhost:3001/home"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Register</a>
+                <a href="http://localhost:3001/home"  onclick = "getInfo()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Register</a>
             </form>
         </div>
     </div>

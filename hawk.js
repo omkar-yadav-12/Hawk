@@ -50,11 +50,11 @@ app.use('/login', require('./app/controllers/login'));
 app.use('/', require('./app/controllers/register'));
 app.use('/register', require('./app/controllers/register'));
 // Home Page
-//app.use(require('./hawk/controllers/home'));
-//app.use('/home', require('./hawk/controllers/home'));
-// Calendar
-//app.use(require('./hawk/controllers/calendar'));
-//app.use('/calendar', require('./hawk/controllers/calendar'));
+app.use(require('./app/controllers/home'));
+app.use('/home', require('./app/controllers/home'));
+// Score
+app.use(require('./app/controllers/score'));
+app.use('/score', require('./app/controllers/score'));
 // Authenticated routes
 
 // Catch-all 404 error
