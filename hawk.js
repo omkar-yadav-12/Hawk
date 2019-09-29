@@ -5,6 +5,8 @@ process.env.DEV = process.env.NODE_ENV !== 'production';
 // Node core modules
 const path = require('path');
 
+// MYSQL Database
+
 // Third party modules
 const bodyParser = require('body-parser');
 const express = require('express');
@@ -18,6 +20,8 @@ const logging = require('./lib/logging');
 // Express config
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.set('view engine', 'ejs');
 
 // Nunjucks config
 nunjucks.configure(path.join(process.env.APP_ROOT, 'app', 'views'), {
@@ -43,12 +47,14 @@ app.use(log4js.connectLogger(logging.getLogger('express'), {
   ]
 }));
 
+
 // Public routes
 app.use('/', require('./app/controllers/login'));
 app.use('/login', require('./app/controllers/login'));
 // Register
 app.use('/', require('./app/controllers/register'));
 app.use('/register', require('./app/controllers/register'));
+
 // Home Page
 app.use(require('./app/controllers/home'));
 app.use('/home', require('./app/controllers/home'));
@@ -67,3 +73,4 @@ app.listen(PORT, () => {
   logger.info(`Server started on port ${PORT}`);
   logger.info(`Running in ${process.env.DEV === 'true' ? 'development' : 'production'} mode`);
 });
+
