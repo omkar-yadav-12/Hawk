@@ -1,3 +1,4 @@
+'use strict';
 // Environmental variable config
 require('dotenv').config();
 process.env.DEV = process.env.NODE_ENV !== 'production';
@@ -5,29 +6,31 @@ process.env.DEV = process.env.NODE_ENV !== 'production';
 // Node core modules
 const path = require('path');
 
-// MYSQL Database
-
 // Third party modules
 const bodyParser = require('body-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
 const log4js = require('log4js');
 const nunjucks = require('nunjucks');
+//const register = require('../Hawk/public/js/register');
+const ejs = require("ejs");
 
 // First party modules
 const logging = require('./lib/logging');
 
 // Express config
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-app.set('view engine', 'ejs');
+const PORT = process.env.PORT || 3001;
+app.use(express.static('public/js/'));
+
 
 // Nunjucks config
 nunjucks.configure(path.join(process.env.APP_ROOT, 'app', 'views'), {
   autoescape: true,
   express: app
 });
+
 
 // Express middleware
 app.use(express.static('public'));
@@ -47,6 +50,8 @@ app.use(log4js.connectLogger(logging.getLogger('express'), {
   ]
 }));
 
+//app.use(express.static(__dirname + '/register'));
+
 
 // Public routes
 app.use('/', require('./app/controllers/login'));
@@ -54,6 +59,7 @@ app.use('/login', require('./app/controllers/login'));
 // Register
 app.use('/', require('./app/controllers/register'));
 app.use('/register', require('./app/controllers/register'));
+
 
 // Home Page
 app.use(require('./app/controllers/home'));

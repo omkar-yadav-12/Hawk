@@ -1,21 +1,14 @@
 'use strict';
-
 const express = require('express');
 const router = express.Router();
-const moment = require('moment');
-let mysql = require('mysql');
-const db = require('./db');
-var now = moment();
-const app = express();
+const db = require("./db");
 
 function register() {
-console.log("Done");
- alert("Return back to login and enter your username and password");
-};
-
+  var firstName = document.getElementById("first_name");
+  alert("Return back to login page and enter your username and password.");
+};  
 
 router.get('/', (req, res) => {
-  
   return res.render('register.ejs', {
     title: `Register « ${process.env.APP_NAME}`,
     gtag: process.env.GTAG,
