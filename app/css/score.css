@@ -1,0 +1,12 @@
+table#Autonomous {
+    margin-left: auto;
+    margin-right: auto;
+};
+button#back {
+    margin-left: auto;
+    margin-right: auto;
+};
+table#DriverControlled {
+    margin-left: "auto";
+    margin-right: "auto";
+};

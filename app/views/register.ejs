@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="/css/register.css">
+<link href="../css/register.css" rel="stylesheet" type="text/css" >
 <head>
     <!-- Material Design Lite CSS -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
@@ -83,15 +83,12 @@
                         <input class="mdl-textfield__input" type="password" id="password_confirm"
                             name="password_confirm" required />
                     </div>
-                    <a id="returnLogin" onclick= "register();" href="http://localhost:3001/login"
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white"
-                        >Register</a>
-                    <script>
-                     
-                        </script>
-                    <ul>
-                        
-                    </ul>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class=
+                        "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" onclick = "returnLogin();"
+                        href= "login" >Register</a>
+                    </div>
+    
                 </form>  
             </div>
         </div>
@@ -100,6 +97,7 @@
 
     <!-- Material Design Lite JavaScript -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
-    <script type="text/javascript" src="/app/controllers/register.js"></script>
+    <script type="text/javascript" src="/public/js/register.js"></script>
+    <!--<script type="text/javascript" src="/app/controllers/function.js"></script> -->
 </body>
     

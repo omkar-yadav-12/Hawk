@@ -1,17 +1,28 @@
 </html>
 
 <head>
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
-    </script>
+    <body>
+    <link rel = "stylesheet" href="../css/score.css">
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <body>
+    <style>
+        table#Autonomous {
+            margin-left: auto;
+            margin-right: auto;
+        };
+        button#back {
+            margin-left: auto;
+            margin-right: auto;
+        };
+        table#DriverControlled {
+            margin-left: "auto";
+            margin-right: "auto";
+        };
+    </style>
+    </body>
 </head>
-<style>
-    table#Autonomous {
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
+
 <div class="mdl-layout-spacer"></div>
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Autonomous">
     <span align= "center" class="mdl-layout-title">Autonomous Period</span>
@@ -30,12 +41,13 @@
 
         <tr>
             <td class="">Skystone</td>
-            <td><input type="checkbox" name="skystone" /></td>
-            <td><input type="checkbox" name="skystone" /></td>
-            <td><input type="checkbox" name="skystone" /></td>
-            <td><input type="checkbox" name="skystone" /></td>
-            <td><input type="checkbox" name="skystone" /></td>
-            <td><input type="checkbox" name="skystone" /></td>
+            <td><input type="checkbox" name="skystone" id = "sky1" /></td>
+            <td><input type="checkbox" name="skystone" id = "sky2" /></td>
+            <td><input type="checkbox" name="skystone" id = "sky3" /></td>
+            <td><input type="checkbox" name="skystone" id = "sky4" /></td>
+            <td><input type="checkbox" name="skystone" id = "sky5" /></td>
+            <td><input type="checkbox" name="skystone" id = "sky6" /></td>
+            
         </tr>
         <tr>
             <td class="">Stone</td>
@@ -58,59 +70,42 @@
 
     </tbody>
 </table>
-<div class="mdl-layout-spacer"></div>
-<style>
-    table#DriverControlled {
-        margin-left: "center";
-        margin-right: "center";
-    }
-</style>
-<table  align = "center" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="DriverControlled">
-    <span align = "center" class="mdl-layout-title">Driver-Controlled Period</span>
+
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" align = "center" id="DriverControlled">
+    <span  class="mdl-layout-title" align = "center">Driver-Controlled Period</span>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_delivered_number">Delivered</label>
-        <input class="mdl-textfield__input" type="text" id="textfield_new_delivered_number" name="delivered_number"
+        <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
+        <input class="mdl-textfield__input" type="text" id="delivered_number" name="delivered_number"
             pattern="^[0-9]{1,3}" required />
         <span class="mdl-textfield__error"></span>
     </div>
     <div  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_tallest_skyscraper">Tallest
+        <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
             Skyscraper</label>
-        <input class="mdl-textfield__input" type="text" id="textfield_new_tallest_skyscraper" name="tallest_skyscraper"
+        <input class="mdl-textfield__input" type="text" id="tallest_skyscraper" name="tallest_skyscraper"
             pattern="^[0-9]{1,3}" required />
         <span class="mdl-textfield__error"></span>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_returned_name">Returned</label>
-        <input class="mdl-textfield__input" type="text" id="textfield_new_returned_name" name="returned_name"
+        <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
+        <input class="mdl-textfield__input" type="text" id="returned_name" name="returned_name"
             pattern="^[0-9]{1,3}" required />
         <span class="mdl-textfield__error"></span>
     </div>
-    <div align = "center" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_placed">Placed</label>
-        <input class="mdl-textfield__input" type="text" id="textfield_new_placed" name="placed" pattern="^[0-9]{1,3}"
+    <div  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
+        <input class="mdl-textfield__input" type="text" id="placed" name="placed" pattern="^[0-9]{1,3}"
             required />
         <span class="mdl-textfield__error"></span>
     </div>
 </table>
 <div class="mdl-layout-spacer"></div>
-<style>
-    table#found {
-        margin-left: "auto";
-        margin-right: "auto";
-    }
-</style>
+
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" align = "center" id = "found">
     <span align = "center" class="mdl-layout-title">End Game Period</span>
     <td class="">Foundation Moved</td>
     <td><input type="checkbox" name="foundation" /></td>
 </table>
-<style>
-    table#Robots {
-        margin-left: "auto";
-        margin-right: "auto";
-    }
-</style>
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" align = "center" id = "Robots">
     <thead>
         <tr>
@@ -134,19 +129,18 @@ table#levels{
     left: "auto";
     right: "auto";
 }
-
 </style>
 </table>
 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col" id = "levels">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_delivered_number">Level</label>
-        <input class="mdl-textfield__input" type="text" id="textfield_new_delivered_number" name="delivered_number"
+        <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Level</label>
+        <input class="mdl-textfield__input" type="text" id="delivered_number" name="delivered_number"
             pattern="^[0-9]{1,3}" required />
         <span class="mdl-textfield__error"></span>
     </div>
     <div  class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="textfield_new_tallest_skyscraper">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">
             Level</label>
-        <input class="mdl-textfield__input" type="text" id="textfield_new_tallest_skyscraper" name="tallest_skyscraper"
+        <input class="mdl-textfield__input" type="text" id="tallest_skyscraper" name="tallest_skyscraper"
             pattern="^[0-9]{1,3}" required />
         <span class="mdl-textfield__error"></span>
     </div>
@@ -154,8 +148,6 @@ table#levels{
 <stlye>
     
 </stlye>
-    <a href="http://localhost:3001/home"
-        id = "back" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Back</a>
-
-
+    <a id = "back" href="http://localhost:3001/home" 
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Back</a>
     </html>
