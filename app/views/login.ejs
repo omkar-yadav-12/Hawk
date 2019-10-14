@@ -37,7 +37,7 @@
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
 
-                <form method="POST" action="">
+                <form method="POST" action="./home.ejs">
                     <input type="hidden" name="action" value="login" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey"
@@ -53,10 +53,10 @@
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Enter Password</span>
                     </div>
-                    <a href="http://localhost:3001/home"
+                    <a href="/home"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Login</a>
 
-                    <a href="http://localhost:3001/register"
+                    <a href="/register"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Register</a>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 
-<link href="../css/register.css" rel="stylesheet" type="text/css" >
+<link rel="stylesheet" type="text/css" href="css/register.css" />
 <head>
     <!-- Material Design Lite CSS -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
@@ -39,12 +39,12 @@
                 <b class="mdl-color-text--red">Must fill all fields</b>
 
 
-                <form id="registerForm" method="POST" action="">
+                <form id="registerForm" method="POST" action="/register=True">
                     <input type="hidden" name="action" value="register" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                        <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="firstName">First
                             Name</label>
-                        <input class="mdl-textfield__input" type="text" id="first_name" name="first_name"
+                        <input class="mdl-textfield__input" type="text" id="firstName" name="firstName"
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Characters only</span>
                     </div>
@@ -67,6 +67,12 @@
                             pattern="^[A-z0-9_-@]{3,15}$" required />
                         <span class="mdl-textfield__error">Enter a valid email address</span>
                     </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                            <label class="mdl-textfield__label mdl-color-text--grey" for="email ">Team Name</label>
+                            <input class="mdl-textfield__input" type="text" id="team" name="team"
+                                pattern="^[0-9]{4,4}$" required />
+                            <span class="mdl-textfield__error">Enter a 4 digit team number</span>
+                        </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="password">Password</label>
@@ -86,7 +92,7 @@
                     <div class="mdl-card__actions mdl-card--border">
                         <a class=
                         "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" onclick = "returnLogin();"
-                        href= "login" >Register</a>
+                        href= "/register=True" >Register</a>
                     </div>
     
                 </form>  
@@ -97,7 +103,7 @@
 
     <!-- Material Design Lite JavaScript -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
-    <script type="text/javascript" src="/public/js/register.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
     <!--<script type="text/javascript" src="/app/controllers/function.js"></script> -->
 </body>
     
