@@ -37,24 +37,23 @@
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
 
-                <form method="POST" action="./home.ejs">
+                <form method="POST" action="/loginValidate">
                     <input type="hidden" name="action" value="login" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey"
-                            for="textfield_new_username">Username</label>
-                        <input class="mdl-textfield__input" type="text" id="textfield_new_username" name="username"
-                            pattern="^[A-z]{1,20}" required />
-                        <span class="mdl-textfield__error">Enter Username</span>
+                            for="textfield_new_username">Email</label>
+                        <input class="mdl-textfield__input" type="text" id="email" name="email"
+                            pattern="^[A-z0-9_-@]{3,15}$" required />
+                        <span class="mdl-textfield__error">Enter Email</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey"
                             for="textfield_new_password">Password</label>
-                        <input class="mdl-textfield__input" type="text" id="textfield_new_password" name="password"
+                        <input class="mdl-textfield__input" type="text" id="password" name="password"
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Enter Password</span>
                     </div>
-                    <a href="/home"
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Login</a>
+                    <input type="submit" value="Login">
 
                     <a href="/register"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Register</a>

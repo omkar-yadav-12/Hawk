@@ -39,12 +39,12 @@
                 <b class="mdl-color-text--red">Must fill all fields</b>
 
 
-                <form id="registerForm" method="POST" action="/register=True">
+                <form method="POST" action="/register=True">
                     <input type="hidden" name="action" value="register" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                        <label class="mdl-textfield__label mdl-color-text--grey" for="firstName">First
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First
                             Name</label>
-                        <input class="mdl-textfield__input" type="text" id="firstName" name="firstName"
+                        <input class="mdl-textfield__input" type="text" id="first_name" name="first_name"
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Characters only</span>
                     </div>
@@ -62,8 +62,8 @@
                         <span class="mdl-textfield__error">Numeric values only</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                        <label class="mdl-textfield__label mdl-color-text--grey" for="email ">Email</label>
-                        <input class="mdl-textfield__input" type="text" id="email " name="email "
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="email">Email</label>
+                        <input class="mdl-textfield__input" type="text" id="email" name="email"
                             pattern="^[A-z0-9_-@]{3,15}$" required />
                         <span class="mdl-textfield__error">Enter a valid email address</span>
                     </div>
@@ -89,11 +89,7 @@
                         <input class="mdl-textfield__input" type="password" id="password_confirm"
                             name="password_confirm" required />
                     </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class=
-                        "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" onclick = "returnLogin();"
-                        href= "/register=True" >Register</a>
-                    </div>
+                    <input type="submit" value="Register">
     
                 </form>  
             </div>

@@ -4,23 +4,24 @@ const db = require('../db');
 const moment = require('moment');
 const passport = require('passport');
 const BearerStrategy = require('passport-bearer-strategy');
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 router.use(express.urlencoded())
 router.get('/', (req, res) => {
   return res.redirect('/login');
 });
 
 router.post('/register=True', (req, res) => {
-  const grade = req.body.grade;
-  console.log(db.register(grade));
-  res.end();
+  var first = req.body.first_name;
+  var last = req.body.last_name;
+  var grade = req.body.grade;
+  var email = req.body.email;
+  var team = req.body.team;
+  var password = req.body.password;
+  console.log(db.register(first, last, grade, email, team, password));
+  return res.redirect('/login');
 })
-router.get('/register=True', (req, res) => {
-  return res.redirect('/login')
-})
-router.get('/submit=True', (req, res) => {
-  console.log(db.register());
-  return res.redirect('/home');
-});
+
 
 router.get('/login', (req, res) => {
   return res.render('login.ejs', {
@@ -31,9 +32,16 @@ router.get('/login', (req, res) => {
   });
 });
 
-
-router.post('/login', passport.authenticate('local', { successRedirect: '/home',
-  failureRedirect: '/login' }));
+router.post('/loginValidate', (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
+  if ((db.login(email, password)) == true) {
+    return res.redirect('/home')
+  } else {
+    return res.redirect('/login')
+  }
+  
+})
 
 router.get('/register', (req, res) => {
   return res.render('register.ejs', {
