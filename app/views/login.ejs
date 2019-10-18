@@ -1,5 +1,5 @@
 <html>
-
+   
 <head>
     <!-- Material Design Lite CSS -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
@@ -36,7 +36,9 @@
                 <h2 class="mdl-card__title-text mdl-color-text--white">Login</h2>
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
-
+                <% if (alert.length != 0) { %>
+                    <div class="alert alert-danger col-sm-12 mdl-color-text--red"><%= alert %></div>
+                <% } %>
                 <form method="POST" action="/loginValidate">
                     <input type="hidden" name="action" value="login" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
@@ -53,7 +55,7 @@
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Enter Password</span>
                     </div>
-                    <input type="submit" value="Login">
+                    <input type="submit" class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" value="Login">
 
                     <a href="/register"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Register</a>

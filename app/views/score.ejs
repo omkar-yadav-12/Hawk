@@ -1,193 +1,192 @@
 </html>
+<% include navigation %>
 
 <head>
-    <body>
-    
+
+<body>
+
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel = "stylesheet" href="/css/score.css">
+    <link rel="stylesheet" href="/css/score.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</head>
+    </head>
+    <form method="POST" action="/score=?">
+        <div class="mdl-layout-spacer"></div>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Autonomous">
+            <span align="center" class="mdl-layout-title">Autonomous Period</span>
+            <thead>
+                <tr>
+                    <th class="">Type</th>
+                    <th>1st</th>
+                    <th>2nd</th>
+                    <th>3rd</th>
+                    <th>4th</th>
+                    <th>5th</th>
+                    <th>6th</th>
+                </tr>
+            </thead>
+            <tbody>
 
-<div class="mdl-layout-spacer"></div>
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Autonomous">
-    <span align= "center" class="mdl-layout-title">Autonomous Period</span>
-    <thead>
-        <tr>
-            <th class="">Type</th>
-            <th>1st</th>
-            <th>2nd</th>
-            <th>3rd</th>
-            <th>4th</th>
-            <th>5th</th>
-            <th>6th</th>
-        </tr>
-    </thead>
-    <tbody>
+                <tr>
+                    <td class="">Skystone</td>
+                    <% for (var i = 0; i <= 5; i++) { %>
+                    <td><input type="checkbox" name="skystone" id="sky1" /></td>
+                    <% } %>
+                </tr>
+                <tr>
+                    <td class="">Stone</td>
+                    <% for (var i = 0; i <= 5; i++) { %>
+                    <td><input type="checkbox" name="stone" id="stone1" /></td>
+                    <% } %>
+                </tr>
+                <tr>
+                    <td class="">None</td>
+                    <% for (var i = 0; i <= 5; i++) { %>
+                    <td><input type="checkbox" name="none" id="none1" /></td>
+                    <% } %>
+                </tr>
 
-        <tr>
-            <td class="">Skystone</td>
-            <td><input type="checkbox" name="skystone" id = "sky1" /></td>
-            <td><input type="checkbox" name="skystone" id = "sky2" /></td>
-            <td><input type="checkbox" name="skystone" id = "sky3" /></td>
-            <td><input type="checkbox" name="skystone" id = "sky4" /></td>
-            <td><input type="checkbox" name="skystone" id = "sky5" /></td>
-            <td><input type="checkbox" name="skystone" id = "sky6" /></td>
-            
-        </tr>
-        <tr>
-            <td class="">Stone</td>
-            <td><input type="checkbox" name="stone" /></td>
-            <td><input type="checkbox" name="stone" /></td>
-            <td><input type="checkbox" name="stone" /></td>
-            <td><input type="checkbox" name="stone" /></td>
-            <td><input type="checkbox" name="stone" /></td>
-            <td><input type="checkbox" name="stone" /></td>
-        </tr>
-        <tr>
-            <td class="">None</td>
-            <td><input type="checkbox" name="none" /></td>
-            <td><input type="checkbox" name="none" /></td>
-            <td><input type="checkbox" name="none" /></td>
-            <td><input type="checkbox" name="none" /></td>
-            <td><input type="checkbox" name="none" /></td>
-            <td><input type="checkbox" name="none" /></td>
-        </tr>
-
-    </tbody>
-</table>
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"  id = "Reposition">
-    <td class="">First Returned Skystone</td>
-    <td><input type="checkbox" name="FS" /></td>
-    <td class="">Foundation Repositioned</td>
-    <td><input type="checkbox" name="FS" /></td>
-    <td class="">Robot 1 Navigated</td>
-    <td><input type="checkbox" name="R1V" /></td>
-    <td class="">Robot 2 Navigated</td>
-    <td><input type="checkbox" name="R2V" /></td>
-</table>
-<div  id = "Returned_Auto" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-    <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
-    <input class="mdl-textfield__input" type="text" id="ReturnedAuto" name="ReturnedAuto"
-        pattern="^[0-9]{1,3}" required />
-    <span class="mdl-textfield__error"></span>
-</div>
-<div id = Placed_Auto class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-    <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
-    <input class="mdl-textfield__input" type="text" id="PlacedAuto" name="PlacedAuto"
-        pattern="^[0-9]{1,3}" required />
-    <span class="mdl-textfield__error"></span>
-</div>
-<table id="DriverControlled">
-    <span  class="mdl-layout-title" align = "center">Driver-Controlled Period</span>
-    <div  id = Delivered_textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
-        <input class="mdl-textfield__input" type="text" id="delivered_number" name="delivered_number"
-            pattern="^[0-9]{1,3}" required />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div  id = TallestSkyscraper_Textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
-            Skyscraper</label>
-        <input class="mdl-textfield__input" type="text" id="tallest_skyscraper" name="tallest_skyscraper"
-            pattern="^[0-9]{1,3}" required />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div id = Returned_Textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
-        <input class="mdl-textfield__input" type="text" id="returned_name" name="returned_name"
-            pattern="^[0-9]{1,3}" required />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div id = Placed_Textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
-        <input class="mdl-textfield__input" type="text" id="placed" name="placed" pattern="^[0-9]{1,3}"
-            required />
-        <span class="mdl-textfield__error"></span>
-    </div>
-</table>
-
-    
-
-
-
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"  id = "Found">
-    <span  align = center class="mdl-layout-title">End Game Period</span>
-    <td class="">Foundation Moved</td>
-    <td><input type="checkbox" name="found" /></td>
-</table>
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"  id = "Robots">
-    <thead>
-        <tr>
-            <th class=""></th>
-            <th>Robot One</th>
-            <th>Robot Two</th>
-        </tr>
-    </thead>
-    <tr>
-        <td class="">Capstone</td>
-        <td><input type="checkbox" name="Capstone" /></td>
-        <td><input type="checkbox" name="Capstone" /></td>
-    </tr>
-    <tr>
-        <td class="">Parked</td>
-        <td><input type="checkbox" name="Parked" /></td>
-        <td><input type="checkbox" name="Parked" /></td>
-    </tr>
-</table>
-<div id = Robot1_textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-    <label class="mdl-textfield__label mdl-color-text--grey" for="robot1_level">Robot 1 Level</label>
-    <input class="mdl-textfield__input" type="text" id="robot1_levels" name="robot1_level"
-        pattern="^[0-9]{1,3}" required />
-    <span class="mdl-textfield__error"></span>
-</div>
-<div id = Robot2_textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-    <label class="mdl-textfield__label mdl-color-text--grey" for="robot2_level">Robot 2 Level</label>
-    <input class="mdl-textfield__input" type="text" id="robot2_levels" name="robot2_level"
-        pattern="^[0-9]{1,3}" required />
-    <span class="mdl-textfield__error"></span>
-</div>
-
-
-<span  class="mdl-layout-title" align = "center">Penalties</span>
-    <div  id = Minor_textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
-        <input class="mdl-textfield__input" type="text" id="minor" name="minor"
-            pattern="^[0-9]{1,3}" required />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div id = Major_textfield class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
-        <input class="mdl-textfield__input" type="text" id="major" name="major"
-            pattern="^[0-9]{1,3}" required />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"  id = "Cards">
-        <thead>
+            </tbody>
+        </table>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Reposition">
+            <td class="">First Returned Skystone</td>
+            <td><input type="checkbox" name="FS" /></td>
+            <td class="">Foundation Repositioned</td>
+            <td><input type="checkbox" name="FS" /></td>
+            <td class="">Robot 1 Navigated</td>
+            <td><input type="checkbox" name="R1V" /></td>
+            <td class="">Robot 2 Navigated</td>
+            <td><input type="checkbox" name="R2V" /></td>
+        </table>
+        <div id="Returned_Auto"
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
+            <input class="mdl-textfield__input" type="text" id="ReturnedAuto" name="ReturnedAuto" pattern="^[0-9]{1,3}"
+                required />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div id=Placed_Auto
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
+            <input class="mdl-textfield__input" type="text" id="PlacedAuto" name="PlacedAuto" pattern="^[0-9]{1,3}"
+                required />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <table id="DriverControlled">
+            <span class="mdl-layout-title" align="center">Driver-Controlled Period</span>
+            <div id=Delivered_textfield
+                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+                <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
+                <input class="mdl-textfield__input" type="text" id="delivered_number" name="delivered_number"
+                    pattern="^[0-9]{1,3}" required />
+                <span class="mdl-textfield__error"></span>
+            </div>
+            <div id=TallestSkyscraper_Textfield
+                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+                <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
+                    Skyscraper</label>
+                <input class="mdl-textfield__input" type="text" id="tallest_skyscraper" name="tallest_skyscraper"
+                    pattern="^[0-9]{1,3}" required />
+                <span class="mdl-textfield__error"></span>
+            </div>
+            <div id=Returned_Textfield
+                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+                <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
+                <input class="mdl-textfield__input" type="text" id="returned_name" name="returned_name"
+                    pattern="^[0-9]{1,3}" required />
+                <span class="mdl-textfield__error"></span>
+            </div>
+            <div id=Placed_Textfield
+                class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+                <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
+                <input class="mdl-textfield__input" type="text" id="placed" name="placed" pattern="^[0-9]{1,3}"
+                    required />
+                <span class="mdl-textfield__error"></span>
+            </div>
+        </table>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Found">
+            <span align=center class="mdl-layout-title">End Game Period</span>
+            <td class="">Foundation Moved</td>
+            <td><input type="checkbox" name="found" /></td>
+        </table>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Robots">
+            <thead>
+                <tr>
+                    <th class=""></th>
+                    <th>Robot One</th>
+                    <th>Robot Two</th>
+                </tr>
+            </thead>
             <tr>
-                <th class=""></th>
-                <th>No Show</th>
-                <th>Yellow Card</th>
-                <th>Red Card</th>
+                <td class="">Capstone</td>
+                <td><input type="checkbox" name="Capstone" /></td>
+                <td><input type="checkbox" name="Capstone" /></td>
             </tr>
-        </thead>
-        <tr>
-            <td class="">Team 1</td>
-            <td><input type="checkbox" name="team1_no" /></td>
-            <td><input type="checkbox" name="team1_yellow" /></td>
-            <td><input type="checkbox" name="team1_red" /></td>
-        </tr>
-        <tr>
-            <td class="">Tean 2</td>
-            <td><input type="checkbox" name="team2_no" /></td>
-            <td><input type="checkbox" name="team2_yellow" /></td>
-            <td><input type="checkbox" name="team2_red" /></td>
-        </tr>
-    </table>
-    <a href= "/home" id = "backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-        <i class="material-icons">arrow_back</i>
-    </a>
-    <a href = "/submit=True" id = submitButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--green">
-        Submit
-    </a>
+            <tr>
+                <td class="">Parked</td>
+                <td><input type="checkbox" name="Parked" /></td>
+                <td><input type="checkbox" name="Parked" /></td>
+            </tr>
+        </table>
+        <div id=Robot1_textfield
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="robot1_level">Robot 1 Level</label>
+            <input class="mdl-textfield__input" type="text" id="robot1_levels" name="robot1_level" pattern="^[0-9]{1,3}"
+                required />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div id=Robot2_textfield
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="robot2_level">Robot 2 Level</label>
+            <input class="mdl-textfield__input" type="text" id="robot2_levels" name="robot2_level" pattern="^[0-9]{1,3}"
+                required />
+            <span class="mdl-textfield__error"></span>
+        </div>
+
+
+        <span class="mdl-layout-title" align="center">Penalties</span>
+        <div id=Minor_textfield
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
+            <input class="mdl-textfield__input" type="text" id="minor" name="minor" pattern="^[0-9]{1,3}" required />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div id=Major_textfield
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
+            <input class="mdl-textfield__input" type="text" id="major" name="major" pattern="^[0-9]{1,3}" required />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Cards">
+            <thead>
+                <tr>
+                    <th class=""></th>
+                    <th>No Show</th>
+                    <th>Yellow Card</th>
+                    <th>Red Card</th>
+                </tr>
+            </thead>
+            <tr>
+                <td class="">Team 1</td>
+                <% for (var i = 0; i <= 2; i++) { %>
+                <td><input type="checkbox" name="team1_no" /></td>
+                <% } %>
+            </tr>
+            <tr>
+                <td class="">Team 2</td>
+                <% for (var i = 0; i <= 2; i++) { %>
+                <td><input type="checkbox" name="team2_no" /></td>
+                <% } %>
+            </tr>
+        </table>
+
+        <a href="/home" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <input type="submit"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+            value="Submit">
+    </form>
+
     </html>
+    <% include footer %>

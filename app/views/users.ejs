@@ -1,0 +1,50 @@
+<% include navigation %>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2 align = "center">Users List</h2>
+<% if (results != 0) { %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Team</th>
+    <th>Grade</th>
+    <th>Contact</th>
+    <th>Join Date</th>
+  </tr>
+
+  <% for (var i = 0; i < length; i++ ) { %>
+    <tr>
+    <td><%= results[i]['first_name'] + " " + results[i]['last_name']%></td>
+    <td><%= results[i]['teamName'] %></td>
+    <td><%= results[i]['grade'] %></td>
+    <td><%= results[i]['email'] %></td>
+    <td><%= results[i]['create_time'] %></td>
+  </tr>
+   <% } %>
+ 
+ 
+</table>
+<% } %>
+</body>
+</html>

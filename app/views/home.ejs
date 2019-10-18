@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>FRC 167 Scouting App</title>
+    <title>FTC Scouting App</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -30,7 +30,12 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Welcome Omkar!</span>
+            <% if (username.length != 0) { %>
+              <span class="mdl-layout-title">Welcome <%=username%>!</span>
+          <% } %>
+         
+          <!-- <span class="mdl-layout-title"><%username.property%> !</span> -->
+
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -46,7 +51,7 @@
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
             <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
+            <li class="mdl-menu__item"><%username%></li>
           </ul>
         </div>
       </header>
@@ -62,13 +67,13 @@
           <a class="mdl-navigation__link" href="http:/home"><i class="mdl-color-text--white material-icons" role="presentation">home</i>Home</a>
           <a class="mdl-navigation__link" href="http:/score"><i class="mdl-color-text--white material-icons" role="presentation">book</i>Scoring</a>
 
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">flag</i>Announcements</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">people</i>Users</a>
+          <a class="mdl-navigation__link" href="/announcements"><i class="mdl-color-text--white material-icons">announcement</i>Announcements</a>
+          <a class="mdl-navigation__link" href="http:/users"><i class="mdl-color-text--white material-icons" role="presentation">people</i>Users</a>
           <a class="mdl-navigation__link" href="http:/calendar"><i class="mdl-color-text--white material-icons" role="presentation">event</i>Calendar</a>
           <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">help</i>Help</a>
+          <a class="mdl-navigation__link" href="/help"><i class="mdl-color-text--white material-icons" role="presentation">help</i>Help</a>
           <a class="mdl-navigation__link" href="http:/settings"><i class="mdl-color-text--white material-icons" role="presentation">settings</i>Settings</a>
-          <a class="mdl-navigation__link" href="http:/login"><i class="mdl-color-text--white material-icons" role="presentation">arrow_back</i>Login</a>
+          <a class="mdl-navigation__link" href="http:/login"><i class="mdl-color-text--white material-icons" role="presentation">arrow_back</i>Logout</a>
         </nav>
       </div>
       
@@ -99,8 +104,7 @@
     
                     </div>
                     <div class="mdl-card__supporting-text">
-                    Omkar Yadav 
-                    App Developer
+                    <%=information%>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
