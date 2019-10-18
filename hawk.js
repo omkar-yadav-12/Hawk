@@ -26,7 +26,7 @@ const logging = require('./lib/logging');
 // Express config
 const app = express();
 
-
+app.locals.id = null;
 
 
 

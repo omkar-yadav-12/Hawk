@@ -4,6 +4,11 @@ const db = require('../db');
 const userMod = require('./models/userModel');
 const moment = require('moment');
 const ejs = require('ejs');
+global.ID;
+global.ID = null;
+global.validare;
+global.validate = false;
+
 router.get('/', (req, res) => {
   return res.redirect('/login');
 });
@@ -19,7 +24,6 @@ router.post('/register=True', (req, res) => {
   return res.redirect('/login');
 })
 
-
 router.get('/login', (req, res) => {
   alert = " ";
   return res.render('login.ejs', {
@@ -30,16 +34,21 @@ router.get('/login', (req, res) => {
     appName: process.env.APP_NAME
   });
 });
-
+router.post('/score=?', (req, res) => {
+  console.log(req.body.ReturnedAuto)
+  return res.redirect('/home')
+});
 router.post('/loginValidate', (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
   var alert = " ";
-  var user_email = "";
   db.query("SELECT * FROM Hawk.user WHERE email = '" + email + "' AND password = '" + password + "';",  function(err, results) {
     if (err) throw err;
    else {
     if (results.length != 0) {
+      global.ID = results[0]['email'];
+      global.validate = true;
+      console.log(global.ID);
       return res.redirect('/home');
     } else {
       alert = "Email and Password combination not found!";
@@ -53,6 +62,11 @@ router.post('/loginValidate', (req, res) => {
   
 })
 
+router.get('/logout', (req, res) => {
+  global.validate = false;
+  return res.redirect('/')
+})
+
 
 router.get('/register', (req, res) => {
   return res.render('register.ejs', {
@@ -63,6 +77,8 @@ router.get('/register', (req, res) => {
   });
 });
 router.get('/users', (req, res) => {
+  console.log(global.validate)
+  if (global.validate == true) {
   db.query("SELECT * FROM `Hawk`.`user` ORDER BY last_name", function (err, results) {
     if (err) throw err;
     else {
@@ -93,24 +109,19 @@ router.get('/users', (req, res) => {
     });
   }
   })
-  
+} else{
+  return res.redirect('/')
+}
+   
 });
 
 router.get('/home', (req, res) => {
-  db.query("SELECT Information FROM `Hawk`.`bio` WHERE email = 'omyad21@icstudents.org'; ", function(err,results){
-    if(err) throw err;
-    else {
-      information = results[0]['Information'];
-    }
-  })
-  db.query("SELECT first_name FROM `Hawk`.`user`", function (err, results) {
+  if (global.validate == true) {
+  db.query("SELECT *  FROM `Hawk`.`user` WHERE email = '"+global.ID+"';", function (err, results) {
     if (err) throw err;
     else {
-      username = results[0]['first_name']
-      console.log(information);
       return res.render('home.ejs', {
-        information: information,
-        username: username,
+        results: results,
         title: `Home « ${process.env.APP_NAME}`,
         gtag: process.env.GTAG,
         dev: process.env.DEV === 'true',
@@ -118,7 +129,9 @@ router.get('/home', (req, res) => {
       });
     }
   })
-  
+} else {
+  return res.redirect('/')
+}
 });
 router.get('/settings', (req, res) => {
   return res.render('settings.ejs', {
@@ -152,7 +165,6 @@ router.get('/announcements', (req, res) => {
     appName: process.env.APP_NAME
   });
 });
-
 router.get('/score', (req, res) => {
   return res.render('score.ejs', {
     title: `Score « ${process.env.APP_NAME}`,
@@ -161,6 +173,42 @@ router.get('/score', (req, res) => {
     appName: process.env.APP_NAME
   });
 });
+router.get('/scout', (req, res) => {
+  return res.render('scout.ejs', {
+    title: `Scout « ${process.env.APP_NAME}`,
+    gtag: process.env.GTAG,
+    dev: process.env.DEV === 'true',
+    appName: process.env.APP_NAME
+  });
+});
+
+router.get('/scoreBlue', (req, res) => {
+  if (global.validate == true) {
+  return res.render('scoreBlue.ejs', {
+    title: `Blue Score « ${process.env.APP_NAME}`,
+    gtag: process.env.GTAG,
+    dev: process.env.DEV === 'true',
+    appName: process.env.APP_NAME
+  });
+}
+else {
+  res.redirect('/login')
+}
+});
+router.get('/scoreRed', (req, res) => {
+  if (global.validate == true) {
+  return res.render('scoreRed.ejs', {
+    title: `Red Score « ${process.env.APP_NAME}`,
+    gtag: process.env.GTAG,
+    dev: process.env.DEV === 'true',
+    appName: process.env.APP_NAME
+  });
+}
+else {
+  res.redirect('/login')
+}
+});
+
 
 
 

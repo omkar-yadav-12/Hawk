@@ -1,0 +1,78 @@
+.header {
+    padding: 10px;
+    text-align: center;
+    background: grey;
+    color: blue;
+    font-size: 30px;
+  }
+#Autonomous {
+    margin-left: auto;
+    margin-right: auto;
+}
+#Reposition{
+    margin-left: auto;
+    margin-right: auto;
+}
+#Returned_Auto{
+    position: relative;
+    left: 790;
+}
+#Placed_Auto {
+    position: relative;
+    left: 830px;
+}
+#Delivered_Textfield {
+    position: relative;
+    left: 605px
+}
+#TallestSkyscraper_Textfield {
+    position: relative;
+    left: 635px;
+}
+#Returned_Textfield {
+    position: relative;
+    left: 665px;
+}
+#Placed_Textfield {
+    position: relative;
+    left: 695px;
+}
+#Found {
+    margin-left: auto;
+    margin-right: auto;
+}
+#Robots {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Minor_textfield{
+    position: relative;
+    left: 790px;
+}
+#Major_textfield{
+    position: relative;
+    left: 830px;
+}
+#Cards{
+    margin-left: auto;
+    margin-right: auto;
+}
+#Robot1_textfield {
+    position: relative;
+    left: 790px;
+}
+#Robot2_textfield {
+    position: relative;
+    left: 830px;
+}
+#backButton {
+   background: green;
+   position: relative;
+   left: 50px;
+}
+#submitButton {
+    background: green;
+    position: relative;
+    right: -1250px;
+}

@@ -30,11 +30,9 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-            <% if (username.length != 0) { %>
-              <span class="mdl-layout-title">Welcome <%=username%>!</span>
+            <% if (results[0]['first_name'].length != 0) { %>
+              <span class="mdl-layout-title">Welcome <%=results[0]['first_name']%>!</span>
           <% } %>
-         
-          <!-- <span class="mdl-layout-title"><%username.property%> !</span> -->
 
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
@@ -51,7 +49,7 @@
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
             <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item"><%username%></li>
+            <li class="mdl-menu__item">Share</li>
           </ul>
         </div>
       </header>
@@ -66,14 +64,15 @@
         <nav class="demo-navigation mdl-navigation mdl-color--white-grey-800">
           <a class="mdl-navigation__link" href="http:/home"><i class="mdl-color-text--white material-icons" role="presentation">home</i>Home</a>
           <a class="mdl-navigation__link" href="http:/score"><i class="mdl-color-text--white material-icons" role="presentation">book</i>Scoring</a>
-
+          <a class="mdl-navigation__link" href="http:/scout"><i class="mdl-color-text--white material-icons" role="presentation">remove_red_eye</i>Scout</a>
           <a class="mdl-navigation__link" href="/announcements"><i class="mdl-color-text--white material-icons">announcement</i>Announcements</a>
           <a class="mdl-navigation__link" href="http:/users"><i class="mdl-color-text--white material-icons" role="presentation">people</i>Users</a>
           <a class="mdl-navigation__link" href="http:/calendar"><i class="mdl-color-text--white material-icons" role="presentation">event</i>Calendar</a>
           <div class="mdl-layout-spacer"></div>
           <a class="mdl-navigation__link" href="/help"><i class="mdl-color-text--white material-icons" role="presentation">help</i>Help</a>
           <a class="mdl-navigation__link" href="http:/settings"><i class="mdl-color-text--white material-icons" role="presentation">settings</i>Settings</a>
-          <a class="mdl-navigation__link" href="http:/login"><i class="mdl-color-text--white material-icons" role="presentation">arrow_back</i>Logout</a>
+          <a class="mdl-navigation__link" href="http:/logout"><i class="mdl-color-text--white material-icons" role="presentation">arrow_back</i>Logout</a>
+
         </nav>
       </div>
       
@@ -104,7 +103,7 @@
     
                     </div>
                     <div class="mdl-card__supporting-text">
-                    <%=information%>
+                    <%=results[0]['info']%>
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
