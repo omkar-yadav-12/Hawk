@@ -1,9 +1,37 @@
 <% include navigation %>
 <html>
-<link rel="stylesheet" href="/css/score.css">
-<a href="/scoreRed" id = "redButton"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--red">Red Alliance</a>
-<a href="/scoreBlue" id = "blueButton"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--blue">Blue Alliance</a>
+<style>
+    
+    #redButton {
+        position: absolute;
+        top: 50%;
+        left: 47.5%;
+    }
+    #blueButton {
+        position: absolute;
+        top: 45%;
+        left: 47.5%;
+    }
+    .header {
+        padding: 1px;
+        text-align: center;
+        background: grey;
+        color: black;
+        font-size: 1px;
+    }
+</style>
+<div class = "header">
+<h2 align = "center">Pick an Alliance to Score!</h2>
+</div>
+<div class = "buttonHolder">
+<a href="/scoreRed" id="redButton"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--red">Red
+    Alliance</a>
+</div>
+<div class = "buttonHolder">
+<a href="/scoreBlue" id="blueButton"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--blue">Blue
+    Alliance</a>
+</div>
 
 </html>
