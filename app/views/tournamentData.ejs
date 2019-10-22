@@ -1,0 +1,61 @@
+<% include navigation %>
+<html>
+
+<head>
+    <style>
+        .header {
+            padding: 1px;
+            text-align: center;
+            background: grey;
+            color: black;
+            font-size: 1px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        #exportButton {
+            position: fixed;
+            right: 2.5%;
+            bottom: 1%;
+        }
+        #new {
+            position: fixed;
+            background-color: black;
+            left:6%;
+            bottom: 1%;
+
+        }
+    </style>
+
+    <head>
+        <link rel="stylesheet" href="/css/scoringButtons.css">
+        <div class=header>
+            <h2 align="center">Tournament Data Entries</h2>
+        </div>
+        <a href="/data" id="backButton"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <a href="/newTourney" id="new"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+            <i class="material-icons">add</i>
+        </a>
+        <a href="/downloadTournament" id="exportButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
+
+</html>

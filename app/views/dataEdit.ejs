@@ -8,6 +8,17 @@
         color: black;
         font-size: 1px;
     }
+    #submitButton {
+    position: fixed;
+    right: 2.5%;
+    bottom: 1%;
+}
+#resetButton {
+    position: fixed;
+    background-color: black;
+    right: 9.5%;
+    bottom: 1%;
+}
 </style>
 
 <head>
@@ -19,18 +30,19 @@
     <link rel="stylesheet" href="/css/score.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </head>
+    <form method = POST action = "/dataEdit=?">
     <div class="header">
         <h1>Written by <%=results[0]['Author']%></h1>
     </div>
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1 Name</label>
-            <input class="mdl-textfield__input" type="text" value="<%=results[0]['team1_name']%>" readonly />
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['team1_name']%>"  />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Team 2 Name</label>
-            <input class="mdl-textfield__input" type="text" value="<%=results[0]['team2_name']%>" readonly />
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['team2_name']%>"  />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
@@ -38,13 +50,13 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="match">Match</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['match_num']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="field">Field</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['field']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
@@ -67,10 +79,10 @@
                 <td class="">Skystone</td>
                 <% for (var i = 1; i <= 6; i++) { %>
                 <% if (results[0]['skystone' + i] == 'on') { %>
-                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" checked onclick="return false;" />
+                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" checked  />
                 </td>
                 <% } else {%>
-                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" onclick="return false;" /></td>
+                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>"  /></td>
                 <% } %>
                 <% } %>
             </tr>
@@ -78,9 +90,9 @@
                 <td class="">Stone</td>
                 <% for (var i = 0; i <= 5; i++) { %>
                 <% if (results[0]['stone' + i] == 'on') { %>
-                <td><input type="checkbox" name="stone<%=i%>" id="stone<%=i%>" checked onclick="return false;" /></td>
+                <td><input type="checkbox" name="stone<%=i%>" id="stone<%=i%>" checked  /></td>
                 <% } else {%>
-                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" onclick="return false;" /></td>
+                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>"  /></td>
                 <% } %>
                 <% } %>
             </tr>
@@ -88,9 +100,9 @@
                 <td class="">None</td>
                 <% for (var i = 0; i <= 5; i++) { %>
                 <% if (results[0]['none' + i] == 'on') { %>
-                <td><input type="checkbox" name="none<%=i%>" id="none<%=i%>" checked onclick="return false;" /></td>
+                <td><input type="checkbox" name="none<%=i%>" id="none<%=i%>" checked  /></td>
                 <% } else {%>
-                <td><input type="checkbox" id="none<%=i%>" name="none<%=i%>" onclick="return false;" /></td>
+                <td><input type="checkbox" id="none<%=i%>" name="none<%=i%>"  /></td>
                 <% } %>
                 <% } %>
             </tr>
@@ -100,40 +112,40 @@
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Reposition">
         <td class="">First Returned Skystone</td>
         <% if (results[0]['frs'] == 'on') { %>
-        <td><input id="firstRet" type="checkbox" checked name="FRS" id="FRS" onclick="return false;" /></td>
+        <td><input id="firstRet" type="checkbox" checked name="FRS" id="FRS"  /></td>
         <% } else { %>
-        <td><input id="firstRet" type="checkbox" name="FRS" id="FRS" onclick="return false;" /></td>
+        <td><input id="firstRet" type="checkbox" name="FRS" id="FRS"  /></td>
         <% } %>
         <td class="">Foundation Repositioned</td>
         <% if (results[0]['fs'] == 'on') { %>
-        <td><input id="firstRep" type="checkbox" checked name="FS" id="FS" onclick="return false;" /></td>
+        <td><input id="firstRep" type="checkbox" checked name="FS" id="FS"  /></td>
         <% } else { %>
-        <td><input id="firstRep" type="checkbox" name="FS" id="FS" onclick="return false;" /></td>
+        <td><input id="firstRep" type="checkbox" name="FS" id="FS"  /></td>
         <% } %>
         <td class="">Robot 1 Navigated</td>
         <% if (results[0]['r1n'] == 'on') { %>
-        <td><input id="R1N" type="checkbox" checked name="R1N" id="R1N" onclick="return false;" /></td>
+        <td><input id="R1N" type="checkbox" checked name="R1N" id="R1N"  /></td>
         <% } else { %>
-        <td><input id="R1N" type="checkbox" name="R1N" id="R1N" onclick="return false;" /></td>
+        <td><input id="R1N" type="checkbox" name="R1N" id="R1N"  /></td>
         <% } %>
         <td class="">Robot 2 Navigated</td>
         <% if (results[0]['r2n'] == 'on') { %>
-        <td><input type="checkbox" checked name="R2N" id="R2N" onclick="return false;" /></td>
+        <td><input type="checkbox" checked name="R2N" id="R2N"  /></td>
         <% } else { %>
-        <td><input id="R2N" type="checkbox" name="R2N" id="R2N" onclick="return false;" /></td>
+        <td><input id="R2N" type="checkbox" name="R2N" id="R2N"  /></td>
         <% } %>
     </table>
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['returned_auto']%>"
-                pattern="^[0-9]{1,3}" readonly />
+                pattern="^[0-9]{1,3}"  />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['placed_auto']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
@@ -143,28 +155,28 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['delivered']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
                 Skyscraper</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['tallest_sky']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['returned_drs']%>"
-                pattern="^[0-9]{1,3}" readonly />
+                pattern="^[0-9]{1,3}"  />
             <span class="mdl-textfield__error"></span>
         </div>
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['placed_drs']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
@@ -185,27 +197,27 @@
         <tr>
             <td class="">Capstone</td>
             <% if (results[0]['cap1'] == 'on') { %>
-            <td><input type="checkbox" checked name="Capstone1" id="Capstone1" onclick="return false;" /></td>
+            <td><input type="checkbox" checked name="Capstone1" id="Capstone1"  /></td>
             <% } else { %>
-            <td><input type="checkbox" name="Capstone1" id="Capstone1" onclick="return false;" /></td>
+            <td><input type="checkbox" name="Capstone1" id="Capstone1"  /></td>
             <% } %>
             <% if (results[0]['cap2'] == 'on') { %>
-            <td><input type="checkbox" checked name="Capstone2" id="Capstone2" onclick="return false;" /></td>
+            <td><input type="checkbox" checked name="Capstone2" id="Capstone2"  /></td>
             <% } else { %>
-            <td><input type="checkbox" name="Capstone2" id="Capstone2" onclick="return false;" /></td>
+            <td><input type="checkbox" name="Capstone2" id="Capstone2"  /></td>
             <% } %>
         </tr>
         <tr>
             <td class="">Parked</td>
             <% if (results[0]['parked1'] == 'on') { %>
-            <td><input type="checkbox" checked name="Parked1" id="Parked1" onclick="return false;" /></td>
+            <td><input type="checkbox" checked name="Parked1" id="Parked1"  /></td>
             <% } else { %>
-            <td><input type="checkbox" name="Parked1" id="Parked1" onclick="return false;" /></td>
+            <td><input type="checkbox" name="Parked1" id="Parked1"  /></td>
             <% } %>
             <% if (results[0]['parked2'] == 'on') { %>
-            <td><input type="checkbox" checked name="Parked2" id="Parked2" onclick="return false;" /></td>
+            <td><input type="checkbox" checked name="Parked2" id="Parked2"  /></td>
             <% } else { %>
-            <td><input type="checkbox" name="Parked2" id="Parked2" onclick="return false;" /></td>
+            <td><input type="checkbox" name="Parked2" id="Parked2"  /></td>
             <% } %>
         </tr>
     </table>
@@ -213,13 +225,13 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="robot1_level">Robot 1 Level</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['r1l']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="robot2_level">Robot 2 Level</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['r2l']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
@@ -229,13 +241,13 @@
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['minor']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['major']%>" pattern="^[0-9]{1,3}"
-                readonly />
+                 />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
@@ -252,9 +264,9 @@
             <td class="">Team 1</td>
             <% for (var i = 0; i <= 2; i++) { %>
                 <% if (results[0]['team1_'+ i] == 'on') { %>
-            <td><input type="checkbox" checked id="team1_<%=i%>" name="team1_<%=i%>" onclick = "return false;" /></td>
+            <td><input type="checkbox" checked id="team1_<%=i%>" name="team1_<%=i%>"  /></td>
             <% } else {%>
-                <td><input type="checkbox" id="team1_<%=i%>" name="team1_<%=i%>" onclick = "return false;" /></td>
+                <td><input type="checkbox" id="team1_<%=i%>" name="team1_<%=i%>"  /></td>
                 <% } %>
             <% } %>
         </tr>
@@ -262,9 +274,9 @@
             <td class="">Team 2</td>
             <% for (var i = 0; i <= 2; i++) { %>
                 <% if (results[0]['team2_'+ i] == 'on') { %>
-            <td><input type="checkbox" checked id="team2_<%=i%>" name="team2_<%=i%>" onclick = "return false;" /></td>
+            <td><input type="checkbox" checked id="team2_<%=i%>" name="team2_<%=i%>"  /></td>
             <% } else {%>
-                <td><input type="checkbox" id="team2_<%=i%>" name="team2_<%=i%>" onclick = "return false;" /></td>
+                <td><input type="checkbox" id="team2_<%=i%>" name="team2_<%=i%>"  /></td>
                 <% } %>
             <% } %>
         </tr>
@@ -273,6 +285,12 @@
         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
         <i class="material-icons">arrow_back</i>
     </a>
+    <a href="http:/dataEdit/<%=results[0]['id']%>" id="resetButton"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Reset</a>
+    <input id="submitButton" type="submit"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+            value="Update">
+</form>
     </form>
 
     </html>

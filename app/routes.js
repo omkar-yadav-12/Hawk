@@ -4,6 +4,8 @@ const db = require('../db');
 const userMod = require('./models/userModel');
 const moment = require('moment');
 const ejs = require('ejs');
+const fs = require('fs');
+const Json2csvParser = require('json2csv').Parser;
 global.ID;
 global.ID = null;
 global.validate;
@@ -40,13 +42,40 @@ router.post('/score=?', (req, res) => {
     else {
       name = (results[0]['first_name'] + " " + results[0]['last_name']);
       console.log(name)
-      db.query("INSERT INTO hawk.score_data(alliance, team1_name, team2_name, match_num, field, skystone1, skystone2, skystone3, skystone4, skystone5, skystone6, stone1, stone2, stone3, stone4, stone5, stone6, none1, none2, none3, none4, none5, none6, frs, fr, r1n, r2n, returned_auto, placed_auto, delivered, tallest_sky, returned_drs, placed_drs, found_moved, cap1, cap2, parked1, parked2, r1l, r2l, minor, major, team1_0, team1_1, team1_2, team2_0, team2_1, team2_2, create_time, Author) VALUES ('"+req.body.alliance+"','"+req.body.team_one+"','"+req.body.team_two+"','"+req.body.match+"','"+req.body.field+"','"+req.body.skystone1+"','"+req.body.skystone2+"','"+req.body.skystone3+"','"+req.body.skystone4+"','"+req.body.skystone5+"','"+req.body.skystone6+"','"+req.body.stone1+"','"+req.body.stone2+"','"+req.body.stone3+"','"+req.body.stone4+"','"+req.body.stone5+"','"+req.body.stone6+"','"+req.body.none1+"','"+req.body.none2+"','"+req.body.none3+"','"+req.body.none4+"','"+req.body.none5+"','"+req.body.none6+"','"+req.body.FRS + "','" + req.body.FS + "','" + req.body.R1N + "','" + req.body.R2N + "','"+req.body.ReturnedAuto+"','"+req.body.PlacedAuto+"','"+req.body.delivered_number+"','"+req.body.tallest_skyscraper+"','"+req.body.returned_name+"','"+req.body.placed+"','"+req.body.found+"','"+req.body.Capstone1+"','"+req.body.Capstone2+"','"+req.body.Parked1+"','"+req.body.Parked2+"','"+req.body.robot1_level+"','"+req.body.robot2_level+"','"+req.body.minor+"','"+req.body.major+"','"+req.body.team1_0+"','"+req.body.team1_1+"','"+req.body.team1_2+"','"+req.body.team2_0+"','"+req.body.team2_1+"','"+req.body.team2_2+"', NOW(), '" + name + "');");
+      db.query("INSERT INTO hawk.score_data(alliance, team1_name, team2_name, match_num, field, skystone1, skystone2, skystone3, skystone4, skystone5, skystone6, stone1, stone2, stone3, stone4, stone5, stone6, none1, none2, none3, none4, none5, none6, frs, fr, r1n, r2n, returned_auto, placed_auto, delivered, tallest_sky, returned_drs, placed_drs, found_moved, cap1, cap2, parked1, parked2, r1l, r2l, minor, major, team1_0, team1_1, team1_2, team2_0, team2_1, team2_2, create_time, Author) VALUES ('" + req.body.alliance + "','" + req.body.team_one + "','" + req.body.team_two + "','" + req.body.match + "','" + req.body.field + "','" + req.body.skystone1 + "','" + req.body.skystone2 + "','" + req.body.skystone3 + "','" + req.body.skystone4 + "','" + req.body.skystone5 + "','" + req.body.skystone6 + "','" + req.body.stone1 + "','" + req.body.stone2 + "','" + req.body.stone3 + "','" + req.body.stone4 + "','" + req.body.stone5 + "','" + req.body.stone6 + "','" + req.body.none1 + "','" + req.body.none2 + "','" + req.body.none3 + "','" + req.body.none4 + "','" + req.body.none5 + "','" + req.body.none6 + "','" + req.body.FRS + "','" + req.body.FS + "','" + req.body.R1N + "','" + req.body.R2N + "','" + req.body.ReturnedAuto + "','" + req.body.PlacedAuto + "','" + req.body.delivered_number + "','" + req.body.tallest_skyscraper + "','" + req.body.returned_name + "','" + req.body.placed + "','" + req.body.found + "','" + req.body.Capstone1 + "','" + req.body.Capstone2 + "','" + req.body.Parked1 + "','" + req.body.Parked2 + "','" + req.body.robot1_level + "','" + req.body.robot2_level + "','" + req.body.minor + "','" + req.body.major + "','" + req.body.team1_0 + "','" + req.body.team1_1 + "','" + req.body.team1_2 + "','" + req.body.team2_0 + "','" + req.body.team2_1 + "','" + req.body.team2_2 + "', NOW(), '" + name + "');");
       return res.redirect('/score');
     }
   });
-  
-  
 });
+
+router.get('/dataDownload', (req, res) => {
+  db.query("SELECT REPLACE ('undefined', 'undefined', 'off')", function (err) {
+    if (err) throw err;
+  });
+  db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {
+    if (err) throw err;
+    else {
+      console.log(results[0][0])
+      for (var i = 0; i < results.length; i++) {
+        results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
+      }
+      const jsonData = JSON.parse(JSON.stringify(results));
+      console.log(jsonData);
+      const csvFields = ['alliance', 'team1_name', 'team2_name', 'match_num', 'field', 'skystone1', 'skystone2', 'skystone3', 'skystone4', 'skystone5', 'skystone6', 'stone1', 'stone2', 'stone3', 'stone4', 'stone5', 'stone6', 'none1', 'none2', 'none3', 'none4', 'none5', 'none6', 'frs', 'fr', 'r1n', 'r2n', 'returned_auto', 'placed_auto', 'delivered', 'tallest_sky', 'returned_drs', 'placed_drs', 'found_moved', 'cap1', 'cap2', 'parked1', 'parked2', 'r1l', 'r2l', 'minor', 'major', 'team1_0', 'team1_1', 'team1_2', 'team2_0', 'team2_1', 'team2_2', 'create_time', 'Author'];
+      const json2csvParser = new Json2csvParser({csvFields});
+      const csv = json2csvParser.parse(jsonData);
+      fs.writeFile('DataEntries.csv', csv, function (err) {
+        if (err) throw err;
+        console.log("File saved");
+      })
+      return res.redirect('/data')
+
+    }
+  });
+});
+
+
+
 router.post('/loginValidate', (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
@@ -86,7 +115,7 @@ router.get('/register', (req, res) => {
   });
 });
 router.get('/dataView/:dataId', (req, res) => {
-  db.query("SELECT * FROM score_data WHERE id = " + req.params.dataId, function (err, results){
+  db.query("SELECT * FROM score_data WHERE id = " + req.params.dataId, function (err, results) {
     if (err) throw err;
     else {
       console.log(results[0]['team1_name'])
@@ -99,8 +128,21 @@ router.get('/dataView/:dataId', (req, res) => {
       });
     }
   })
-  
-  
+});
+router.get('/dataEdit/:dataId', (req, res) => {
+  db.query("SELECT * FROM score_data WHERE id = " + req.params.dataId, function (err, results) {
+    if (err) throw err;
+    else {
+      console.log(results[0]['team1_name'])
+      return res.render('dataEdit.ejs', {
+        results: results,
+        title: `Edit Data « ${process.env.APP_NAME}`,
+        gtag: process.env.GTAG,
+        dev: process.env.DEV === 'true',
+        appName: process.env.APP_NAME
+      });
+    }
+  })
 });
 router.get('/users', (req, res) => {
   console.log(global.validate)
@@ -199,6 +241,14 @@ router.get('/score', (req, res) => {
     appName: process.env.APP_NAME
   });
 });
+router.get('/data', (req, res) => {
+  return res.render('data.ejs', {
+    title: `Data « ${process.env.APP_NAME}`,
+    gtag: process.env.GTAG,
+    dev: process.env.DEV === 'true',
+    appName: process.env.APP_NAME
+  });
+});
 router.get('/scout', (req, res) => {
   return res.render('scout.ejs', {
     title: `Scout « ${process.env.APP_NAME}`,
@@ -207,32 +257,47 @@ router.get('/scout', (req, res) => {
     appName: process.env.APP_NAME
   });
 });
-
-router.get('/scoreBlue', (req, res) => {
-  if (global.validate == true) {
-  return res.render('scoreBlue.ejs', {
-    title: `Blue Score « ${process.env.APP_NAME}`,
+router.get('/tournamentData', (req, res) => {
+  return res.render('tournamentData.ejs', {
+    title: `Tournament Data « ${process.env.APP_NAME}`,
     gtag: process.env.GTAG,
     dev: process.env.DEV === 'true',
     appName: process.env.APP_NAME
   });
-} else {
-  return res.redirect('/login')
-}
+});
+router.get('/background', (req, res) => {
+  return res.render('background.ejs', {
+    title: `Tournament Data « ${process.env.APP_NAME}`,
+    gtag: process.env.GTAG,
+    dev: process.env.DEV === 'true',
+    appName: process.env.APP_NAME
+  });
+});
+router.get('/scoreBlue', (req, res) => {
+  if (global.validate == true) {
+    return res.render('scoreBlue.ejs', {
+      title: `Blue Score « ${process.env.APP_NAME}`,
+      gtag: process.env.GTAG,
+      dev: process.env.DEV === 'true',
+      appName: process.env.APP_NAME
+    });
+  } else {
+    return res.redirect('/login')
+  }
 });
 router.get('/scoreRed', (req, res) => {
   if (global.validate == true) {
-  return res.render('scoreRed.ejs', {
-    title: `Red Score « ${process.env.APP_NAME}`,
-    gtag: process.env.GTAG,
-    dev: process.env.DEV === 'true',
-    appName: process.env.APP_NAME
-  });
-} else {
-  return res.redirect('/login')
-}
+    return res.render('scoreRed.ejs', {
+      title: `Red Score « ${process.env.APP_NAME}`,
+      gtag: process.env.GTAG,
+      dev: process.env.DEV === 'true',
+      appName: process.env.APP_NAME
+    });
+  } else {
+    return res.redirect('/login')
+  }
 });
-router.get('/data', (req, res) => {
+router.get('/scoringData', (req, res) => {
   db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {
     if (err) throw err;
     else {
@@ -240,9 +305,9 @@ router.get('/data', (req, res) => {
         results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
       }
       console.log(results[0]['team1_name'])
-      return res.render('data.ejs', {
+      return res.render('scoringData.ejs', {
         results: results,
-        title: `Data « ${process.env.APP_NAME}`,
+        title: `Scoring Data « ${process.env.APP_NAME}`,
         gtag: process.env.GTAG,
         dev: process.env.DEV === 'true',
         appName: process.env.APP_NAME
