@@ -151,7 +151,8 @@ router.get('/users', (req, res) => {
       if (err) throw err;
       else {
         for (var i = 0; i < results.length; i++) {
-          results[i]['create_time'] = moment(results[i]['create_time']).utc().format('LL')
+          results[i]['create_time'] = moment(results[i]['create_time']).
+          format('LL')
           if (results[i]['team'] == 1281) {
             results[i]['teamName'] = "Admin"
             results[i]['icon'] == "person"
@@ -186,6 +187,9 @@ router.get('/users', (req, res) => {
 router.get('/home', (req, res) => {
   if (global.validate == true) {
     db.query("SELECT *  FROM `Hawk`.`user` WHERE email = '" + global.ID + "';", function (err, results) {
+      for (var i = 0; i < results.length; i++) {
+        results[i]['create_time'] = moment(results[i]['create_time']).format('LL')
+      }
       if (err) throw err;
       else {
         return res.render('home.ejs', {
@@ -202,12 +206,26 @@ router.get('/home', (req, res) => {
   }
 });
 router.get('/settings', (req, res) => {
-  return res.render('settings.ejs', {
-    title: `Settings « ${process.env.APP_NAME}`,
-    gtag: process.env.GTAG,
-    dev: process.env.DEV === 'true',
-    appName: process.env.APP_NAME
-  });
+  
+  if (global.validate == true) {
+    db.query("SELECT *  FROM `Hawk`.`user` WHERE email = '" + global.ID + "';", function (err, results) {
+      for (var i = 0; i < results.length; i++) {
+        results[i]['create_time'] = moment(results[i]['create_time']).format('LL')
+      }
+      if (err) throw err;
+      else {
+        return res.render('settings.ejs', {
+          results: results,
+          title: `Settings « ${process.env.APP_NAME}`,
+          gtag: process.env.GTAG,
+          dev: process.env.DEV === 'true',
+          appName: process.env.APP_NAME
+        });
+      }
+    })
+  } else {
+    return res.redirect('/')
+  }
 });
 router.get('/calendar', (req, res) => {
   return res.render('calendar.ejs', {

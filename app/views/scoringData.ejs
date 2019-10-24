@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Scoring Data</title>
 <style>
 .header {
     padding: 1px;
@@ -29,6 +30,13 @@ tr:nth-child(even) {
     position: fixed;
     right: 2.5%;
     bottom: 1%;
+}
+#new {
+  position: fixed;
+  background-color: black;
+  left:6%;
+  bottom: 1%;
+
 }
 </style>
   
@@ -62,7 +70,7 @@ tr:nth-child(even) {
     <td><%= results[i]['field'] %></td>
     <td><%= results[i]['create_time'] %></td>
     <td><%= results[i]['Author']%> </td>
-    <td><a class="mdl-navigation__link" href="http:/dataView/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a class="mdl-navigation__link" href="http:/dataEdit/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">edit</i></a></td>
+    <td><a class="mdl-navigation__link" href="http:/dataView/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a class="mdl-navigation__link" href="http:/dataEdit/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a class="mdl-navigation__link" href="http:/dataEdit/delete"><i onclick = "sure()" class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
   </tr>
    <% } %>
  
@@ -70,10 +78,20 @@ tr:nth-child(even) {
 </table>
 <% } %>
 </body>
-<a href="/home" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+<a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
   <i class="material-icons">arrow_back</i>
+</a>
+<a href="/score" id="new"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+    <i class="material-icons">add</i>
 </a>
 <a href="/dataDownload" id="exportButton"
   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
 </html>
+<script>
+function sure() {
+  alert("Are you sure you want to delete this entry?")
+}
+
+</script>
 
