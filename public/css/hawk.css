@@ -1,0 +1,45 @@
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+.header {
+    padding: 1px;
+    text-align: center;
+    background-color: grey;
+    color: black;
+    font-size: 1px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#returnPlaced {
+    float: center;
+    margin: auto;
+    vertical-align: top;
+}
+#backButton {
+   position: fixed;
+   background-color: black;
+   left:2.5%;
+   bottom: 1%;
+}
+#resetButton {
+    position: fixed;
+    background-color: black;
+    right: 9.5%;
+    bottom: 1%;
+}
+#submitButton {
+    position: fixed;
+    right: 2.5%;
+    bottom: 1%;
+}
+#new {
+    position: fixed;
+    background-color: black;
+    left:6%;
+    bottom: 1%;
+  }

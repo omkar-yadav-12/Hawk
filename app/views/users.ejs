@@ -16,13 +16,17 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #bebdbd;
+}
+.header {
+  background-color: white;
 }
 </style>
 </head>
 <body>
-
-<h2 align = "center">Users List</h2>
+<div class = header >
+<h2 align = "center" >Users List</h2>
+</div>
 <% if (results != 0) { %>
 <table>
   <tr>
@@ -47,4 +51,8 @@ tr:nth-child(even) {
 </table>
 <% } %>
 </body>
+<a href="/home" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+  <i class="material-icons">arrow_back</i>
+</a>
 </html>
+

@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box
+  }
+
+  /* Set height of body and the document to 100% */
+  /* #submitButtonI {
+  position: fixed;
+  right: 2.5%;
+  bottom: 1%;
+}
+#submitButtonA {
+  position: fixed;
+  right: 2.5%;
+  bottom: 1%;
+}
+#submitButtonT {
+  position: fixed;
+  right: 2.5%;
+  bottom: 1%;
+}
+#submitButtonE {
+  position: fixed;
+  right: 2.5%;
+  bottom: 1%;
+} */
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+  }
+
+  /* Style tab links */
+  .tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+  }
+
+  .mdl-layout__header {
+    background-color: white;
+  }
+
+
+  .container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+  }
+
+  .textbox_contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+  }
+
+  .textbox_contain1 {
+    position: absolute;
+
+  }
+
+  .textfield {
+    position: absolute;
+    display: none;
+  }
+
+  .label {
+    position: absolute;
+    display: none;
+  }
+
+  /* #expand1,
+  #expand_label1 {
+    position: absolute;
+    display: none;
+  }
+
+  #expand2,
+  #expand_label2 {
+    position: absolute;
+    display: none;
+  }
+
+  #expand3,
+  #expand_label3 {
+    position: absolute;
+    display: none;
+
+  }
+
+  #expand4,
+  #expand_label4 {
+    position: absolute;
+    display: none;
+
+
+  }
+
+  #expand_1,
+  #expand__label1 {
+    position: absolute;
+    display: none;
+  }
+
+  #expand_2,
+  #expand__label2 {
+    position: absolute;
+    display: none;
+  }
+
+  #expand_3,
+  #expand__label3 {
+    position: absolute;
+    display: none;
+
+  }
+
+  #expand__1,
+  #expand___label1 {
+    position: absolute;
+    display: none;
+  }
+
+  #expand__2,
+  #expand___label2 {
+    position: absolute;
+    display: none;
+  }
+
+  #expand__3,
+  #expand___label3 {
+    position: absolute;
+    display: none; */
+
+  /* }
+  #add_auto, #add_label {
+    position: absolute;
+  } */
+
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tablink:hover {
+    background-color: #777;
+  }
+
+  /* Style the tab content (and add height:100% for full page content) */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+  }

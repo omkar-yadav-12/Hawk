@@ -1,16 +1,10 @@
 <% include navigation %>
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Scoring Data</title>
+
+  <title>Scouting Data</title>
 <style>
-.header {
-    padding: 1px;
-    text-align: center;
-    background: grey;
-    color: black;
-    font-size: 1px;
-}
+    
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -45,17 +39,14 @@ tr:nth-child(even) {
 <body>
     <link rel="stylesheet" href="/css/scoringButtons.css">
 <div class = header>
-<h2 align = "center">Scoring Data Entries</h2>
+<h2 align = "center">Scouting Data Entries</h2>
 </div>
 
 <% if (results != 0) { %>
 <table>
   <tr>
-    <th>Team 1 Name</th>
-    <th>Team 2 Name</th>
-    <th>Alliance</th>
-    <th>Match</th>
-    <th>Field</th>
+    <th>Team Number</th>
+    <th>Event Name</th>
     <th>Date Created</th>
     <th>Author</th>
     <th>Actions</th>
@@ -63,14 +54,11 @@ tr:nth-child(even) {
 
   <% for (var i = 0; i < results.length; i++ ) { %>
     <tr>
-    <td><%= results[i]['team1_name']%></td>
-    <td><%= results[i]['team2_name'] %></td>
-    <td><%= results[i]['alliance'] %></td>
-    <td><%= results[i]['match_num'] %></td>
-    <td><%= results[i]['field'] %></td>
+    <td><%= results[i]['team_number']%></td>
+    <td><%= results[i]['event_name'] %></td>
     <td><%= results[i]['create_time'] %></td>
-    <td><%= results[i]['Author']%> </td>
-    <td><a class="mdl-navigation__link" href="http:/dataView/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a class="mdl-navigation__link" href="http:/dataEdit/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a  class="mdl-navigation__link" href="http:/dataEdit/delete/<%=sure%>/<%=results[i]['id']%>"><i onclick = "sure()" class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
+    <td><%= results[i]['author']%> </td>
+    <td><a class="mdl-navigation__link" href="http:/scoutView/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a class="mdl-navigation__link" href="http:/scoutEdit/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a  class="mdl-navigation__link" href="http:/scoutEdit/delete/<%=sure%>/<%=results[i]['id']%>"><i onclick = "sure()" class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
   </tr>
    <% } %>
  
@@ -81,11 +69,11 @@ tr:nth-child(even) {
 <a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
   <i class="material-icons">arrow_back</i>
 </a>
-<a href="/score" id="new"
+<a href="/scout" id="new"
     class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
     <i class="material-icons">add</i>
 </a>
-<a href="/dataDownload" id="exportButton"
+<a href="/scoutDownload" id="exportButton"
   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
 </html>
 <script>

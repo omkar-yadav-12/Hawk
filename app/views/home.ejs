@@ -38,6 +38,9 @@
     .container {
       padding: 2px 16px;
     }
+    a a:hover {
+    background-color: rgb(16, 85, 7);
+  }
   </style>
 </head>
 
@@ -76,7 +79,7 @@
           <div class="mdl-layout-spacer"></div>
         </div>
       </header>
-      <nav class="demo-navigation mdl-navigation mdl-color--white-grey-800">
+      <nav class="demo-navigation mdl-navigation mdl-color--white-grey-10000">
         <a class="mdl-navigation__link" href="http:/home"><i class="mdl-color-text--white material-icons"
             role="presentation">home</i>Home</a>
         <a class="mdl-navigation__link" href="http:/score"><i class="mdl-color-text--white material-icons"
@@ -85,7 +88,7 @@
             role="presentation">remove_red_eye</i>Scout</a>
         <a class="mdl-navigation__link" href="http:/data"><i class="mdl-color-text--white material-icons"
             role="presentation">insert_chart</i>Data</a>
-        <% if (results[0]['first_name'] == 'Omkar') { %>
+        <% if (results[0]['team'] == 1281) { %>
         <a class="mdl-navigation__link" href="/announcements"><i
             class="mdl-color-text--white material-icons">announcement</i>Announcements</a>
         <a class="mdl-navigation__link" href="http:/users"><i class="mdl-color-text--white material-icons"

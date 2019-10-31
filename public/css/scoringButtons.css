@@ -9,3 +9,10 @@
     right: 2.5%;
     bottom: 1%;
 }
+#new {
+    position: fixed;
+    background-color: black;
+    left:6%;
+    bottom: 1%;
+  
+  }

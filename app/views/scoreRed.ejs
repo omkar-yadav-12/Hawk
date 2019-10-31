@@ -5,7 +5,7 @@
         padding: 1px;
         text-align: center;
         background: grey;
-        color: red;
+        color: Red;
         font-size: 1px;
     }
 </style>
@@ -19,21 +19,27 @@
     <link rel="stylesheet" href="/css/score.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </head>
+    <title>Red Alliance</title>
     <div class="header">
         <h1>Red Alliance</h1>
     </div>
-    <form method="POST" action="/score=?" oninput="total.value=parseInt(a.value)+parseInt(b.value)">
+    <form method="POST" action="/score=?">
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-                <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1</label>
+                <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1 Number</label>
                 <input class="mdl-textfield__input" type="text" id="team_one" name="team_one" required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-                <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Team 2</label>
+                <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Team 2 Number</label>
                 <input class="mdl-textfield__input" type="text" id="team_two" name="team_two" required />
                 <span class="mdl-textfield__error"></span>
             </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
+                    <input class="mdl-textfield__input" type="text" id="event_name" name="event_name" required />
+                    <span class="mdl-textfield__error"></span>
+                </div>
         </div>
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
@@ -72,13 +78,13 @@
                 </tr>
                 <tr>
                     <td class="">Stone</td>
-                    <% for (var i = 0; i <= 5; i++) { %>
+                    <% for (var i = 1; i <= 6; i++) { %>
                     <td><input type="checkbox" name="stone<%=i%>" id="stone<%=i%>" /></td>
                     <% } %>
                 </tr>
                 <tr>
                     <td class="">None</td>
-                    <% for (var i = 0; i <= 5; i++) { %>
+                    <% for (var i = 1; i <= 6; i++) { %>
                     <td><input type="checkbox" name="none<%=i%>" id="none<%=i%>" /></td>
                     <% } %>
                 </tr>
@@ -222,21 +228,20 @@
                 <input class="mdl-textfield__input" type="text" id="alliance" name="alliance" value = "Red" hidden />
                 <span class="mdl-textfield__error"></span>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="total">
-            <label class="mdl-textfield__label" value = "getPoints()" for="total">Total Points</label>
-            <span class="mdl-textfield__error">Input is not a number!</span>
-          </div>
         <a href="/score" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
             <i class="material-icons">arrow_back</i>
         </a>
-        <input id="resetButton" type="reset"
+        <input id="resetButton" type="reset" onlclick = toatal()
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
             value="Reset">
-        <input id="submitButton" type="submit"
+        <input id="submitButton" type="submit" 
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
             value="Submit">
+        <script>
+            function total() {
+                tallest = document.getElementById("tallest_skyscraper") * 2
+                alert(tallest)
+            }
+        </script>
     </form>
-        
     </html>
-    <% include footer %>

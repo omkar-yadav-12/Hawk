@@ -1,0 +1,180 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="/css/scoringButtons.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script defer src="/js/scout.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/css/hawk.css' />
+  <link rel='stylesheet' href='/css/scout.css' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scout</title>
+</head>
+
+<body>
+
+  <button class="tablink" onclick="openPage('Information', this, 'green')" id="defaultOpen">Information</button>
+  <button class="tablink" onclick="openPage('Autonomous', this, 'green')">Autonomous</button>
+  <button class="tablink" onclick="openPage('Teleop', this, 'green')">Teleop</button>
+  <button class="tablink" onclick="openPage('EndGame', this, 'green')">End Game</button>
+
+  <div id="Information" class="tabcontent">
+      <form method="POST" action="/scoutInfo=?">
+    <div class=container>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team Number</label>
+        <input class="mdl-textfield__input" type="text" id="team_one" name="team_one" required />
+        <span class="mdl-textfield__error"></span>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Event Name</label>
+        <input class="mdl-textfield__input" type="text" id="team_two" name="team_two" required />
+        <span class="mdl-textfield__error"></span>
+      </div>
+    </div>
+    <input id="submitButtonI" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+        value="Submit">
+  </form>
+    <a href="/home" id="backButton"
+      class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+      <i class="material-icons">arrow_back</i>
+    </a>
+  </div>
+  <div id="Autonomous" class="tabcontent">
+      <form method="POST" action="/scoutAuto=?">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
+      <td class="">Move Foundation</td>
+      <td><input id="firstRet" type="checkbox" onclick=go1() name="MF" id="MF" /></td>
+      <td class="">Sense Skystones</td>
+      <td><input id="firstRet" type="checkbox" onclick=go2() name="SS" id="SS" /></td>
+      <td class="">Park Over the Build Zone</td>
+      <td><input id="firstRep" type="checkbox" name="PDZ" onclick=go3() id="PDZ" /></td>
+      <td class="">Collect Stones</td>
+      <td><input id="firstRet" type="checkbox" onclick=go4(1) name="CS" id="CS" /></td>
+      <td class="">Place Stones</td>
+      <td><input id="firstRet" type="checkbox" onclick=go4(2) name="FS" id="FS" /></td>
+    </table>
+    <div class=container1>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand1
+          id="expand1"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand_label1 for="expand1">Foundation
+          Description</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand2
+          id="expand2"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand_label2 for="expand2">Sensing
+          Description</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand3
+          id="expand3"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand_label3 for="expand3">Parking
+          Description</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" display=none rows="12" name=expand4
+          id="expand4"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand_label4 display=none for="expand4">Stones
+          Description</label>
+      </div>
+      <input id="submitButtonA" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+        value="Submit">
+    </form>
+    </div>
+  </div>
+  <a href="/home" id="backButton"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+    <i class="material-icons">arrow_back</i>
+  </a>
+
+  </div>
+
+  <div id="Teleop" class="tabcontent">
+    <form method="POST" action="/scoutTeleop=?">
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
+        <td class="">Move Foundation</td>
+        <td><input id="firstRet" type="checkbox" onclick=go5() name="MF" id="MF" /></td>
+        <td class="">Collect Stones</td>
+        <td><input id="firstRet" type="checkbox" onclick=go6(1) name="CS" id="CS" /></td>
+        <td class="">Place Stones</td>
+        <td><input id="firstRet" type="checkbox" onclick=go6(2) name="FS" id="FS" /></td>
+      </table>
+      <div class=container1>
+        <div class="mdl-textfield mdl-js-textfield">
+          <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand_1
+            id="expand_1"></textarea>
+          <label class="mdl-textfield__label mdl-color-text--black" id=expand__label1 for="expand_1">Foundation
+            Description</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+          <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand_2
+            id="expand_2"></textarea>
+          <label class="mdl-textfield__label mdl-color-text--black" id=expand__label2 for="expand_2">Stone
+            Description</label>
+        </div>
+        <input id="submitButtonT" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+        value="Submit">
+      </div>
+    </form>
+
+      <a href="/home" id="backButton"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+        <i class="material-icons">arrow_back</i>
+      </a>
+  </div>
+  <div id="EndGame" class="tabcontent">
+      <form method="POST" action="/scoutEnd=?">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
+      <td class="">Move Foundation</td>
+      <td><input id="firstRet" type="checkbox" onclick=go7() name="MF_EG" id="MF_EG" /></td>
+      <td class="">Park in the Build Zone</td>
+      <td><input id="firstRet" type="checkbox" onclick=go8(1) name="SS_EG" id="SS_EG" /></td>
+      <td class="">Park Over the Build Zone</td>
+      <td><input id="firstRep" type="checkbox" name="PDZ_EG" onclick=go8(2) id="PDZ_EG" /></td>
+      <td class="">Place Stones</td>
+      <td><input id="firstRet" type="checkbox" onclick=go9() name="FS_EG" id="FS_EG" /></td>
+    </table>
+    <div class=container1>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand__1
+          id="expand__1"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand___label1 for="expand__1">Foundation
+          Description</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand__2
+          id="expand__2"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand___label2 for="expand__2">Parking
+          Description</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input mdl-color-text--black" type="text" rows="12" name=expand__3
+          id="expand__3"></textarea>
+        <label class="mdl-textfield__label mdl-color-text--black" id=expand___label3 for="expand__3">Stones
+          Description</label>
+      </div>
+      <input id="submitButtonE" type="submit"
+      class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+      value="Submit">
+    </div>
+    </form>
+  </div>
+  <a href="/home" id="backButton"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+    <i class="material-icons">arrow_back</i>
+  </a>
+
+  </form>
+  </div>
+
+</body>
+
+</html> -->

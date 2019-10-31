@@ -1,5 +1,6 @@
-
 <link rel="stylesheet" type="text/css" href="css/register.css" />
+<link rel="stylesheet" type="text/css" href="css/scoringButtons.css" />
+
 <head>
     <!-- Material Design Lite CSS -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
@@ -68,15 +69,15 @@
                         <span class="mdl-textfield__error">Enter a valid email address</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                            <label class="mdl-textfield__label mdl-color-text--grey" for="email ">Team Name</label>
-                            <input class="mdl-textfield__input" type="text" id="team" name="team"
-                                pattern="^[0-9]{4,4}$" required />
-                            <span class="mdl-textfield__error">Enter a 4 digit team number</span>
-                        </div>
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="email ">Team Name</label>
+                        <input class="mdl-textfield__input" type="text" id="team" name="team" pattern="^[0-9]{4,4}$"
+                            required />
+                        <span class="mdl-textfield__error">Enter a 4 digit team number</span>
+                    </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="password">Password</label>
-                        <input class="mdl-textfield__input" type="password" id="password" name="password"
+                        <input class="mdl-textfield__input"  id="password" name="password"
                             pattern="^[A-z0-9_-]{3,15}$" required />
                         <span class="mdl-textfield__error">
                             Must be between between 3-15 characters with letters and digits
@@ -86,20 +87,24 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="password_confirm">Password
                             Confirm</label>
-                        <input class="mdl-textfield__input" type="password" id="password_confirm"
+                        <input class="mdl-textfield__input"  id="password_confirm"
                             name="password_confirm" required />
                     </div>
-                    <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" type="submit" value="Register">
-    
-                </form>  
+                    <input
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white"
+                        type="submit" value="Register">
+                    <a href="/login" id="backButton"
+                        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                </form>
             </div>
         </div>
     </div>
-    
+
 
     <!-- Material Design Lite JavaScript -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
     <script type="text/javascript" src="/js/register.js"></script>
     <!--<script type="text/javascript" src="/app/controllers/function.js"></script> -->
 </body>
-    

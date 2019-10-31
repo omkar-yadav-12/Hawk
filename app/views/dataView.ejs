@@ -20,7 +20,7 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </head>
     <div class="header">
-        <h1>Written by <%=results[0]['Author']%></h1>
+        <h1>Scored by <%=results[0]['Author']%></h1>
     </div>
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
@@ -66,7 +66,7 @@
             <tr>
                 <td class="">Skystone</td>
                 <% for (var i = 1; i <= 6; i++) { %>
-                <% if (results[0]['skystone' + i] == 'on') { %>
+                <% if (results[0]['skystone' + i] == 1) { %>
                 <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" checked onclick="return false;" />
                 </td>
                 <% } else {%>
@@ -76,8 +76,8 @@
             </tr>
             <tr>
                 <td class="">Stone</td>
-                <% for (var i = 0; i <= 5; i++) { %>
-                <% if (results[0]['stone' + i] == 'on') { %>
+                <% for (var i = 1; i <= 6; i++) { %>
+                <% if (results[0]['stone' + i] == 1) { %>
                 <td><input type="checkbox" name="stone<%=i%>" id="stone<%=i%>" checked onclick="return false;" /></td>
                 <% } else {%>
                 <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" onclick="return false;" /></td>
@@ -86,8 +86,8 @@
             </tr>
             <tr>
                 <td class="">None</td>
-                <% for (var i = 0; i <= 5; i++) { %>
-                <% if (results[0]['none' + i] == 'on') { %>
+                <% for (var i = 1; i <= 6; i++) { %>
+                <% if (results[0]['none' + i] == 1) { %>
                 <td><input type="checkbox" name="none<%=i%>" id="none<%=i%>" checked onclick="return false;" /></td>
                 <% } else {%>
                 <td><input type="checkbox" id="none<%=i%>" name="none<%=i%>" onclick="return false;" /></td>
@@ -99,25 +99,25 @@
     </table>
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Reposition">
         <td class="">First Returned Skystone</td>
-        <% if (results[0]['frs'] == 'on') { %>
+        <% if (results[0]['frs'] == 1) { %>
         <td><input id="firstRet" type="checkbox" checked name="FRS" id="FRS" onclick="return false;" /></td>
         <% } else { %>
         <td><input id="firstRet" type="checkbox" name="FRS" id="FRS" onclick="return false;" /></td>
         <% } %>
         <td class="">Foundation Repositioned</td>
-        <% if (results[0]['fs'] == 'on') { %>
+        <% if (results[0]['fr'] == 1) { %>
         <td><input id="firstRep" type="checkbox" checked name="FS" id="FS" onclick="return false;" /></td>
         <% } else { %>
         <td><input id="firstRep" type="checkbox" name="FS" id="FS" onclick="return false;" /></td>
         <% } %>
         <td class="">Robot 1 Navigated</td>
-        <% if (results[0]['r1n'] == 'on') { %>
+        <% if (results[0]['r1n'] == 1) { %>
         <td><input id="R1N" type="checkbox" checked name="R1N" id="R1N" onclick="return false;" /></td>
         <% } else { %>
         <td><input id="R1N" type="checkbox" name="R1N" id="R1N" onclick="return false;" /></td>
         <% } %>
         <td class="">Robot 2 Navigated</td>
-        <% if (results[0]['r2n'] == 'on') { %>
+        <% if (results[0]['r2n'] == 1) { %>
         <td><input type="checkbox" checked name="R2N" id="R2N" onclick="return false;" /></td>
         <% } else { %>
         <td><input id="R2N" type="checkbox" name="R2N" id="R2N" onclick="return false;" /></td>
@@ -172,7 +172,11 @@
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Found">
         <span align=center class="mdl-layout-title">End Game Period</span>
         <td class="">Foundation Moved</td>
-        <td><input type="checkbox" name="found" id="found" /></td>
+        <% if (results[0]['found_moved'] == 1) { %>
+            <td><input type="checkbox" checked name="foundationMoved" id="foundationMoved" onclick="return false;" /></td>
+            <% } else { %>
+            <td><input type="checkbox" name="foundationMoved" id="foundationMoved" onclick="return false;" /></td>
+            <% } %>
     </table>
     <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Robots">
         <thead>
@@ -184,12 +188,12 @@
         </thead>
         <tr>
             <td class="">Capstone</td>
-            <% if (results[0]['cap1'] == 'on') { %>
+            <% if (results[0]['cap1'] == 1) { %>
             <td><input type="checkbox" checked name="Capstone1" id="Capstone1" onclick="return false;" /></td>
             <% } else { %>
             <td><input type="checkbox" name="Capstone1" id="Capstone1" onclick="return false;" /></td>
             <% } %>
-            <% if (results[0]['cap2'] == 'on') { %>
+            <% if (results[0]['cap2'] == 1) { %>
             <td><input type="checkbox" checked name="Capstone2" id="Capstone2" onclick="return false;" /></td>
             <% } else { %>
             <td><input type="checkbox" name="Capstone2" id="Capstone2" onclick="return false;" /></td>
@@ -197,12 +201,12 @@
         </tr>
         <tr>
             <td class="">Parked</td>
-            <% if (results[0]['parked1'] == 'on') { %>
+            <% if (results[0]['parked1'] == 1) { %>
             <td><input type="checkbox" checked name="Parked1" id="Parked1" onclick="return false;" /></td>
             <% } else { %>
             <td><input type="checkbox" name="Parked1" id="Parked1" onclick="return false;" /></td>
             <% } %>
-            <% if (results[0]['parked2'] == 'on') { %>
+            <% if (results[0]['parked2'] == 1) { %>
             <td><input type="checkbox" checked name="Parked2" id="Parked2" onclick="return false;" /></td>
             <% } else { %>
             <td><input type="checkbox" name="Parked2" id="Parked2" onclick="return false;" /></td>
@@ -251,7 +255,7 @@
         <tr>
             <td class="">Team 1</td>
             <% for (var i = 0; i <= 2; i++) { %>
-                <% if (results[0]['team1_'+ i] == 'on') { %>
+                <% if (results[0]['team1_'+ i] == 1) { %>
             <td><input type="checkbox" checked id="team1_<%=i%>" name="team1_<%=i%>" onclick = "return false;" /></td>
             <% } else {%>
                 <td><input type="checkbox" id="team1_<%=i%>" name="team1_<%=i%>" onclick = "return false;" /></td>
@@ -261,7 +265,7 @@
         <tr>
             <td class="">Team 2</td>
             <% for (var i = 0; i <= 2; i++) { %>
-                <% if (results[0]['team2_'+ i] == 'on') { %>
+                <% if (results[0]['team2_'+ i] == 1) { %>
             <td><input type="checkbox" checked id="team2_<%=i%>" name="team2_<%=i%>" onclick = "return false;" /></td>
             <% } else {%>
                 <td><input type="checkbox" id="team2_<%=i%>" name="team2_<%=i%>" onclick = "return false;" /></td>
