@@ -26,7 +26,7 @@ router.post('/register=True', (req, res) => {
 })
 router.post('/dataEdit/update/:dataId', (req, res) => {
   console.log(req.params.dataId)
-  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "'WHERE id = " + req.params.dataId);
+  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', match_num = '" + req.body.match + "', field = '" + req.body.field + "'WHERE id = " + req.params.dataId);
   return res.redirect('/scoringData')
 })
 
@@ -199,8 +199,9 @@ router.get('/scoutView/:dataId', (req, res) => {
   db.query("SELECT * FROM scout_data WHERE id = " + req.params.dataId, function (err, results) {
     if (err) throw err;
     else {
-      results[0]['found_auto_d'] = results[0]['found_auto_d'].toString();
-      console.log(results[0]['found_auto_d']);
+      results[0]['add_teleop_d'] = results[0]['found_auto_d'].toString();
+      results[0]['add_end_d'] = results[0]['found_end_d'].toString();
+      console.log(results)
       return res.render('scoutView.ejs', {
         results: results,
         title: `Scout Data « ${process.env.APP_NAME}`,
@@ -217,6 +218,21 @@ router.get('/dataEdit/:dataId', (req, res) => {
     else {
       console.log(results[0]['team1_name'])
       return res.render('dataEdit.ejs', {
+        results: results,
+        title: `Edit Data « ${process.env.APP_NAME}`,
+        gtag: process.env.GTAG,
+        dev: process.env.DEV === 'true',
+        appName: process.env.APP_NAME
+      });
+    }
+  })
+});
+router.get('/scoutEdit/:dataId', (req, res) => {
+  db.query("SELECT * FROM scout_data WHERE id = " + req.params.dataId, function (err, results) {
+    if (err) throw err;
+    else {
+      console.log(results[0]['team1_name'])
+      return res.render('scoutEdit.ejs', {
         results: results,
         title: `Edit Data « ${process.env.APP_NAME}`,
         gtag: process.env.GTAG,
