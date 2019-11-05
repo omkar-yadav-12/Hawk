@@ -2,9 +2,9 @@
   "name": "hawk",
   "version": "0.0.0",
   "description": "Hawk FTC",
-  "main": "hawk.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon hawk.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
