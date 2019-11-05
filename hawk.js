@@ -39,7 +39,7 @@ const PORT = process.env.PORT || 80;
 
 // Express middleware
 app.use(favicon(path.join(process.env.APP_ROOT, 'public', 'img', 'favicon.ico')));
-app.set('views', path.join(__dirname, 'app', 'views'));
+app.set('views', path.join(__dirname, 'app', 'views')); 
 app.set('partials', path.join(__dirname, 'app', 'partials'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({

@@ -43,3 +43,8 @@ table {
     left:6%;
     bottom: 1%;
   }
+  #exportButton {
+    position: fixed;
+    right: 2.5%;
+    bottom: 1%;
+}

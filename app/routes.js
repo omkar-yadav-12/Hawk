@@ -23,12 +23,17 @@ router.post('/register=True', (req, res) => {
   var password = req.body.password;
   db.query("INSERT INTO hawk.user (first_name, last_name, grade, email, team, password, create_time) VALUES ('" + first + "','" + last + "','" + grade + "','" + email + "','" + team + "','" + password + "', NOW());")
   return res.redirect('/login');
-})
+});
 router.post('/dataEdit/update/:dataId', (req, res) => {
-  console.log(req.params.dataId)
-  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', match_num = '" + req.body.match + "', field = '" + req.body.field + "'WHERE id = " + req.params.dataId);
+
+  for (var key in req.body) {
+    if (req.body[key] == 'on')
+      req.body[key] = 1
+  }
+  console.log(req.body.found)
+  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', match_num = '" + req.body.match + "', field = '" + req.body.field + "', skystone1 = '" + req.body.skystone1 + "', skystone2 = '" + req.body.skystone2 + "', skystone3 = '" + req.body.skystone3 + "', skystone4 = '" + req.body.skystone4 + "', skystone5 = '" + req.body.skystone5 + "', skystone6 = '" + req.body.skystone6 + "', stone1 = '" + req.body.stone1 + "', stone2 = '" + req.body.stone2 + "', stone3 = '" + req.body.stone3 + "', stone4 = '" + req.body.stone4 + "', stone5 = '" + req.body.stone5 + "', stone6 = '" + req.body.stone6 + "', none1 = '" + req.body.none1 + "', none2 = '" + req.body.none2 + "', none3 = '" + req.body.none3 + "', none4 = '" + req.body.none4 + "', none5 = '" + req.body.none5 + "', none6 = '" + req.body.none6 + "', frs = '" + req.body.FRS + "', fr = '" + req.body.FS + "', r1n = '" + req.body.R1N + "', r2n = '" + req.body.R2N + "', returned_auto = '" + req.body.ReturnedAuto + "', placed_auto = '" + req.body.PlacedAuto + "', delivered = '" + req.body.delivered_number + "', tallest_sky = '" + req.body.tallest_skyscraper + "', returned_drs = '" + req.body.returned_name + "', placed_drs = '" + req.body.placed + "', found_moved = '" + req.body.found + "', cap1 = '" + req.body.Capstone1 + "', cap2 = '" + req.body.Capstone2 + "', parked1 = '" + req.body.Parked1 + "', parked2 = '" + req.body.Parked2 + "', r1n = '" + req.body.robot1_level + "', r2n = '" + req.body.robot2_level + "', minor = '" + req.body.minor + "', major = '" + req.body.major + "', team1_0 = '" + req.body.team1_0 + "', team1_1 = '" + req.body.team1_1 + "', team1_2 = '" + req.body.team1_2 + "', team2_0 = '" + req.body.team2_0 + "', team2_1 = '" + req.body.team2_1 + "', team2_2 = '" + req.body.team2_2 + "'WHERE id = " + req.params.dataId);
   return res.redirect('/scoringData')
-})
+});
 
 router.get('/login', (req, res) => {
   alert = " ";
@@ -45,19 +50,19 @@ router.post('/score=?', (req, res) => {
     if (err) throw err;
     else {
       var total = 0;
-      for(var key in req.body) {
+      for (var key in req.body) {
         if (req.body[key] == 'on')
-        req.body[key] = 1
+          req.body[key] = 1
         total += req.body[key];
-       } 
-       total += (tallest_skyscraper * 2);
-       if (req.body.Capstone1 == 1) {
-        total += (5 + robot1_level);
-       }
-       if (req.body.Capstone2 == 1) {
-         total += (5 + robot2_level);
-       }
-       console.log(total);
+      }
+      total += (req.body.tallest_skyscraper * 2);
+      if (req.body.Capstone1 == 1) {
+        total += (5 + req.body.robot1_level);
+      }
+      if (req.body.Capstone2 == 1) {
+        total += (5 + req.body.robot2_level);
+      }
+      console.log(total);
       name = (results[0]['first_name'] + " " + results[0]['last_name']);
       db.query("INSERT INTO hawk.score_data(alliance, team1_name, team2_name, match_num, field, skystone1, skystone2, skystone3, skystone4, skystone5, skystone6, stone1, stone2, stone3, stone4, stone5, stone6, none1, none2, none3, none4, none5, none6, frs, fr, r1n, r2n, returned_auto, placed_auto, delivered, tallest_sky, returned_drs, placed_drs, found_moved, cap1, cap2, parked1, parked2, r1l, r2l, minor, major, team1_0, team1_1, team1_2, team2_0, team2_1, team2_2, create_time, Author) VALUES ('" + req.body.alliance + "','" + req.body.team_one + "','" + req.body.team_two + "','" + req.body.match + "','" + req.body.field + "','" + req.body.skystone1 + "','" + req.body.skystone2 + "','" + req.body.skystone3 + "','" + req.body.skystone4 + "','" + req.body.skystone5 + "','" + req.body.skystone6 + "','" + req.body.stone1 + "','" + req.body.stone2 + "','" + req.body.stone3 + "','" + req.body.stone4 + "','" + req.body.stone5 + "','" + req.body.stone6 + "','" + req.body.none1 + "','" + req.body.none2 + "','" + req.body.none3 + "','" + req.body.none4 + "','" + req.body.none5 + "','" + req.body.none6 + "','" + req.body.FRS + "','" + req.body.FS + "','" + req.body.R1N + "','" + req.body.R2N + "','" + req.body.ReturnedAuto + "','" + req.body.PlacedAuto + "','" + req.body.delivered_number + "','" + req.body.tallest_skyscraper + "','" + req.body.returned_name + "','" + req.body.placed + "','" + req.body.found + "','" + req.body.Capstone1 + "','" + req.body.Capstone2 + "','" + req.body.Parked1 + "','" + req.body.Parked2 + "','" + req.body.robot1_level + "','" + req.body.robot2_level + "','" + req.body.minor + "','" + req.body.major + "','" + req.body.team1_0 + "','" + req.body.team1_1 + "','" + req.body.team1_2 + "','" + req.body.team2_0 + "','" + req.body.team2_1 + "','" + req.body.team2_2 + "', NOW(), '" + name + "');");
       total_points = req.body.tallest_skyscraper * 2;
@@ -70,10 +75,10 @@ router.post('/scout=?', (req, res) => {
   db.query("SELECT *  FROM `Hawk`.`user` WHERE email = '" + global.ID + "';", function (err, results) {
     if (err) throw err;
     else {
-      for(var key in req.body) {
+      for (var key in req.body) {
         if (req.body[key] == 'on')
-        req.body[key] = 1
-       } 
+          req.body[key] = 1
+      }
       name = (results[0]['first_name'] + " " + results[0]['last_name']);
       console.log(req.body);
       db.query("INSERT INTO hawk.scout_data(team_number, event_name, author, create_time, move_auto, sense_auto, over_auto, collect_auto, place_auto, found_auto_d, sense_auto_d, park_auto_d, stone_auto_d, add_auto_d, found_teleop, collect_teleop, palce_teleop, found_teleop_d, stone_teleop_d, add_teleop_d, found_end, in_end, over_end, place_end, found_end_d, parki_end_d, stones_end_d, add_end_d) VALUES ('" + req.body.team_num + "','" + req.body.event_name + "','" + name + "', NOW() ,'" + req.body.MF + "','" + req.body.SS + "','" + req.body.PDZ + "','" + req.body.CS + "','" + req.body.FS + "','" + req.body.expand1 + "','" + req.body.expand2 + "','" + req.body.expand3 + "','" + req.body.expand4 + "','" + req.body.add_auto + "','" + req.body.MF_ + "','" + req.body.CS_ + "','" + req.body.FS_ + "','" + req.body.expand_1 + "','" + req.body.expand_2 + "','" + req.body.additional_teleop_label + "','" + req.body.MF_EG + "','" + req.body.SS_EG + "','" + req.body.PDZ_EG + "','" + req.body.FS_EG + "','" + req.body.expand__1 + "','" + req.body.expand__2 + "','" + req.body.expand__3 + "','" + req.body.additional_end_label + "');");
@@ -81,18 +86,15 @@ router.post('/scout=?', (req, res) => {
     }
   });
 });
-router.get('/dataEdit/delete/true/:dataId', (req, res) => {
+router.get('/dataEdit/delete/:dataId', (req, res) => {
   console.log("GO")
   db.query("DELETE FROM score_data WHERE id  = " + req.params.dataId, function (err) {
-    if (err) throw err; 
+    if (err) throw err;
     else {
       return res.redirect('/scoringData')
     }
-  })
-})
-router.get('/dataEdit/delete/false/:dataId', (req, res) => {
-  return res.redirect('/scoringData')
-})
+  });
+});
 router.get('/scoutDownload', (req, res) => {
   db.query("SELECT * FROM `Hawk`.`scout_data` ORDER BY create_time DESC", function (err, results) {
     if (err) throw err;
@@ -102,7 +104,7 @@ router.get('/scoutDownload', (req, res) => {
       }
       const jsonData = JSON.parse(JSON.stringify(results));
       const csvFields = ['alliance', 'team1_name', 'team2_name', 'match_num', 'field', 'skystone1', 'skystone2', 'skystone3', 'skystone4', 'skystone5', 'skystone6', 'stone1', 'stone2', 'stone3', 'stone4', 'stone5', 'stone6', 'none1', 'none2', 'none3', 'none4', 'none5', 'none6', 'frs', 'fr', 'r1n', 'r2n', 'returned_auto', 'placed_auto', 'delivered', 'tallest_sky', 'returned_drs', 'placed_drs', 'found_moved', 'cap1', 'cap2', 'parked1', 'parked2', 'r1l', 'r2l', 'minor', 'major', 'team1_0', 'team1_1', 'team1_2', 'team2_0', 'team2_1', 'team2_2', 'create_time', 'Author'];
-      const json2csvParser = new Json2csvParser({csvFields});
+      const json2csvParser = new Json2csvParser({ csvFields });
       const csv = json2csvParser.parse(jsonData);
       fs.writeFile('ScoutingEntries.csv', csv, function (err) {
         if (err) throw err;
@@ -127,7 +129,7 @@ router.get('/dataDownload', (req, res) => {
       const jsonData = JSON.parse(JSON.stringify(results));
       console.log(jsonData);
       const csvFields = ['alliance', 'team1_name', 'team2_name', 'match_num', 'field', 'skystone1', 'skystone2', 'skystone3', 'skystone4', 'skystone5', 'skystone6', 'stone1', 'stone2', 'stone3', 'stone4', 'stone5', 'stone6', 'none1', 'none2', 'none3', 'none4', 'none5', 'none6', 'frs', 'fr', 'r1n', 'r2n', 'returned_auto', 'placed_auto', 'delivered', 'tallest_sky', 'returned_drs', 'placed_drs', 'found_moved', 'cap1', 'cap2', 'parked1', 'parked2', 'r1l', 'r2l', 'minor', 'major', 'team1_0', 'team1_1', 'team1_2', 'team2_0', 'team2_1', 'team2_2', 'create_time', 'Author'];
-      const json2csvParser = new Json2csvParser({csvFields});
+      const json2csvParser = new Json2csvParser({ csvFields });
       const csv = json2csvParser.parse(jsonData);
       fs.writeFile('DataEntries.csv', csv, function (err) {
         if (err) throw err;
@@ -216,7 +218,7 @@ router.get('/dataEdit/:dataId', (req, res) => {
   db.query("SELECT * FROM score_data WHERE id = " + req.params.dataId, function (err, results) {
     if (err) throw err;
     else {
-      console.log(results[0]['team1_name'])
+      console.log(results)
       return res.render('dataEdit.ejs', {
         results: results,
         title: `Edit Data « ${process.env.APP_NAME}`,
@@ -250,14 +252,14 @@ router.get('/users', (req, res) => {
       else {
         for (var i = 0; i < results.length; i++) {
           results[i]['create_time'] = moment(results[i]['create_time']).
-          format('LL')
+            format('LL')
           if (results[i]['team'] == 1281) {
             results[i]['teamName'] = "Admin"
             results[i]['icon'] == "person"
           } else if (results[i]['team'] == 3456) {
             results[i]['teamName'] = "Programmer"
             results[i]['icon'] == "computer"
-          } else if (results[i]['team' == 6789]) {
+          } else if (results[i]['team'] == 6789) {
             results[i]['teamName'] = "Builder"
             results[i]['icon'] == "build"
           } else {
@@ -265,7 +267,6 @@ router.get('/users', (req, res) => {
             results[i]['icon'] == "assignment"
           }
         }
-        console.log(results[0]['first_name'])
         return res.render('users.ejs', {
           color: "red",
           length: results.length,
@@ -305,7 +306,7 @@ router.get('/home', (req, res) => {
   }
 });
 router.get('/settings', (req, res) => {
-  
+
   if (global.validate == true) {
     db.query("SELECT *  FROM `Hawk`.`user` WHERE email = '" + global.ID + "';", function (err, results) {
       for (var i = 0; i < results.length; i++) {
@@ -366,7 +367,6 @@ router.get('/scoutingData', (req, res) => {
         results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
       }
       return res.render('scoutingData.ejs', {
-        sure: false,
         results: results,
         title: `Scouting Data « ${process.env.APP_NAME}`,
         gtag: process.env.GTAG,
@@ -393,14 +393,18 @@ router.get('/data', (req, res) => {
   });
 });
 router.get('/scout', (req, res) => {
+  if (global.validate == true) {
   return res.render('scout.ejs', {
     date: moment().format('LLL'),
-    see: false, 
+    see: false,
     title: `Scout « ${process.env.APP_NAME}`,
     gtag: process.env.GTAG,
     dev: process.env.DEV === 'true',
     appName: process.env.APP_NAME
   });
+} else {
+  return res.redirect('/');
+}
 });
 router.get('/tournamentData', (req, res) => {
   return res.render('tournamentData.ejs', {
@@ -433,30 +437,29 @@ router.get('/scoreBlue', (req, res) => {
 router.get('/scoreRed', (req, res) => {
   if (global.validate == true) {
     db.query("SELECT Name FROM `Hawk`.`events`", function (err, results) {
-        console.log(results[0]['Name'] + " " + results.length);
-        return res.render('scoreRed.ejs', {
-          results: results,
-          title: `Red Score « ${process.env.APP_NAME}`,
-          gtag: process.env.GTAG,
-          dev: process.env.DEV === 'true',
-          appName: process.env.APP_NAME
-        });
+      console.log(results[0]['Name'] + " " + results.length);
+      return res.render('scoreRed.ejs', {
+        results: results,
+        title: `Red Score « ${process.env.APP_NAME}`,
+        gtag: process.env.GTAG,
+        dev: process.env.DEV === 'true',
+        appName: process.env.APP_NAME
+      });
     })
   } else {
     return res.redirect('/login')
   }
 });
 router.get('/scoringData', (req, res) => {
+  if (global.validate == true) {
   db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {
     if (err) throw err;
     else {
       for (var i = 0; i < results.length; i++) {
         results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
-        console.log(results[i]['fr']);
       }
-      
+
       return res.render('scoringData.ejs', {
-        sure: false,
         results: results,
         title: `Scoring Data « ${process.env.APP_NAME}`,
         gtag: process.env.GTAG,
@@ -465,6 +468,9 @@ router.get('/scoringData', (req, res) => {
       });
     }
   })
+} else { 
+  return res.redirect('/');
+}
 });
 
 router.use((req, res) => {

@@ -11,8 +11,8 @@
   <div class=container>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
       <label class="mdl-textfield__label mdl-color-text--grey" for="team_num">Team Number</label>
-      <input class="mdl-textfield__input" type="text" id="team_num" name="team_num" required />
-      <span class="mdl-textfield__error"></span>
+      <input class="mdl-textfield__input" pattern="^[0-9]{2,6}$" type="text" id="team_num" name="team_num" required />
+      <span class="mdl-textfield__error">Numbers Only</span>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
       <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
@@ -21,6 +21,7 @@
     </div>
   </div>
   </div>
+  <span align="center" class="mdl-layout-title">Autonomous Period</span>
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
     <td class="">Move Foundation</td>
     <td><input id="firstRet" type="checkbox" onclick=go1() name="MF" id="MF" /></td>
@@ -66,6 +67,7 @@
     </div>
 
   </div>
+  <span align="center" font-weight = bold class="mdl-layout-title">Teleop Period</span>
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
     <td class="">Move Foundation</td>
     <td><input id="firstRet" type="checkbox" onclick=go5() name="MF_" id="MF_" /></td>
@@ -96,6 +98,7 @@
       </label>
     </div>
   </div>
+  <span align="center" class="mdl-layout-title">End Game Period</span>
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
     <td class="">Move Foundation</td>
     <td><input id="firstRet" type="checkbox" onclick=go7() name="MF_EG" id="MF_EG" /></td>
