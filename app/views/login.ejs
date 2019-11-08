@@ -52,7 +52,7 @@
                         <label class="mdl-textfield__label mdl-color-text--grey"
                             for="textfield_new_password">Password</label>
                         <input class="mdl-textfield__input" type="password" id="password" name="password"
-                            pattern="^[A-z]{1,20}" required />
+                            pattern="^[A-z0-9_-]{3,15}$" required />
                         <span class="mdl-textfield__error">Enter Password</span>
                     </div>
                     <input type="submit" class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" value="Login">

@@ -13,9 +13,9 @@
 </head>
 <title>Scout</title>
 <div align=center class=header>
-  <h2>Scouting</h2>
+  <h2>Scouted by <%=results[0]['author']%></h2>
 </div>
-<form method="POST" action="/scout=?">
+<form method="POST" action="/dataEdit/update/<%=results[0]['id']%>">
   <div class=container>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
       <label class="mdl-textfield__label mdl-color-text--grey" for="team_num">Team Number</label>
@@ -41,7 +41,7 @@
     <% if (results[0]['sense_auto'] == 1 ) { %>
         <td><input id="firstRet" type="checkbox"    checked name="SS" id="SS" /></td>
     <% } else { %>
-        <td><input id="firstRet" type="checkbox"    name="MF" id="MF" /></td>
+        <td><input id="firstRet" type="checkbox"    name="SS" id="SS" /></td>
     <% } %>
     
     <td class="">Park Over the Build Zone</td>
@@ -86,8 +86,8 @@
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input mdl-color-text--black" type="text"    rows="10" name=expand4
         id="expand4"><%=results[0]['stone_auto_d']%></textarea>
-      <label class="mdl-textfield__label mdl-color-text--black" id=expand_label4  for="expand4">Stones
-        Description</label>
+      <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand_label4  for="expand4">Stones
+        Description</label> -->
     </div>
     <div class="mdl-textfield mdl-js-textfield">
       <textarea class="mdl-textfield__input mdl-color-text--black"  type="text"  rows="10" name=add_auto
@@ -195,7 +195,7 @@
       class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
       value="Submit">
   </div>
-  <a href="/home" id="backButton"
+  <a href="/scoutingData" id="backButton"
     class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
     <i class="material-icons">arrow_back</i>
   </a>

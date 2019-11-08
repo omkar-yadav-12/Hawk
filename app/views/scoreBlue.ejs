@@ -27,12 +27,12 @@
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1 Number</label>
-                <input class="mdl-textfield__input" type="text" id="team_one" name="team_one" required />
+                <input class="mdl-textfield__input" type="text" pattern = "^[0-9]{2,6}$"  id="team_one" name="team_one" required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Team 2 Number</label>
-                <input class="mdl-textfield__input" type="text" id="team_two" name="team_two" required />
+                <input class="mdl-textfield__input" type="text"  pattern = "^[0-9]{2,6}$" id="team_two" name="team_two" required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">

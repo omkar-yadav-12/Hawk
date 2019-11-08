@@ -6,6 +6,7 @@ const moment = require('moment');
 const ejs = require('ejs');
 const fs = require('fs');
 const Json2csvParser = require('json2csv').Parser;
+const calendarController = require('./controllers/calendar');
 global.ID;
 global.ID = null;
 global.validate;
@@ -25,13 +26,29 @@ router.post('/register=True', (req, res) => {
   return res.redirect('/login');
 });
 router.post('/dataEdit/update/:dataId', (req, res) => {
-
+  var total = 0;
+  for (var key in req.body) {
+    if (req.body[key] == 'on')
+      req.body[key] = 1
+    total += req.body[key];
+  }
+  total += (req.body.tallest_skyscraper * 2);
+  if (req.body.Capstone1 == 1) {
+    total += (5 + req.body.robot1_level);
+  }
+  if (req.body.Capstone2 == 1) {
+    total += (5 + req.body.robot2_level);
+  }
+  console.log(total)
+  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', match_num = '" + req.body.match + "', field = '" + req.body.field + "', skystone1 = '" + req.body.skystone1 + "', skystone2 = '" + req.body.skystone2 + "', skystone3 = '" + req.body.skystone3 + "', skystone4 = '" + req.body.skystone4 + "', skystone5 = '" + req.body.skystone5 + "', skystone6 = '" + req.body.skystone6 + "', stone1 = '" + req.body.stone1 + "', stone2 = '" + req.body.stone2 + "', stone3 = '" + req.body.stone3 + "', stone4 = '" + req.body.stone4 + "', stone5 = '" + req.body.stone5 + "', stone6 = '" + req.body.stone6 + "', none1 = '" + req.body.none1 + "', none2 = '" + req.body.none2 + "', none3 = '" + req.body.none3 + "', none4 = '" + req.body.none4 + "', none5 = '" + req.body.none5 + "', none6 = '" + req.body.none6 + "', frs = '" + req.body.FRS + "', fr = '" + req.body.FS + "', r1n = '" + req.body.R1N + "', r2n = '" + req.body.R2N + "', returned_auto = '" + req.body.ReturnedAuto + "', placed_auto = '" + req.body.PlacedAuto + "', delivered = '" + req.body.delivered_number + "', tallest_sky = '" + req.body.tallest_skyscraper + "', returned_drs = '" + req.body.returned_name + "', placed_drs = '" + req.body.placed + "', found_moved = '" + req.body.found + "', cap1 = '" + req.body.Capstone1 + "', cap2 = '" + req.body.Capstone2 + "', parked1 = '" + req.body.Parked1 + "', parked2 = '" + req.body.Parked2 + "', r1n = '" + req.body.robot1_level + "', r2n = '" + req.body.robot2_level + "', minor = '" + req.body.minor + "', major = '" + req.body.major + "', team1_0 = '" + req.body.team1_0 + "', team1_1 = '" + req.body.team1_1 + "', team1_2 = '" + req.body.team1_2 + "', team2_0 = '" + req.body.team2_0 + "', team2_1 = '" + req.body.team2_1 + "', team2_2 = '" + req.body.team2_2 + "'WHERE id = " + req.params.dataId);
+  return res.redirect('/scoringData')
+});
+router.post('/scoutEdit/update/:dataId', (req, res) => {
   for (var key in req.body) {
     if (req.body[key] == 'on')
       req.body[key] = 1
   }
-  console.log(req.body.found)
-  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', match_num = '" + req.body.match + "', field = '" + req.body.field + "', skystone1 = '" + req.body.skystone1 + "', skystone2 = '" + req.body.skystone2 + "', skystone3 = '" + req.body.skystone3 + "', skystone4 = '" + req.body.skystone4 + "', skystone5 = '" + req.body.skystone5 + "', skystone6 = '" + req.body.skystone6 + "', stone1 = '" + req.body.stone1 + "', stone2 = '" + req.body.stone2 + "', stone3 = '" + req.body.stone3 + "', stone4 = '" + req.body.stone4 + "', stone5 = '" + req.body.stone5 + "', stone6 = '" + req.body.stone6 + "', none1 = '" + req.body.none1 + "', none2 = '" + req.body.none2 + "', none3 = '" + req.body.none3 + "', none4 = '" + req.body.none4 + "', none5 = '" + req.body.none5 + "', none6 = '" + req.body.none6 + "', frs = '" + req.body.FRS + "', fr = '" + req.body.FS + "', r1n = '" + req.body.R1N + "', r2n = '" + req.body.R2N + "', returned_auto = '" + req.body.ReturnedAuto + "', placed_auto = '" + req.body.PlacedAuto + "', delivered = '" + req.body.delivered_number + "', tallest_sky = '" + req.body.tallest_skyscraper + "', returned_drs = '" + req.body.returned_name + "', placed_drs = '" + req.body.placed + "', found_moved = '" + req.body.found + "', cap1 = '" + req.body.Capstone1 + "', cap2 = '" + req.body.Capstone2 + "', parked1 = '" + req.body.Parked1 + "', parked2 = '" + req.body.Parked2 + "', r1n = '" + req.body.robot1_level + "', r2n = '" + req.body.robot2_level + "', minor = '" + req.body.minor + "', major = '" + req.body.major + "', team1_0 = '" + req.body.team1_0 + "', team1_1 = '" + req.body.team1_1 + "', team1_2 = '" + req.body.team1_2 + "', team2_0 = '" + req.body.team2_0 + "', team2_1 = '" + req.body.team2_1 + "', team2_2 = '" + req.body.team2_2 + "'WHERE id = " + req.params.dataId);
+  //db.query("UPDATE hawk.scout_data SET team_number = '" + req.body.team_num + "', move_auto = '" + req.body.MF + "', sense_auto = '" + req.body.SS + "', over_auto = '" + req.body.PDZ + "', collect_auto = '" + req.body.CS + "', place_auto = '" + req.body.FS + "', skystone3 = '" + req.body.skystone3 + "', skystone4 = '" + req.body.skystone4 + "', skystone5 = '" + req.body.skystone5 + "', skystone6 = '" + req.body.skystone6 + "', stone1 = '" + req.body.stone1 + "', stone2 = '" + req.body.stone2 + "', stone3 = '" + req.body.stone3 + "', stone4 = '" + req.body.stone4 + "', stone5 = '" + req.body.stone5 + "', stone6 = '" + req.body.stone6 + "', none1 = '" + req.body.none1 + "', none2 = '" + req.body.none2 + "', none3 = '" + req.body.none3 + "', none4 = '" + req.body.none4 + "', none5 = '" + req.body.none5 + "', none6 = '" + req.body.none6 + "', frs = '" + req.body.FRS + "', fr = '" + req.body.FS + "', r1n = '" + req.body.R1N + "', r2n = '" + req.body.R2N + "', returned_auto = '" + req.body.ReturnedAuto + "', placed_auto = '" + req.body.PlacedAuto + "', delivered = '" + req.body.delivered_number + "', tallest_sky = '" + req.body.tallest_skyscraper + "', returned_drs = '" + req.body.returned_name + "', placed_drs = '" + req.body.placed + "', found_moved = '" + req.body.found + "', cap1 = '" + req.body.Capstone1 + "', cap2 = '" + req.body.Capstone2 + "', parked1 = '" + req.body.Parked1 + "', parked2 = '" + req.body.Parked2 + "', r1n = '" + req.body.robot1_level + "', r2n = '" + req.body.robot2_level + "', minor = '" + req.body.minor + "', major = '" + req.body.major + "', team1_0 = '" + req.body.team1_0 + "', team1_1 = '" + req.body.team1_1 + "', team1_2 = '" + req.body.team1_2 + "', team2_0 = '" + req.body.team2_0 + "', team2_1 = '" + req.body.team2_1 + "', team2_2 = '" + req.body.team2_2 + "'WHERE id = " + req.params.dataId);
   return res.redirect('/scoringData')
 });
 
@@ -95,15 +112,25 @@ router.get('/dataEdit/delete/:dataId', (req, res) => {
     }
   });
 });
+router.get('/scoutEdit/delete/:dataId', (req, res) => {
+  console.log("GO")
+  db.query("DELETE FROM scout_data WHERE id  = " + req.params.dataId, function (err) {
+    if (err) throw err;
+    else {
+      return res.redirect('/scoutingData')
+    }
+  });
+});
 router.get('/scoutDownload', (req, res) => {
   db.query("SELECT * FROM `Hawk`.`scout_data` ORDER BY create_time DESC", function (err, results) {
     if (err) throw err;
     else {
+
       for (var i = 0; i < results.length; i++) {
         results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
       }
       const jsonData = JSON.parse(JSON.stringify(results));
-      const csvFields = ['alliance', 'team1_name', 'team2_name', 'match_num', 'field', 'skystone1', 'skystone2', 'skystone3', 'skystone4', 'skystone5', 'skystone6', 'stone1', 'stone2', 'stone3', 'stone4', 'stone5', 'stone6', 'none1', 'none2', 'none3', 'none4', 'none5', 'none6', 'frs', 'fr', 'r1n', 'r2n', 'returned_auto', 'placed_auto', 'delivered', 'tallest_sky', 'returned_drs', 'placed_drs', 'found_moved', 'cap1', 'cap2', 'parked1', 'parked2', 'r1l', 'r2l', 'minor', 'major', 'team1_0', 'team1_1', 'team1_2', 'team2_0', 'team2_1', 'team2_2', 'create_time', 'Author'];
+      const csvFields = ['alliance', 'team1_name', 'team2_name', 'match_nusxm', 'field', 'skystone1', 'skystone2', 'skystone3', 'skystone4', 'skystone5', 'skystone6', 'stone1', 'stone2', 'stone3', 'stone4', 'stone5', 'stone6', 'none1', 'none2', 'none3', 'none4', 'none5', 'none6', 'frs', 'fr', 'r1n', 'r2n', 'returned_auto', 'placed_auto', 'delivered', 'tallest_sky', 'returned_drs', 'placed_drs', 'found_moved', 'cap1', 'cap2', 'parked1', 'parked2', 'r1l', 'r2l', 'minor', 'major', 'team1_0', 'team1_1', 'team1_2', 'team2_0', 'team2_1', 'team2_2', 'create_time', 'Author'];
       const json2csvParser = new Json2csvParser({ csvFields });
       const csv = json2csvParser.parse(jsonData);
       fs.writeFile('ScoutingEntries.csv', csv, function (err) {
@@ -233,6 +260,8 @@ router.get('/scoutEdit/:dataId', (req, res) => {
   db.query("SELECT * FROM scout_data WHERE id = " + req.params.dataId, function (err, results) {
     if (err) throw err;
     else {
+      results[0]['add_teleop_d'] = results[0]['found_auto_d'].toString();
+      results[0]['add_end_d'] = results[0]['found_end_d'].toString();
       console.log(results[0]['team1_name'])
       return res.render('scoutEdit.ejs', {
         results: results,
@@ -328,6 +357,7 @@ router.get('/settings', (req, res) => {
   }
 });
 router.get('/calendar', (req, res) => {
+  calendarController.get_calendar;
   return res.render('calendar.ejs', {
     title: `Calendar « ${process.env.APP_NAME}`,
     gtag: process.env.GTAG,
@@ -385,26 +415,48 @@ router.get('/teamData', (req, res) => {
   });
 });
 router.get('/data', (req, res) => {
-  return res.render('data.ejs', {
-    title: `Data « ${process.env.APP_NAME}`,
+  if (validate) {
+    return res.render('data.ejs', {
+      id: ID,
+      title: `Data « ${process.env.APP_NAME}`,
+      gtag: process.env.GTAG,
+      dev: process.env.DEV === 'true',
+      appName: process.env.APP_NAME
+    });
+  }
+  else {
+    return res.redirect('/');
+  }
+});
+router.get('/scout', (req, res) => {
+  if (global.validate == true) {
+    return res.render('scout.ejs', {
+      date: moment().format('LLL'),
+      see: false,
+      title: `Scout « ${process.env.APP_NAME}`,
+      gtag: process.env.GTAG,
+      dev: process.env.DEV === 'true',
+      appName: process.env.APP_NAME
+    });
+  } else {
+    return res.redirect('/');
+  }
+});
+router.get('/newTeam', (req, res) => {
+  return res.render('team.ejs', {
+    title: `New Team « ${process.env.APP_NAME}`,
     gtag: process.env.GTAG,
     dev: process.env.DEV === 'true',
     appName: process.env.APP_NAME
   });
 });
-router.get('/scout', (req, res) => {
-  if (global.validate == true) {
-  return res.render('scout.ejs', {
-    date: moment().format('LLL'),
-    see: false,
-    title: `Scout « ${process.env.APP_NAME}`,
+router.get('/newTourney', (req, res) => {
+  return res.render('tournament.ejs', {
+    title: `New Tournament « ${process.env.APP_NAME}`,
     gtag: process.env.GTAG,
     dev: process.env.DEV === 'true',
     appName: process.env.APP_NAME
   });
-} else {
-  return res.redirect('/');
-}
 });
 router.get('/tournamentData', (req, res) => {
   return res.render('tournamentData.ejs', {
@@ -452,25 +504,25 @@ router.get('/scoreRed', (req, res) => {
 });
 router.get('/scoringData', (req, res) => {
   if (global.validate == true) {
-  db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {
-    if (err) throw err;
-    else {
-      for (var i = 0; i < results.length; i++) {
-        results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
-      }
+    db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {
+      if (err) throw err;
+      else {
+        for (var i = 0; i < results.length; i++) {
+          results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
+        }
 
-      return res.render('scoringData.ejs', {
-        results: results,
-        title: `Scoring Data « ${process.env.APP_NAME}`,
-        gtag: process.env.GTAG,
-        dev: process.env.DEV === 'true',
-        appName: process.env.APP_NAME
-      });
-    }
-  })
-} else { 
-  return res.redirect('/');
-}
+        return res.render('scoringData.ejs', {
+          results: results,
+          title: `Scoring Data « ${process.env.APP_NAME}`,
+          gtag: process.env.GTAG,
+          dev: process.env.DEV === 'true',
+          appName: process.env.APP_NAME
+        });
+      }
+    })
+  } else {
+    return res.redirect('/');
+  }
 });
 
 router.use((req, res) => {

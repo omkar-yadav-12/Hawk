@@ -4,12 +4,14 @@ const moment = require('moment')
 const startWeek = moment().startOf('month').week();
 const endWeek = moment().endOf('month').week();
 
-
-let calendar = []
+exports.get_calendar = function (req, res)
+{
+  let calendar = []
 for(var week = startWeek; week<endWeek;week++){
   calendar.push({
     week:week,
     days:Array(7).fill(0).map((n, i) => moment().week(week).startOf('week').clone().add(n + i, 'day'))
   })
 }
-console.log(calendar);
+console.log(calendar)
+};
