@@ -19,7 +19,7 @@
     "clientside-require": "^4.7.2",
     "dotenv": "^8.0.0",
     "download-csv": "^1.1.1",
-    "ejs": "^1.0.0",
+    "ejs": "^2.5.5",
     "export-to-csv": "^0.2.1",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
