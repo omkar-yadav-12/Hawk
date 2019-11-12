@@ -1,0 +1,284 @@
+</html>
+<% include navigation %>
+<style>
+    .header {
+        padding: 1px;
+        text-align: center;
+        background: grey;
+        color: black;
+        font-size: 1px;
+    }
+</style>
+
+<head>
+
+<body>
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/score.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </head>
+    <title>Data View: #<%=results[0]['team1_name']%> and #<%=results[0]['team2_name']%></title>
+    <div class="header">
+        <h1>Scored by <%=results[0]['Author']%></h1>
+    </div>
+    <div class=container>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1 Name</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['team1_name']%>" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Team 2 Name</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['team2_name']%>" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+    </div>
+    <div class=container>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="match">Match</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['match_num']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="field">Field</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['field']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+    </div>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Autonomous">
+        <span align="center" class="mdl-layout-title">Autonomous Period</span>
+        <thead>
+            <tr>
+                <th class="">Type</th>
+                <th>1st</th>
+                <th>2nd</th>
+                <th>3rd</th>
+                <th>4th</th>
+                <th>5th</th>
+                <th>6th</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td class="">Skystone</td>
+                <% for (var i = 1; i <= 6; i++) { %>
+                <% if (results[0]['skystone' + i] == 1) { %>
+                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" checked onclick="return false;" />
+                </td>
+                <% } else {%>
+                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" onclick="return false;" /></td>
+                <% } %>
+                <% } %>
+            </tr>
+            <tr>
+                <td class="">Stone</td>
+                <% for (var i = 1; i <= 6; i++) { %>
+                <% if (results[0]['stone' + i] == 1) { %>
+                <td><input type="checkbox" name="stone<%=i%>" id="stone<%=i%>" checked onclick="return false;" /></td>
+                <% } else {%>
+                <td><input type="checkbox" id="skystone<%=i%>" name="skystone<%=i%>" onclick="return false;" /></td>
+                <% } %>
+                <% } %>
+            </tr>
+            <tr>
+                <td class="">None</td>
+                <% for (var i = 1; i <= 6; i++) { %>
+                <% if (results[0]['none' + i] == 1) { %>
+                <td><input type="checkbox" name="none<%=i%>" id="none<%=i%>" checked onclick="return false;" /></td>
+                <% } else {%>
+                <td><input type="checkbox" id="none<%=i%>" name="none<%=i%>" onclick="return false;" /></td>
+                <% } %>
+                <% } %>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Reposition">
+        <td class="">First Returned Skystone</td>
+        <% if (results[0]['frs'] == 1) { %>
+        <td><input id="firstRet" type="checkbox" checked name="FRS" id="FRS" onclick="return false;" /></td>
+        <% } else { %>
+        <td><input id="firstRet" type="checkbox" name="FRS" id="FRS" onclick="return false;" /></td>
+        <% } %>
+        <td class="">Foundation Repositioned</td>
+        <% if (results[0]['fr'] == 1) { %>
+        <td><input id="firstRep" type="checkbox" checked name="FS" id="FS" onclick="return false;" /></td>
+        <% } else { %>
+        <td><input id="firstRep" type="checkbox" name="FS" id="FS" onclick="return false;" /></td>
+        <% } %>
+        <td class="">Robot 1 Navigated</td>
+        <% if (results[0]['r1n'] >= 1) { %>
+        <td><input id="R1N" type="checkbox" checked name="R1N" id="R1N" onclick="return false;" /></td>
+        <% } else { %>
+        <td><input id="R1N" type="checkbox" name="R1N" id="R1N" onclick="return false;" /></td>
+        <% } %>
+        <td class="">Robot 2 Navigated</td>
+        <% if (results[0]['r2n'] >= 1) { %>
+        <td><input type="checkbox" checked name="R2N" id="R2N" onclick="return false;" /></td>
+        <% } else { %>
+        <td><input id="R2N" type="checkbox" name="R2N" id="R2N" onclick="return false;" /></td>
+        <% } %>
+    </table>
+    <div class=container>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['returned_auto']%>"
+                pattern="^[0-9]{1,3}" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['placed_auto']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+    </div>
+
+    <span class="mdl-layout-title" align="center">Driver-Controlled Period</span>
+    <div class=container>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['delivered']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
+                Skyscraper</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['tallest_sky']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['returned_drs']%>"
+                pattern="^[0-9]{1,3}" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['placed_drs']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+    </div>
+
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Found">
+        <span align=center class="mdl-layout-title">End Game Period</span>
+        <td class="">Foundation Moved</td>
+        <% if (results[0]['found_moved'] == 1) { %>
+            <td><input type="checkbox" checked name="foundationMoved" id="foundationMoved" onclick="return false;" /></td>
+            <% } else { %>
+            <td><input type="checkbox" name="foundationMoved" id="foundationMoved" onclick="return false;" /></td>
+            <% } %>
+    </table>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Robots">
+        <thead>
+            <tr>
+                <th class=""></th>
+                <th>Robot One</th>
+                <th>Robot Two</th>
+            </tr>
+        </thead>
+        <tr>
+            <td class="">Capstone</td>
+            <% if (results[0]['cap1'] == 1) { %>
+            <td><input type="checkbox" checked name="Capstone1" id="Capstone1" onclick="return false;" /></td>
+            <% } else { %>
+            <td><input type="checkbox" name="Capstone1" id="Capstone1" onclick="return false;" /></td>
+            <% } %>
+            <% if (results[0]['cap2'] == 1) { %>
+            <td><input type="checkbox" checked name="Capstone2" id="Capstone2" onclick="return false;" /></td>
+            <% } else { %>
+            <td><input type="checkbox" name="Capstone2" id="Capstone2" onclick="return false;" /></td>
+            <% } %>
+        </tr>
+        <tr>
+            <td class="">Parked</td>
+            <% if (results[0]['parked1'] == 1) { %>
+            <td><input type="checkbox" checked name="Parked1" id="Parked1" onclick="return false;" /></td>
+            <% } else { %>
+            <td><input type="checkbox" name="Parked1" id="Parked1" onclick="return false;" /></td>
+            <% } %>
+            <% if (results[0]['parked2'] == 1) { %>
+            <td><input type="checkbox" checked name="Parked2" id="Parked2" onclick="return false;" /></td>
+            <% } else { %>
+            <td><input type="checkbox" name="Parked2" id="Parked2" onclick="return false;" /></td>
+            <% } %>
+        </tr>
+    </table>
+    <div class=container>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="robot1_level">Robot 1 Level</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['r1l']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="robot2_level">Robot 2 Level</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['r2l']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+    </div>
+
+    <span class="mdl-layout-title" align="center">Penalties</span>
+    <div class=container>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['minor']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['major']%>" pattern="^[0-9]{1,3}"
+                readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+    </div>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Cards">
+        <thead>
+            <tr>
+                <th class=""></th>
+                <th>No Show</th>
+                <th>Yellow Card</th>
+                <th>Red Card</th>
+            </tr>
+        </thead>
+        <tr>
+            <td class="">Team 1</td>
+            <% for (var i = 0; i <= 2; i++) { %>
+                <% if (results[0]['team1_'+ i] == 1) { %>
+            <td><input type="checkbox" checked id="team1_<%=i%>" name="team1_<%=i%>" onclick = "return false;" /></td>
+            <% } else {%>
+                <td><input type="checkbox" id="team1_<%=i%>" name="team1_<%=i%>" onclick = "return false;" /></td>
+                <% } %>
+            <% } %>
+        </tr>
+        <tr>
+            <td class="">Team 2</td>
+            <% for (var i = 0; i <= 2; i++) { %>
+                <% if (results[0]['team2_'+ i] == 1) { %>
+            <td><input type="checkbox" checked id="team2_<%=i%>" name="team2_<%=i%>" onclick = "return false;" /></td>
+            <% } else {%>
+                <td><input type="checkbox" id="team2_<%=i%>" name="team2_<%=i%>" onclick = "return false;" /></td>
+                <% } %>
+            <% } %>
+        </tr>
+    </table>
+    <a href="/scoringData" id="backButton"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+        <i class="material-icons">arrow_back</i>
+    </a>
+    </form>
+
+    </html>
+    <% include footer %>

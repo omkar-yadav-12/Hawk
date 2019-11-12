@@ -1,0 +1,86 @@
+<% include navigation %>
+<!DOCTYPE html>
+<html>
+
+  <title>Scouting Data</title>
+<style>
+    
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #bebdbd;
+}
+#exportButton {
+    position: fixed;
+    right: 2.5%;
+    bottom: 1%;
+}
+#new {
+  position: fixed;
+  background-color: black;
+  left:6%;
+  bottom: 1%;
+
+}
+</style>
+  
+
+</head>
+<body>
+    <link rel="stylesheet" href="/css/scoringButtons.css">
+<div class = header>
+<h2 align = "center">Scouting Data Entries</h2>
+</div>
+
+<% if (results != 0) { %>
+<table>
+  <tr>
+    <th>Team Number</th>
+    <th>Event Name</th>
+    <th>Date Created</th>
+    <th>Author</th>
+    <th>Actions</th>
+  </tr>
+
+  <% for (var i = 0; i < results.length; i++ ) { %>
+    <tr>
+    <td><%= results[i]['team_number']%></td>
+    <td><%= results[i]['event_name'] %></td>
+    <td><%= results[i]['create_time'] %></td>
+    <td><%= results[i]['author']%> </td>
+    <td><a class="mdl-navigation__link" href="http:/scoutView/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a class="mdl-navigation__link" href="http:/scoutEdit/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a  class="mdl-navigation__link" href="http:/scoutEdit/delete/<%=results[i]['id']%>"><i onclick = "return confirm('Are you sure you want to delete this entry?');" class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
+  </tr>
+   <% } %>
+ 
+ 
+</table>
+<% } %>
+</body>
+<a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+  <i class="material-icons">arrow_back</i>
+</a>
+<a href="/scout" id="new"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+    <i class="material-icons">add</i>
+</a>
+<a href="/scoutDownload" id="exportButton"
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
+</html>
+<script>
+// function sure() {
+//   sure = confirm("Are you sure you want to delete this entry?")
+//   return(sure)
+// }
+
+</script>
+

@@ -1,0 +1,85 @@
+<% include navigation %>
+<link rel="stylesheet" type="text/css" href="css/register.css" />
+<link rel="stylesheet" type="text/css" href="css/scoringButtons.css" />
+
+<head>
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+    <!-- Font Awesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<title>New Team</title>
+<style>
+    .util-center {
+        margin: auto;
+    }
+
+    .util-max-512px {
+        max-width: 512px;
+    }
+
+    .util-spacing-h--40px {
+        margin-top: 40px;
+        margin-bottom: 40px
+    }
+
+    .util-no-decoration {
+        text-decoration: none;
+    }
+</style>
+
+<body class="mdl-color--blue-grey-50">
+    <!-- REGISTER FORM -->
+    <div class="mdl-grid">
+        <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
+            <div class="mdl-card__title mdl-color--black">
+                <h2 class="mdl-card__title-text mdl-color-text--green">Add a New Team</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-grid">
+                <form method="POST" action="/team=True">
+                    <input type="hidden" name="action" value="register" />
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="team_number">Team Number</label>
+                        <input class="mdl-textfield__input" type="text" id="team_number" name="team_number"
+                            pattern="^{5,5}" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="school">School</label>
+                        <input class="mdl-textfield__input" type="text" id="school" name="school"
+                            pattern="^[A-z]{1,20}" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="location">Location</label>
+                        <input class="mdl-textfield__input" type="text" id="location" name="location" pattern="^[A-z0-9_-@]{3,15}$"
+                            required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="league">League</label>
+                        <input class="mdl-textfield__input" type="text" id="league" name="league"
+                            pattern="^[A-z0-9_-@]{3,15}$" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    
+                    <a href="/home" id="backButton"
+                        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+                        <i class="material-icons">arrow_back</i>
+                    </a>
+                    <input
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+                        type="submit" value="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Material Design Lite JavaScript -->
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
+    <!--<script type="text/javascript" src="/app/controllers/function.js"></script> -->
+</body>
