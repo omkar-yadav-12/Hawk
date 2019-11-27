@@ -24,16 +24,30 @@
 <div id="Home" class="tabcontent">
     <form method="POST" action="/dataEdit/update/<%=results[0]['id']%>">
         <div class=container>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="team_num">Team Number</label>
-                <input class="mdl-textfield__input mdl-color-text--black" type="text" id="team_num"
-                    value="<%=results[0]['team_number']%>" name="team_num" />
+                <select class="mdl-textfield__input" id="team_num" name="team_num" required>
+                    <option></option>
+                    <% for (var i = 0; i < teams.length; i++) { %>
+                        <% if (teams[i]['team_number'] == intend) { %>
+                            <option selected = selected value="<%=teams[i]['team_number']%>"><%=teams[i]['team_number']%></option>
+                       <%  } else { %>
+                      <option value="<%=teams[i]['team_number']%>"><%=teams[i]['team_number']%></option>
+                    <% } } %>
+                  </select>
                 <span class="mdl-textfield__error"></span>
             </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
-                <input class="mdl-textfield__input mdl-color-text--black" type="text" id="event_name"
-                    value="<%=results[0]['event_name']%>" name="event_name" required />
+                <select class="mdl-textfield__input" id="event_name" name="event_name" required>
+                    <option></option>
+                    <% for (var i = 0; i < events.length; i++) { %>
+                        <% if (events[i]['Name'] == needed) { %>
+                            <option selected = selected value="<%=events[i]['Name']%>"><%=events[i]['Name']%></option>
+                       <%  } else { %>
+                      <option value="<%=events[i]['Name']%>"><%=events[i]['Name']%></option>
+                    <% } } %>
+                  </select>
                 <span class="mdl-textfield__error"></span>
             </div>
         </div>

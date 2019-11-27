@@ -25,21 +25,37 @@
     </div>
     <form method="POST" action="/score=?">
         <div class=container>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-                <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1 Number</label>
-                <input class="mdl-textfield__input" type="text" pattern = "^[0-9]{2,6}$"  id="team_one" name="team_one" required />
-                <span class="mdl-textfield__error"></span>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-                <label class="mdl-textfield__label mdl-color-text--grey" for="team_two">Team 2 Number</label>
-                <input class="mdl-textfield__input" type="text"  pattern = "^[0-9]{2,6}$" id="team_two" name="team_two" required />
-                <span class="mdl-textfield__error"></span>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-                    <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
-                    <input class="mdl-textfield__input" type="text" id="event_name" name="event_name" required />
-                    <span class="mdl-textfield__error"></span>
-                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
+                        <select class="mdl-textfield__input" id="team_one" name="team_one" required>
+                          <option></option>
+                          <% for (var i = 0; i < name.length; i++) { %>
+                            <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+                          <% } %>
+                        </select>
+                        <label class="mdl-textfield__label" for="team_one">Team 1</label>
+                      </div>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
+                            <select class="mdl-textfield__input" id="team_two" name="team_two" required>
+                              <option></option>
+                              <% for (var i = 0; i < name.length; i++) { %>
+                                <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+                              <% } %>
+                            </select>
+                            <label class="mdl-textfield__label" for="team_two">Team 2</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
+                                <select class="mdl-textfield__input" id="event_name" name="event_name" required>
+                                  <option></option>
+                                  <% for (var i = 0; i < results1.length; i++) { %>
+                                    <% if (i == 0) { %>
+                                    <option selected = "selected"value="<%=results1[i]['Name']%>"><%=results1[i]['Name']%></option>
+                                  <% } else { %> 
+                                  <option value="<%=results1[i]['Name']%>"><%=results1[i]['Name']%></option>
+                                  <% } %>
+                                  <% } %>
+                                </select>
+                                <label class="mdl-textfield__label" for="event_name">Event Name</label>
+                              </div>
         </div>
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
@@ -85,7 +101,7 @@
                 <tr>
                     <td class="">None</td>
                     <% for (var i = 1; i <= 6; i++) { %>
-                    <td><input type="checkbox" name="none<%=i%>" id="none<%=i%>" /></td>
+                    <td><input type="checkbox" name="none<%=i%>" checked id="none<%=i%>" /></td>
                     <% } %>
                 </tr>
 
@@ -104,13 +120,13 @@
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
-                <input class="mdl-textfield__input" type="numeric" id="ReturnedAuto" name="ReturnedAuto"
+                <input class="mdl-textfield__input" type="numeric" value = 0 id="ReturnedAuto" name="ReturnedAuto"
                     pattern="^[0-9]{1,3}" required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
-                <input class="mdl-textfield__input" type="numeric" id="PlacedAuto" name="PlacedAuto" pattern="^[0-9]{1,3}"
+                <input class="mdl-textfield__input" type="numeric" value = 0 id="PlacedAuto" name="PlacedAuto" pattern="^[0-9]{1,3}"
                     required />
                 <span class="mdl-textfield__error"></span>
             </div>
@@ -120,28 +136,28 @@
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
-                <input class="mdl-textfield__input" type="numeric" id="delivered_number" name="delivered_number"
+                <input class="mdl-textfield__input" type="numeric" value = 0 id="delivered_number" name="delivered_number"
                     pattern="^[0-9]{1,3}" required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
                     Skyscraper</label>
-                <input class="mdl-textfield__input" type="numeric" id="tallest_skyscraper" name="tallest_skyscraper"
+                <input class="mdl-textfield__input" type="numeric" value = 0 id="tallest_skyscraper" name="tallest_skyscraper"
                     pattern="^[0-9]{1,3}" required />
                 <span class="mdl-textfield__error"></span>
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
-                <input class="mdl-textfield__input" type="numeric" id="returned_name" name="returned_name"
+                <input class="mdl-textfield__input" type="numeric" value = 0 id="returned_name" name="returned_name"
                     pattern="^[0-9]{1,3}" required />
                 <span class="mdl-textfield__error"></span>
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
-                <input class="mdl-textfield__input" type="numeric" id="placed" name="placed" pattern="^[0-9]{1,3}"
+                <input class="mdl-textfield__input" type="numeric" value = 0  id="placed" name="placed" pattern="^[0-9]{1,3}"
                     required />
                 <span class="mdl-textfield__error"></span>
             </div>
@@ -174,13 +190,13 @@
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="robot1_level">Robot 1 Level</label>
-                <input class="mdl-textfield__input" type="text" id="robot1_level" name="robot1_level"
+                <input class="mdl-textfield__input" type="text" value = 0 id="robot1_level" name="robot1_level"
                     pattern="^[0-9]{1,3}" required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="robot2_level">Robot 2 Level</label>
-                <input class="mdl-textfield__input" type="text" id="robot2_level" name="robot2_level"
+                <input class="mdl-textfield__input" type="text" value = 0 id="robot2_level" name="robot2_level"
                     pattern="^[0-9]{1,3}" required />
                 <span class="mdl-textfield__error"></span>
             </div>
@@ -190,13 +206,13 @@
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
-                <input class="mdl-textfield__input" type="text" id="minor" name="minor" pattern="^[0-9]{1,3}"
+                <input class="mdl-textfield__input" type="text" value = 0 id="minor" name="minor" pattern="^[0-9]{1,3}"
                     required />
                 <span class="mdl-textfield__error"></span>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
-                <input class="mdl-textfield__input" type="text" id="major" name="major" pattern="^[0-9]{1,3}"
+                <input class="mdl-textfield__input" type="text" value = 0 id="major" name="major" pattern="^[0-9]{1,3}"
                     required />
                 <span class="mdl-textfield__error"></span>
             </div>

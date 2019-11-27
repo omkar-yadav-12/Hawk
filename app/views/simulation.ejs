@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+
+  <title>Simulation</title>
+</head>
+
+
+<body>
+    <link rel="stylesheet" href="/css/scoringButtons.css">
+    <link rel="stylesheet" href="/css/table.css">
+<div class = header>
+<h2 align = "center">Simulation</h2>
+</div>
+
+<% if (final != 0) { %>
+<table>
+  <tr>
+    <th>Red 1</th>
+    <th>Red 2</th>
+    <th>Blue 1</th>
+    <th>Blue 2</th>
+    <th>OPR Score</th>
+    <th>W-L Percentage</th>
+  </tr>
+
+  <% for (var i = 0; i < final.length; i++ ) { %>
+    <tr>
+    <td><%= final[i][0][0]%></td>
+    <td><%= final[i][0][1] %></td>
+    <td><%= final[i][1][0]%></td>
+    <td><%= final[i][1][1] %></td>
+    <td><%= final[i][0][2] %> - <%= final[i][1][2] %></td>
+  </tr>
+   <% } %>
+ 
+ 
+</table>
+<% } %>
+</body>
+<!-- <a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+  <i class="material-icons">arrow_back</i>
+</a>
+
+<a href="/scoutDownload" id="exportButton"
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
+</html> -->
+
+

@@ -1,0 +1,34 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    color: black;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #bebdbd;
+}
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+#exportButton {
+    position: fixed;
+    right: 2.5%;
+    bottom: 1%;
+}
+
+#new {
+    position: fixed;
+    background-color: black;
+    left: 6%;
+    bottom: 1%;
+
+}

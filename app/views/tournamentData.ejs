@@ -2,51 +2,37 @@
 <html>
 
 <head>
-    <style>
-        .header {
-            padding: 1px;
-            text-align: center;
-            background: grey;
-            color: black;
-            font-size: 1px;
-        }
-
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-
-        #exportButton {
-            position: fixed;
-            right: 2.5%;
-            bottom: 1%;
-        }
-        #new {
-            position: fixed;
-            background-color: black;
-            left:6%;
-            bottom: 1%;
-
-        }
-    </style>
 
     <head>
         <link rel="stylesheet" href="/css/scoringButtons.css">
+        <link rel="stylesheet" href="/css/table.css">
         <div class=header>
             <h2 align="center">Tournament Data Entries</h2>
         </div>
+        <title>Tournament Data Entries</title>
+        <% if (results != 0) { %>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Actions</th>
+              </tr>
+            
+              <% for (var i = 0; i < results.length; i++ ) { %>
+                <tr>
+                <td><%= results[i]['Name']%></td>
+                <td><%= results[i]['Location'] %></td>
+                <td><%= results[i]['Date'] %></td>
+                <td><%= results[i]['Type']%> </td>
+                <td><a class="mdl-navigation__link" href="http:/scoutEdit/<%=results[i]['id']%>"><i class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a  class="mdl-navigation__link" href="http:/scoutEdit/delete/<%=results[i]['id']%>"><i onclick = "return confirm('Are you sure you want to delete this entry?');" class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
+              </tr>
+               <% } %>
+             
+             
+            </table>
+            <% } %>
         <a href="/data" id="backButton"
             class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
             <i class="material-icons">arrow_back</i>

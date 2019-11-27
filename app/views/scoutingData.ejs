@@ -3,41 +3,10 @@
 <html>
 
   <title>Scouting Data</title>
-<style>
-    
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #bebdbd;
-}
-#exportButton {
-    position: fixed;
-    right: 2.5%;
-    bottom: 1%;
-}
-#new {
-  position: fixed;
-  background-color: black;
-  left:6%;
-  bottom: 1%;
-
-}
-</style>
-  
-
 </head>
 <body>
     <link rel="stylesheet" href="/css/scoringButtons.css">
+    <link rel="stylesheet" href="/css/table.css">
 <div class = header>
 <h2 align = "center">Scouting Data Entries</h2>
 </div>
@@ -54,7 +23,7 @@ tr:nth-child(even) {
 
   <% for (var i = 0; i < results.length; i++ ) { %>
     <tr>
-    <td><%= results[i]['team_number']%></td>
+    <td><%= results[i]['identification']%></td>
     <td><%= results[i]['event_name'] %></td>
     <td><%= results[i]['create_time'] %></td>
     <td><%= results[i]['author']%> </td>
@@ -76,11 +45,5 @@ tr:nth-child(even) {
 <a href="/scoutDownload" id="exportButton"
   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
 </html>
-<script>
-// function sure() {
-//   sure = confirm("Are you sure you want to delete this entry?")
-//   return(sure)
-// }
 
-</script>
 

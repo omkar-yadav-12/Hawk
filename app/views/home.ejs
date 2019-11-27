@@ -33,10 +33,13 @@
 
 <body>
   <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <!-- <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+      <% if (results[0]['dis'] == 0) { %>
+        <% include background %>
+       <% } else { %>
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
       <div class="mdl-layout__header-row">
         <% if (results[0]['first_name'].length != 0) { %>
-        <span class="mdl-layout-title">Welcome <%=results[0]['first_name']%>!</span>
+        <span class="mdl-layout-title">Welcome <%=results[0]['first_name']%> <%=results[0]['last_name']%>!</span>
         <% } %>
 
         <div class="mdl-layout-spacer"></div>
@@ -57,7 +60,49 @@
           <li class="mdl-menu__item">Share</li>
         </ul>
       </div>
-    </header> -->
+    </header>
+    <head>
+        <div class = container>
+      <meta name="viewport"  content="width=device-width, initial-scale=1">
+      </head>
+      <body>
+      <div align = center class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"> 
+             <h1>Programmer</h1> 
+             <img src="/img/download.jpg">
+            
+          </div>
+          <div class="flip-card-back">
+            <h1>Tasks</h1> 
+            <p>Prepare for new robot</p> 
+            <p>Optimize Autonomous prorgrams</p>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- <div class = container2>
+        <meta name="viewport"  content="width=device-width, initial-scale=1">
+        </head>
+        <body>
+        <div align = center class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"> 
+               <h1>Events</h1> 
+
+              
+            </div>
+            <div class="flip-card-back">
+              <h1>Lothal 4</h1> 
+              <h1>Lothal 5</h1>
+            </div>
+          </div>
+        </div>
+        </div> -->
+      <% } %>
+      </body>
+
+
     <div class="demo-drawer mdl-layout__drawer mdl-color--black mdl-color--black">
       <header class="demo-drawer-header">
         <img src="/img/IMG_5656_50.jpg" class="demo-avatar">
@@ -67,8 +112,8 @@
         </div>
       </header>
       <nav class="demo-navigation mdl-navigation mdl-color--white-grey-10000">
-        <a class="mdl-navigation__link" href="http:/home"><i class="mdl-color-text--white material-icons"
-            role="presentation">home</i>Home</a>
+        <!-- <a class="mdl-navigation__link" href="http:/home"><i class="mdl-color-text--white material-icons"
+            role="presentation">home</i>Home</a> -->
         <a class="mdl-navigation__link" href="http:/score"><i class="mdl-color-text--white material-icons"
             role="presentation">book</i>Scoring</a>
         <a class="mdl-navigation__link" href="http:/scout"><i class="mdl-color-text--white material-icons"
@@ -78,23 +123,26 @@
         <% if (results[0]['team'] == 86960) { %>
         <a class="mdl-navigation__link" href="/announcements"><i
             class="mdl-color-text--white material-icons">announcement</i>Announcements</a>
-       
         <a class="mdl-navigation__link" href="http:/calendar"><i class="mdl-color-text--white material-icons"
             role="presentation">event</i>Calendar</a>
         <% } %>
         <a class="mdl-navigation__link" href="http:/users"><i class="mdl-color-text--white material-icons"
           role="presentation">people</i>Users</a>
-        <a class="mdl-navigation__link" href="/help"><i class="mdl-color-text--white material-icons"
-            role="presentation">help</i>Help</a>
         <a class="mdl-navigation__link" href="http:/settings"><i class="mdl-color-text--white material-icons"
             role="presentation">settings</i>Settings</a>
         <a class="mdl-navigation__link" href="http:/logout"><i class="mdl-color-text--white material-icons"
             role="presentation">arrow_back</i>Logout</a>
+          <% if (results[0]['dis'] == 1) { %>
+            <a class="mdl-navigation__link" href="http:/enable"><i class="mdl-color-text--white material-icons"
+              role="presentation">check</i>Enable</a>
+          <% } else { %>
+            <a class="mdl-navigation__link" href="http:/disable"><i class="mdl-color-text--white material-icons"
+              role="presentation">clear</i>Disable</a>
+            <% } %>
 
       </nav>
     </div>
-   
-    <% include background %>
+  
     
 
 

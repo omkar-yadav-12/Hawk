@@ -21,7 +21,7 @@
     </head>
     <title>Data View: #<%=results[0]['team1_name']%> and #<%=results[0]['team2_name']%></title>
     <div class="header">
-        <h1>Scored by <%=results[0]['Author']%></h1>
+        <h1>Scored by <%=results[0]['author']%></h1>
     </div>
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
@@ -34,6 +34,16 @@
             <input class="mdl-textfield__input" type="text" value="<%=results[0]['team2_name']%>" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['event_name']%>" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+        <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+            <label class="mdl-textfield__label mdl-color-text--grey" for="total">Total Points</label>
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['total']%>" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div> -->
     </div>
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
@@ -44,7 +54,7 @@
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col">
             <label class="mdl-textfield__label mdl-color-text--grey" for="field">Field</label>
-            <input class="mdl-textfield__input" type="text" value="<%=results[0]['field']%>" pattern="^[0-9]{1,3}"
+            <input class="mdl-textfield__input" type="text" value="<%=results[0]['field_num']%>" pattern="^[0-9]{1,3}"
                 readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -112,13 +122,13 @@
         <td><input id="firstRep" type="checkbox" name="FS" id="FS" onclick="return false;" /></td>
         <% } %>
         <td class="">Robot 1 Navigated</td>
-        <% if (results[0]['r1n'] >= 1) { %>
+        <% if (results[0]['r1n'] == 1) { %>
         <td><input id="R1N" type="checkbox" checked name="R1N" id="R1N" onclick="return false;" /></td>
         <% } else { %>
         <td><input id="R1N" type="checkbox" name="R1N" id="R1N" onclick="return false;" /></td>
         <% } %>
         <td class="">Robot 2 Navigated</td>
-        <% if (results[0]['r2n'] >= 1) { %>
+        <% if (results[0]['r2n'] == 1) { %>
         <td><input type="checkbox" checked name="R2N" id="R2N" onclick="return false;" /></td>
         <% } else { %>
         <td><input id="R2N" type="checkbox" name="R2N" id="R2N" onclick="return false;" /></td>

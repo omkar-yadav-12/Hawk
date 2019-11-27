@@ -21,17 +21,28 @@
 <form method="POST" action="/scout=?">
 <div id="Home" class="tabcontent">
     <div class=container>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="team_num">Team Number</label>
-            <input class="mdl-textfield__input mdl-color-text--black" type="number" pattern = "^[0-9]{2,6}$" id="team_two" name="team_two" required />
-            <span class="mdl-textfield__error"></span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-                <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
-                <input class="mdl-textfield__input mdl-color-text--black" type="number" id="event_name" name="event_name" required />
-                <span class="mdl-textfield__error"></span>
-            </div>
-      </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
+                <select class="mdl-textfield__input" id="team_num" name="team_num" required>
+                  <option></option>
+                  <% for (var i = 0; i < name.length; i++) { %>
+                    <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+                  <% } %>
+                </select>
+                <label class="mdl-textfield__label" for="team_num">Team Number</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--black">
+                  <select class="mdl-textfield__input" id="event_name" name="event_name" required>
+                    <option></option>
+                    <% for (var i = 0; i < results1.length; i++) { %>
+                      <% if (i == 0) { %>
+                      <option selected = "selected"value="<%=results1[i]['Name']%>"><%=results1[i]['Name']%></option>
+                    <% } else { %> 
+                    <option value="<%=results1[i]['Name']%>"><%=results1[i]['Name']%></option>
+                    <% } %>
+                    <% } %>
+                  </select>
+                  <label class="mdl-textfield__label" for="event_name">Event Name</label>
+                </div>
       </div>
       <a href="/home" id="backButton"
       class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
