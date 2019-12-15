@@ -1,6 +1,14 @@
 :root{
     --main-header-color: grey;
 }
+@import "@material/list/mdc-list";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/select/mdc-select";
+
+.demo-width-class {
+  width: 400px;
+}
 table {
     margin-left: auto;
     margin-right: auto;

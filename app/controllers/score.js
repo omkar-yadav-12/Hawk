@@ -39,8 +39,6 @@ exports.total_score  = (teams, results) => {
           }
         }
       }
-      var desired = null;
-      var desired1 = null;
       if (results[i]['frs'] == 1) t += 10
       if (results[i]['fr'] == 1) t += 10
       if (results[i]['r1n'] == 1) t += 5

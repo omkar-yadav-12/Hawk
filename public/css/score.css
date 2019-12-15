@@ -19,6 +19,11 @@ table {
    left:2.5%;
    bottom: 1%;
 }
+#points{
+    position: fixed;
+    left: 7.5%;
+   bottom: 1%;
+}
 #resetButton {
     position: fixed;
     background-color: black;
@@ -30,3 +35,9 @@ table {
     right: 2.5%;
     bottom: 1%;
 }
+.mdl-data-table{
+    color: #FB667A
+  }
+  .mdl-textfield__label{
+    color: #FB667A
+  }

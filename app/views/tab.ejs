@@ -1,15 +1,14 @@
 <%include navigation%>
 <!DOCTYPE html>
 <html>
-    <title>Simulation</title>
+<title>Simulation</title>
+
 <head>
-    <div class=header>
-        <h2><%=final.length%> Combinations</h2>
-    </div>
+
 <body>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
     <link rel='stylesheet' href='/css/hawk.css' />
     <link rel='stylesheet' href='/css/simal.css' />
     <link rel="stylesheet" href="/css/scoringButtons.css">
@@ -18,22 +17,38 @@
 
 <body>
 
-    <button class="tablink" onclick="openPage('Simulation', this, 'green')" id="defaultOpen">Simulation</button>
-    <button class="tablink" onclick="openPage('Results', this, 'green')">Results</button>
+    <button class="tablink" onclick="openPage('Simulation', this, 'yellow')" color=black
+        id="defaultOpen">Simulation</button>
+    <button class="tablink" onclick="openPage('Results', this, 'yellow')">Results</button>
 
     <div id="Simulation" class="tabcontent">
 
+        <h1> <span class="red"><%=final.length%> Combinations</pan>
+        </h1>
 
-        
-        <table>
-            <tr>
-                <th>Red 1</th>
-                <th>Red 2</th>
-                <th>Blue 1</th>
-                <th>Blue 2</th>
-                <th>OPR Score</th>
-                <th>W-L Score</th>
-            </tr>
+        <table class=container>
+            <thead>
+                <tr>
+                    <th>
+                        <h1>Red 1</h1>
+                    </th>
+                    <th>
+                        <h1>Red 2</h1>
+                    </th>
+                    <th>
+                        <h1>Blue 1</h1>
+                    </th>
+                    <th>
+                        <h1>Blue 2</h1>
+                    </th>
+                    <th>
+                        <h1>OPR Score</h1>
+                    </th>
+                    <th>
+                        <h1>W-L Score</h1>
+                    </th>
+                </tr>
+            </thead>
 
             <% for (var i = 0; i < final.length; i++ ) { %>
             <tr>
@@ -45,35 +60,51 @@
                 <td><%= final[i][0][5] %> - <%= final[i][1][5] %></td>
             </tr>
             <% } %>
+
         </table>
 
     </div>
 
     <div id="Results" class="tabcontent">
-        <table>
-        <tr>
-            <th>Rank</th>
-            <th>Team Name</th>
-            <th>OPR Record</th>
-            <th>OPR Percentage</th>
-            <th>W-L Record</th>
-            <th>W-L Percentage</th>
-        </tr>
-        <% for (var i = 0; i < scores.length; i++ ) { %>
-          <tr>
-            <td><%=i+1%></td>
-            <td><%=scores[i][1]%></td>
-            <td><%=scores[i][3]%> - <%=scores[i][4]%> - <%=scores[i][5]%></td>
-            <td><%=scores[i][6]%>%</td>
-            <td><%=scores[i][8]%> - <%=scores[i][9]%> - <%=scores[i][10]%></td>
-            <td><%=scores[i][11]%>%</td>
-        </tr>
+        <table class=container>
+            <thead>
+                <tr>
+                    <th>
+                        <h1>Rank</h1>
+                    </th>
+                    <th>
+                        <h1>Team Name</h1>
+                    </th>
+                    <th>
+                        <h1>OPR Record</h1>
+                    </th>
+                    <th>
+                        <h1>OPR Percentage</h1>
+                    </th>
+                    <th>
+                        <h1>W-L Record</h1>
+                    </th>
+                    <th>
+                        <h1>W-L Percentage</h1>
+                    </th>
+                </tr>
+            </thead>
+            <% for (var i = 0; i < scores.length; i++ ) { %>
+            <tr>
+                <td><%=i+1%></td>
+                <td><%=scores[i][1]%></td>
+                <td><%=scores[i][3]%> - <%=scores[i][4]%> - <%=scores[i][5]%></td>
+                <td><%=scores[i][6]%>%</td>
+                <td><%=scores[i][8]%> - <%=scores[i][9]%> - <%=scores[i][10]%></td>
+                <td><%=scores[i][11]%>%</td>
+            </tr>
 
-        <% } %>
-    </table>
-    
+            <% } %>
+        </table>
+
     </div>
-    <a href="/simSel" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+    <a href="/simSel" id="backButton"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
         <i class="material-icons">arrow_back</i>
     </a>
 

@@ -1,55 +1,32 @@
 <% include navigation %>
-<title>Data</title>
-<link rel="stylesheet" href="/css/scoringButtons.css">
+<html>
+        <link rel="stylesheet" href="/css/scoringButtons.css" />
 <style>
-#scoreData {
-    position: absolute;
-    top: 50%;
-    left: 45%;
-}
-#tourneyData {
-    position: absolute;
-    top: 42.5%;
-    left: 45%;
-
-}
-#teamData {
-    position: absolute;
-    top: 35%;
-    left: 45%;
-
-}
-#scoutData {
-    position: absolute;
-    top: 57.5%;
-    left: 45%;
-}
-
-#simulation {
-    position: absolute;
-    top: 65%;
-    left: 45%;
-}
-
+    
+    #redButton {
+        position: absolute;
+        top: 50%;
+        left: 47.5%;
+    }
+    #blueButton {
+        position: absolute;
+        top: 42.5%;
+        left: 47.5%;
+    }
 </style>
- <a href="/home" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+<title>Data</title>
+<h1> <span class="red">Pick a DataBase!</pan></h1>
+<div class = "buttonHolder">
+<a href="/localData" id="redButton"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Local</a>
+</div>
+<div class = "buttonHolder">
+<a href="/apiData" id="blueButton"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">API</a>
+</div>
+<a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
     <i class="material-icons">arrow_back</i>
 </a>
-<% if (ID == 'omyad21@icstudents.org') { %>
-<a href="/tournamentData" id="tourneyData"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Tournament Data</a>
-    <% } %>  
-<a href="/teamData" id="teamData"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Team Data</a>
-
-<a href="/scoringData" id="scoreData"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Scoring Data</a>
-
-<a href="/scoutingData" id="scoutData"
-class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Scouting Data</a>
-
-<a href="/simSel" id="simulation"
-class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Simulation</a>
 
 
-
+</html>

@@ -1,0 +1,101 @@
+<% include navigation %>
+<style>
+    .container1 {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+</style>
+<title>Team Select</title>
+<!-- <script> var team = JSON.parse("<%=teams%>"); 
+    for (obj in team) {
+        alert(team[obj])
+    }
+</script> -->
+
+<head>
+    <h1> <span class="red">Team Search</pan>
+    </h1>
+</head>
+<div class=container1>
+    <div
+        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="search">Search</label>
+        <input class="mdl-textfield__input" type="numeric" id="search" value="<%=name%>" name="search" autofocus
+            onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+            oninput="window.open('/teamApi/' + this.value , '_self')" />
+        <span class="mdl-textfield__error"></span>
+    </div>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
+        <select class="mdl-textfield__input" oninput=change(this.value) id="team_one" name="team_one">
+            <option></option>
+            <% for (var i = 0; i < teams.length; i++) { %>
+            <option id="<%=i%>" value="<%=teams[i]['team_number']%>"><%=teams[i]['team_number']%></option>
+            <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="team_one">Team 1</label>
+    </div>
+</div>
+<!-- <a id="new" onclick=add()
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab  mdl-color--black mdl-color-text--yellow">
+        <i class="material-icons">add</i>
+    </a> -->
+<table class=container>
+    <thead>
+        <tr>
+            <th>
+                <h1>Team Number</h1>
+            </th>
+            <th>
+                <h1>Name</h1>
+            </th>
+            <th>
+                <h1>Location</h1>
+            </th>
+            <!-- <th>
+                    <h1>OPR</h1>
+                </th>
+                <th>
+                    <h1>W-L</h1>
+                </th>
+            -->
+                <th>
+                    <h1>Actions</h1>
+                </th> 
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i = 0; i < teams.length; i++) { %>
+        <tr>
+            <td><%=teams[i].team_key %></td>
+            <td><%=teams[i].team_name_short %></td>
+            <td><%=teams[i].city %>, <%= teams[i].state_prov %></td>
+            <!-- <td><%=teams[i].team_key %></td> -->
+            <td><a class="mdl-navigation__link" href="http:/api/<%=teams[i].team_key%>/1920/matches"><i
+                class="mdl-color-text--black material-icons" role="presentation">book</i></a>
+                <a class="mdl-navigation__link" href="http:/api/<%=teams[i].team_key%>/1920/events"><i
+                    class="mdl-color-text--black material-icons" role="presentation">event</i></a></td>
+
+            <% } %>
+        </tr>
+    </tbody>
+</table>
+
+
+<a href="/data" id="backButton"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+    <i class="material-icons">arrow_back</i>
+</a>
+<script>
+
+    change = (value) => {
+        if (value.length > 0) {
+
+            window.open('/teamApi/' + value, '_self')
+            document.getElementById("search").value = value
+        }
+    }
+</script>

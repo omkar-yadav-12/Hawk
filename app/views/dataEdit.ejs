@@ -1,26 +1,25 @@
 </html>
 <% include navigation %>
 <style>
-    .header {
-        padding: 1px;
-        text-align: center;
-        background: grey;
-        color: black;
-        font-size: 1px;
-    }
-
-    #submitButton {
-        position: fixed;
-        right: 2.5%;
-        bottom: 1%;
-    }
-
-    #resetButton {
-        position: fixed;
+   .mdl-data-table{
         background-color: black;
-        right: 9.5%;
-        bottom: 1%;
-    }
+    color: #FB667A
+  }
+  .mdl-textfield__label{
+    color: #FB667A
+  }
+  th{
+      color: yellow
+  }
+  .mdl-color-text--red{
+    color: #FB667A
+  }
+  .mdl-textfield {
+    color: yellow
+  }
+  .mdl-layout-title{
+     color: #185875
+  }
 </style>
 
 <head>
@@ -33,9 +32,7 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </head>
     <form method=POST action="/dataEdit/update/<%=results[0]['id']%>">
-        <div class="header">
-            <h1>Scored by <%=results[0]['author']%></h1>
-        </div>
+        <h1> <span class="red">Scored by <%=results[0]['author']%></pan></h1>
         <div class=container>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
                 <label class="mdl-textfield__label mdl-color-text--grey" for="team_one">Team 1 Name</label>
@@ -70,17 +67,17 @@
                 <span class="mdl-textfield__error"></span>
             </div>
         </div>
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Autonomous">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black" id="Autonomous">
             <span align="center" class="mdl-layout-title">Autonomous Period</span>
             <thead>
                 <tr>
-                    <th class="">Type</th>
-                    <th>1st</th>
-                    <th>2nd</th>
-                    <th>3rd</th>
-                    <th>4th</th>
-                    <th>5th</th>
-                    <th>6th</th>
+                    <th class= mdl-color-text--yellow>Type</th>
+                    <th class= mdl-color-text--yellow>1st</th>
+                    <th class= mdl-color-text--yellow>2nd</th>
+                    <th class= mdl-color-text--yellow>3rd</th>
+                    <th class= mdl-color-text--yellow>4th</th>
+                    <th class= mdl-color-text--yellow>5th</th>
+                    <th class= mdl-color-text--yellow>6th</th>
                 </tr>
             </thead>
             <tbody>
@@ -119,7 +116,7 @@
 
             </tbody>
         </table>
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Reposition">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black" id="Reposition">
             <td class="">First Returned Skystone</td>
             <% if (results[0]['frs'] == 1) { %>
             <td><input id="firstRet" type="checkbox" checked name="FRS" id="FRS" /></td>
@@ -191,7 +188,7 @@
             </div>
         </div>
 
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Found">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black" id="Found">
             <span align=center class="mdl-layout-title">End Game Period</span>
             <td class="">Foundation Moved</td>
             <% if (results[0]['found_moved'] == 1) { %>
@@ -202,12 +199,12 @@
 
 
         </table>
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Robots">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black" id="Robots">
             <thead>
                 <tr>
                     <th class=""></th>
-                    <th>Robot One</th>
-                    <th>Robot Two</th>
+                    <th class= mdl-color-text--yellow>Robot One</th>
+                    <th class= mdl-color-text--yellow>Robot Two</th>
                 </tr>
             </thead>
             <tr>
@@ -267,13 +264,13 @@
                 <span class="mdl-textfield__error"></span>
             </div>
         </div>
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="Cards">
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black" id="Cards">
             <thead>
                 <tr>
                     <th class=""></th>
-                    <th>No Show</th>
-                    <th>Yellow Card</th>
-                    <th>Red Card</th>
+                    <th class= mdl-color-text--yellow>No Show</th>
+                    <th class= mdl-color-text--yellow>Yellow Card</th>
+                    <th class= mdl-color-text--yellow>Red Card</th>
                 </tr>
             </thead>
             <tr>
@@ -298,13 +295,13 @@
             </tr>
         </table>
         <a href="/scoringData" id="backButton"
-            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
             <i class="material-icons">arrow_back</i>
         </a>
         <a href="http:/dataEdit/<%=results[0]['id']%>" id="resetButton"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Reset</a>
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Reset</a>
         <input id="submitButton" type="submit"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
             value="Update">
     </form>
     </form>

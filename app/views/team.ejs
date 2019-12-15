@@ -30,7 +30,7 @@
     }
 </style>
 
-<body class="mdl-color--blue-grey-50">
+<body>
     <!-- REGISTER FORM -->
     
     <div class="mdl-grid">
@@ -43,13 +43,13 @@
                     <input type="hidden" name="action" value="register" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="team_number">Team Number</label>
-                        <input class="mdl-textfield__input" type="text" id="team_number" name="team_number"
+                        <input class="mdl-textfield__input" type="text" id="team_number" name="team_number" 
                             pattern="^{5,5}" required />
                         <span class="mdl-textfield__error"></span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                             <label class="mdl-textfield__label mdl-color-text--grey" for="name">Name</label>
-                            <input class="mdl-textfield__input" type="text" id="name" name="name"
+                            <input class="mdl-textfield__input"  type="text" id="name" name="name"
                                 pattern="^[a-zA-Z0-9\s]{1,40}" required />
                             <span class="mdl-textfield__error"></span>
                         </div>
@@ -73,11 +73,11 @@
                     </div>
                     
                     <a href="/teamData" id="backButton"
-                        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+                        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
                         <i class="material-icons">arrow_back</i>
                     </a>
                     <input
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
                         type="submit" value="submit">
                 </form>
             </div>
@@ -90,3 +90,6 @@
     <script type="text/javascript" src="/js/register.js"></script>
     <!--<script type="text/javascript" src="/app/controllers/function.js"></script> -->
 </body>
+<script>
+    
+</script>

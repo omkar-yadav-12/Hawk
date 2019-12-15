@@ -1,0 +1,45 @@
+
+<% include navigation %>
+<table class=container>
+    <thead>
+        <tr>
+            <th>
+                <h1>Tournament Name</h1>
+            </th>
+            <th>
+                <h1>Venue</h1>
+            </th>
+            <th>
+                <h1>City</h1>
+            </th>
+            <th>
+                <h1>State</h1>
+            </th>
+            <th>
+                <h1>Date</h1>
+            </th>
+            <th>
+                <h1>View</h1>
+            </th>
+            <!-- <th>
+                <h1>W-L</h1>
+            </th>
+            <th>
+                <h1>Select</h1>
+            </th>  -->
+        </tr>
+    </thead>
+<tbody>
+    <% for (let i = 0; i < array.length; i++ ) { %>
+    <tr>
+        <td><%= array[i].event_name%></td>
+        <td><%= array[i].venue%></td>
+        <td><%= array[i].city %></td>
+        <td><%= array[i].state_prov %></td>
+        <td><%= array[i].start_date%></td>
+        <td><a class="mdl-navigation__link" href="http:/api/event/<%=array[i].event_key%>/matches"><i
+            class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a></td>
+    </tr>
+    <% } %>
+</tbody>
+</table>

@@ -1,0 +1,34 @@
+import { ISerializable } from './ISerializable';
+import Team from './Team';
+export default class ModifiedTeam implements ISerializable {
+    private _newTeam;
+    private _originalTeam;
+    private _discNameShort;
+    private _discNameLong;
+    private _discZipCode;
+    private _discCity;
+    private _discState;
+    private _discCountry;
+    private _discWebsite;
+    constructor();
+    toJSON(): object;
+    fromJSON(json: any): ModifiedTeam;
+    get newTeam(): Team;
+    set newTeam(value: Team);
+    get originalTeam(): Team;
+    set originalTeam(value: Team);
+    get discNameShort(): boolean;
+    set discNameShort(value: boolean);
+    get discNameLong(): boolean;
+    set discNameLong(value: boolean);
+    get discZipCode(): boolean;
+    set discZipCode(value: boolean);
+    get discCity(): boolean;
+    set discCity(value: boolean);
+    get discState(): boolean;
+    set discState(value: boolean);
+    get discCountry(): boolean;
+    set discCountry(value: boolean);
+    get discWebsite(): boolean;
+    set discWebsite(value: boolean);
+}

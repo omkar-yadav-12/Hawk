@@ -2,50 +2,51 @@
 <!DOCTYPE html>
 
 <html>
-
+<style>
+</style>
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <link rel="stylesheet" href="/css/scoringButtons.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script defer src="/js/scout.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/css/hawk.css' />
+    
     <link rel='stylesheet' href='/css/scout.css' />
+    <link rel='stylesheet' href='/css/score.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scout</title>
 </head>
 
-<button class="tablink" onclick="openPage('Home', this, 'green')" id="defaultOpen">Info</button>
-<button class="tablink" onclick="openPage('News', this, 'green')">Autonomous</button>
-<button class="tablink" onclick="openPage('Contact', this, 'green')">Teleop</button>
-<button class="tablink" onclick="openPage('About', this, 'green')">End Game</button>
+<button class="tablink" onclick="openPage('Home', this, 'yellow')" id="defaultOpen">Info</button>
+<button class="tablink" onclick="openPage('News', this, 'yellow')">Autonomous</button>
+<button class="tablink" onclick="openPage('Contact', this, 'yellow')">Teleop</button>
+<button class="tablink" onclick="openPage('About', this, 'yellow')">End Game</button>
 
 <div id="Home" class="tabcontent">
     <div class=container>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="team_num">Team Number</label>
-            <input class="mdl-textfield__input mdl-color-text--black" type="text" id="team_num"
+            <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="team_num"
                 value="<%=results[0]['team_number']%>" name="team_num" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="event_name">Event Name</label>
-            <input class="mdl-textfield__input mdl-color-text--black" type="text" id="event_name"
+            <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="event_name"
                 value="<%=results[0]['event_name']%>" name="event_name" required />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
 </div>
 <a href="/scoutingData" id="backButton"
-    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
     <i class="material-icons">arrow_back</i>
 </a>
 
 </div>
 
 <div id="News" class="tabcontent">
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black">
         <td class="">Move Foundation</td>
         <% if (results[0]['move_auto'] == 1 ) { %>
         <td><input id="firstRet" type="checkbox" onclick="return false;" readonly checked name="MF" id="MF" /></td>
@@ -82,33 +83,33 @@
     </table>
     <div class=container1>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=expand1
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=expand1
                 id="expand1"><%=results[0]['found_auto_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand_label1  for="expand1">Foundation
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand_label1  for="expand1">Foundation
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" type="text" readonly rows="10" name=expand2
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" type="text" readonly rows="10" name=expand2
                 id="expand2"><%=results[0]['sense_auto_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand_label2 for="expand2">Sensing
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand_label2 for="expand2">Sensing
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" type="text" readonly rows="10" name=expand3
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" type="text" readonly rows="10" name=expand3
                 id="expand3"><%=results[0]['park_auto_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand_label3 for="expand3">Parking
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand_label3 for="expand3">Parking
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" type="text" readonly rows="10" name=expand4
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" type="text" readonly rows="10" name=expand4
                 id="expand4"><%=results[0]['stone_auto_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand_label4 for="expand4">Stones
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand_label4 for="expand4">Stones
                 Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=add_auto
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=add_auto
                 id="add_auto"><%=results[0]['add_auto_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=add_label  for="add_auto">Additional
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=add_label  for="add_auto">Additional
                     Information</label> -->
         </div>
 
@@ -116,7 +117,7 @@
 </div>
 
 <div id="Contact" class="tabcontent">
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black">
         <td class="">Move Foundation</td>
         <% if (results[0]['found_teleop'] == 1 ) { %>
         <td><input id="firstRet" type="checkbox" onclick="return false;" readonly checked name="MF_" id="MF_" /></td>
@@ -138,22 +139,22 @@
     </table>
     <div class=container1>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=expand_1
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=expand_1
                 id="expand_1"><%=results[0]['found_teleop_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand__label1 for="expand_1">Foundation
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand__label1 for="expand_1">Foundation
                     Description</label> -->
         </div>
 
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=expand_2
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=expand_2
                 id="expand_2"><%=results[0]['stone_teleop_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand__label2 for="expand_2">Stone
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand__label2 for="expand_2">Stone
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10"
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10"
                 name=additional_teleop id="additional_teleop"><%=results[0]['add_teleop_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=additional_teleop_label 
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=additional_teleop_label 
                     for="additional_teleop">Additional Information
                   </label> -->
         </div>
@@ -161,7 +162,7 @@
 </div>
 
 <div id="About" class="tabcontent">
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color-text--black">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-color--black">
         <td class="">Move Foundation</td>
         <% if (results[0]['found_end'] == 1 ) { %>
         <td><input id="firstRet" type="checkbox" onclick="return false;" readonly checked name="MF_EG" id="MF_EG" />
@@ -193,27 +194,27 @@
     </table>
     <div class=container1>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=expand__1
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=expand__1
                 id="expand__1"><%=results[0]['found_end_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand___label1 for="expand__1">Foundation
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand___label1 for="expand__1">Foundation
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=expand__2
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=expand__2
                 id="expand__2"><%=results[0]['parki_end_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand___label2 for="expand__2">Parking
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand___label2 for="expand__2">Parking
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10" name=expand__3
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10" name=expand__3
                 id="expand__3"><%=results[0]['stones_end_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=expand___label3 for="expand__3">Stones
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=expand___label3 for="expand__3">Stones
                     Description</label> -->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input mdl-color-text--black" readonly type="text" rows="10"
+            <textarea class="mdl-textfield__input  mdl-color-text--yellow" readonly type="text" rows="10"
                 name=additional_end id="additional_end"><%=results[0]['add_end_d']%></textarea>
-            <!-- <label class="mdl-textfield__label mdl-color-text--black" id=additional_end_label 
+            <!-- <label class="mdl-textfield__label  mdl-color-text--yellow" id=additional_end_label 
                     for="additional_end">Additional Information
                   </label> -->
         </div>

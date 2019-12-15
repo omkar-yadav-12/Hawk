@@ -1,0 +1,64 @@
+<% include navigation %>
+
+<head>
+    <h1> <span class="red">Matches</pan>
+    </h1>
+    <table class=container>
+        <thead>
+            <tr>
+                <th>
+                    <h1>Name</h1>
+                </th>
+                <th>
+                    <h1>Red 1</h1>
+                </th>
+                <th>
+                    <h1>Red 2</h1>
+                </th>
+                <th>
+                    <h1>Blue 1</h1>
+                </th>
+                <th>
+                    <h1>Blue 2</h1>
+                </th>
+                <th>
+                    <h1>Auto Score</h1>
+                </th>
+                <th>
+                    <h1>Teleop Score</h1>
+                </th>
+                <th>
+                    <h1>End Score</h1>
+                </th>
+                <th>
+                    <h1>Total Score</h1>
+                </th>
+                <th>
+                    <h1>View</h1>
+                </th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < array.length; i++ ) { %>
+            <tr>
+                <td><%= array[i]._matchName%></td>
+                <td><%= array[i]['_matchParticipants'][0]._teamKey %></td>
+                <td><%= array[i]['_matchParticipants'][1]._teamKey %></td>
+                <td><%= array[i]['_matchParticipants'][2]._teamKey %></td>
+                <td><%= array[i]['_matchParticipants'][3]._teamKey %></td>
+                <td><%= array[i]._redAutoScore%> - <%=array[i]._blueAutoScore%></td>
+                <td><%= array[i]._redTeleScore%> - <%=array[i]._blueTeleScore%></td>
+                <td><%= array[i]._redEndScore%> - <%=array[i]._blueEndScore%></td>
+                <td><%= array[i]._redScore%> - <%=array[i]._blueScore%></td>
+                <td><a class="mdl-navigation__link"
+                        href="http:/api/event/<%=array[i]._eventKey%>/<%=array[i]._matchKey%>"><i
+                            class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <a href="/api/event/<%=array[0]._eventKey%>/rankings" id="exportButton"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Rankings</a>
+    

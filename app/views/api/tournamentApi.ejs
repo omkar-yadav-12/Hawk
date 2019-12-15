@@ -1,0 +1,91 @@
+<%include navigation%>
+
+<title>Tournament Search</title>
+<script>let array = "<%=array%>"; </script>
+<style>
+ .container1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+<head>
+    <h1> <span class="red">Tournaments</pan>
+    </h1>
+</head>
+<% if (keyword.length > 0) { %>
+    <div class = container1>
+    <div
+    class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+    <label class="mdl-textfield__label mdl-color-text--grey" for="search">Query Event Names by Keywords</label>
+    <input class="mdl-textfield__input" type="numeric" id="search" value = "<%=keyword%>" name="search" autofocus
+        onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+        oninput="window.open('/api/event/' + this.value , '_self')" />
+    <span class="mdl-textfield__error"></span>
+</div>
+</div>
+<% } else { %>
+    <div class = container1>
+<div
+    class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+    <label class="mdl-textfield__label mdl-color-text--grey" for="search">Query Event Names by Keywords</label>
+    <input class="mdl-textfield__input" type="numeric" id="search"  name="search" autofocus
+        onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+        oninput="window.open('/api/event/' + this.value , '_self')" />
+    <span class="mdl-textfield__error"></span>
+</div>
+</div>
+<% } %>
+<!-- <form method="POST" action="/simulation=?"> -->
+    <table class=container>
+        <thead>
+            <tr>
+                <th>
+                    <h1>Tournament Name</h1>
+                </th>
+                <th>
+                    <h1>Venue</h1>
+                </th>
+                <th>
+                    <h1>City</h1>
+                </th>
+                <th>
+                    <h1>State</h1>
+                </th>
+                <th>
+                    <h1>Date</h1>
+                </th>
+                <th>
+                    <h1>View</h1>
+                </th>
+                <!-- <th>
+                    <h1>W-L</h1>
+                </th>
+                <th>
+                    <h1>Select</h1>
+                </th>  -->
+            </tr>
+        </thead>
+<tbody>
+        <% for (let i = 0; i < array.length; i++ ) { %>
+        <tr>
+            <td><%= array[i].event_name%></td>
+            <td><%= array[i].venue%></td>
+            <td><%= array[i].city %></td>
+            <td><%= array[i].state_prov %></td>
+            <td><%= array[i].start_date%></td>
+            <td><a class="mdl-navigation__link" href="http:/api/event/<%=array[i].event_key%>/matches"><i
+                class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a></td>
+        </tr>
+        <% } %>
+    </tbody>
+    </table>
+    <!-- <input id="submitButton" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
+        value="Generate"> -->
+<!-- </form> -->
+<a onclick = window.history.back() id="backButton"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+    <i class="material-icons">arrow_back</i>
+</a>

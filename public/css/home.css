@@ -6,7 +6,7 @@ font-family: Arial, Helvetica;
   background-color: transparent;
   position: absolute;
   top: 25%;
-  margin-left: 50%;
+  margin-left: 46%;
   width: 350px;
   height: 350px;
   perspective: 1000px;
@@ -39,7 +39,7 @@ font-family: Arial, Helvetica;
 }
 
 .flip-card-back {
-  background-color: green;
-  color: black;
+  background-color: black;
+  color: red;
   transform: rotateY(180deg);
 }

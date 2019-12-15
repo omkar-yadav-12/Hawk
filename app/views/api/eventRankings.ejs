@@ -1,0 +1,53 @@
+<% include navigation %>
+<head>
+    <h1> <span class="red">Rankings</pan>
+    </h1>
+</head>
+<table class=container>
+    <thead>
+        <tr>
+            <th>
+                <h1>Rank</h1>
+            </th>
+            <th>
+                <h1>Team</h1>
+            </th>
+            <th>
+                <h1>Record</h1>
+            </th>
+            <th>
+                <h1>OPR</h1>
+            </th>
+            <!-- <th>
+                <h1>Date</h1>
+            </th>
+            <th>
+                <h1>View</h1>
+            </th> -->
+            <!-- <th>
+                <h1>W-L</h1>
+            </th>
+            <th>
+                <h1>Select</h1>
+            </th>  -->
+        </tr>
+    </thead>
+<tbody>
+    <% for (let i = 0; i < json.length; i++ ) { %>
+    <tr>
+        <td><%= json[i].rank%></td>
+        <td>(<%= json[i]['team']._teamNumber%>) <%=json[i]['team']._teamNameShort%> <%=json[i]['team'].city%> <%= json[i]['team'].stateProv %></td>
+        <td><%= json[i].wins%> - <%= json[i].losses%> - <%= json[i].ties%> </td>
+        <td><%= json[i].opr%></td>
+        <!-- <td><a class="mdl-navigation__link" href="http:/api/event/<%=json[i].event_key%>/matches"><i
+            class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a></td> -->
+    </tr>
+    <% } %>
+</tbody>
+</table>
+
+<!-- </form> -->
+<a href="/home" id="backButton"
+class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+<i class="material-icons">arrow_back</i>
+</a>

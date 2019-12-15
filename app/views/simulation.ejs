@@ -9,21 +9,21 @@
 <body>
     <link rel="stylesheet" href="/css/scoringButtons.css">
     <link rel="stylesheet" href="/css/table.css">
-<div class = header>
-<h2 align = "center">Simulation</h2>
-</div>
+    <h1> <span class="red">Simulation Select</pan></h1>
 
 <% if (final != 0) { %>
-<table>
+<table class = container>
+  <thead>
   <tr>
-    <th>Red 1</th>
-    <th>Red 2</th>
-    <th>Blue 1</th>
-    <th>Blue 2</th>
-    <th>OPR Score</th>
-    <th>W-L Percentage</th>
+    <th><h1>Red 1</h1></th>
+    <th><h1>Red 2</h1></th>
+    <th><h1>Blue 1</h1></th>
+    <th><h1>Blue 2</h1></th>
+    <th><h1>OPR Score</h1></th>
+    <th><h1>W-L Percentage</h1></th>
   </tr>
-
+</thead>
+<tbody>
   <% for (var i = 0; i < final.length; i++ ) { %>
     <tr>
     <td><%= final[i][0][0]%></td>
@@ -33,17 +33,17 @@
     <td><%= final[i][0][2] %> - <%= final[i][1][2] %></td>
   </tr>
    <% } %>
- 
+  </tbody>
  
 </table>
 <% } %>
 </body>
-<!-- <a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+<!-- <a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
   <i class="material-icons">arrow_back</i>
 </a>
 
 <a href="/scoutDownload" id="exportButton"
-  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Download</a>
 </html> -->
 
 

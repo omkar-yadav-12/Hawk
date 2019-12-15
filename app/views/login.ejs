@@ -1,5 +1,5 @@
 <html>
-   
+
 <head>
     <!-- Material Design Lite CSS -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
@@ -26,9 +26,12 @@
     .util-no-decoration {
         text-decoration: none;
     }
+    body{
+        background-color:#1F2739;
+    }
 </style>
 
-<body class="mdl-color--blue-grey-50">
+<body>
     <!-- Login Form -->
     <div class="mdl-grid">
         <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
@@ -37,7 +40,7 @@
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
                 <% if (alert.length != 0) { %>
-                    <div class="alert alert-danger col-sm-12 mdl-color-text--red"><%= alert %></div>
+                <div class="alert alert-danger col-sm-12 mdl-color-text--red"><%= alert %></div>
                 <% } %>
                 <form method="POST" action="/loginValidate">
                     <input type="hidden" name="action" value="login" />
@@ -45,17 +48,19 @@
                         <label class="mdl-textfield__label mdl-color-text--grey"
                             for="textfield_new_username">Email</label>
                         <input class="mdl-textfield__input" type="text" id="email" name="email"
-                            pattern="^[A-z0-9_-@]{3,15}$" required />
+                            pattern="^[A-z0-9_-@]{3,20}$" required />
                         <span class="mdl-textfield__error">Enter Email</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey"
                             for="textfield_new_password">Password</label>
                         <input class="mdl-textfield__input" type="password" id="password" name="password"
-                            pattern="^[A-z0-9_-]{3,15}$" required />
+                            pattern="^[A-z0-9]{3,15}$" required />
                         <span class="mdl-textfield__error">Enter Password</span>
                     </div>
-                    <input type="submit" class ="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white" value="Login">
+                    <input type="submit"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white"
+                        value="Login">
 
                     <a href="/register"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white">Register</a>

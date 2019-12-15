@@ -3,57 +3,61 @@
 <link rel="stylesheet" href="hawk.css" />
 <title>Settings: <%=results[0]['first_name']%></title>
 <style>
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     #new {
         position: fixed;
         background-color: black;
-        left:6%;
+        left: 6%;
         bottom: 1%;
 
     }
 </style>
-<div class = header >
-    <h2 align = "center">Preferences</h2>
-    </div>
-<div class=container>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First Name</label>
-        <input class="mdl-textfield__input" type="text" value="<%=results[0]['first_name']%>" readonly />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="last_name">Last Name</label>
-        <input class="mdl-textfield__input" type="text" value="<%=results[0]['last_name']%>" readonly />
-        <span class="mdl-textfield__error"></span>
-    </div>
-</div>
-<div class=container>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="email">Email</label>
-        <input class="mdl-textfield__input" type="text" value="<%=results[0]['email']%>" readonly />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="grade">Grade</label>
-        <input class="mdl-textfield__input" type="text" value="<%=results[0]['grade']%>" readonly />
-        <span class="mdl-textfield__error"></span>
-    </div>
-</div>
-<div class=container>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="date">Data Joined</label>
-        <input class="mdl-textfield__input" type="text" value="<%=results[0]['create_time']%>" readonly />
-        <span class="mdl-textfield__error"></span>
-    </div>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-        <label class="mdl-textfield__label mdl-color-text--grey" for="password">Password</label>
-        <input class="mdl-textfield__input" type="text" value="<%=results[0]['password']%>" readonly />
-        <span class="mdl-textfield__error"></span>
-    </div>
-</div>
-<a href="/settings/edit" id="exportButton"
-  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Edit</a>
+
+<body style=background-color:#1F2739;>
+    <h1> <span class="red">Settings</pan></h1>
+
+
+            <div class=container>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First Name</label>
+                    <input class="mdl-textfield__input " type="text" value="<%=results[0]['first_name']%>" readonly />
+                    <span class="mdl-textfield__error"></span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="last_name">Last Name</label>
+                    <input class="mdl-textfield__input" type="text" value="<%=results[0]['last_name']%>" readonly />
+                    <span class="mdl-textfield__error"></span>
+                </div>
+            </div>
+            <div class=container>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="email">Email</label>
+                    <input class="mdl-textfield__input" type="text" value="<%=results[0]['email']%>" readonly />
+                    <span class="mdl-textfield__error"></span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="grade">Grade</label>
+                    <input class="mdl-textfield__input" type="text" value="<%=results[0]['grade']%>" readonly />
+                    <span class="mdl-textfield__error"></span>
+                </div>
+            </div>
+            <div class=container>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="date">Data Joined</label>
+                    <input class="mdl-textfield__input" type="text" value="<%=results[0]['create_time']%>" readonly />
+                    <span class="mdl-textfield__error"></span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+                    <label class="mdl-textfield__label mdl-color-text--grey" for="password">Password</label>
+                    <input class="mdl-textfield__input" type="text" value="<%=results[0]['password']%>" readonly />
+                    <span class="mdl-textfield__error"></span>
+                </div>
+            </div>
+            <a href="/settings/edit" id="exportButton"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Edit</a>
+</body>

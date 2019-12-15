@@ -1,67 +1,77 @@
 <% include navigation %>
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-lime.min.css" />
-<link rel="stylesheet" href="hawk.css" />
-<title>Settings: <%=results[0]['first_name']%></title>
-<style>
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+<html>
 
-    #new {
-        position: fixed;
-        background-color: black;
-        left: 6%;
-        bottom: 1%;
+<head>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-lime.min.css" />
+    <link rel="stylesheet" href="hawk.css" />
+    <title>Settings: <%=results[0]['first_name']%></title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    }
-</style>
-<div class=header>
-    <h2 align="center">Preferences</h2>
-</div>
+        #new {
+            position: fixed;
+            background-color: black;
+            left: 6%;
+            bottom: 1%;
+
+        }
+        .mdl-color-text--grey {
+            color: #FB667A
+        }
+    </style>
+</head>
+
 <form method="POST" action="/settings/<%=results[0]['id']%>">
+    <h1> <span class="red">Settings</pan></h1>
+
     <div class=container>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First Name</label>
-            <input class="mdl-textfield__input" type="text" id="first_name" value="<%=results[0]['first_name']%>" />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow ">
+            <label class="mdl-textfield__label mdl-color-text--grey " for="first_name">First Name</label>
+            <input class="mdl-textfield__input" type="text" name="first_name" value="<%=results[0]['first_name']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="last_name">Last Name</label>
-            <input class="mdl-textfield__input" type="text" id=last_name value="<%=results[0]['last_name']%>" />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+            <label class="mdl-textfield__label mdl-color-text--grey " for="last_name">Last Name</label>
+            <input class="mdl-textfield__input" type="text" name=last_name value="<%=results[0]['last_name']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
     <div class=container>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="email">Email</label>
-            <input class="mdl-textfield__input" type="text" id=email value="<%=results[0]['email']%>" />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+            <label class="mdl-textfield__label mdl-color-text--grey " for="email">Email</label>
+            <input class="mdl-textfield__input" type="text" name=email value="<%=results[0]['email']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="grade">Grade</label>
-            <input class="mdl-textfield__input" type="text" id=grade value="<%=results[0]['grade']%>" />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+            <label class="mdl-textfield__label mdl-color-text--grey " for="grade">Grade</label>
+            <input class="mdl-textfield__input" type="text" name=grade value="<%=results[0]['grade']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
     <div class=container>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="date">Data Joined</label>
-            <input class="mdl-textfield__input" type="text" id=date value="<%=results[0]['create_time']%>" readonly />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+            <label class="mdl-textfield__label mdl-color-text--grey " for="date">Data Joined</label>
+            <input class="mdl-textfield__input" type="text" name=date value="<%=results[0]['create_time']%>" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="password">Password</label>
-            <input class="mdl-textfield__input" type="text" id=password value="<%=results[0]['password']%>" />
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
+            <label class="mdl-textfield__label mdl-color-text--grey " for="password">Password</label>
+            <input class="mdl-textfield__input" type="text" name=password value="<%=results[0]['password']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
-    <a href="/settings" id="backButton"
-        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
-        <i class="material-icons">arrow_back</i>
-    </a>
     <input id="submitButton" type="submit"
-        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
         value="Submit">
+    <a href="/settings" id="backButton"
+        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+        <i class="material-icons">arrow_back
+    </a>
+
 </form>
+
+</html>

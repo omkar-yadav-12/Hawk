@@ -1,67 +1,58 @@
 <% include navigation %>
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="/css/scoringButtons.css">
-  <link rel="stylesheet" href="/css/table.css">
+<link rel="stylesheet" href="/css/scoringButtons.css">
+<link rel="stylesheet" href="/css/table.css">
+
 <head>
   <title>Scoring Data</title>
-  <style>
-    .header {
-      padding: 1px;
-      text-align: center;
-      background: grey;
-      color: black;
-      font-size: 1px;
-    }
-
-
-    #exportButton {
-      position: fixed;
-      right: 2.5%;
-      bottom: 1%;
-    }
-
-    #new {
-      position: fixed;
-      background-color: black;
-      left: 6%;
-      bottom: 1%;
-
-    }
-  </style>
 
 
 </head>
 
 <body>
   <link rel="stylesheet" href="/css/scoringButtons.css">
-  <div class=header>
-    <h2 align="center">Scoring Data Entries</h2>
-  </div>
+  <h1> <span class="red">Scoring Data Entries</pan>
+  </h1>
   <% if (results != 0) { %>
-  <table>
-    <tr>
-      <th>Team 1 Number</th>
-      <th>Team 2 Number</th>
-      <th>Alliance</th>
-      <th>Match</th>
-      <th>Field</th>
-      <th>Date Created</th>
-      <th>Author</th>
-      <th>Total Points</th>
-      <th>Actions</th>
-      
-    </tr>
+  <table class=container>
+    <thead>
+      <tr>
+        <th>
+          <h1>Team 1 Number</h1>
+        </th>
+        <th>
+          <h1>Team 2 Number</h1>
+        </th>
+        <th>
+          <h1>Event</h1>
+        </th>
+        <th>
+          <h1>Alliance</h1>
+        </th>
+        <th>
+          <h1>Match</h1>
+        </th>
+        <th>
+          <h1>Field</h1>
+        </th>
+        <th>
+          <h1>Points</h1>
+        </th>
+        <th>
+          <h1>Actions</h1>
+        </th>
 
+      </tr>
+    </thead>
     <% for (var i = 0; i < results.length; i++ ) { %>
     <tr>
       <td><%= results[i]['team1_name']%></td>
       <td><%= results[i]['team2_name'] %></td>
+      <td><%= results[i]['event_name'] %></td>
       <td><%= results[i]['alliance'] %></td>
       <td><%= results[i]['match_num'] %></td>
       <td><%= results[i]['field_num'] %></td>
-      <td><%= results[i]['create_time'] %></td>
-      <td><%= results[i]['author']%> </td>
       <td><%= results[i]['total'] %></td>
       <td><a class="mdl-navigation__link" href="http:/dataView/<%=results[i]['id']%>"><i
             class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a
@@ -78,13 +69,13 @@
   <% } %>
 </body>
 <a href="/data" id="backButton"
-  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
   <i class="material-icons">arrow_back</i>
 </a>
-<a href="/score" id="new" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--green">
+<a href="/score" id="new" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
   <i class="material-icons">add</i>
 </a>
 <a href="/dataDownload" id="exportButton"
-  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--green">Download</a>
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Download</a>
 
 </html>
