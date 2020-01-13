@@ -13,9 +13,9 @@ const favicon = require('serve-favicon');
 const log4js = require('log4js');
 const nunjucks = require('nunjucks');
 const routes = require('./app/routes')
+const apiRoutes = require('./app/apiRoutes');
 const ejs = require('ejs');
 const fs = require('fs');
-const db = require('./db');
 
 
 
@@ -60,8 +60,9 @@ app.use(log4js.connectLogger(logging.getLogger('express'), {
  //favicon
 
 app.use(express.static(__dirname + '/public')); //links external js and CSS files
-
+// app.use(apiRoutes);
 app.use(routes);
+
 
 
 // Start server

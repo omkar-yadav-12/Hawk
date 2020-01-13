@@ -1,7 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
-const db = require('../db');
+const db = require('./db');
 const user = require('./controllers/users');
 const moment = require('moment');
 const fs = require('fs');
@@ -84,12 +84,17 @@ router.get("/api/update", function (req, res) {
         })
     }
   })
-
+  
+  
   updatePercentage = function (id, parameters) {
+    if (id.length > 0  && parameters.length > 0) {
     let percentage = Math.round((parameters[0]["wins"] + .5 * parameters[0]["ties"]) / (parameters[0]["wins"] + parameters[0]["losses"] + parameters[0]["ties"]) * 10000.0) / 10000.0
     db.query("UPDATE team SET wl = " + percentage + "WHERE team_number = " + id);
+    }
+
   }
   updateOpr = function (id, parameters) {
+    if (id.length > 0 && parameters.length > 0)  {
     let average = 0;
 
     for (var i = 0; i < parameters.length; i++) {
@@ -98,12 +103,14 @@ router.get("/api/update", function (req, res) {
     average /= parameters.length;
     average = Math.round(average * 100.0) / 100.0;
     db.query("UPDATE team SET opr = " + average + " WHERE team_number = " + id)
+  }
 
   }
 
   console.log("Update Ended")
   return res.redirect('/simulation')
 });
+
 router.get('/settings/edit', (req, res) => {
   db.query("SELECT *  FROM `Hawk`.`user` WHERE email = '" + global.ID + "';", function (err, results) {
     for (var i = 0; i < results.length; i++) {
@@ -133,7 +140,9 @@ function check(value) {
 }
 router.post('/dataEdit/update/:dataId', (req, res) => {
   console.log(check(req.body.R1N))
-  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', event_name = '" + req.body.event_name + "', match_num = '" + req.body.match + "', field_num = '" + req.body.field + "', skystone1 = '" + check(req.body.skystone1) + "', skystone2 = '" + check(req.body.skystone2) + "', skystone3 = '" + check(req.body.skystone3) + "', skystone4 = '" + check(req.body.skystone4) + "', skystone5 = '" + check(req.body.skystone5) + "', skystone6 = '" + check(req.body.skystone6) + "', stone1 = '" + check(req.body.stone1) + "', stone2 = '" + check(req.body.stone2) + "', stone3 = '" + check(req.body.stone3) + "', stone4 = '" + check(req.body.stone4) + "', stone5 = '" + check(req.body.stone5) + "', stone6 = '" + check(req.body.stone6) + "', none1 = '" + check(req.body.none1) + "', none2 = '" + check(req.body.none2) + "', none3 = '" + check(req.body.none3) + "', none4 = '" + check(req.body.none4) + "', none5 = '" + check(req.body.none5) + "', none6 = '" + check(req.body.none6) + "', frs = '" + check(req.body.FRS) + "', fr = '" + check(req.body.FS) + "' , r1n = " + check(req.body.R1N) + " , r2n = '" + check(req.body.R2N) + "', returned_auto = '" + req.body.ReturnedAuto + "', placed_auto = '" + req.body.PlacedAuto + "', delivered = '" + req.body.delivered_number + "', tallest_sky = '" + req.body.tallest_skyscraper + "', returned_drs = '" + req.body.returned_name + "', placed_drs = '" + req.body.placed + "', found_moved = '" + check(req.body.found) + "', cap1 = '" + check(req.body.Capstone1) + "', cap2 = '" + check(req.body.Capstone2) + "', parked1 = '" + check(req.body.Parked1) + "', parked2 = '" + check(req.body.Parked2) + "', r1n = '" + req.body.robot1_level + "', r2n = '" + req.body.robot2_level + "', minor = '" + req.body.minor + "', major = '" + req.body.major + "', team1_0 = '" + check(req.body.team1_0) + "', team1_1 = '" + check(req.body.team1_1) + "', team1_2 = '" + check(req.body.team1_2) + "', team2_0 = '" + check(req.body.team2_0) + "', team2_1 = '" + check(req.body.team2_1) + "', team2_2 = '" + check(req.body.team2_2) + "'WHERE id = " + req.params.dataId);
+  console['log'](req['body'])
+  db.query("UPDATE hawk.score_data SET team1_name = '" + req.body.team_one + "', team2_name = '" + req.body.team_two + "', event_name = '" + req.body.event_name + "', match_num = '" + req.body.match + "', field_num = '" + req.body.field + "', skystone1 = '" + check(req.body.skystone1) + "', skystone2 = '" + check(req.body.skystone2) + "', skystone3 = '" + check(req.body.skystone3) + "', skystone4 = '" + check(req.body.skystone4) + "', skystone5 = '" + check(req.body.skystone5) + "', skystone6 = '" + check(req.body.skystone6) + "', stone1 = '" + check(req.body.stone1) + "', stone2 = '" + check(req.body.stone2) + "', stone3 = '" + check(req.body.stone3) + "', stone4 = '" + check(req.body.stone4) + "', stone5 = '" + check(req.body.stone5) + "', stone6 = '" + check(req.body.stone6) + "', none1 = '" + check(req.body.none1) + "', none2 = '" + check(req.body.none2) + "', none3 = '" + check(req.body.none3) + "', none4 = '" + check(req.body.none4) + "', none5 = '" + check(req.body.none5) + "', none6 = '" + check(req.body.none6) + "', frs = '" + check(req.body.FRS) + "', fr = '" + check(req.body.FS) + "' , r1n = " + check(req.body.R1N) + " , r2n = " + check(req.body.R2N) + ", returned_auto = '" + req.body.ReturnedAuto + "', placed_auto = '" + req.body.PlacedAuto + "', delivered = '" + req.body.delivered_number + "', tallest_sky = '" + req.body.tallest_skyscraper + "', returned_drs = '" + req.body.returned_name + "', placed_drs = '" + req.body.placed + "', found_moved = '" + check(req.body.found) + "', cap1 = '" + check(req.body.Capstone1) + "', cap2 = '" + check(req.body.Capstone2) + "', parked1 = '" + check(req.body.Parked1) + "', parked2 = '" + check(req.body.Parked2) + "', r1n = '" + req.body.robot1_level + "', r2n = '" + req.body.robot2_level + "', minor = '" + req.body.minor + "', major = '" + req.body.major + "', team1_0 = '" + check(req.body.team1_0) + "', team1_1 = '" + check(req.body.team1_1) + "', team1_2 = '" + check(req.body.team1_2) + "', team2_0 = '" + check(req.body.team2_0) + "', team2_1 = '" + check(req.body.team2_1) + "', team2_2 = '" + check(req.body.team2_2) + "'WHERE id = " + req.params.dataId);
+  db.query("UPDATE score_data SET r1n = " + check(req.body.R1N) + " , r2n = " + check(req.body.R2N) + " WHERE id = " + req.params.dataId)
   return res.redirect('/scoringData')
 });
 router.post('/teamEdit/update/:dataId', (req, res) => {
@@ -212,8 +221,6 @@ router.post('/score=?', (req, res) => {
       var types = ["skystone", "stone", "none"];
       name = (results[0]['first_name'] + " " + results[0]['last_name']);
       db.query("INSERT INTO hawk.score_data(alliance, team1_name, team2_name, event_name, match_num, field_num, skystone1, skystone2, skystone3, skystone4, skystone5, skystone6, stone1, stone2, stone3, stone4, stone5, stone6, none1, none2, none3, none4, none5, none6, frs, fr, r1n, r2n, returned_auto, placed_auto, delivered, tallest_sky, returned_drs, placed_drs, found_moved, cap1, cap2, parked1, parked2, r1l, r2l, minor, major, team1_0, team1_1, team1_2, team2_0, team2_1, team2_2, create_time, author) VALUES ('" + req.body.alliance + "','" + req.body.team_one + "','" + req.body.team_two + "','" + req.body.event_name + "','" + req.body.match + "','" + req.body.field + "','" + check(req.body.skystone1) + "','" + check(req.body.skystone2) + "','" + check(req.body.skystone3) + "','" + check(req.body.skystone4) + "','" + check(req.body.skystone5) + "','" + check(req.body.skystone6) + "','" + check(req.body.stone1) + "','" + check(req.body.stone2) + "','" + check(req.body.stone3) + "','" + check(req.body.stone4) + "','" + check(req.body.stone5) + "','" + check(req.body.stone6) + "','" + check(req.body.none1) + "','" + check(req.body.none2) + "','" + check(req.body.none3) + "','" + check(req.body.none4) + "','" + check(req.body.none5) + "','" + check(req.body.none6) + "','" + check(req.body.FRS) + "','" + check(req.body.FS) + "','" + check(req.body.R1N) + "','" + check(req.body.R2N) + "','" + req.body.ReturnedAuto + "','" + req.body.PlacedAuto + "','" + req.body.delivered_number + "','" + req.body.tallest_skyscraper + "','" + req.body.returned_name + "','" + req.body.placed + "','" + check(req.body.found) + "','" + check(req.body.Capstone1) + "','" + check(req.body.Capstone2) + "','" + check(req.body.Parked1) + "','" + check(req.body.Parked2) + "','" + req.body.robot1_level + "','" + req.body.robot2_level + "','" + req.body.minor + "','" + req.body.major + "','" + check(req.body.team1_0) + "','" + check(req.body.team1_1) + "','" + check(req.body.team1_2) + "','" + check(req.body.team2_0) + "','" + check(req.body.team2_1) + "','" + check(req.body.team2_2) + "', NOW(), '" + name + "');");
-      var total = 0;
-      console.log("DATA: " + total);
       return res.redirect('/score');
     }
   });
@@ -538,10 +545,25 @@ router.get('/api/:key/1920/matches', (req, res) => {
   })
     .then(res => res.json())
     .then(match => {
-      res.send(match)
+      let array = [];
+      for (obj in match) {
+        array.push(match[obj].match_key)
+      }
+      res.send(returnMatches(array))
     });
 });
+returnMatches = (matchKeys) => {
 
+  for (obj in matchKeys) {
+    api.getMatchDetails(matchKeys[obj]).then((match) => {
+      matchData.push(match)
+      console.log(matchData)
+    })
+
+  }
+  console.log(matchData.length)
+  return (matchData)
+}
 router.get('/api/:key/1920/events', (req, res) => {
 
   fetch('http://theorangealliance.org/api/team/' + req.params.key + '/events/1920', {
@@ -655,7 +677,22 @@ router.get('/api/event/:event_name/:match_key', (req, res) => {
   })
     .then(res => res.json())
     .then(json => {
-      res.send(json)
+      console.log(json[0])
+      for (let i = 0; i < json.length; i++) {
+        json[i].red.tower_level_bonus *= 2;
+        json[i].blue.tower_level_bonus *= 2;
+
+        if (json[i].red.robot_1.cap_level == -1) json[i].red.robot_1.cap_level = 0
+        if (json[i].blue.robot_1.cap_level == -1) json[i].blue.robot_1.cap_level = 0
+        if (json[i].blue.robot_2.cap_level == -1) json[i].blue.robot_2.cap_level = 0
+        if (json[i].red.robot_2.cap_level == -1) json[i].red.robot_2.cap_level = 0
+
+        console['log'](json[i].red.robot_1.cap_level)
+      }
+      res.render('api/matchView', {
+        data: json
+      })
+
     });
 });
 router.get('/api/team/search/:results', (req, res) => {
@@ -900,6 +937,117 @@ function query(a, b, c, d) {
     }
   })
 }
+router.post('/create=?', (req, res) => {
+  return res.redirect('/add/' + req.body.game_num)
+})
+router.get('/add/:num', (req, res) => {
+  db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
+    db.query("SELECT * FROM Hawk.events; ", function (err, results1) {
+      var name = [];
+      for (var i = 0; i < results.length; i++) {
+        name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
+      }
+      return res.render('addTeams', {
+        date: moment().format('LLL'),
+        name: name,
+        results: results,
+        results1: results1,
+        amount: req.params.num
+      });
+    })
+  })
+})
+router.post('/configure=?', (req, res) => {
+  db.query("SELECT * FROM team", function (err, team) {
+    let array = [];
+    let teams = []
+    let teams1 = []
+    for (obj in team) {
+      teams.push([team[obj].team_number, 0, 0, 0, "(" + team[obj]['team_number'] + ") " + team[obj]['name'] + ", " + team[obj]['location'], 0]);
+      teams1.push(team[obj].team_number)
+    }
+
+    for (obj in req.body) {
+      for (obj1 in team) {
+        if (team[obj1].team_number == req.body[obj]) {
+          array.push([team[obj1].team_number, team[obj1].opr, team[obj1].wl])
+        }
+      }
+    }
+    let final_values = [];
+    console.log(array)
+    for (let i = 0; i < Object.keys(req.body).length; i += 4) {
+      final_values.push([array[i][0], array[i + 1][0], Math.round((array[i][1] + array[i + 1][1]) * 1000.00) / 1000.00, Math.round((array[i][2] + array[i + 1][2]) * 1000.00) / 1000.00, array[i + 2][0], array[i + 3][0], (Math.round((array[i + 2][1] + array[i + 3][1]) * 1000.00) / 1000.00), (Math.round((array[i + 2][2] + array[i + 3][2]) * 1000.00) / 1000.00)])
+    }
+    for (let i = 0; i < final_values.length; i++) {
+      first_probability = final_values[i][2] / (final_values[i][2] + final_values[i][6]);
+      second_probability = final_values[i][3] / (final_values[i][3] + final_values[i][7])
+      probability = (first_probability + second_probability) / 2
+      console.log(probability)
+      if (probability > .50) {
+        final_values[i][8] = final_values[i][8] = Math.round((probability) * 10000.00) / 100.00;
+        final_values[i][9] = 'r'
+      } else if (probability < 0.5){
+        final_values[i][8] = Math.round((1 - probability) * 10000.00) / 100.00;
+        final_values[i][9] = 'b'
+      } else {
+        final_values[i][8] = 50;
+        final_values[i][9] = 'g'
+      }
+    }
+
+    for (let i = 0; i < final_values.length; i++) {
+      if (final_values[i][9] == 'r') {
+        console.log(final_values[i][0])
+
+        console.log(teams.indexOf('8696'))
+        console.log("HELLO " + teams.indexOf(final_values[i][0]))
+        teams[teams1.indexOf(final_values[i][0])][1]++
+        teams[teams1.indexOf(final_values[i][1])][1]++
+        teams[teams1.indexOf(final_values[i][4])][2]++
+        teams[teams1.indexOf(final_values[i][5])][2]++
+      } else {
+        teams[teams1.indexOf(final_values[i][0])][2]++
+        teams[teams1.indexOf(final_values[i][1])][2]++
+        teams[teams1.indexOf(final_values[i][4])][1]++
+        teams[teams1.indexOf(final_values[i][5])][1]++
+      }
+    }
+    let teams3 = [];
+    for (let i = 0; i < teams.length; i++) {
+      if (teams[i][1] === 0 && teams[i][2] === 0) continue;
+      teams3.push(teams[i])
+    }
+    teams = teams3
+    for (let i = 0; i < teams.length; i++) teams[i][5] = teams[i][1] + (.5 * teams[i][3])
+    teams.sort(function (a, b) {
+      if (a[5] > b[5]) return -1;
+      if (a[5] < b[5]) return 1;
+      return 0;
+    });
+    console.log(teams)
+    const jsonData = JSON.parse(JSON.stringify(final_values));
+    const csvFields = ['Red1', 'Red2', 'Blue1', 'Blue2', 'Score', 'Win-Loss', 'Probability', 'Winner'];
+    const json2csvParser = new Json2csvParser({ csvFields });
+    const csv = json2csvParser.parse(jsonData);
+    fs.writeFile('TournamentSimulation.csv', csv, function (err) {
+      if (err) throw err;
+      console.log(csv);
+      console.log("File saved");
+    })
+    console.log(teams.length)
+    
+    
+    return res.render('tournamentGames', {
+      games: final_values,
+      teams: teams
+    })
+  })
+
+})
+router.get('/testCreation', (req, res) => {
+  return res.render('createTourney')
+})
 router.get('/scoringData', (req, res) => {
   db.query("SELECT * FROM team ", function (err, teams) {
     db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {

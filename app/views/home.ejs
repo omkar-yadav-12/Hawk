@@ -33,9 +33,7 @@
     body{
         background-color:#1F2739;
     }
-    #time {
-      margin-left: 32.5%
-    }
+    
   </style>
 </head>
 
@@ -49,7 +47,7 @@
         <% if (results[0]['first_name'].length != 0) { %>
         <span class="mdl-layout-title">Welcome <%=results[0]['first_name']%> <%=results[0]['last_name']%>!</span>
         <% } %>
-        <span id = time class="mdl-layout-title"></span>
+        <!-- <span id = time float = right class="mdl-layout-title"></span> -->
         <div class="mdl-layout-spacer"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
           <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -75,7 +73,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
-    <body>
+    <!-- <body>
       <div align=center class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -90,10 +88,10 @@
           </div>
         </div>
       </div>
-  </div>
+  </div> -->
 
   <% } %>
-</body>
+<!-- </body> -->
 
 
 <div class="demo-drawer mdl-layout__drawer mdl-color--black mdl-color--black">
@@ -107,29 +105,29 @@
   <nav class="demo-navigation mdl-navigation mdl-text-color--red mdl-color--white-grey-10000">
     <!-- <a class="mdl-navigation__link" href="http:/home"><i class="mdl-color-text--white material-icons"
             role="presentation">home</i>Home</a> -->
-    <a class="mdl-navigation__link" href="http:/score"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/score"><i class="mdl-color-text--white material-icons"
         role="presentation">book</i>Scoring</a>
-    <a class="mdl-navigation__link" href="http:/scout"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/scout"><i class="mdl-color-text--white material-icons"
         role="presentation">remove_red_eye</i>Scout</a>
-    <a class="mdl-navigation__link" href="http:/data"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/data"><i class="mdl-color-text--white material-icons"
         role="presentation">insert_chart</i>Data</a>
     <% if (results[0]['team'] == 86960) { %>
     <a class="mdl-navigation__link" href="/announcements"><i
         class="mdl-color-text--white material-icons">announcement</i>Announcements</a>
-    <a class="mdl-navigation__link" href="http:/calendar"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/calendar"><i class="mdl-color-text--white material-icons"
         role="presentation">event</i>Calendar</a>
     <% } %>
-    <a class="mdl-navigation__link" href="http:/users"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/users"><i class="mdl-color-text--white material-icons"
         role="presentation">people</i>Users</a>
-    <a class="mdl-navigation__link" href="http:/settings"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/settings"><i class="mdl-color-text--white material-icons"
         role="presentation">settings</i>Settings</a>
-    <a class="mdl-navigation__link" href="http:/logout"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/logout"><i class="mdl-color-text--white material-icons"
         role="presentation">arrow_back</i>Logout</a>
     <% if (results[0]['dis'] == 1) { %>
-    <a class="mdl-navigation__link" href="http:/enable"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/enable"><i class="mdl-color-text--white material-icons"
         role="presentation">check</i>Enable</a>
     <% } else { %>
-    <a class="mdl-navigation__link" href="http:/disable"><i class="mdl-color-text--white material-icons"
+    <a class="mdl-navigation__link" href="/disable"><i class="mdl-color-text--white material-icons"
         role="presentation">clear</i>Disable</a>
     <% } %>
 

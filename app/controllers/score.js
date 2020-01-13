@@ -1,4 +1,4 @@
-const db = require('/Users/omkaryadav/Documents/GitHub/Hawk/db.js')
+const db = require('../db')
 const moment = require('moment')
  query = (a, b, c, d) => {
     db.query("SELECT * FROM hawk.score_data WHERE event_name = '" + a + "' AND  match_num =  " + b + " AND field_num = " + c + " AND alliance = '" + d+  "';", function(err, penalties){
@@ -54,10 +54,7 @@ exports.total_score  = (teams, results) => {
       if (results[i]['parked2'] == 1) t += 5
       t += (results[i]['r1l'] + results[i]['r2l']);
       if (results[i]['alliance'] != "Blue") results[i]['alliance'] = "Red"
-      console.log(results[i]['alliance'])
-      console.log("t = " + t)
       results[i]['total'] = t;
-      console.log(results[i]['total']); // resasign total as t
       for (var g = 0; g < teams.length; g++) {
         if (results[i]['team1_name'] == name[g][0]) results[i]['team1_name'] = "(" + name[g][0] + ") " + name[g][1] + ", " + name[g][2];
         if (results[i]['team2_name'] == name[g][0]) results[i]['team2_name'] = "(" + name[g][0] + ") " + name[g][1] + ", " + name[g][2];

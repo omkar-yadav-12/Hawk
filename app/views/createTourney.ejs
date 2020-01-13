@@ -1,0 +1,100 @@
+<% include navigation %>
+
+<style>
+    .mdl-data-table {
+        background-color: black;
+        color: #FB667A
+    }
+
+    .mdl-textfield__label {
+        color: #FB667A
+    }
+
+    th {
+        color: yellow
+    }
+
+    .mdl-color-text--red {
+        color: #FB667A
+    }
+
+    .mdl-textfield {
+        color: yellow
+    }
+
+    .mdl-layout-title {
+        color: #185875
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<h1> <span class="red">Configure Tournament</pan>
+</h1>
+<form method="POST" action="/create=?">
+<div class=container>
+
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
+        <select class="mdl-textfield__input" id="game_num" name="game_num" required>
+            <option></option>
+            <% for (var i = 0; i < 50; i++) { %>
+            <option><%=i%></option>
+            <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="game_num">Number of Games</label>
+    </div>
+    <input id="submitButton" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
+        value="Generate">
+</div>
+</form>
+<!-- <table class=container> -->
+<!-- <thead>
+    <tr>
+        <th>
+            <h1>Match</h1>
+        </th>
+        <th>
+            <h1>Red 1</h1>
+        </th>
+        <th>
+            <h1>Red 2</h1>
+        </th>
+        <th>
+            <h1>Blue 1</h1>
+        </th>
+        <th>
+            <h1>Blue 2</h1>
+        </th>
+    </tr>
+</thead> -->
+<!-- <script>
+go  = (numbers) => {
+    document.write("<table class=container>")
+    document.write("<thead>")
+    document.write("<tr>")
+    document.write("<th> <h1>Match</h1></th>")
+    document.write("<tr>")
+    document.write("<th> <h1>Red 1</h1></th>")
+    document.write("<tr>")
+    document.write("<th> <h1>Red 2</h1></th>")
+    document.write("<tr>")
+    document.write("<th> <h1>Blue 1</h1></th>")
+    document.write("<tr>")
+    document.write("<th> <h1>Blue 2</h1></th>")
+    document.write("<tr>")
+    document.write("<thead>")
+    for (let i = 0; i < numbers; i++) {
+        
+    }
+}
+</script> -->
+<!-- </table> -->
+<script>
+function go (number) {
+    window.open("/create/" + number)
+}
+</script>

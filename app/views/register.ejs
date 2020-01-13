@@ -35,9 +35,9 @@
 <body>
     <!-- REGISTER FORM -->
     <div class="mdl-grid">
-        <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
+        <div class="mdl-card mdl-shadow--16dp mdl-color--black util-center util-spacing-h--40px">
             <div class="mdl-card__title mdl-color--black">
-                <h2 class="mdl-card__title-text mdl-color-text--white">Create a New Account</h2>
+                <h2 class="mdl-card__title-text mdl-color-text--yellow">Create a New Account</h2>
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
 
@@ -49,39 +49,39 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="first_name">First
                             Name</label>
-                        <input class="mdl-textfield__input" type="text" id="first_name" name="first_name"
+                        <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="first_name" name="first_name"
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Characters only</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="last_name">Last
                             Name</label>
-                        <input class="mdl-textfield__input" type="text" id="last_name" name="last_name"
+                        <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="last_name" name="last_name"
                             pattern="^[A-z]{1,20}" required />
                         <span class="mdl-textfield__error">Characters only</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="grade">Grade</label>
-                        <input class="mdl-textfield__input" type="text" id="grade" name="grade" pattern="^[0-9_-]{2,2}$"
+                        <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="grade" name="grade" pattern="^[0-9_-]{2,2}$"
                             required />
                         <span class="mdl-textfield__error">Numeric values only</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="email">Email</label>
-                        <input class="mdl-textfield__input" type="text" id="email" name="email"
+                        <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="email" name="email"
                             pattern="^[A-z0-9_-@]{3,15}$" required />
                         <span class="mdl-textfield__error">Enter a valid email address</span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="email ">Team Number</label>
-                        <input class="mdl-textfield__input" type="text" id="team" name="team" pattern="^[0-9]{5,5}$"
+                        <input class="mdl-textfield__input mdl-color-text--yellow" type="text" id="team" name="team" pattern="^[0-9]{5,5}$"
                             required />
                         <span class="mdl-textfield__error">Enter a 5 digit team number</span>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="password">Password</label>
-                        <input class="mdl-textfield__input"  id="password" name="password"
+                        <input class="mdl-textfield__input mdl-color-text--yellow"  id="password" name="password"
                             pattern="^[A-z0-9_-]{3,15}$" required />
                         <span class="mdl-textfield__error">
                             Must be between between 3-15 characters with letters and digits
@@ -91,11 +91,11 @@
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="password_confirm">Password
                             Confirm</label>
-                        <input class="mdl-textfield__input"  id="password_confirm"
+                        <input class="mdl-textfield__input mdl-color-text--yellow"  id="password_confirm"
                             name="password_confirm" required />
                     </div>
                     <input
-                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--white"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
                         type="submit" value="Register">
                     <a href="/login" id="backButton"
                         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
