@@ -84,26 +84,26 @@ router.get("/api/update", function (req, res) {
         })
     }
   })
-  
-  
+
+
   updatePercentage = function (id, parameters) {
-    if (id.length > 0  && parameters.length > 0) {
-    let percentage = Math.round((parameters[0]["wins"] + .5 * parameters[0]["ties"]) / (parameters[0]["wins"] + parameters[0]["losses"] + parameters[0]["ties"]) * 10000.0) / 10000.0
-    db.query("UPDATE team SET wl = " + percentage + "WHERE team_number = " + id);
+    if (id.length > 0 && parameters.length > 0) {
+      let percentage = Math.round((parameters[0]["wins"] + .5 * parameters[0]["ties"]) / (parameters[0]["wins"] + parameters[0]["losses"] + parameters[0]["ties"]) * 10000.0) / 10000.0
+      db.query("UPDATE team SET wl = " + percentage + "WHERE team_number = " + id);
     }
 
   }
   updateOpr = function (id, parameters) {
-    if (id.length > 0 && parameters.length > 0)  {
-    let average = 0;
+    if (id.length > 0 && parameters.length > 0) {
+      let average = 0;
 
-    for (var i = 0; i < parameters.length; i++) {
-      average += parameters[i]['opr'];
+      for (var i = 0; i < parameters.length; i++) {
+        average += parameters[i]['opr'];
+      }
+      average /= parameters.length;
+      average = Math.round(average * 100.0) / 100.0;
+      db.query("UPDATE team SET opr = " + average + " WHERE team_number = " + id)
     }
-    average /= parameters.length;
-    average = Math.round(average * 100.0) / 100.0;
-    db.query("UPDATE team SET opr = " + average + " WHERE team_number = " + id)
-  }
 
   }
 
@@ -235,7 +235,7 @@ router.post('/scout=?', (req, res) => {
       }
       name = (results[0]['first_name'] + " " + results[0]['last_name']);
       console.log(req.body);
-      db.query("INSERT INTO hawk.scout_data(team_number, event_name, author, create_time, move_auto, sense_auto, over_auto, collect_auto, place_auto, found_auto_d, sense_auto_d, park_auto_d, stone_auto_d, add_auto_d, found_teleop, collect_teleop, palce_teleop, found_teleop_d, stone_teleop_d, add_teleop_d, found_end, in_end, over_end, place_end, found_end_d, parki_end_d, stones_end_d, add_end_d) VALUES ('" + req.body.team_num + "','" + req.body.event_name + "','" + name + "', NOW() ,'" + req.body.MF + "','" + req.body.SS + "','" + req.body.PDZ + "','" + req.body.CS + "','" + req.body.FS + "','" + req.body.expand1 + "','" + req.body.expand2 + "','" + req.body.expand3 + "','" + req.body.expand4 + "','" + req.body.add_auto + "','" + req.body.MF_ + "','" + req.body.CS_ + "','" + req.body.FS_ + "','" + req.body.expand_1 + "','" + req.body.expand_2 + "','" + req.body.additional_teleop_label + "','" + req.body.MF_EG + "','" + req.body.SS_EG + "','" + req.body.PDZ_EG + "','" + req.body.FS_EG + "','" + req.body.expand__1 + "','" + req.body.expand__2 + "','" + req.body.expand__3 + "','" + req.body.additional_end_label + "');");
+      db.query("INSERT INTO hawk.scout_data(team_number, event_name, author, create_time, move_auto, sense_auto, over_auto, collect_auto, place_auto, found_auto_d, sense_auto_d, park_auto_d, stone_auto_d, add_auto_d, found_teleop, collect_teleop, palce_teleop, found_teleop_d, stone_teleop_d, add_teleop_d, found_end, in_end, over_end, place_end, found_end_d, parki_end_d, stones_end_d, add_end_d) VALUES ('" + req.body.team_num + "','" + req.body.event_name + "','" + req.body.author + "', NOW() ,'" + req.body.MF + "','" + req.body.SS + "','" + req.body.PDZ + "','" + req.body.CS + "','" + req.body.FS + "','" + req.body.expand1 + "','" + req.body.expand2 + "','" + req.body.expand3 + "','" + req.body.expand4 + "','" + req.body.add_auto + "','" + req.body.MF_ + "','" + req.body.CS_ + "','" + req.body.FS_ + "','" + req.body.expand_1 + "','" + req.body.expand_2 + "','" + req.body.additional_teleop_label + "','" + req.body.MF_EG + "','" + req.body.SS_EG + "','" + req.body.PDZ_EG + "','" + req.body.FS_EG + "','" + req.body.expand__1 + "','" + req.body.expand__2 + "','" + req.body.expand__3 + "','" + req.body.additional_end_label + "');");
       return res.redirect('/scout');
     }
   });
@@ -553,13 +553,13 @@ router.get('/api/:key/1920/matches', (req, res) => {
     });
 });
 returnMatches = (matchKeys) => {
-
+  console.log(matchKeys)
+  let matchData = [];
   for (obj in matchKeys) {
     api.getMatchDetails(matchKeys[obj]).then((match) => {
       matchData.push(match)
-      console.log(matchData)
     })
-
+    
   }
   console.log(matchData.length)
   return (matchData)
@@ -815,19 +815,21 @@ router.get('/data', (req, res) => {
 });
 router.get('/scout', (req, res) => {
   if (global.validate == true) {
-
-    db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
-      db.query("SELECT * FROM Hawk.events; ", function (err, results1) {
-        var name = [];
-        for (var i = 0; i < results.length; i++) {
-          name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
-        }
-        return res.render('scouttt.ejs', {
-          date: moment().format('LLL'),
-          name: name,
-          results: results,
-          results1: results1,
-        });
+    db.query("SELECT * FROM `Hawk`.`user`", function (err, users) {
+      db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
+        db.query("SELECT * FROM Hawk.events; ", function (err, results1) {
+          var name = [];
+          for (var i = 0; i < results.length; i++) {
+            name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
+          }
+          return res.render('scouttt.ejs', {
+            date: moment().format('LLL'),
+            name: name,
+            users, users,
+            results: results,
+            results1: results1,
+          });
+        })
       })
     })
 
@@ -987,7 +989,7 @@ router.post('/configure=?', (req, res) => {
       if (probability > .50) {
         final_values[i][8] = final_values[i][8] = Math.round((probability) * 10000.00) / 100.00;
         final_values[i][9] = 'r'
-      } else if (probability < 0.5){
+      } else if (probability < 0.5) {
         final_values[i][8] = Math.round((1 - probability) * 10000.00) / 100.00;
         final_values[i][9] = 'b'
       } else {
@@ -1036,8 +1038,8 @@ router.post('/configure=?', (req, res) => {
       console.log("File saved");
     })
     console.log(teams.length)
-    
-    
+
+
     return res.render('tournamentGames', {
       games: final_values,
       teams: teams
