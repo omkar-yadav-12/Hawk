@@ -9,6 +9,8 @@ const Json2csvParser = require('json2csv').Parser;
 const calendarController = require('./controllers/calendar');
 const score = require('./controllers/score');
 const http = require('http');
+const passport = require('passport')
+const LocalStrategy = require("passport-local").Strategy
 const https = require('https');
 const simal = require('./controllers/simulation');
 const fetch = require('node-fetch')
@@ -41,12 +43,15 @@ router.get('/api/event/:keyword', (req, res) => {
           array.push(json[obj]);
         }
       }
-      let keyword = req.params.keyword
+      
       res.render('api/tournamentApi.ejs', {
         array: array,
         keyword: req.params.keyword
       })
 
+    })
+    .catch(error => {
+        res.redirect('/apiData')
     });
 });
 go = function (link) {
@@ -62,13 +67,24 @@ router.get("/api/update", function (req, res) {
   console.log("Update Started")
   db.query("SELECT team_number FROM `Hawk`.`team`; ", function (err, results) {
     for (obj in results) {
+      
       let id = results[obj]['team_number']
       fetch('http://theorangealliance.org/api/team/' + id + "/wlt", {
         method: 'get',
         headers,
       })
-        .then(res => res.json())
-        .then(json => updatePercentage(id, json))
+        .then(res => {
+          console.log(res)
+          res.json()
+        })
+        .then(json => {
+          console.log(json)
+          updatePercentage(id, json) }
+          )
+          .catch(error => {
+            console.log("Error " + id)  
+            throw error
+          })
     }
   });
   db.query("SELECT team_number FROM `Hawk`.`team`; ", function (err, results) {
@@ -78,7 +94,10 @@ router.get("/api/update", function (req, res) {
         method: 'get',
         headers,
       })
-        .then(res => res.json())
+        .then(res => {
+          console.log(res)
+          res.json()
+        })
         .then(json => {
           updateOpr(id, json)
         })
@@ -87,14 +106,15 @@ router.get("/api/update", function (req, res) {
 
 
   updatePercentage = function (id, parameters) {
-    if (id.length > 0 && parameters.length > 0) {
+    if (id != undefined && id != null) {
       let percentage = Math.round((parameters[0]["wins"] + .5 * parameters[0]["ties"]) / (parameters[0]["wins"] + parameters[0]["losses"] + parameters[0]["ties"]) * 10000.0) / 10000.0
+      console.log("Percentage")
       db.query("UPDATE team SET wl = " + percentage + "WHERE team_number = " + id);
     }
 
   }
   updateOpr = function (id, parameters) {
-    if (id.length > 0 && parameters.length > 0) {
+    if (id != undefined && id != null) {
       let average = 0;
 
       for (var i = 0; i < parameters.length; i++) {
@@ -102,6 +122,7 @@ router.get("/api/update", function (req, res) {
       }
       average /= parameters.length;
       average = Math.round(average * 100.0) / 100.0;
+      console.log("OPR " + average + " " + id)
       db.query("UPDATE team SET opr = " + average + " WHERE team_number = " + id)
     }
 
@@ -538,7 +559,7 @@ router.get('/other', (req, res) => {
   return res.render('api/otherSimal')
 });
 router.get('/api/:key/1920/matches', (req, res) => {
-
+  
   fetch('http://theorangealliance.org/api/team/' + req.params.key + '/matches/1920', {
     method: 'get',
     headers,
@@ -546,26 +567,34 @@ router.get('/api/:key/1920/matches', (req, res) => {
     .then(res => res.json())
     .then(match => {
       let array = [];
-      for (obj in match) {
-        array.push(match[obj].match_key)
+      for (let i = 0; i < match.length; i++) {
+        array[i] = match[i].match_key
       }
-      res.send(returnMatches(array))
+      console.log(array.length)
+      res.send(array)
     });
 });
 returnMatches = (matchKeys) => {
-  console.log(matchKeys)
+  console.log(matchKeys[0])
   let matchData = [];
-  for (obj in matchKeys) {
-    api.getMatchDetails(matchKeys[obj]).then((match) => {
-      matchData.push(match)
+  let x = ""
+  for (let i = 0; i < matchKeys.length; i++) {
+    api.getMatchDetails(matchKeys[i]).then((match) => {
+      try {
+        x += match
+        matchData[i] = match
+      }
+      catch (e) {
+        throw (e)
+      }
+      
     })
-    
   }
-  console.log(matchData.length)
-  return (matchData)
+
+  return matchData
 }
 router.get('/api/:key/1920/events', (req, res) => {
-
+  console.log(req.params.key)
   fetch('http://theorangealliance.org/api/team/' + req.params.key + '/events/1920', {
     method: 'get',
     headers,
@@ -583,25 +612,37 @@ router.get('/teamApi', (req, res) => {
   })
 
 });
+fetch('http://theorangealliance.org/api/match/1920-IA-LT8-E001-1', {
+    method: 'get',
+    headers,
+  })
+  .then(res => res.json())
+    .then(team => {
+      console.log(team[0]['participants'])
+    })
+
 router.get('/teamApi/:search', (req, res) => {
-  fetch('http://theorangealliance.org/api/team/', {
+  fetch('http://theorangealliance.org/api/match/', {
     method: 'get',
     headers,
   })
     .then(res => res.json())
     .then(team => {
+      console.log(team)
+    })
+      console.log(team)
       let teams = [];
-
-      for (obj in team) if (team[obj].team_key.includes(req.params.search)) teams.push(team[obj])
+      teams.push(team)
       for (let i = 0; i < teams.length; i++) if (teams[i].team_name_short === null) teams[i].team_name_short = teams[i].team_name_long
-      console.log(teams[0].team_key)
+      console.log(teams[0][0]['team_number'])
+
       res.render('api/teamApi', {
         teams: teams,
         name: req.params.search
       })
 
     });
-})
+
 
 router.get('/apiData', (req, res) => {
   return res.render('api/apiData')
@@ -615,7 +656,7 @@ router.get('/calendar', (req, res) => {
   });
 });
 router.get('/simSel', (req, res) => {
-  db.query("SELECT * FROM team", function (err, results) {
+  db.query("SELECT * FROM team ORDER BY team_number", function (err, results) {
     return res.render('simalSelect.ejs', {
       results: results,
 
@@ -767,7 +808,7 @@ router.get('/score', (req, res) => {
 router.get('/scoutingData', (req, res) => {
 
   db.query("SELECT * FROM `Hawk`.`scout_data` ORDER BY create_time DESC", function (err, results) {
-    db.query("SELECT * FROM team ", function (err, teams) {
+    db.query("SELECT * FROM team ORDER BY team_number ", function (err, teams) {
       var name = [];
       for (var i = 0; i < teams.length; i++) {
         name.push([teams[i]['team_number'], teams[i]['name'], teams[i]['school']])
@@ -816,8 +857,8 @@ router.get('/data', (req, res) => {
 router.get('/scout', (req, res) => {
   if (global.validate == true) {
     db.query("SELECT * FROM `Hawk`.`user`", function (err, users) {
-      db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
-        db.query("SELECT * FROM Hawk.events; ", function (err, results1) {
+      db.query("SELECT * FROM `Hawk`.`team` ORDER by team_number", function (err, results) {
+        db.query("SELECT * FROM Hawk.events ORDER by Date DESC ", function (err, results1) {
           var name = [];
           for (var i = 0; i < results.length; i++) {
             name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
@@ -890,12 +931,12 @@ router.get('/enable', (req, res) => {
 });
 router.get('/scoreBlue', (req, res) => {
   if (global.validate == true) {
-    db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
+    db.query("SELECT * FROM `Hawk`.`team` ORDER BY team_number ", function (err, results) {
       var name = [];
       for (var i = 0; i < results.length; i++) {
         name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
       }
-      db.query("SELECT Name FROM `Hawk`.`events`", function (err, results1) {
+      db.query("SELECT Name FROM `Hawk`.`events` ORDER BY Date DESC", function (err, results1) {
         console.log(results1[0]['Name'] + " " + results1.length);
         return res.render('scoreBlue.ejs', {
           name: name,
@@ -911,12 +952,12 @@ router.get('/scoreBlue', (req, res) => {
 router.get('/scoreRed', (req, res) => {
   if (global.validate == true) {
 
-    db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
+    db.query("SELECT * FROM `Hawk`.`team` ORDER BY team_number ", function (err, results) {
       var name = [];
       for (var i = 0; i < results.length; i++) {
         name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
       }
-      db.query("SELECT Name FROM `Hawk`.`events`", function (err, results1) {
+      db.query("SELECT Name FROM `Hawk`.`events` ORDER BY Date DESC", function (err, results1) {
         console.log(results1[0]['Name'] + " " + results1.length);
         return res.render('scoreRed.ejs', {
           name: name,
@@ -943,7 +984,7 @@ router.post('/create=?', (req, res) => {
   return res.redirect('/add/' + req.body.game_num)
 })
 router.get('/add/:num', (req, res) => {
-  db.query("SELECT * FROM `Hawk`.`team`; ", function (err, results) {
+  db.query("SELECT * FROM `Hawk`.`team` ORDER BY team_number", function (err, results) {
     db.query("SELECT * FROM Hawk.events; ", function (err, results1) {
       var name = [];
       for (var i = 0; i < results.length; i++) {
@@ -960,7 +1001,7 @@ router.get('/add/:num', (req, res) => {
   })
 })
 router.post('/configure=?', (req, res) => {
-  db.query("SELECT * FROM team", function (err, team) {
+  db.query("SELECT * FROM team ORDER BY team_number", function (err, team) {
     let array = [];
     let teams = []
     let teams1 = []
@@ -1000,19 +1041,20 @@ router.post('/configure=?', (req, res) => {
 
     for (let i = 0; i < final_values.length; i++) {
       if (final_values[i][9] == 'r') {
-        console.log(final_values[i][0])
-
-        console.log(teams.indexOf('8696'))
-        console.log("HELLO " + teams.indexOf(final_values[i][0]))
         teams[teams1.indexOf(final_values[i][0])][1]++
         teams[teams1.indexOf(final_values[i][1])][1]++
         teams[teams1.indexOf(final_values[i][4])][2]++
         teams[teams1.indexOf(final_values[i][5])][2]++
-      } else {
+      } else if (final_values[i][9] == 'b'){
         teams[teams1.indexOf(final_values[i][0])][2]++
         teams[teams1.indexOf(final_values[i][1])][2]++
         teams[teams1.indexOf(final_values[i][4])][1]++
         teams[teams1.indexOf(final_values[i][5])][1]++
+      } else {
+        teams[teams1.indexOf(final_values[i][0])][3]++
+        teams[teams1.indexOf(final_values[i][1])][3]++
+        teams[teams1.indexOf(final_values[i][4])][3]++
+        teams[teams1.indexOf(final_values[i][5])][3]++
       }
     }
     let teams3 = [];
@@ -1051,7 +1093,7 @@ router.get('/testCreation', (req, res) => {
   return res.render('createTourney')
 })
 router.get('/scoringData', (req, res) => {
-  db.query("SELECT * FROM team ", function (err, teams) {
+  db.query("SELECT * FROM team ORDER BY team_number ", function (err, teams) {
     db.query("SELECT * FROM `Hawk`.`score_data` ORDER BY create_time DESC", function (err, results) {
 
       return res.render('scoringData.ejs', {

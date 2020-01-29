@@ -1,6 +1,6 @@
 'use strict';
 const moment = require('moment');
-const db = require('//Users/omkaryadav/Documents/GitHub/Hawk/db.js')
+// const db = require('//Users/omkaryadav/Documents/GitHub/Hawk/db.js')
 
 // exports.register_go = function(req, res) {
 //     var first = req.body.first_name;
