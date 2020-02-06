@@ -66,28 +66,20 @@ router.get("/update", function (req, res) {
 router.get("/api/update", function (req, res) {
   console.log("Update Started")
   db.query("SELECT team_number FROM `Hawk`.`team`; ", function (err, results) {
+    results = [results[0]]
     for (obj in results) {
-      
       let id = results[obj]['team_number']
       fetch('http://theorangealliance.org/api/team/' + id + "/wlt", {
         method: 'get',
         headers,
       })
-        .then(res => {
-          console.log(res)
-          res.json()
-        })
-        .then(json => {
-          console.log(json)
-          updatePercentage(id, json) }
-          )
-          .catch(error => {
-            console.log("Error " + id)  
-            throw error
-          })
+        .then(res => res.json())
+        .then(json => updatePercentage(id, json))
+          .catch((error) => console.error(error))
     }
   });
   db.query("SELECT team_number FROM `Hawk`.`team`; ", function (err, results) {
+    results = [results[0]]
     for (obj in results) {
       let id = results[obj]['team_number']
       fetch('http://theorangealliance.org/api/team/' + id + '/results/1920', {
@@ -95,17 +87,18 @@ router.get("/api/update", function (req, res) {
         headers,
       })
         .then(res => {
-          console.log(res)
-          res.json()
-        })
-        .then(json => {
-          updateOpr(id, json)
-        })
+          console(res);
+          return res.json()
+        }
+        )
+        .then(json => updateOpr(id, json)
+        )
     }
   })
 
 
   updatePercentage = function (id, parameters) {
+    console.log( parameters);
     if (id != undefined && id != null) {
       let percentage = Math.round((parameters[0]["wins"] + .5 * parameters[0]["ties"]) / (parameters[0]["wins"] + parameters[0]["losses"] + parameters[0]["ties"]) * 10000.0) / 10000.0
       console.log("Percentage")
@@ -114,6 +107,7 @@ router.get("/api/update", function (req, res) {
 
   }
   updateOpr = function (id, parameters) {
+    console.log(parameters)
     if (id != undefined && id != null) {
       let average = 0;
 
@@ -559,16 +553,21 @@ router.get('/other', (req, res) => {
   return res.render('api/otherSimal')
 });
 router.get('/api/:key/1920/matches', (req, res) => {
-  
+  let array = [];
   fetch('http://theorangealliance.org/api/team/' + req.params.key + '/matches/1920', {
     method: 'get',
     headers,
   })
     .then(res => res.json())
     .then(match => {
-      let array = [];
+      console.log(array)
       for (let i = 0; i < match.length; i++) {
-        array[i] = match[i].match_key
+        fetch('http://theorangealliance.org/api/team/' + req.params.key + '/matches/1920', {
+          method: 'get',
+          headers,
+      })
+      .then(res => res.json())
+      .then(json => array.push(json))
       }
       console.log(array.length)
       res.send(array)
@@ -601,6 +600,17 @@ router.get('/api/:key/1920/events', (req, res) => {
   })
     .then(res => res.json())
     .then(match => {
+      let array = [];
+      for (let i = 0; i < match.length; i++) {
+        fetch('http://theorangealliance.org/api/event/' + match[i]['event_key'], {
+          method: 'get',
+          headers,
+        })
+        .then(res => res.join())
+        .then(event => {
+          array.push(event)
+        })
+      }
       res.send(match)
     });
 });
@@ -612,24 +622,22 @@ router.get('/teamApi', (req, res) => {
   })
 
 });
-fetch('http://theorangealliance.org/api/match/1920-IA-LT8-E001-1', {
-    method: 'get',
-    headers,
-  })
-  .then(res => res.json())
-    .then(team => {
-      console.log(team[0]['participants'])
-    })
+// fetch('http://theorangealliance.org/api/match/1920-IA-LT8-E001-1', {
+//     method: 'get',
+//     headers,
+//   })
+//   .then(res => res.json())
+//     .then(team => {
+//       console.log(team[0]['participants'])
+//     })
 
 router.get('/teamApi/:search', (req, res) => {
-  fetch('http://theorangealliance.org/api/match/', {
+  fetch('http://theorangealliance.org/api/team/' + req.params.search, {
     method: 'get',
     headers,
   })
     .then(res => res.json())
     .then(team => {
-      console.log(team)
-    })
       console.log(team)
       let teams = [];
       teams.push(team)
@@ -640,7 +648,7 @@ router.get('/teamApi/:search', (req, res) => {
         teams: teams,
         name: req.params.search
       })
-
+    })
     });
 
 
