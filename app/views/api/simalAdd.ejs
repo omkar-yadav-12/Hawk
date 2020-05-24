@@ -14,123 +14,122 @@
     <h1> <span class="red">Simulation Select</pan>
     </h1>
 </head>
-    <% var counter = 0 %>
-    <% if (name[0].length > 0) { %>
-    <div class=container1>
-        <div
-            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="search">Search</label>
-            <input class="mdl-textfield__input" type="numeric" id="search" value="<%=name[0][0]%>" name="search"
-                autofocus onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
-                oninput="window.open('/api/team/search/' + this.value , '_self')"  />
-            <span class="mdl-textfield__error"></span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
-            <select class="mdl-textfield__input"  id="team_one" name="team_one" readonly>
-                <% for (var i = 0; i < results.length; i++) { %>
-                <option id="<%=i%>" value="<%=results[i]['team_number']%>"><%=name[i][1]%></option>
-                <% } %>
-            </select>
-            <label class="mdl-textfield__label" for="team_one">Team 1</label>
-        </div>
+<% var counter = 0 %>
+<% if (name[0].length > 0) { %>
+<div class=container1>
+    <div
+        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="search">Search</label>
+        <input class="mdl-textfield__input" type="numeric" id="search" value="<%=name[0][0]%>" name="search" autofocus
+            onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+            oninput="window.open('/api/team/search/' + this.value , '_self')" />
+        <span class="mdl-textfield__error"></span>
     </div>
-    <a id="new" onclick=add()
-        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab  mdl-color--black mdl-color-text--yellow">
-        <i class="material-icons">add</i>
-    </a>
-
-    <% } else { %>
-    <div class=container1>
-        <div
-            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
-            <label class="mdl-textfield__label mdl-color-text--grey" for="search/">Search</label>
-            <input class="mdl-textfield__input" type="numeric" id="search" value="<%=name[0][0]%>" name="search"
-                autofocus onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
-                oninput="window.open('/api/team/search/' + this.value  , '_self')"  />
-            <span class="mdl-textfield__error"></span>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
-            <select class="mdl-textfield__input" id="team_one" readonly name="team_one" >
-            </select>
-            <label class="mdl-textfield__label" for="team_one">Team 1</label>
-        </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
+        <select class="mdl-textfield__input" id="team_one" name="team_one" >
+            <% for (var i = 0; i < results.length; i++) { %>
+            <option id="<%=i%>" value="<%=results[i]['team_number']%>"><%=name[i][1]%></option>
+            <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="team_one">Team 1</label>
     </div>
-    <% } %>
-    <table class=container>
-        <thead>
-            <tr>
-                <th>
-                    <h1>Team Number</h1>
-                </th>
-                <th>
-                    <h1>Name</h1>
-                </th>
-                <th>
-                    <h1>Location</h1>
-                </th>
-                <th>
-                    <h1>OPR</h1>
-                </th>
-                <th>
-                    <h1>W-L</h1>
-                </th>
-                <th>
-                    <h1>Actions</h1>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-                <% if (results != undefined && results.length > 0) { %>
-                    <td><%=results[0][0]%> </td>
-                    <td><%=results[0][1]%></td>
-                    <td><%=results[0][2]%></td>
-                    <td><%=results[0][4]%></td>
-                    <td><%=results[0][5]%></td>
-                    <td><input onclick=add() type="checkbox" name="<%=i%>" /></td>
-                    <% } %>
-            <script>
-                var i = 0;
-                var array = []
-                for (let i = 0; i < 40; i++) {
-                    array.push([["", "", "", "", "", "", "", true]])
-                }
-                for (obj in sessionStorage) {
-                    if (sessionStorage[obj].length > 20) {
-                        array[i] = (sessionStorage[obj].split(","))
-                        i++
-                    }
-                }
+</div>
+<a id="new" onclick=add()
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab  mdl-color--black mdl-color-text--yellow">
+    <i class="material-icons">add</i>
+</a>
 
-                for (let i = 0; i < array.length; i++) {
-                    if (array[i].length > 5) {
-                        let nane = array[i][0]
-                        document.write("<tr>")
-                        document.write("<td>" + array[i][0] + "</td>");
-                        document.write("<td>" + array[i][1] + "</td>");
-                        document.write("<td>" + array[i][2] + ", " +  array[i][3] + "</td>");
-                        document.write("<td>" + array[i][5] + "</td>");
-                        document.write("<td>" + array[i][6] + "</td>");
-                        document.write("<td><input onclick = out(this.name) checked type='checkbox'>");
-                        document.write("<a class='mdl-navigation__link' href = '' <i  class='mdl-color-text--black material-icons'  onclick = remove(" + array[i][0] + ") role='presentation'>delete </i> </a> </td>");   
-                        document.write("</tr>")
-                     }
+<% } else { %>
+<div class=container1>
+    <div
+        class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
+        <label class="mdl-textfield__label mdl-color-text--grey" for="search/">Search</label>
+        <input class="mdl-textfield__input" type="numeric" id="search" value="<%=name[0][0]%>" name="search" autofocus
+            onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+            oninput="window.open('/api/team/search/' + this.value  , '_self')" />
+        <span class="mdl-textfield__error"></span>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
+        <select class="mdl-textfield__input" id="team_one" readonly name="team_one">
+        </select>
+        <label class="mdl-textfield__label" for="team_one">Team</label>
+    </div>
+</div>
+<% } %>
+<table class=container>
+    <thead>
+        <tr>
+            <th>
+                <h1>Team Number</h1>
+            </th>
+            <th>
+                <h1>Name</h1>
+            </th>
+            <th>
+                <h1>Location</h1>
+            </th>
+            <th>
+                <h1>OPR</h1>
+            </th>
+            <th>
+                <h1>W-L</h1>
+            </th>
+            <th>
+                <h1>Actions</h1>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (results != undefined && results.length > 0) { %>
+        <td><%=results[0][0]%> </td>
+        <td><%=results[0][1]%></td>
+        <td><%=results[0][2]%></td>
+        <td><%=results[0][4]%></td>
+        <td><%=results[0][5]%></td>
+        <td><input onclick=add() type="checkbox" name="<%=i%>" /></td>
+        <% } %>
+        <script>
+            var i = 0;
+            var array = []
+            for (let i = 0; i < 40; i++) {
+                array.push([["", "", "", "", "", "", "", true]])
+            }
+            for (obj in sessionStorage) {
+                if (sessionStorage[obj].length > 20) {
+                    array[i] = (sessionStorage[obj].split(","))
+                    i++
                 }
-            </script>
-        </tbody>
-    </table>
-    <a id="submitButton" href = "/other"
-        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
-       >Generate</a>
+            }
+
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].length > 5) {
+                    let nane = array[i][0]
+                    document.write("<tr>")
+                    document.write("<td>" + array[i][0] + "</td>");
+                    document.write("<td>" + array[i][1] + "</td>");
+                    document.write("<td>" + array[i][2] + ", " + array[i][3] + "</td>");
+                    document.write("<td>" + array[i][5] + "</td>");
+                    document.write("<td>" + array[i][6] + "</td>");
+                    document.write("<td><input onclick = out(this.name) checked type='checkbox'>");
+                    document.write("<a class='mdl-navigation__link' href = '' <i  class='mdl-color-text--black material-icons'  onclick = remove(" + array[i][0] + ") role='presentation'>delete </i> </a> </td>");
+                    document.write("</tr>")
+                }
+            }
+        </script>
+    </tbody>
+</table>
+<a id="submitButton" href="/other"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Generate</a>
 
 <a href="/home" id="backButton"
     class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
     <i class="material-icons">arrow_back</i>
 </a>
 <script>
-    remove = function(value) {
+    remove = function (value) {
         sessionStorage.removeItem(value);
     }
-    out = function(name) {
+    out = function (name) {
         alert(name)
     }
     add = function () {

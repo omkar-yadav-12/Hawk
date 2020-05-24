@@ -102,14 +102,14 @@
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
-            <input class="mdl-textfield__input" type="numeric"  value="<%=data[0].red.auto_returned%>" id="ReturnedAuto"  name="ReturnedAuto"
+            <input class="mdl-textfield__input" type="numeric"  value="<%=data.red.auto_returned%>" id="ReturnedAuto"  name="ReturnedAuto"
                 pattern="^[0-9]{1,3}" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
-            <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].red.auto_placed%>"id="PlacedAuto"  name="PlacedAuto"
+            <input class="mdl-textfield__input" type="numeric" value = "<%=data.red.auto_placed%>"id="PlacedAuto"  name="PlacedAuto"
                 pattern="^[0-9]{1,3}" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -120,7 +120,7 @@
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
-            <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].red.tele_delivered%>" id="delivered_number" name="delivered_number"
+            <input class="mdl-textfield__input" type="numeric" value = "<%=data.red.tele_delivered%>" id="delivered_number" name="delivered_number"
                 pattern="^[0-9]{1,3}" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -128,7 +128,7 @@
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
                 Skyscraper</label>
-            <input class="mdl-textfield__input" type="numeric" value =  "<%=data[0].red.tower_level_bonus%>" id="tallest_skyscraper" 
+            <input class="mdl-textfield__input" type="numeric" value =  "<%=data.red.tower_level_bonus%>" id="tallest_skyscraper" 
                 name="tallest_skyscraper"  pattern="^[0-9]{1,3}" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -136,7 +136,7 @@
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
-            <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].red.tele_returned%>" id="returned_name"  name="returned_name"  
+            <input class="mdl-textfield__input" type="numeric" value = "<%=data.red.tele_returned%>" id="returned_name"  name="returned_name"  
                 pattern="^[0-9]{1,3}" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -144,7 +144,7 @@
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
-            <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].red.tele_placed%>" id="placed"  name="placed" 
+            <input class="mdl-textfield__input" type="numeric" value = "<%=data.red.tele_placed%>" id="placed"  name="placed" 
                 pattern="^[0-9]{1,3}" readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -198,14 +198,14 @@
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
-            <input class="mdl-textfield__input" type="text" value= "<%=data[0].red_min_pen%>" id="minor" name="minor"   pattern="^[0-9]{1,3}"
+            <input class="mdl-textfield__input" type="text" value= "<%=data.red_min_pen%>" id="minor" name="minor"   pattern="^[0-9]{1,3}"
                 readonly />
             <span class="mdl-textfield__error"></span>
         </div>
         <div
             class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
-            <input class="mdl-textfield__input" type="text" value= "<%=data[0].red_maj_pen%>" id="major" name="major" pattern="^[0-9]{1,3}"
+            <input class="mdl-textfield__input" type="text" value= "<%=data.red_maj_pen%>" id="major" name="major" pattern="^[0-9]{1,3}"
                 readonly />
             <span class="mdl-textfield__error"></span>
         </div>
@@ -255,9 +255,9 @@
 </div>
 
 <% for (let i = 1; i <= 6; i++) { %>
-    <%        if (data[0].red.auto_stone_ + i == 'NONE') { %>
+    <%        if (data.red.auto_stone_ + i == 'NONE') { %>
           <script>document.getElementById("none" + "<%=i%>").checked = true;</script>
-          <% } else if (data[0].red.auto_stone_ + i == 'STONE') { %>
+          <% } else if (data.red.auto_stone_ + i == 'STONE') { %>
           <script>document.getElementById("stone" + "<%=i%>").checked = true </script>
           <% } else  { %>
               <script>document.getElementById("skystone<%=i%>").checked = true </script>
@@ -316,14 +316,14 @@
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="ReturnedAuto">Returned</label>
-        <input class="mdl-textfield__input" type="numeric"  value="<%=data[0].blue.auto_returned%>" id="ReturnedAuto"  name="ReturnedAuto"
+        <input class="mdl-textfield__input" type="numeric"  value="<%=data.blue.auto_returned%>" id="ReturnedAuto"  name="ReturnedAuto"
             pattern="^[0-9]{1,3}" readonly />
         <span class="mdl-textfield__error"></span>
     </div>
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="PlacedAuto">Placed</label>
-        <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].blue.auto_placed%>"id="PlacedAuto"  name="PlacedAuto"
+        <input class="mdl-textfield__input" type="numeric" value = "<%=data.blue.auto_placed%>"id="PlacedAuto"  name="PlacedAuto"
             pattern="^[0-9]{1,3}" readonly />
         <span class="mdl-textfield__error"></span>
     </div>
@@ -334,7 +334,7 @@
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="delivered_number">Delivered</label>
-        <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].blue.tele_delivered%>" id="delivered_number" name="delivered_number"
+        <input class="mdl-textfield__input" type="numeric" value = "<%=data.blue.tele_delivered%>" id="delivered_number" name="delivered_number"
             pattern="^[0-9]{1,3}" readonly />
         <span class="mdl-textfield__error"></span>
     </div>
@@ -342,7 +342,7 @@
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="tallest_skyscraper">Tallest
             Skyscraper</label>
-        <input class="mdl-textfield__input" type="numeric" value =  "<%=data[0].blue.tower_level_bonus%>" id="tallest_skyscraper" 
+        <input class="mdl-textfield__input" type="numeric" value =  "<%=data.blue.tower_level_bonus%>" id="tallest_skyscraper" 
             name="tallest_skyscraper"  pattern="^[0-9]{1,3}" readonly />
         <span class="mdl-textfield__error"></span>
     </div>
@@ -350,7 +350,7 @@
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="returned_name">Returned</label>
-        <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].blue.tele_returned%>" id="returned_name"  name="returned_name"  
+        <input class="mdl-textfield__input" type="numeric" value = "<%=data.blue.tele_returned%>" id="returned_name"  name="returned_name"  
             pattern="^[0-9]{1,3}" readonly />
         <span class="mdl-textfield__error"></span>
     </div>
@@ -358,7 +358,7 @@
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="placed">Placed</label>
-        <input class="mdl-textfield__input" type="numeric" value = "<%=data[0].blue.tele_placed%>" id="placed"  name="placed" 
+        <input class="mdl-textfield__input" type="numeric" value = "<%=data.blue.tele_placed%>" id="placed"  name="placed" 
             pattern="^[0-9]{1,3}" readonly />
         <span class="mdl-textfield__error"></span>
     </div>
@@ -412,14 +412,14 @@
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="minor"># Minor</label>
-        <input class="mdl-textfield__input" type="text" value= "<%=data[0].red_min_pen%>" id="minor" name="minor"   pattern="^[0-9]{1,3}"
+        <input class="mdl-textfield__input" type="text" value= "<%=data.red_min_pen%>" id="minor" name="minor"   pattern="^[0-9]{1,3}"
             readonly />
         <span class="mdl-textfield__error"></span>
     </div>
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
         <label class="mdl-textfield__label mdl-color-text--grey" for="major"># Major</label>
-        <input class="mdl-textfield__input" type="text" value= "<%=data[0].red_maj_pen%>" id="major" name="major" pattern="^[0-9]{1,3}"
+        <input class="mdl-textfield__input" type="text" value= "<%=data.red_maj_pen%>" id="major" name="major" pattern="^[0-9]{1,3}"
             readonly />
         <span class="mdl-textfield__error"></span>
     </div>

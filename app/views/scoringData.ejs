@@ -54,11 +54,11 @@
       <td><%= results[i]['match_num'] %></td>
       <td><%= results[i]['field_num'] %></td>
       <td><%= results[i]['total'] %></td>
-      <td><a class="mdl-navigation__link" href="http:/dataView/<%=results[i]['id']%>"><i
+      <td><a class="mdl-navigation__link" href="/dataView/<%=results[i]['id']%>"><i
             class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a
-          class="mdl-navigation__link" href="http:/dataEdit/<%=results[i]['id']%>"><i
+          class="mdl-navigation__link" href="/dataEdit/<%=results[i]['id']%>"><i
             class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a class="mdl-navigation__link"
-          href="http:/dataEdit/delete/<%=results[i]['id']%>"><i
+          href="/dataEdit/delete/<%=results[i]['id']%>"><i
             onclick="return confirm('Are you sure you want to delete this entry?');"
             class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
     </tr>

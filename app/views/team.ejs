@@ -1,6 +1,6 @@
 <% include navigation %>
-<link rel="stylesheet" type="text/css" href="css/register.css" />
-<link rel="stylesheet" type="text/css" href="css/scoringButtons.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/register.css" />
+<link rel="stylesheet" type="text/css" href="css/scoringButtons.css" /> -->
 
 <head>
     <!-- Material Design Lite CSS -->
@@ -32,7 +32,7 @@
 
 <body>
     <!-- REGISTER FORM -->
-    
+
     <div class="mdl-grid">
         <div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px">
             <div class="mdl-card__title mdl-color--black">
@@ -40,19 +40,57 @@
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
                 <form method="POST" action="/team=True">
-                    <input type="hidden" name="action" value="register" />
+                    <% if (results != []) { %>
+                    <!-- <input type="hidden" name="action" value="register" /> -->
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="team_number">Team Number</label>
-                        <input class="mdl-textfield__input" type="text" id="team_number" name="team_number" 
-                            pattern="^{5,5}" required />
+                        <input class="mdl-textfield__input" type="text" value="<%=results[4]%>" id="team_number"
+                            name="team_number" pattern="^{5,5}" autofocus
+                            onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+                            oninput="window.open('/team/add/' + this.value , '_self')" required />
                         <span class="mdl-textfield__error"></span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-                            <label class="mdl-textfield__label mdl-color-text--grey" for="name">Name</label>
-                            <input class="mdl-textfield__input"  type="text" id="name" name="name"
-                                pattern="^[a-zA-Z0-9\s]{1,40}" required />
-                            <span class="mdl-textfield__error"></span>
-                        </div>
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="name">Name</label>
+                        <input class="mdl-textfield__input" type="text" value="<%=results[0]%>" id="name" name="name"
+                            pattern="^[a-zA-Z0-9\s]{1,40}" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="school">School</label>
+                        <input class="mdl-textfield__input" type="text" value="<%=results[1]%>" id="school"
+                            name="school" pattern="^[a-zA-Z0-9 \/s]{1,40}" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="location">Location</label>
+                        <input class="mdl-textfield__input" type="text" value="<%=results[2]%>" id="location"
+                            name="location" pattern="^[a-zA-Z0-9\,s]{3,40}$" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="league">League</label>
+                        <input class="mdl-textfield__input" type="text" value="<%=results[3]%>" id="league"
+                            name="league" pattern="^[a-zA-Z0-9\s]{3,15}$" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+
+                    <% } else { %>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="team_number">Team Number</label>
+                        <input class="mdl-textfield__input" type="text" id="team_number" name="team_number"
+                            pattern="^{5,5}" autofocus
+                            onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
+                            oninput="window.open('/team/add/' + this.value , '_self')" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+                        <label class="mdl-textfield__label mdl-color-text--grey" for="name">Name</label>
+                        <input class="mdl-textfield__input" type="text" id="name" name="name"
+                            pattern="^[a-zA-Z0-9\s]{1,40}" required />
+                        <span class="mdl-textfield__error"></span>
+                    </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="school">School</label>
                         <input class="mdl-textfield__input" type="text" id="school" name="school"
@@ -61,8 +99,8 @@
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="location">Location</label>
-                        <input class="mdl-textfield__input" type="text" id="location" name="location" pattern="^[a-zA-Z0-9\s]{3,40}$"
-                            required />
+                        <input class="mdl-textfield__input" type="text" id="location" name="location"
+                            pattern="^[a-zA-Z0-9\s]{3,40}$" required />
                         <span class="mdl-textfield__error"></span>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
@@ -71,7 +109,10 @@
                             pattern="^[a-zA-Z0-9\s]{3,15}$" required />
                         <span class="mdl-textfield__error"></span>
                     </div>
-                    
+
+
+                    <% } %>
+
                     <a href="/teamData" id="backButton"
                         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
                         <i class="material-icons">arrow_back</i>
@@ -91,5 +132,5 @@
     <!--<script type="text/javascript" src="/app/controllers/function.js"></script> -->
 </body>
 <script>
-    
+
 </script>

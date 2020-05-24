@@ -44,8 +44,8 @@ appearance: none;
                 <h2 class="mdl-card__title-text mdl-color-text--yellow">Login</h2>
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
-                <% if (alert.length != 0) { %>
-                <div class="alert alert-danger col-sm-12 mdl-color-text--red"><%= alert %></div>
+                <% if (messages.error) { %>
+                <div class="alert alert-danger col-sm-12 mdl-color-text--red"><%= messages.error %></div>
                 <% } %>
                 <form method="POST" action="/loginValidate">
                     <input type="hidden" name="action" value="login" />

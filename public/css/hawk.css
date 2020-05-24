@@ -52,6 +52,26 @@ table {
     right: 2.5%;
     bottom: 1%;
 }
+::-webkit-scrollbar {
+    width: 20px;
+    height: 100px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #000000; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #FB667A; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FFF842
+  }
 #new {
     position: fixed;
     background-color: black;

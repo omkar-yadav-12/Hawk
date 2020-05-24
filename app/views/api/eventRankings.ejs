@@ -39,7 +39,7 @@
         <td>(<%= json[i]['team']._teamNumber%>) <%=json[i]['team']._teamNameShort%> <%=json[i]['team'].city%> <%= json[i]['team'].stateProv %></td>
         <td><%= json[i].wins%> - <%= json[i].losses%> - <%= json[i].ties%> </td>
         <td><%= json[i].opr%></td>
-        <!-- <td><a class="mdl-navigation__link" href="http:/api/event/<%=json[i].event_key%>/matches"><i
+        <!-- <td><a class="mdl-navigation__link" href="/api/event/<%=json[i].event_key%>/matches"><i
             class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a></td> -->
     </tr>
     <% } %>

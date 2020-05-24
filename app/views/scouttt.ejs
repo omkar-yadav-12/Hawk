@@ -30,15 +30,6 @@
         <label class="mdl-textfield__label" for="team_num">Team Number</label>
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
-        <select class="mdl-textfield__input" id="author" name="author" required>
-          <option></option>
-          <% for (var i = 0; i < users.length; i++) { %>
-          <option value="<%=users[i]['first_name']%> <%=users[i]['last_name']%>"><%=users[i]['first_name']%> <%=users[i]['last_name']%></option>
-          <% } %>
-        </select>
-        <label class="mdl-textfield__label" for="author">Author</label>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--yellow">
         <select class="mdl-textfield__input" id="event_name" name="event_name" required>
           <option></option>
           <% for (var i = 0; i < results1.length; i++) { %>

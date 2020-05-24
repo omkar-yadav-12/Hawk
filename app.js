@@ -2,7 +2,6 @@
 // Environmental variable config
 require('dotenv').config();
 process.env.DEV = process.env.NODE_ENV !== 'production';
-
 // Node core modules
 const path = require('path');
 
@@ -11,10 +10,18 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const favicon = require('serve-favicon');
 const log4js = require('log4js');
-const routes = require('./app/routes')
-const apiRoutes = require('./app/apiRoutes');
+const routes = require('./app/routes/routes')
+const simulationRoutes = require('./app/routes/simulationRoutes');
+const apiRoutes = require('./app/routes/apiRoutes')
+const scoutRoutes = require('./app/routes/scoutRoutes')
+const scoringRoutes = require('./app/routes/scoringRoutes')
 const passport = require('passport')
-
+const flash = require('express-flash')
+const login = require('./app/controllers/login')
+const session = require('express-session')
+const db = require('./app/db')
+const methodOverride = require('method-override')
+const initializePassport = require('./app/controllers/authenticate')
 
 
 
@@ -59,9 +66,32 @@ app.use(log4js.connectLogger(logging.getLogger('express'), {
 //Routes
  //favicon
 
+
+
 app.use(express.static(__dirname + '/public')); //links external js and CSS files
+
+
+initializePassport(passport)
+
+
+app.use(methodOverride('_method'))
+app.use(flash())
+app.use(session({
+  secret: "fhfonzzkzjldxpjnwbjc",
+  resave: false, 
+  saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 // app.use(apiRoutes);
+app.use(scoringRoutes)
+app.use(scoutRoutes)
+app.use(apiRoutes)
+app.use(simulationRoutes)
 app.use(routes);
+
+
 
 
 
