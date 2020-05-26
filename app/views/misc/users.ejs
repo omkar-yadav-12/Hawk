@@ -1,0 +1,41 @@
+<%- include ../navigation%>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/scoringButtons.css">
+    <link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+<div class = header >
+  <title>Users List</title>
+<h2 align = "center" >Users List</h2>
+</div>
+<% if (results != 0) { %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Team</th>
+    <th>Grade</th>
+    <th>Contact</th>
+    <th>Join Date</th>
+  </tr>
+
+  <% for (var i = 0; i < length; i++ ) { %>
+    <tr>
+    <td><%= results[i]['first_name'] + " " + results[i]['last_name']%></td>
+    <td><%= results[i]['teamName'] %></td>
+    <td><%= results[i]['grade'] %></td>
+    <td><%= results[i]['email'] %></td>
+    <td><%= results[i]['create_time'] %></td>
+  </tr>
+   <% } %>
+ 
+ 
+</table>
+<% } %>
+</body>
+<a href="/home" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+  <i class="material-icons">arrow_back</i>
+</a>
+</html>
+

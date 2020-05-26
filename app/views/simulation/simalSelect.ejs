@@ -1,0 +1,60 @@
+<%- include ../navigation%>
+<title>Team Select</title>
+
+<head>
+    <h1> <span class="red">Simulation Select</pan>
+    </h1>
+</head>
+<form method="POST" action="/simulation=?">
+    <table class=container>
+        <thead>
+            <tr>
+                <th>
+                    <h1>Team Number</h1>
+                </th>
+                <th>
+                    <h1>Name</h1>
+                </th>
+                <th>
+                    <h1>School</h1>
+                </th>
+                <th>
+                    <h1>Location</h1>
+                </th>
+                <th>
+                    <h1>League</h1>
+                </th>
+                <th>
+                    <h1>OPR</h1>
+                </th>
+                <th>
+                    <h1>W-L</h1>
+                </th>
+                <th>
+                    <h1>Select</h1>
+                </th>
+            </tr>
+        </thead>
+<tbody>
+        <% for (var i = 0; i < results.length; i++ ) { %>
+        <tr>
+            <td><%= results[i]['team_number']%></td>
+            <td><%= results[i]['name'] %></td>
+            <td><%= results[i]['school'] %></td>
+            <td><%= results[i]['location'] %></td>
+            <td><%= results[i]['league'] %></td>
+            <td><%= results[i]['opr'] %></td>
+            <td><%= results[i]['wl'] %></td>
+            <td><input id="<%=results[i]%>" type="checkbox" name="<%=i%>" /></td>
+        </tr>
+        <% } %>
+    </tbody>
+    </table>
+    <input id="submitButton" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
+        value="Generate">
+</form>
+<a href="/home" id="backButton"
+    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+    <i class="material-icons">arrow_back</i>
+</a>

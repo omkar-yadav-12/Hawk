@@ -13,7 +13,7 @@ const methodOverride = require('method-override')
 global.ID = "omyad21@icstudents.org";
 global.validate = true;
 router.get('/settings/edit', checkAuthenticated, (req, res) => {
-  return res.render('settingsEdit', {
+  return res.render('misc/settingsEdit', {
     results: req.user
   });
 });
@@ -38,14 +38,14 @@ router.post('/settings/:dataId', checkAuthenticated, (req, res) => {
 
 router.get('/login', checkNotAuthenticated, (req, res) => {
   alert = " ";
-  return res.render('login.ejs', {
+  return res.render('main/login.ejs', {
     alert: alert,
   });
 });
 
 router.get('/teamEdit/delete/:dataId', checkAuthenticated, (req, res) => {
   db.delete("team", ["idteam"], [req.params.dataId], null, function (err) {
-    return res.redirect('/teamData')
+    return res.redirect('misc/teamData')
   })
 });
 
@@ -81,7 +81,7 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
 
 router.get('/teamEdit/:dataId', checkAuthenticated, (req, res) => {
   db.get(null, "team", ["idteam"], [req.params.dataId], null, null, function (err, results) {
-    return res.render('teamEdit.ejs', {
+    return res.render('misc/teamEdit.ejs', {
       results: results,
     })
   })
@@ -96,14 +96,14 @@ router.get('/drop', checkAuthenticated, (req, res) => {
   })
 })
 router.get('/home', checkAuthenticated, (req, res) => {
-  return res.render('home.ejs', {
+  return res.render('main/home.ejs', {
     disable: false,
     results: req.user,
 })
 });
 router.get('/settings', checkAuthenticated, (req, res) => {
   req.user.name = moment(req.user.name).format('LL')
-  return res.render('settings.ejs', {
+  return res.render('misc/settings.ejs', {
     results: req.user,
   });
 });
@@ -111,23 +111,23 @@ router.get('/settings', checkAuthenticated, (req, res) => {
 
 router.get('/calendar', checkAuthenticated, (req, res) => {
   calendarController.get_calendar;
-  return res.render('calendar.ejs', {
+  return res.render('main/calendar.ejs', {
     names: "UPPPP",
   });
 });
 
 router.get('/help', checkAuthenticated, (req, res) => {
-  return res.render('help.ejs', {
+  return res.render('main/help.ejs', {
   });
 });
 router.get('/announcements', checkAuthenticated, (req, res) => {
-  return res.render('announcements.ejs', {
+  return res.render('main/announcements.ejs', {
   });
 });
 
 router.get('/teamData', checkAuthenticated, (req, res) => {
   db.get(null, "team", null, null, null, "team_number", function (err, results) {
-    return res.render('teamData.ejs', {
+    return res.render('misc/teamData.ejs', {
       results: results,
     });
   })
@@ -135,7 +135,7 @@ router.get('/teamData', checkAuthenticated, (req, res) => {
 
 router.get('/data', checkAuthenticated, (req, res) => {
   if (validate) {
-    return res.render('data.ejs', {
+    return res.render('misc/data.ejs', {
       id: ID,
     });
   }
@@ -146,12 +146,12 @@ router.get('/data', checkAuthenticated, (req, res) => {
 
 
 router.get('/newTeam', checkAuthenticated, (req, res) => {
-  return res.render('team.ejs', {
+  return res.render('misc/team.ejs', {
     results: ["", "", "", "", ""]
   })
 });
 router.get('/newTourney', checkAuthenticated, (req, res) => {
-  return res.render('tournament.ejs', {
+  return res.render('misc/tournament.ejs', {
     now: moment().format('LLL'),
   });
 });
@@ -159,11 +159,11 @@ router.get('/tournamentData', checkAuthenticated, (req, res) => {
   other.tournamentData(res)
 });
 router.get('/background', checkAuthenticated, (req, res) => {
-  return res.render('background.ejs', {
+  return res.render('main/background.ejs', {
   });
 });
 router.get('/localData', checkAuthenticated, (req, res) => {
-  return res.render('localData.ejs', {
+  return res.render('misc/localData.ejs', {
   });
 });
 

@@ -51,12 +51,16 @@ router.get('/gettt',checkAuthenticated, (req, res) => {
         array: []
     });
 });
-router.get('/api/event/:event_name/:match_key',checkAuthenticated, (req, res) => {
-    apis.call("match/" + req.params.match_key + "/details").then(function (json) {
-        res.render('api/matchView', {
-            data: apis.match(json[0])
-        })
+router.get('/api/event/:event_name/:match_key',checkAuthenticated, async (req, res) => {
+    let json = await apis.call("match/" + req.params.match_key + "/details")
+    res.render('api/matchView', {
+        data: apis.match(json[0])
     })
+    // apis.call("match/" + req.params.match_key + "/details").then(function (json) {
+    //     res.render('api/matchView', {
+    //         data: apis.match(json[0])
+    //     })
+    // })
 
 
 })

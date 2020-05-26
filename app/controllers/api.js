@@ -16,13 +16,8 @@ async function call(link) {
         headers
     })
         .then((response) => response.json())
-        .then(data => {
-            return data;
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    //console.log(data)
+        .then((data) => {return data})
+        .catch(error => { console.error(error)})
     return data
 }
 
@@ -102,20 +97,27 @@ exports.results = function (req, res) {
             })
     })
 }
-
+function delay(t, val) {
+    return new Promise(function(resolve) {
+        setTimeout(function() {
+            resolve(val);
+        }, t);
+    });
+ }
 // api.getTeamRankings("8696").then((parameter) => {
 //     console.log(parameter)
 // })
-exports.updateOPR = function (res) {
-    console.log("OPR")
-    db.get(["team_number"], "team", null, null, null, "opr", function (err, results) {
+exports.updateOPR = async function (res) {
+    db.get(["team_number"], "team", null, null, null, "opr", async function (err, results) {
         if (err) console.log("error")
         console.log(results.length)
         console.log(results)
+        try {
         for (var obj in results) {
             let id = results[obj]["team_number"]
-            call("team/" + id + "/results/1920").then(function (parameters) {
-                console.log(parameters.length)
+            let parameters = await call("team/" + id + "/results/1920")
+            await delay(1000)
+            console.log(parameters[0])
                 if (id != undefined && id != null) {
                     let average = 0;
                     for (var i = parameters.length - 2; i < parameters.length; i++) {
@@ -128,38 +130,82 @@ exports.updateOPR = function (res) {
                         if (err) console.log("error")
                     })
                 }
-            })
+            }
         }
+            catch (err) {
+                console.error(err)
+            }
+
+            // call("team/" + id + "/results/1920").then(function (parameters) {
+            //     console.log(parameters.length)
+            //     if (id != undefined && id != null) {
+            //         let average = 0;
+            //         for (var i = parameters.length - 2; i < parameters.length; i++) {
+            //             average += parameters[i]['opr'];
+            //         }
+            //         average /= 2;
+            //         average = Math.round(average * 100.0) / 100.0;
+            //         console.log("OPR " + average + " " + id)
+            //         db.update("team", ["opr"], [average], "team_number", id, null, function (err, results) {
+            //             if (err) console.log("error")
+            //         })
+            //     }
+            // })
+        
         return res.redirect('/updateWLT')
     })
 }
 
 exports.updateWLT = function (res) {
-    db.get(["team_number"], "team", null, null, null, "wl", function (err, results) {
+    db.get(["team_number"], "team", null, null, null, "wl", async function (err, results) {
         if (err) console.log("error")
         for (obj in results) {
             let id = results[obj]['team_number']
-            call("team/" + id + "/results/1920").then(function (parameters) {
-                try {
-                    let wins = 0;
-                    let losses = 0;
-                    let ties = 0;
-                    for (var obj in parameters) {
-                        if (id == 8696) console.log(parameters[obj]);
-                        if(wins > 10) wins -= 10
-                        wins += parameters[obj]['wins']
-                        losses += parameters[obj]['losses']
-                        ties += parameters[obj]['ties']
-                    } 
-                    percentage = Math.round((wins + (.5 * ties)) / (wins + losses + ties) * 10000.0) / 10000.0
-                    db.update("team", ["wl"], [percentage], "team_number", id, null, function (err, results) {
-                        if (err) console.log("error")
-                    })
+            let start = new Date().getTime()
+            let end = start;
+            let parameters
+            try {
+                parameters = await call("team/" + id + "/results/1920")
+                await delay(1000)
+                let wins = 0;
+                let losses = 0;
+                let ties = 0;
+                for (var obj in parameters) {
+                    if (id == 8696) console.log(parameters[obj]);
+                    if (wins > 10) wins -= 10
+                    wins += parameters[obj]['wins']
+                    losses += parameters[obj]['losses']
+                    ties += parameters[obj]['ties']
                 }
-                catch (e) {
-                    console.error(e)
-                }
-            })
+                percentage = Math.round((wins + (.5 * ties)) / (wins + losses + ties) * 10000.0) / 10000.0
+                db.update("team", ["wl"], [percentage], "team_number", id, null, function (err, results) {
+                    if (err) console.log("error")
+                })
+            }
+            catch (e) {
+                console.error(e)
+            }
+            // call("team/" + id + "/results/1920").then(function (parameters) {
+            //     try {
+            //         let wins = 0;
+            //         let losses = 0;
+            //         let ties = 0;
+            //         for (var obj in parameters) {
+            //             if (id == 8696) console.log(parameters[obj]);
+            //             if (wins > 10) wins -= 10
+            //             wins += parameters[obj]['wins']
+            //             losses += parameters[obj]['losses']
+            //             ties += parameters[obj]['ties']
+            //         }
+            //         percentage = Math.round((wins + (.5 * ties)) / (wins + losses + ties) * 10000.0) / 10000.0
+            //         db.update("team", ["wl"], [percentage], "team_number", id, null, function (err, results) {
+            //             if (err) console.log("error")
+            //         })
+            //     }
+            //     catch (e) {
+            //         console.error(e)
+            //     }
+            // })
         }
         return res.redirect("/simulation")
     })
@@ -214,16 +260,14 @@ exports.teamSearch = function (res) {
         })
 }
 
-exports.teamMatches = function (req, res) {
-    call('team/' + req.params.key + '/matches/1920').then(function (results) {
-        res.send(results)
-    })
+exports.teamMatches = async function (req, res) {
+    let results = await call('team/' + req.params.key + '/matches/1920')
+    res.send(results)
 }
 
-exports.teamEvents = function (req, res) {
-    call('team/' + req.params.key + '/events/1920').then(function (results) {
-        res.send(results)
-    })
+exports.teamEvents = async function (req, res) {
+    let results = await call('team/' + req.params.key + '/events/1920')
+    res.send(results)
 }
 
 

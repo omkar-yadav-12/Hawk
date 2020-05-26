@@ -17,7 +17,7 @@ function checkAuthenticated(req, res, next) {
 }
 
 router.get('/scouttt', (req, res) => {
-    return res.render('scout.ejs', {
+    return res.render('scout/scout.ejs', {
         alert: " "
     });
 });
@@ -36,7 +36,7 @@ router.get('/scoutEdit/delete/:dataId', checkAuthenticated, (req, res) => {
 
 router.get('/scoutView/:dataId', checkAuthenticated, (req, res) => {
     db.get(null, "scout_data", ["id"], [req.params.dataId], null, null, function (err, results) {
-        return res.render('scoutttView.ejs', {
+        return res.render('scout/scoutttView.ejs', {
             results: scout.scoutView(results),
         });
     })

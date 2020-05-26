@@ -6,7 +6,7 @@ exports.tournamentData = function (res) {
     for (var i = 0; i < results.length; i++) {
       results[i]['Date'] = moment(results[0]['Date']).format('LLLL')
     }
-    return res.render('tournamentData.ejs', {
+    return res.render('misc/tournamentData.ejs', {
       results: results,
     });
   })

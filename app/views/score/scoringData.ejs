@@ -1,0 +1,81 @@
+<%- include ../navigation%>
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="/css/scoringButtons.css">
+<link rel="stylesheet" href="/css/table.css">
+
+<head>
+  <title>Scoring Data</title>
+
+
+</head>
+
+<body>
+  <link rel="stylesheet" href="/css/scoringButtons.css">
+  <h1> <span class="red">Scoring Data Entries</pan>
+  </h1>
+  <% if (results != 0) { %>
+  <table class=container>
+    <thead>
+      <tr>
+        <th>
+          <h1>Team 1 Number</h1>
+        </th>
+        <th>
+          <h1>Team 2 Number</h1>
+        </th>
+        <th>
+          <h1>Event</h1>
+        </th>
+        <th>
+          <h1>Alliance</h1>
+        </th>
+        <th>
+          <h1>Match</h1>
+        </th>
+        <th>
+          <h1>Field</h1>
+        </th>
+        <th>
+          <h1>Points</h1>
+        </th>
+        <th>
+          <h1>Actions</h1>
+        </th>
+
+      </tr>
+    </thead>
+    <% for (var i = 0; i < results.length; i++ ) { %>
+    <tr>
+      <td><%= results[i]['team1_name']%></td>
+      <td><%= results[i]['team2_name'] %></td>
+      <td><%= results[i]['event_name'] %></td>
+      <td><%= results[i]['alliance'] %></td>
+      <td><%= results[i]['match_num'] %></td>
+      <td><%= results[i]['field_num'] %></td>
+      <td><%= results[i]['total'] %></td>
+      <td><a class="mdl-navigation__link" href="/dataView/<%=results[i]['id']%>"><i
+            class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a
+          class="mdl-navigation__link" href="/dataEdit/<%=results[i]['id']%>"><i
+            class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a class="mdl-navigation__link"
+          href="/dataEdit/delete/<%=results[i]['id']%>"><i
+            onclick="return confirm('Are you sure you want to delete this entry?');"
+            class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
+    </tr>
+    <% } %>
+
+
+  </table>
+  <% } %>
+</body>
+<a href="/data" id="backButton"
+  class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+  <i class="material-icons">arrow_back</i>
+</a>
+<a href="/score" id="new" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+  <i class="material-icons">add</i>
+</a>
+<a href="/dataDownload" id="exportButton"
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Download</a>
+
+</html>

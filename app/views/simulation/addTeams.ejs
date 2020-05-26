@@ -1,0 +1,84 @@
+<%- include ../navigation%>
+<h1> <span class="red">Configure Tournament</pan>
+</h1>
+<form method="POST" action="/configure=?">
+<table class=container> 
+<thead>
+    <tr>
+        <th>
+            <h1>Match</h1>
+        </th>
+        <th>
+            <h1>Red 1</h1>
+        </th>
+        <th>
+            <h1>Red 2</h1>
+        </th>
+        <th>
+            <h1>Blue 1</h1>
+        </th>
+        <th>
+            <h1>Blue 2</h1>
+        </th>
+    </tr>
+</thead>
+<% for (let x = 0; x < amount; x++) { %>
+    <% let y = x + 1 %>
+    <tr>
+        <td><%=y%></td>
+        <td>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--red">
+        <select class="mdl-textfield__input" id="team_num" name="red_one_<%=x%>" required>
+          <option></option>
+          <% for (var i = 0; i < name.length; i++) { %>
+          <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+          <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="team_num">Team Number</label>
+      </div>
+    
+</td>
+<td>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--red">
+        <select class="mdl-textfield__input" id="team_num" name="red_two_<%=x%>" required>
+          <option></option>
+          <% for (var i = 0; i < name.length; i++) { %>
+          <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+          <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="team_num">Team Number</label>
+      </div>
+    
+</td>
+<td>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--red">
+        <select class="mdl-textfield__input" id="team_num" name="blue_one_<%=x%>" required>
+          <option></option>
+          <% for (var i = 0; i < name.length; i++) { %>
+          <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+          <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="team_num">Team Number</label>
+      </div>
+    
+</td>
+<td>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-color-text--red">
+        <select class="mdl-textfield__input" id="team_num" name="blue_two_<%=x%>" required>
+          <option></option>
+          <% for (var i = 0; i < name.length; i++) { %>
+          <option value="<%=results[i]['team_number']%>"><%=name[i]%></option>
+          <% } %>
+        </select>
+        <label class="mdl-textfield__label" for="team_num">Team Number</label>
+      </div>
+    
+</td>
+</tr>
+ <% } %>
+
+</table>
+<input id="submitButton" type="submit"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow"
+        value="Generate">
+</form>

@@ -1,0 +1,62 @@
+<%- include ../navigation%>
+<html>
+
+<head>
+
+    <head>
+        <link rel="stylesheet" href="/css/scoringButtons.css">
+        <link rel="stylesheet" href="/css/table.css">
+        <h1> <span class="red">Tournament Data Entries</pan>
+        </h1>
+        <title>Tournament Data Entries</title>
+        <% if (results != 0) { %>
+        <table class="container">
+            <thead>
+                <tr>
+                    <th>
+                        <h1>Name</h1>
+                    </th>
+                    <th>
+                        <h1>Location</h1>
+                    </th>
+                    <th>
+                        <h1>Date</h1>
+                    </th>
+                    <th>
+                        <h1>Type</h1>
+                    </th>
+                    <th>
+                        <h1>Actions</h1>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var i = 0; i < results.length; i++ ) { %>
+                <tr>
+                    <td><%= results[i]['Name']%></td>
+                    <td><%= results[i]['Location'] %></td>
+                    <td><%= results[i]['Date'] %></td>
+                    <td><%= results[i]['Type']%> </td>
+                    <td><a class="mdl-navigation__link" href="/tourneyEdit/<%=results[i]['id']%>"><i
+                                class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a
+                            class="mdl-navigation__link" href="/tourneyEdit/delete/<%=results[i]['id']%>"><i
+                                onclick="return confirm('Are you sure you want to delete this entry?');"
+                                class="mdl-color-text--black material-icons" role="presentation">delete</i></a></td>
+                </tr>
+                <% } %>
+
+            </tbody>
+        </table>
+        <% } %>
+        <a href="/data" id="backButton"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        <a href="/newTourney" id="new"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+            <i class="material-icons">add</i>
+        </a>
+        <a href="/downloadTournament" id="exportButton"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Download</a>
+
+</html>

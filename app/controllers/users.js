@@ -20,7 +20,7 @@ exports.user_list = function (res) {
         results[i]['icon'] == "assignment"
       }
     }
-    return res.render('userss.ejs', {
+    return res.render('misc/userss.ejs', {
       color: "red",
       length: results.length,
       results: results,

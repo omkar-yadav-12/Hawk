@@ -42,7 +42,7 @@ exports.scoutingData = function (res) {
                 results[i]['identification'] = desired
                 results[i]['create_time'] = moment(results[i]['create_time']).format('LLLL')
             }
-            return res.render('scoutingData.ejs', {
+            return res.render('scout/scoutingData.ejs', {
                 results: results,
             });
         })
@@ -58,7 +58,7 @@ exports.scout = function (validate, res) {
                     for (var i = 0; i < results.length; i++) {
                         name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
                     }
-                    return res.render('scouttt.ejs', {
+                    return res.render('scout/scouttt.ejs', {
                         date: moment().format('LLL'),
                         name: name,
                         users, users,
@@ -89,7 +89,7 @@ exports.scoutEdit = function (res, dataId) {
                         for (var i = 0; i < teams.length; i++) {
                             name.push("(" + teams[i]['team_number'] + ") " + teams[i]['name'])
                         }
-                        return res.render('scoutttEdit.ejs', {
+                        return res.render('scout/scoutttEdit.ejs', {
                             events: events,
                             intend: intend,
                             needed: needed,
@@ -122,7 +122,7 @@ exports.add = function (res, num) {
           for (var i = 0; i < results.length; i++) {
             name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
           }
-          return res.render('addTeams', {
+          return res.render('scout/addTeams', {
             date: moment().format('LLL'),
             name: name,
             results: results,

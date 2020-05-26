@@ -72,7 +72,7 @@ exports.opr = function (req, res) {
             if (a[12] < b[12]) return 1;
             return 0;
         });
-        return res.render('tab.ejs', {
+        return res.render('simulation/tab.ejs', {
             final: final,
             scores: scores,
         });
@@ -151,7 +151,7 @@ exports.configure = function (req, res) {
             if (a[5] < b[5]) return 1;
             return 0;
         });
-        return res.render('tournamentGames', {
+        return res.render('simulation/tournamentGames', {
             games: final_values,
             teams: teams
         })

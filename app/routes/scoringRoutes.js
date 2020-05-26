@@ -48,7 +48,7 @@ router.get('/dataEdit/:dataId', checkAuthenticated, (req, res) => {
 });
 
 router.get('/score', checkAuthenticated, (req, res) => {
-    return res.render('score.ejs', {
+    return res.render('score/score.ejs', {
     });
 });
 

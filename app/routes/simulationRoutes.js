@@ -22,7 +22,7 @@ router.post('/simulation=?', checkAuthenticated, (req, res) => {
 });
 router.get('/simSel', checkAuthenticated, (req, res) => {
     db.get(null, "team", null, null, null, "team_number", function (err, results) {
-        return res.render('simalSelect.ejs', {
+        return res.render('simulation/simalSelect.ejs', {
             results: results,
         });
     })
@@ -31,7 +31,7 @@ router.get('/simSel', checkAuthenticated, (req, res) => {
 
 
 router.get('/testCreation', checkAuthenticated,  (req, res) => {
-    return res.render('createTourney')
+    return res.render('simulation/createTourney')
 })
 
 router.get('/simulation', checkAuthenticated, (req, res) => {
@@ -39,7 +39,7 @@ router.get('/simulation', checkAuthenticated, (req, res) => {
 });
 router.get('/simSel', checkAuthenticated, (req, res) => {
     db.get(null, "team", null, null, null, "team_number", function (err, results) {
-        return res.render('simalSelect.ejs', {
+        return res.render('simulation/simalSelect.ejs', {
             results: results,
         });
     })

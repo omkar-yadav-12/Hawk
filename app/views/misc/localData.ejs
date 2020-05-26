@@ -2,6 +2,11 @@
 <title>Data</title>
 <link rel="stylesheet" href="/css/scoringButtons.css">
 <style>
+#scoreData {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+}
 #tourneyData {
     position: absolute;
     top: 42.5%;
@@ -14,30 +19,36 @@
     left: 45%;
 
 }
-#simulation {
-    position: absolute;
-    top: 50%;
-    left: 45%;
-}
-#tourneySim {
+#scoutData {
     position: absolute;
     top: 57.5%;
-    left: 45%
+    left: 45%;
+}
+
+#simulation {
+    position: absolute;
+    top: 65%;
+    left: 45%;
 }
 
 </style>
 <body  style = background-color:#1F2739;>
- <a href="/data" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
+ <a href="/home" id="backButton" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
     <i class="material-icons">arrow_back</i>
 </a>
-<a href="/gettt" id=tourneyData
+<a href="/tournamentData" id="tourneyData"
     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Tournament Data</a>
-<a href="/teamApi" id="teamData"
+<a href="/teamData" id="teamData"
     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Team Data</a>
-<a href="/simalAdd" id="simulation"
+
+<a href="/scoringData" id="scoreData"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Scoring Data</a>
+
+<a href="/scoutingData" id="scoutData"
+class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Scouting Data</a>
+
+<a href="/simSel" id="simulation"
 class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Simulation</a>
-<a href="/testCreation" id="tourneySim"
-class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Tournament Simulation</a>
 </body>
 
 

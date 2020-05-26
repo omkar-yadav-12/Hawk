@@ -16,7 +16,7 @@ exports.register = async function (req, res) {
             return res.redirect('/login');
         })
     } catch {
-        res.redirect('/register')
+        res.redirect('main/register')
     }
 }
 

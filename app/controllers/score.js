@@ -91,7 +91,7 @@ exports.dataView = function (dataId, res) {
     if (err) throw err;
     if (results.length > 0) {
       console.log(results)
-      return res.render('dataView.ejs', {
+      return res.render('score/dataView.ejs', {
         results: results,
         title: `View Data « ${process.env.APP_NAME}`,
 
@@ -107,7 +107,7 @@ exports.test = function (dataId, res) {
     if (err) throw err;
     else {
       console.log(results)
-      return res.render('splitTest.ejs', {
+      return res.render('score/splitTest.ejs', {
         results: results,
         title: `View Data « ${process.env.APP_NAME}`,
 
@@ -121,7 +121,7 @@ exports.dataEdit = function (dataId, res) {
     if (err) throw err;
     else {
       if (results.length > 0) {
-        return res.render('dataEdit.ejs', {
+        return res.render('score/dataEdit.ejs', {
           results: results
         });
       }
@@ -143,7 +143,7 @@ exports.score = function (req, res, color) {
         let rb = "Red"
         if (color) rb = "Blue"
         console.log(req.user)
-        return res.render('score' + rb + '.ejs', {
+        return res.render('score/score' + rb + '.ejs', {
           name: name,
           results: results,
           results1: results1,
@@ -155,7 +155,7 @@ exports.score = function (req, res, color) {
 exports.scoringData = function (res) {
   db.get(null, "team", null, null, null, "team_number", function(err, teams) {
     db.get(null, "score_data", null, null, null, "create_time DESC", function (err, results) {
-      return res.render('scoringData.ejs', {
+      return res.render('score/scoringData.ejs', {
         alert: "",
         id: ID,
         results: total_score(teams, results),
