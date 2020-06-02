@@ -14,17 +14,12 @@ function intialize(passport) {
             check(password, user)
         })
         let check = async(password, user) => {
-            console.log(user.length)
             if (user.length === 0) {
                 return done(null, false, { message: 'No user with this email' })
             }
-            console.log(password)
-            console.log(user[0].password)
                 if (await bcrypt.compare(password, user[0].password)) {
-                    console.log("yes")
                     return done(null, user)
                 } else {
-                    console.log("NO")
                     return done(null, false, { message: 'Password incorrect' })
                 }
             
@@ -45,6 +40,19 @@ function intialize(passport) {
     })
 }
 
+
+exports.register = async function (req, res) {
+    try {
+        let hash = await bcrypt.hash(req.body.password, 10)
+        let array = [["first_name", "last_name", "grade", "email", "team", "password",  "create_time"], [req.body.first_name, req.body.last_name, req.body.grade, req.body.email, req.body.team, hash]]
+        db.insert("user", array[0], array[1], true, function (err, results) {
+            if (err) console.log("error");
+            return res.redirect('/login');
+        })
+    } catch {
+        res.redirect('main/register')
+    }
+}
 // db.get(null, "user", null, null, null, null, function(err, results) {
 //     for (var obj in results) {
 //         db.update("user", [""])

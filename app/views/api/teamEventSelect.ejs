@@ -1,4 +1,7 @@
 <%- include ../navigation%>
+
+<h1>Tournaments</h1>
+
 <table class=container>
     <thead>
         <tr>
@@ -29,16 +32,16 @@
         </tr>
     </thead>
     <tbody>
-        <% for (let i = 0; i < array.length; i++ ) { %>
+        <% for (let i = 0; i < events.length; i++ ) { %>
         <tr>
-            <td><%= array[i].event_name%></td>
-            <td><%= array[i].venue%></td>
-            <td><%= array[i].city %></td>
-            <td><%= array[i].state_prov %></td>
-            <td><%= array[i].start_date%></td>
-            <td><a class="mdl-navigation__link" href="/api/event/<%=array[i].event_key%>/matches"><i
-                        class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a><a
-                    class="mdl-navigation__link" href="/eventSimulation/<%=array[i]._eventKey%>"><i
+            <td><%= events[i]._eventName%></td>
+            <td><%= events[i]._venue%></td>
+            <td><%= events[i]._city %></td>
+            <td><%= events[i]._stateProv %></td>
+            <td><%= events[i]._startDate%></td>
+            <td><a class="mdl-navigation__link" href="/api/event/<%=events[i]._eventKey%>/matches"><i
+                        class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a>
+                <a class="mdl-navigation__link" href="/eventSimulation/<%=events[i]._eventKey%>"><i
                         class="mdl-color-text--black material-icons" role="presentation">event</i></a></td>
         </tr>
         <% } %>

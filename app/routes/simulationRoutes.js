@@ -10,13 +10,13 @@ const headers = {
 }
 const { API } = require('@the-orange-alliance/api');
 const api = new API("afeb37ef9fbd75eb154868d60b312be1ba893163518a2607937d3f64a88dedf8", "hawk");
-function checkAuthenticated (req, res, next) {
+function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-      return next()
+        return next()
     }
-  
+
     res.redirect('/login')
-  }
+}
 router.post('/simulation=?', checkAuthenticated, (req, res) => {
     simal.opr(req, res)
 });
@@ -30,8 +30,11 @@ router.get('/simSel', checkAuthenticated, (req, res) => {
 
 
 
-router.get('/testCreation', checkAuthenticated,  (req, res) => {
+router.get('/testCreation', checkAuthenticated, (req, res) => {
     return res.render('simulation/createTourney')
+})
+router.get('/eventSimulation/:event_name', (req, res) => {
+    simal.tourneyConfigure(req, res)
 })
 
 router.get('/simulation', checkAuthenticated, (req, res) => {

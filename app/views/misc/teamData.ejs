@@ -17,10 +17,10 @@ function download() {
         <thead>
             <tr>
                 <th>
-                    <h1>Team Number</h1>
+                    <h1>Number</h1>
                 </th>
                 <th>
-                    <h1>Name</h1>
+                    <h1>Team Name</h1>
                 </th>
                 <th>
                     <h1>School</h1>
@@ -30,6 +30,12 @@ function download() {
                 </th>
                 <th>
                     <h1>League</h1>
+                </th>
+                <th>
+                    <h1>OPR</h1>
+                </th>
+                <th>
+                    <h1>W-L</h1>
                 </th>
                 <th>
                     <h1>Actions</h1>
@@ -43,6 +49,8 @@ function download() {
             <td><%= results[i]['school'] %></td>
             <td><%= results[i]['location'] %></td>
             <td><%= results[i]['league'] %></td>
+            <td><%= results[i]['opr'] %></td>
+            <td><%= results[i]['wl'] %></td>
             <td><a class="mdl-navigation__link" href="/api/<%=results[i]['team_number']%>"><i
                         class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a>
                 <a class="mdl-navigation__link" href="/teamEdit/<%=results[i]['idteam']%>"><i

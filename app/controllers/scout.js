@@ -122,7 +122,7 @@ exports.add = function (res, num) {
           for (var i = 0; i < results.length; i++) {
             name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
           }
-          return res.render('scout/addTeams', {
+          return res.render('simulation/addTeams', {
             date: moment().format('LLL'),
             name: name,
             results: results,

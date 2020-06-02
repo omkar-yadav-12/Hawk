@@ -4,9 +4,9 @@ var router = express.Router();
 const db = require('../db');
 const user = require('../controllers/users');
 const moment = require('moment');
-const login = require('../controllers/login')
 const calendarController = require('../controllers/calendar');
 const other = require('../controllers/other')
+const authenticate = require('../controllers/authenticate')
 const passport = require('passport')
 const bcrypt = require('bcrypt')
 const methodOverride = require('method-override')
@@ -21,7 +21,7 @@ router.get('/', checkNotAuthenticated, (req, res) => {
   return res.redirect('/login');
 });
 router.post('/register=True', checkNotAuthenticated, (req, res) => {
-  login.register(req, res)
+  authenticate.register(req, res)
 });
 
 router.post('/teamEdit/update/:dataId', checkAuthenticated, (req, res) => {
@@ -76,7 +76,7 @@ router.post('/tourney=True', checkAuthenticated, (req, res) => {
   return res.redirect('/newTourney');
 })
 router.get('/register', checkNotAuthenticated, (req, res) => {
-  return res.render('register.ejs');
+  return res.render('main/register.ejs');
 });
 
 router.get('/teamEdit/:dataId', checkAuthenticated, (req, res) => {

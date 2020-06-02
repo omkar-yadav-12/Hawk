@@ -12,31 +12,19 @@ function checkAuthenticated(req, res, next) {
 
     res.redirect('/login')
 }
-router.get('/api/:team',checkAuthenticated, (req, res) => {
-    api.getTeamEvents(req.params.team, year).then(teams => {
-        res.send(teams)
-    })
+router.get('/api/:team', async(req, res) => {
+    res.send(await api.getTeamEvents(req.params.team, year))
 });
 
-router.get('/api/event/:event_name/matches',checkAuthenticated, (req, res) => {
-    api.getEventMatches(req.params.event_name).then((event) => {
-        res.render('api/matchApi.ejs', {
-            array: event
-        })
-    })
+router.get('/api/event/:event_name/matches',checkAuthenticated, async(req, res) => {
+    res.render('api/matchApi.ejs', {array: await api.getEventMatches(req.params.event_name)})
 });
-router.get('/api/event/:event_name/rankings',checkAuthenticated, (req, res) => {
-    console.log(req.params.event_name)
-    api.getEventRankings(req.params.event_name).then((event) => {
-        res.render('api/eventRankings.ejs', {
-            json: event
-        });
-    });
+router.get('/api/event/:event_name/rankings',checkAuthenticated, async(req, res) => {
+    res.render('api/eventRankings.ejs', {json: await api.getEventRankings(req.params.event_name)})
 });
 
-router.get('/teamApi/:search',checkAuthenticated, (req, res) => {
+router.get('/teamApi/:search', checkAuthenticated, (req, res) => {
     api.getTeams().then((teams) => {
-        console.log(teams)
         res.render('api/teamApi', {
             teams: apis.search(teams, req.params.search),
             name: req.params.search
@@ -56,13 +44,6 @@ router.get('/api/event/:event_name/:match_key',checkAuthenticated, async (req, r
     res.render('api/matchView', {
         data: apis.match(json[0])
     })
-    // apis.call("match/" + req.params.match_key + "/details").then(function (json) {
-    //     res.render('api/matchView', {
-    //         data: apis.match(json[0])
-    //     })
-    // })
-
-
 })
 
 
@@ -70,7 +51,7 @@ router.get('/api/team/search/:results',checkAuthenticated, (req, res) => {
     apis.results(req, res)
 });
 router.get("/update", checkAuthenticated, function (req, res) {
-    return res.redirect("/updateOPR")
+    apis.updateOPR(res)
 })
 router.get('/apiData',checkAuthenticated, (req, res) => {
     return res.render('api/apiData')
@@ -101,29 +82,30 @@ router.get('/api/event/:keyword',checkAuthenticated, (req, res) => {
 router.get('/api/:key/1920/matches',checkAuthenticated, (req, res) => {
     apis.teamMatches(req, res)
 });
-router.get('/api/:key/1920/events',checkAuthenticated, (req, res) => {
+router.get('/api/:key/1920/events', checkAuthenticated,(req, res) => {
     apis.teamEvents(req, res)
 });
 router.get('/teamApi',checkAuthenticated, (req, res) => {
-
     res.render('api/teamApi', {
         teams: [],
         name: ""
     })
 
 });
-
+router.get('teamEvent/:eventKey', (req, res) => {
+    res.render('/api/event/' + req.params.eventKey)
+})
 
 router.get('/team/add/:value',checkAuthenticated, (req, res) => {
     apis.add(req, res)
 })
-router.get("/updateOPR", checkAuthenticated, function (req, res) {
-    apis.updateOPR(res)
-});
+// router.get("/updateOPR", checkAuthenticated, function (req, res) {
+//     apis.updateOPR(res)
+// });
 
-router.get("/updateWLT", checkAuthenticated, function (req, res) {
-    apis.updateWLT(res)
-})
+// router.get("/updateWLT", checkAuthenticated, function (req, res) {
+//     apis.updateWLT(res)
+// })
 
 
 
