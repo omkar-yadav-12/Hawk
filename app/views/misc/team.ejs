@@ -1,4 +1,4 @@
-<%- include ../navigation%>
+<%- include ('../navigation.ejs')%>
 <!-- <link rel="stylesheet" type="text/css" href="css/register.css" />
 <link rel="stylesheet" type="text/css" href="css/scoringButtons.css" /> -->
 
@@ -40,7 +40,7 @@
             </div>
             <div class="mdl-card__supporting-text mdl-grid">
                 <form method="POST" action="/team=True">
-                    <% if (results != []) { %>
+                    <% if (results.length != 0) { %>
                     <!-- <input type="hidden" name="action" value="register" /> -->
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="team_number">Team Number</label>
@@ -79,7 +79,7 @@
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
                         <label class="mdl-textfield__label mdl-color-text--grey" for="team_number">Team Number</label>
-                        <input class="mdl-textfield__input" type="text" id="team_number" name="team_number"
+                        <input class="mdl-textfield__input" type="text" value = "<%=id%>" id="team_number" name="team_number"
                             pattern="^{5,5}" autofocus
                             onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
                             oninput="window.open('/team/add/' + this.value , '_self')" required />

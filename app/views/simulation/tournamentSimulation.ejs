@@ -1,5 +1,4 @@
-<%- include ../navigation%>
-
+<%- include ('../navigation.ejs')%>
 <head>
 
 <body>
@@ -13,12 +12,11 @@
 </body>
 </head>
 <style>
-
-#accuracy{
-    position: fixed;
-    left: 2.5%;
-   bottom: 1%;
-}
+    #accuracy {
+        position: fixed;
+        left: 2.5%;
+        bottom: 1%;
+    }
 </style>
 <button class="tablink" onclick="openPage('Matches', this, 'yellow')" color=black id="defaultOpen">Matches</button>
 <button class="tablink" onclick="openPage('Rankings', this, 'yellow')">Rankings</button>
@@ -60,29 +58,59 @@
         <% for (let i = 0; i < sim_matches.length; i++) { %>
         <tr>
             <td>
-                <%=event[i]['_matchName']%>
+                <%=event[i]['match_name']%>
             </td>
             <td>
-                <%=event[i]['_matchParticipants'][0]['_teamKey']%>
+                <%=event[i]['participants'][0]['team_key']%>
             </td>
             <td>
-                <%=event[i]['_matchParticipants'][1]['_teamKey']%>
+                <%=event[i]['participants'][1]['team_key']%>
             </td>
             <td>
-                <%=event[i]['_matchParticipants'][2]['_teamKey']%>
+                <%=event[i]['participants'][2]['team_key']%>
             </td>
             <td>
-                <%=event[i]['_matchParticipants'][3]['_teamKey']%>
+                <%=event[i]['participants'][3]['team_key']%>
             </td>
-            <td>
-                <%=event[i]['_redScore']%> - <%=event[i]['_blueScore']%>
+            <% if (event[i]['red_score'] > event[i]['blue_score']) { %>
+            <td style='color: red'>
+                <%=event[i]['red_score']%> - <%=event[i]['blue_score']%>
             </td>
-            <td>
+            <%  } else if (event[i]['red_score'] < event[i]['blue_score']) { %>
+            <td style='color: blue'>
+                <%=event[i]['red_score']%> - <%=event[i]['blue_score']%>
+            </td>
+            <% } else { %>
+            <td style='color: green'>
+                <%=event[i]['red_score']%> - <%=event[i]['blue_score']%>
+            </td>
+            <% } %>
+            <% if (sim_matches[i][0] > sim_matches[i][2]) { %>
+            <td style='color: red'>
                 <%=sim_matches[i][0]%> - <%=sim_matches[i][2]%>
             </td>
-            <td>
+            <%  } else if (sim_matches[i][0] < sim_matches[i][2]) { %>
+            <td style='color: blue'>
+                <%=sim_matches[i][0]%> - <%=sim_matches[i][2]%>
+            </td>
+            <% } else { %>
+            <td style='color: green'>
+                <%=sim_matches[i][0]%> - <%=sim_matches[i][2]%>
+            </td>
+            <% } %>
+            <% if (sim_matches[i][1] > sim_matches[i][3]) { %>
+            <td style='color: red'>
                 <%=sim_matches[i][1]%> - <%=sim_matches[i][3]%>
             </td>
+            <%  } else if (sim_matches[i][1] < sim_matches[i][3]) { %>
+            <td style='color: blue'>
+                <%=sim_matches[i][1]%> - <%=sim_matches[i][3]%>
+            </td>
+            <% } else { %>
+            <td style='color: green'>
+                <%=sim_matches[i][1]%> - <%=sim_matches[i][3]%>
+            </td>
+            <% } %>
             <% if (match[i][0] > match[i][1]) { %>
             <td style='color: red'>
                 <%=match[i][0]%>%
@@ -96,13 +124,13 @@
                 <%=match[i][1]%>%
             </td>
             <% } %>
-
         </tr>
         <% } %>
     </table>
     <div
         class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
-        <input class="mdl-textfield__input" value="<%=accuracy%>%" type="numeric" id="accuracy" name="accuracy" readonly />
+        <input class="mdl-textfield__input" value="<%=accuracy%>%" type="numeric" id="accuracy" name="accuracy"
+            readonly />
         <span class="mdl-textfield__error"></span>
     </div>
 </div>
@@ -130,16 +158,16 @@
         <% for (let i = 0; i < rankings.length; i++) { %>
         <tr>
             <td>
-                <%=rankings[i]['_rank']%>
+                <%=rankings[i]['rank']%>
             </td>
             <td>
-                <%=rankings[i]['_teamKey']%>
+                <%=rankings[i]['team_key']%>
             </td>
             <td>
-                <%=rankings[i]['_wins']%> - <%=rankings[i]['_losses']%> - <%=rankings[i]['_ties']%>
+                <%=rankings[i]['wins']%> - <%=rankings[i]['losses']%> - <%=rankings[i]['ties']%>
             </td>
             <td>
-                <%=rankings[i]['wins_']%> - <%=rankings[i]['losses_']%> - <%=rankings[i]['ties_']%>
+                <%=rankings[i]['wins']%> - <%=rankings[i]['losses']%> - <%=rankings[i]['ties']%>
             </td>
         </tr>
         <% } %>

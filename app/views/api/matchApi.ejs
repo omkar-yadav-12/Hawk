@@ -1,4 +1,4 @@
-<%- include ../navigation%>
+<%- include ('../navigation.ejs')%>
 
 <head>
     <h1> <span class="red">Matches</pan>
@@ -43,22 +43,22 @@
         <tbody>
             <% for (let i = 0; i < array.length; i++ ) { %>
             <tr>
-                <td><%= array[i]._matchName%></td>
-                <td><%= array[i]['_matchParticipants'][0]._teamKey %></td>
-                <td><%= array[i]['_matchParticipants'][1]._teamKey %></td>
-                <td><%= array[i]['_matchParticipants'][2]._teamKey %></td>
-                <td><%= array[i]['_matchParticipants'][3]._teamKey %></td>
-                <td><%= array[i]._redAutoScore%> - <%=array[i]._blueAutoScore%></td>
-                <td><%= array[i]._redTeleScore%> - <%=array[i]._blueTeleScore%></td>
-                <td><%= array[i]._redEndScore%> - <%=array[i]._blueEndScore%></td>
-                <td><%= array[i]._redScore%> - <%=array[i]._blueScore%></td>
+                <td><%= array[i].match_name%></td>
+                <td><%= array[i]['participants'][0].team_key %></td>
+                <td><%= array[i]['participants'][1].team_key %></td>
+                <td><%= array[i]['participants'][2].team_key %></td>
+                <td><%= array[i]['participants'][3].team_key %></td>
+                <td><%= array[i].red_auto_score%> - <%=array[i].blue_auto_score%></td>
+                <td><%= array[i].red_tele_score%> - <%=array[i].blue_tele_score%></td>
+                <td><%= array[i].red_end_score%> - <%=array[i].blue_end_score%></td>
+                <td><%= array[i].red_score%> - <%=array[i].blue_score%></td>
                 <td><a class="mdl-navigation__link"
-                        href="/api/event/<%=array[i]._eventKey%>/<%=array[i]._matchKey%>"><i
+                        href="/api/event/<%=array[i].event_key%>/<%=array[i].match_key%>"><i
                             class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a></td>
             </tr>
             <% } %>
         </tbody>
     </table>
-    <a href="/api/event/<%=array[0]._eventKey%>/rankings" id="exportButton"
+    <a href="/api/event/<%=array[0].event_key%>/rankings" id="exportButton"
     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--black mdl-color-text--yellow">Rankings</a>
     

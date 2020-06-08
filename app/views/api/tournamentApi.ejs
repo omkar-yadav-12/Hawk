@@ -1,4 +1,4 @@
-<%- include ../navigation%>
+<%- include ('../navigation.ejs')%>
 
 <title>Tournament Search</title>
 <script>let array = "<%=array%>"; </script>
@@ -70,14 +70,14 @@
     <tbody>
         <% for (let i = 0; i < array.length; i++ ) { %>
         <tr>
-            <td><%= array[i]._eventName%></td>
-            <td><%= array[i]._venue%></td>
-            <td><%= array[i]._city %></td>
-            <td><%= array[i]._stateProv %></td>
-            <td><%= array[i]._startDate%></td>
-            <td><a class="mdl-navigation__link" href="/api/event/<%=array[i]._eventKey%>/matches"><i
+            <td><%= array[i].event_name%></td>
+            <td><%= array[i].venue%></td>
+            <td><%= array[i].city%></td>
+            <td><%= array[i].state_prov %></td>
+            <td><%= array[i].start_date%></td>
+            <td><a class="mdl-navigation__link" href="/api/event/<%=array[i].event_key%>/matches"><i
                         class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a>
-                <a class="mdl-navigation__link" href="/eventSimulation/<%=array[i]._eventKey%>"><i
+                <a class="mdl-navigation__link" href="/eventSimulation/<%=array[i].event_key%>"><i
                         class="mdl-color-text--black material-icons" role="presentation">event</i></a></td>
         </tr>
         <% } %>

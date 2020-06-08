@@ -37,6 +37,10 @@ router.get('/eventSimulation/:event_name', (req, res) => {
     simal.tourneyConfigure(req, res)
 })
 
+router.get('/eventSimulation1/:event_name', (req, res) => {
+    res.render('simulation/tournamentSimulation1')
+})
+
 router.get('/simulation', checkAuthenticated, (req, res) => {
     return res.redirect('simSel');
 });

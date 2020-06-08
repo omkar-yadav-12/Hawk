@@ -1,4 +1,4 @@
-<%- include ../navigation%>
+<%- include ('../navigation.ejs')%>
 <head>
     <h1> <span class="red">Rankings</pan>
     </h1>
@@ -36,7 +36,7 @@
     <% for (let i = 0; i < json.length; i++ ) { %>
     <tr>
         <td><%= json[i].rank%></td>
-        <td>(<%= json[i]['team']._teamNumber%>) <%=json[i]['team']._teamNameShort%> <%=json[i]['team'].city%> <%= json[i]['team'].stateProv %></td>
+        <td>(<%= json[i]['team'].team_number%>) <%=json[i]['team'].team_name_short%> <%=json[i]['team'].city%> <%= json[i]['team'].state_prov %></td>
         <td><%= json[i].wins%> - <%= json[i].losses%> - <%= json[i].ties%> </td>
         <td><%= json[i].opr%></td>
         <!-- <td><a class="mdl-navigation__link" href="/api/event/<%=json[i].event_key%>/matches"><i

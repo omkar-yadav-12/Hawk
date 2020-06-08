@@ -1,6 +1,4 @@
-const express = require('express');
-const router = express.Router();
-const moment = require('moment');
+
 //var now = moment().format('LL');
 
 const mysql = require('mysql');
@@ -122,6 +120,5 @@ connection.delete = function (table, columns, values, boolean, callback) {
         else callback(null, true)
     })
 } 
-
 
 module.exports = connection;

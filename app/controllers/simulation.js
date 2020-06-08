@@ -3,6 +3,7 @@ const apis = require('./api')
 const moment = require('moment')
 const { API } = require('@the-orange-alliance/api');
 const api = new API("afeb37ef9fbd75eb154868d60b312be1ba893163518a2607937d3f64a88dedf8", "hawk");
+const fs = require('fs')
 const year = 1920
 function delay(t, val) {
     return new Promise(function (resolve) {
@@ -173,9 +174,9 @@ exports.configure = function (req, res) {
 function sort(teams, data) {
     for (let i = 0; i < data.length; i++) {
         //console.log(teams.find(element => element['event_key'] == teams['_eventKey'])['_startDate'])
-        let event = teams.find(element => element['_eventKey'] == data[i]['eventKey'])
+        let event = teams.find(element => element['event_key'] == data[i]['event_key'])
         if (event == undefined) data[i]['date'] = 0
-        else data[i]['date'] = event['_startDate']
+        else data[i]['date'] = event['start_date']
     }
     data = data.sort(function (a, b) {
         return new Date(a.date) - new Date(b.date)
@@ -183,24 +184,33 @@ function sort(teams, data) {
     return data
 }
 
-
 exports.tourneyConfigure = async function (req, res) {
-    let event = await api.getEventMatches(req.params.event_name)
-    let rankings = await api.getEventRankings(req.params.event_name)
-    let events = await api.getEvent(req.params.event_name)
-    let allEvents = await api.getEvents();
+    let event = fs.readFileSync('app/apiData/events/allEventsMatches.json')
+    event = JSON.parse(event)
+    event = event.find(element => element[0].event_key == req.params.event_name)
+    let rankings = fs.readFileSync('app/apiData/events/allEventsRankings.json')
+    rankings = JSON.parse(rankings)
+    rankings = rankings.find(element => element[0].event_key == req.params.event_name)
+    let events = fs.readFileSync('app/apiData/events/allEventsInfo.json')
+    events = JSON.parse(events)
+    events = events.find(element => element[0].event_key == req.params.event_name)
+    events = events[0]
+    let allEvents = fs.readFileSync('app/apiData/events/allEvents.json')
+    allEvents = JSON.parse(allEvents)
     // console.log(event[0])
     // console.log(event[0]['_matchParticipants'][0]['_teamKey'])
-
-    let teams = await api.getEventTeams(req.params.event_name)
-
+    let teams = fs.readFileSync('app/apiData/events/allEventsTeams.json')
+    teams = JSON.parse(teams)
+    teams = teams.find(element => element[0].event_key == req.params.event_name)
+    let teamResults = fs.readFileSync('app/apiData/teams/allTeamsResults.json')
+    teamResults = JSON.parse(teamResults)
     for (obj in teams) {
         teams[obj]['wins_'] = 0
         teams[obj]['losses_'] = 0
         teams[obj]['ties_'] = 0
     }
     for (let i = event.length - 1; i >= 0; i--) {
-        if (event[i]['_redScore'] == -1 || event[i]['_blueScore'] == -1) {
+        if (event[i]['red_score'] == -1 || event[i]['blue_score'] == -1) {
             event.splice(i, 1)
         }
     }
@@ -210,22 +220,23 @@ exports.tourneyConfigure = async function (req, res) {
     let simulated_matches = []
     let team_matches = []
     let team_data = []
-    //for (obj in event) array.push([event[obj]['_redScore'], event[obj]['_blueScore']])
+    //for (obj in event) array.push([event[obj]['red_score'], event[obj]['blue_score']])
+    console.log(teams.length)
     for (let i = 0; i < teams.length; i++) {
-        let data = await api.getTeamRankings(teams[i]['_teamKey'], year)
+        let data = teamResults.find(element => element[0].team_key == teams[i]['team_key'])
+        if (data == undefined) data = await apis.call('team/' + teams[i]['team_key'] + '/results/1920')
         // let data = await apis.call('team/' + teams[i]['teamKey'] + '/results/1920')
         teams_array.push(sort(allEvents, data))
-        await delay(1000)
     }
-    // console.log(teams_array[0])
+    let q = 0
     for (obj in teams_array) {
         let opr = 0;
         let wins = 0;
         let losses = 0;
         let ties = 0;
         for (let i = teams_array[obj].length - 1; i >= 0; i--) {
-            let tourney = await allEvents.find(element => element['_eventKey'] == teams_array[obj][i]['_eventKey'])
-            if (tourney == undefined || tourney['_startDate'] >= events['_startDate']) teams_array[obj].splice(i, 1)
+            let tourney = allEvents.find(element => element['event_key'] == teams_array[obj][i]['event_key'])
+            if (tourney == undefined || tourney['start_date'] >= events['start_date']) teams_array[obj].splice(i, 1)
         }
         let x = 0;
         let y = teams_array[obj].length
@@ -233,30 +244,59 @@ exports.tourneyConfigure = async function (req, res) {
             x = teams_array[obj].length - 2
             y = 2
         }
+        let matches = fs.readFileSync('app/apiData/events/allEventsMatches.json')
+        matches = JSON.parse(matches)
+        // final league tournaments have ten additional matches added on from the past, so account for this in the rankings data here by calculating actual matches that were played 
         for (let i = x; i < teams_array[obj].length; i++) {
-            opr += teams_array[obj][i]['opr']
-            wins += teams_array[obj][i]['wins']
-            losses += teams_array[obj][i]['losses']
-            ties += teams_array[obj][i]['ties']
-            if (teams_array[obj][i]['wins'] > 10) wins -= 10
-        }
+            //if (q === 0) console.log(teams_array[obj][i])
+            
+            if (teams_array[obj][i]['wins'] + teams_array[obj][i]['losses'] + teams_array[obj][i]['ties'] > 9) {
+                matches = matches.find(element => element[0].event_key == teams_array[obj][i].event_key)
+                if (matches.length == 0) matches = await apis.call('event/' + teams_array[obj][i]['event_key'] + '/matches')
+                let team = teams_array[obj][i]['team_key']
+                for (let j = 0; j < matches.length; j++) {
+                    for (let k = 0; k < 4; k++) {
+                        // if (i == x) this.alert(event[j]['event_key'] + " " + event[0]['participants'][k]['team_key'] + " " + event[1]['participants'][k]['team_key'])
+                        if (matches[j]['participants'][k]['team_key'] == team && matches[j]['match_name'].indexOf("Quals") != -1) {
+                            //if (team == 10069) this.alert(matches[j]['match_name'] + " " + matches[j]['red_score'] + " " + matches[j]['blue_score'])
+                            if (k === 0 || k === 1) {
+                                if (matches[j]['red_score'] > matches[j]['blue_score']) wins++
+                                else if (matches[j]['red_score'] < matches[j]['blue_score']) losses++
+                                else ties++
+                            } else {
+                                if (matches[j]['red_score'] < matches[j]['blue_score']) wins++
+                                else if (matches[j]['red_score'] > matches[j]['blue_score']) losses++
+                                else ties++
+                            }
+                        }
+                    }
+                }
+            } else {
+                wins += teams_array[obj][i]['wins']
+                losses += teams_array[obj][i]['losses']
+                ties += teams_array[obj][i]['ties']
+            }
 
-        team_data.push([teams_array[obj][0]['_teamKey'], Math.round(opr / y * 100.0) / 100.0, Math.round((wins + .5 * ties) / (wins + losses + ties) * 100.0) / 100.0])
+
+            opr += teams_array[obj][i]['opr']
+
+        }
+        if (teams_array[obj].length == 0) team_data.push([team, 0, 0])
+        else team_data.push([teams_array[obj][0]['team_key'], Math.round(opr / y * 100.0) / 100.0, Math.round((wins + .5 * ties) / (wins + losses + ties) * 100.0) / 100.0])
     }
-    console.log(team_data[0])
     for (obj in event) {
-        if (event[obj]['_matchName'].indexOf('Quals') != -1) {
-            simulated_matches.push([Math.round((team_data.find(element => element[0] == event[obj]['_matchParticipants'][0]['_teamKey'])[1] + 
-            team_data.find(element => element[0] == event[obj]['_matchParticipants'][1]['_teamKey'])[1]) * 100.0) / 100.0, 
-            Math.round((team_data.find(element => element[0] == event[obj]['_matchParticipants'][0]['_teamKey'])[2] + 
-            team_data.find(element => element[0] == event[obj]['_matchParticipants'][1]['_teamKey'])[2]) * 100.0) / 100.0, 
-            Math.round((team_data.find(element => element[0] == event[obj]['_matchParticipants'][2]['_teamKey'])[1] + 
-            team_data.find(element => element[0] == event[obj]['_matchParticipants'][3]['_teamKey'])[1]) * 100.0) / 100.0, 
-            Math.round((team_data.find(element => element[0] == event[obj]['_matchParticipants'][2]['_teamKey'])[2] + 
-            team_data.find(element => element[0] == event[obj]['_matchParticipants'][3]['_teamKey'])[2]) * 100.0) / 100.0])
+        if (event[obj]['match_name'].indexOf('Quals') != -1) {
+            simulated_matches.push([Math.round((team_data.find(element => element[0] == event[obj]['participants'][0]['team_key'])[1] +
+                team_data.find(element => element[0] == event[obj]['participants'][1]['team_key'])[1]) * 100.0) / 100.0,
+            Math.round((team_data.find(element => element[0] == event[obj]['participants'][0]['team_key'])[2] +
+                team_data.find(element => element[0] == event[obj]['participants'][1]['team_key'])[2]) * 100.0) / 100.0,
+            Math.round((team_data.find(element => element[0] == event[obj]['participants'][2]['team_key'])[1] +
+                team_data.find(element => element[0] == event[obj]['participants'][3]['team_key'])[1]) * 100.0) / 100.0,
+            Math.round((team_data.find(element => element[0] == event[obj]['participants'][2]['team_key'])[2] +
+                team_data.find(element => element[0] == event[obj]['participants'][3]['team_key'])[2]) * 100.0) / 100.0])
         }
     }
-    console.log(simulated_matches[0])
+
     for (let i = 0; i < simulated_matches.length; i++) {
         let x = simulated_matches[i][0] / (simulated_matches[i][0] + simulated_matches[i][2])
         let y = simulated_matches[i][1] / (simulated_matches[i][1] + simulated_matches[i][3])
@@ -268,58 +308,70 @@ exports.tourneyConfigure = async function (req, res) {
         y *= 1.75
         team_matches.push([(x + y) * 100 / 2, (a + b) * 100 / 2])
     }
-    console.log(team_matches[0])
+
     for (let i = 0; i < event.length; i++) {
-        if (event[i]['_matchName'].indexOf('Quals') == -1) continue
-        let team = event[i]['_matchParticipants']
+        if (event[i]['match_name'].indexOf('Quals') == -1) continue
+        let team = event[i]['participants']
         if (team_matches[i][0] > team_matches[i][1]) {
-            teams.find(element => element['_teamKey'] == team[0]['_teamKey'])['wins_']++
-            teams.find(element => element['_teamKey'] == team[1]['_teamKey'])['wins_']++
-            teams.find(element => element['_teamKey'] == team[2]['_teamKey'])['losses_']++
-            teams.find(element => element['_teamKey'] == team[3]['_teamKey'])['losses_']++
+            teams.find(element => element['team_key'] == team[0]['team_key'])['wins_']++
+            teams.find(element => element['team_key'] == team[1]['team_key'])['wins_']++
+            teams.find(element => element['team_key'] == team[2]['team_key'])['losses_']++
+            teams.find(element => element['team_key'] == team[3]['team_key'])['losses_']++
         } else if (team_matches[i][0] < team_matches[i][1]) {
-            teams.find(element => element['_teamKey'] == team[0]['_teamKey'])['losses_']++
-            teams.find(element => element['_teamKey'] == team[1]['_teamKey'])['losses_']++
-            teams.find(element => element['_teamKey'] == team[2]['_teamKey'])['wins_']++
-            teams.find(element => element['_teamKey'] == team[3]['_teamKey'])['wins_']++
+            teams.find(element => element['team_key'] == team[0]['team_key'])['losses_']++
+            teams.find(element => element['team_key'] == team[1]['team_key'])['losses_']++
+            teams.find(element => element['team_key'] == team[2]['team_key'])['wins_']++
+            teams.find(element => element['team_key'] == team[3]['team_key'])['wins_']++
         } else {
-            teams.find(element => element['_teamKey'] == team[0]['_teamKey'])['ties_']++
-            teams.find(element => element['_teamKey'] == team[1]['_teamKey'])['ties_']++
-            teams.find(element => element['_teamKey'] == team[2]['_teamKey'])['ties_']++
-            teams.find(element => element['_teamKey'] == team[3]['_teamKey'])['ties_']++
+            teams.find(element => element['team_key'] == team[0]['team_key'])['ties_']++
+            teams.find(element => element['team_key'] == team[1]['team_key'])['ties_']++
+            teams.find(element => element['team_key'] == team[2]['team_key'])['ties_']++
+            teams.find(element => element['team_key'] == team[3]['team_key'])['ties_']++
         }
     }
-    for (obj in rankings) {
-        let data = teams.find(element => element['_teamKey'] == rankings[obj]['_teamKey'])
-        rankings[obj]['wins_'] = data['wins_']
-        rankings[obj]['losses_'] = data['losses_']
-        rankings[obj]['ties_'] = data['ties_']
-    }
-    let real = []
-    let fake = []
-    for (obj in event) {
-        if (event[obj]['_redScore'] > event[obj]['_blueScore']) real.push(1)
-        else if (event[obj]['_redScore'] < event[obj]['_blueSCore']) real.push(0)
-        else real.push(.5)
+    // In final league tournaments you carry over 10 wins in your rankings, but we dont really care about those. 
+    for (let i = 0; i < rankings.length; i++) {
+        let team = rankings[i]['team_key']
+        let w = 0;
+        let l = 0;
+        let t = 0;
+        for (let j = 0; j < event.length; j++) {
+            for (let k = 0; k < 4; k++) {
+                if (event[j]['participants'][k]['team_key'] == team && event[j]['match_name'].indexOf("Quals") != -1) {
+                    if (event[j]['participants'][k]['team_key'] == team && event[j]['match_name'].indexOf("Quals") != -1) {
+                        if (k === 0 || k === 1) {
+                            if (event[j]['red_score'] > event[j]['blue_score']) w++
+                            else if (event[j]['red_score'] < event[j]['blue_score']) l++
+                            else t++
+                        } else {
+                            if (event[j]['red_score'] < event[j]['blue_score']) w++
+                            else if (event[j]['red_score'] > event[j]['blue_score']) l++
+                            else t++
+                        }
+
+                    }
+                }
+            }
+        }
+        rankings[i]['wins'] = w;
+        rankings[i]['losses'] = l;
+        rankings[i]['ties'] = t;
     }
     for (let i = 0; i < team_matches.length; i++) {
         let x = 100 * team_matches[i][0] / (team_matches[i][0] + team_matches[i][1])
         let y = 100 * team_matches[i][1] / (team_matches[i][0] + team_matches[i][1])
-        console.log(x + " " + y)
+
         team_matches[i][0] = Math.round(x * 100.0) / 100.0
         team_matches[i][1] = Math.round(y * 100.0) / 100.0
     }
-    for (obj in team_matches) {
-        if (team_matches[obj][0] > team_matches[obj][1]) fake.push(1)
-        else if (team_matches[obj][0] > team_matches[obj][1]) fake.push(0)
-        else fake.push(0.5)
-    }
     let accuracy = 0;
-    for (let i = 0; i < fake.length; i++) if (fake[i] == real[i]) accuracy++
-    accuracy /= fake.length
+    for (let i = 0; i < team_matches.length; i++) {
+        if (team_matches[i][0] > team_matches[i][1] && event[i]['red_score'] > event[i]['blue_score']) accuracy++
+        else if (team_matches[i][0] < team_matches[i][1] && event[i]['red_score'] < event[i]['blue_score']) accuracy++
+        else continue;
+    }
+    accuracy /= team_matches.length
     accuracy = Math.round(accuracy * 10000.0) / 100.0
-    console.log(accuracy)
-    console.log(team_matches[0])
     return res.render('simulation/tournamentSimulation', {
         event: event,
         sim_matches: simulated_matches,

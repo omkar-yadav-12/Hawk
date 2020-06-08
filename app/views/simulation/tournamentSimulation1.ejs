@@ -1,0 +1,131 @@
+<%- include ('../navigation.ejs')%>
+<link rel='stylesheet' href='/css/hawk.css' />
+<link rel='stylesheet' href='/css/simal.css' />
+<link rel="stylesheet" href="/css/scoringButtons.css">
+<link rel="stylesheet" href="/css/table.css">
+
+
+<script type="module" src="/js/eventSimulation.js"></script>
+<script>
+    let data = JSON.parse(localStorage.getItem(location.pathname.substring(17)))
+</script>
+
+<style>
+    #accuracy {
+        position: fixed;
+        left: 2.5%;
+        bottom: 1%;
+    }
+</style>
+
+<button class="tablink" onclick="openPage('Matches', this, 'yellow')" color=black id="defaultOpen">Matches</button>
+<button class="tablink" onclick="openPage('Rankings', this, 'yellow')">Rankings</button>
+<div id="Matches" class="tabcontent">
+    <script>
+        if (data != null) document.write("<h1> <span>Match Results</pan>")
+        else document.write("<h1 class='saving'>Simulating<span>.</span><span>.</span><span>.</span></h1>")
+    </script>
+
+    </h1>
+    <table class=container>
+        <thead>
+            <tr>
+                <th>
+                    <h1>Match</h1>
+                </th>
+                <th>
+                    <h1>Red 1</h1>
+                </th>
+                <th>
+                    <h1>Red 2</h1>
+                </th>
+                <th>
+                    <h1>Blue 1</h1>
+                </th>
+                <th>
+                    <h1>Blue 2</h1>
+                </th>
+                <th>
+                    <h1>Match Score</h1>
+                </th>
+                <th>
+                    <h1>OPR Score</h1>
+                </th>
+                <th>
+                    <h1>Win-Loss %</h1>
+                </th>
+                <th>
+                    <h1>Win Probability</h1>
+                </th>
+            </tr>
+        </thead>
+        <script>
+            if (data != null) {
+                for (let i = 0; i < data['sim_matches'].length; i++) {
+                    document.write('<tr> <td > ' + data['event'][i]['match_name'] + '</td>')
+                    document.write('<td >' + data['event'][i]['participants'][0]['team_key'] + '</td>')
+                    document.write('<td >' + data['event'][i]['participants'][1]['team_key'] + '</td>')
+                    document.write('<td >' + data['event'][i]['participants'][2]['team_key'] + '</td>')
+                    document.write('<td >' + data['event'][i]['participants'][3]['team_key'] + '</td>')
+                    document.write('<td >' + data['event'][i]['red_score'] + ' - ' + data['event'][i]['blue_score'] + '</td>')
+                    document.write('<td >' + data['sim_matches'][i][0] + " - " + data['sim_matches'][i][2] + '</td>')
+                    document.write('<td >' + data['sim_matches'][i][1] + " - " + data['sim_matches'][i][3] + '</td>')
+                    if (data['team_matches'][i][0] < data['team_matches'][i][1]) {
+                        document.write('<td style = "color: blue">' + data['team_matches'][i][1] + "% </td>")
+                    } else if (data['team_matches'][i][0] > data['team_matches'][i][1]) {
+                        document.write('<td style = "color: red">' + data['team_matches'][i][0] + "% </td>")
+                    } else {
+                        document.write('<td style = "color: green">' + data['team_matches'][i][1] + "% </td> </tr> ")
+                    }
+                }
+                document.write("</table>")
+            } else {
+                document.write("</table> <div class = 'loader'> </div>")
+            }
+        </script>
+
+        <div
+            class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--1-col mdl-color-text--yellow">
+            <input class="mdl-textfield__input" value=accuracy type="numeric" id="accuracy" name="accuracy" readonly />
+            <span class="mdl-textfield__error"></span>
+        </div>
+</div>
+<div id="Rankings" class="tabcontent">
+    <script>
+        if (data != null) document.write("<h1> <span>Rankings</span></h1>")
+        else document.write("<h1 class='saving'>Simulating<span>.</span><span>.</span><span>.</span></h1>")
+    </script>
+    <table class=container>
+        <thead>
+            <tr>
+                <th>
+                    <h1>Ranking</h1>
+                </th>
+                <th>
+                    <h1>Team</h1>
+                </th>
+                <th>
+                    <h1>Record </h1>
+                </th>
+                <th>
+                    <h1>Simul </h1>
+                </th>
+            </tr>
+        </thead>
+        <script>
+
+            if (data != null) {
+
+                document.getElementById('accuracy').value = data['accuracy'] + "%"
+                for (let i = 0; i < data['rankings'].length; i++) {
+                    document.write("<tr> <td>" + data['rankings'][i]['rank'] + "</td>")
+                    document.write("<td >" + data['rankings'][i]['team_key'] + "</td>")
+                    document.write("<td >" + data['rankings'][i]['wins'] + '-' + data['rankings'][i]['losses'] + '-' + data['rankings'][i]['ties'] + "</td>")
+                    document.write("<td >" + data['rankings'][i]['wins_'] + '-' + data['rankings'][i]['losses_'] + '-' + data['rankings'][i]['ties_'] + "</td> </tr>")
+                }
+            } else {
+                document.write("</table> <div class = 'loader'> </div>")
+            }
+        </script>
+    </table>
+</div>

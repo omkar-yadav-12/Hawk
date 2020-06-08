@@ -1,4 +1,4 @@
-<%- include ../navigation%>
+<%- include ('../navigation.ejs')%>
 <style>
     .container1 {
 
@@ -58,12 +58,12 @@
     <tbody>
         <% for (let i = 0; i < teams.length; i++) { %>
         <tr>
-            <td><%=teams[i]._teamNumber %></td>
-            <td><%=teams[i]._teamNameShort%></td>
-            <td><%=teams[i]._city %>, <%= teams[i]._stateProv %></td>
-            <td><a class="mdl-navigation__link" href="/api/<%=teams[i]._teamNumber%>/1920/matches"><i
+            <td><%=teams[i].team_number %></td>
+            <td><%=teams[i].team_name_short%></td>
+            <td><%=teams[i].city %>, <%= teams[i].state_prov %></td>
+            <td><a class="mdl-navigation__link" href="/api/<%=teams[i].team_number%>/1920/matches"><i
                 class="mdl-color-text--black material-icons" role="presentation">book</i></a>
-                <a class="mdl-navigation__link" href="/api/<%=teams[i]._teamNumber%>/1920/events"><i
+                <a class="mdl-navigation__link" href="/api/<%=teams[i].team_number%>/1920/events"><i
                     class="mdl-color-text--black material-icons" role="presentation">event</i></a></td>
 
             <% } %>

@@ -1,0 +1,3530 @@
+[
+    [
+        {
+            "team_key": "367",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 367,
+            "team_name_short": "Jedi Pugs",
+            "team_name_long": "Solon Beef Days Committee / Heyn's Ice Cream of Iowa City / Aero Rental & Party Shoppe & Solon High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Solon",
+            "state_prov": "IA",
+            "zip_code": "52333",
+            "country": "USA",
+            "rookie_year": 2007,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "3609",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 3609,
+            "team_name_short": "Polar Technics",
+            "team_name_long": "North High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50313-4955",
+            "country": "USA",
+            "rookie_year": 2009,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "3738",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 3738,
+            "team_name_short": "We'll Be Bots",
+            "team_name_long": "John Deere/Iowa STEM Scale-Up Grant/Monsanto & Ankeny Centennial High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Ankeny",
+            "state_prov": "IA",
+            "zip_code": "50023",
+            "country": "USA",
+            "rookie_year": 2009,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "3788",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 3788,
+            "team_name_short": "catastrophic failure",
+            "team_name_long": "Anderson Insurance & Benton Middle High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Van Horne",
+            "state_prov": "IA",
+            "zip_code": "52346",
+            "country": "USA",
+            "rookie_year": 2009,
+            "website": "https://sites.google.com/benton.k12.ia.us/bcrobotics/home"
+        }
+    ],
+    [
+        {
+            "team_key": "3866",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 3866,
+            "team_name_short": "Blood Sweat and Gears",
+            "team_name_long": "Rockwell Collins & North Cedar Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Clarence",
+            "state_prov": "IA",
+            "zip_code": "52216",
+            "country": "USA",
+            "rookie_year": 2009,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "4150",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4150,
+            "team_name_short": "Dark Matter",
+            "team_name_long": "Collins Aerospace/Linn-Mar Booster Club/Linn-Mar Foundation&Linn-Mar High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Marion",
+            "state_prov": "IA",
+            "zip_code": "52302",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "4156",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4156,
+            "team_name_short": "RoboCats Red",
+            "team_name_long": "Central City High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Central City",
+            "state_prov": "IA",
+            "zip_code": "52214",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": "http://www.ccrobocats.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "4175",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4175,
+            "team_name_short": "MechaMETROZilla",
+            "team_name_long": "Rockwell Collins / Mid American Energy / Raygun / Marion Brush Company / National Czech & Slovak Museum & Library & Metro High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52401",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": "https://sites.google.com/view/metrorobotics/home?authuser=0"
+        }
+    ],
+    [
+        {
+            "team_key": "4177",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4177,
+            "team_name_short": "Finger Tightans",
+            "team_name_long": "Highland High School/Streb Construction/Riverside Area Community Club/Washington County Riverboat Foundation/Virtual Reality Adventures&Highland High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Riverside",
+            "state_prov": "IA",
+            "zip_code": "52327",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": "http://www.highlandrobotics4177.org/contact.html"
+        }
+    ],
+    [
+        {
+            "team_key": "4237",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4237,
+            "team_name_short": "CBOT",
+            "team_name_long": "Freeport McMoRan Copper and Gold Foundation / Donnellson Lumber Company & Central High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Donnellson",
+            "state_prov": "IA",
+            "zip_code": "52625",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "4283",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4283,
+            "team_name_short": "Fully Updated",
+            "team_name_long": "John Deere & Collins-Maxwell Mid High Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Maxwell",
+            "state_prov": "IA",
+            "zip_code": "50161",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "4324",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4324,
+            "team_name_short": "Lost In Time",
+            "team_name_long": "Collins Aerospace / MidAmerican Energy / Linn-Mar Booster Club / Linn-Mar Foundation & Linn-Mar High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Marion",
+            "state_prov": "IA",
+            "zip_code": "52302",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": "http://www.lmrobotics.com"
+        }
+    ],
+    [
+        {
+            "team_key": "4389",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4389,
+            "team_name_short": "Higgs Bozos: Episode X: The Rise of Skystone",
+            "team_name_long": "East Buchanan High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Winthrop",
+            "state_prov": "IA",
+            "zip_code": "50682",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "4443",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 4443,
+            "team_name_short": "Sock Monkeys",
+            "team_name_long": "Oskaloosa Senior High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Oskaloosa",
+            "state_prov": "IA",
+            "zip_code": "52577",
+            "country": "USA",
+            "rookie_year": 2010,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5063",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5063,
+            "team_name_short": "TNT",
+            "team_name_long": "Tipton High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Tipton",
+            "state_prov": "IA",
+            "zip_code": "52772",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5094",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5094,
+            "team_name_short": "Still Under Development",
+            "team_name_long": "Black Hawk County Extension and Outreach",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waterloo",
+            "state_prov": "IA",
+            "zip_code": "50701",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5126",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5126,
+            "team_name_short": "DICE",
+            "team_name_long": "Ankeny High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Ankeny",
+            "state_prov": "IA",
+            "zip_code": "50023",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5143",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5143,
+            "team_name_short": "Xcentrics",
+            "team_name_long": "Intermec & Xavier High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52411",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5153",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5153,
+            "team_name_short": "Error4o4",
+            "team_name_long": "Benton Middle High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Van Horne",
+            "state_prov": "IA",
+            "zip_code": "52346",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": "https://sites.google.com/benton.k12.ia.us/bcrobotics/home"
+        }
+    ],
+    [
+        {
+            "team_key": "5154",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5154,
+            "team_name_short": "PantherBots",
+            "team_name_long": "Mt Pleasant High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Mount Pleasant",
+            "state_prov": "IA",
+            "zip_code": "52641",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5340",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5340,
+            "team_name_short": "Controlled Chaos",
+            "team_name_long": "John Deere & Waukee High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5445",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5445,
+            "team_name_short": "Trohawks",
+            "team_name_long": "Upward Bound & UNI",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2011,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "5913",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 5913,
+            "team_name_short": "Drop It Like It's Bot",
+            "team_name_long": "Marion High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Marion",
+            "state_prov": "IA",
+            "zip_code": "52302",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6025",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6025,
+            "team_name_short": "United Robotics",
+            "team_name_long": "Mason City High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Mason City",
+            "state_prov": "IA",
+            "zip_code": "50401",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6072",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6072,
+            "team_name_short": "Wildbot Robotics",
+            "team_name_long": "Columbus Secondary School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Columbus Junction",
+            "state_prov": "IA",
+            "zip_code": "52738",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6093",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6093,
+            "team_name_short": "Deviation from the Norm",
+            "team_name_long": "Pleasant Valley High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf ",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6103",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6103,
+            "team_name_short": "Stranger Bots",
+            "team_name_long": "Johnston High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6113",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6113,
+            "team_name_short": "RoboHawks",
+            "team_name_long": "Thomas Jefferson High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52404",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6121",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6121,
+            "team_name_short": "Cougarbots",
+            "team_name_long": "J F Kennedy High School & J F Kennedy High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52402",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6147",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6147,
+            "team_name_short": "Newbotics",
+            "team_name_long": "Newton Senior High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Newton",
+            "state_prov": "IA",
+            "zip_code": "50208",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6189",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6189,
+            "team_name_short": "High Voltage",
+            "team_name_long": "ADM/Border States & Center Point-Urbana Middle Sch & Center Point-Urbana High Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Center Point",
+            "state_prov": "IA",
+            "zip_code": "52345",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6252",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6252,
+            "team_name_short": "Wacky Waving Inflatable Arm Flailing Tube Men and Women",
+            "team_name_long": "Decorah High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Decorah",
+            "state_prov": "IA",
+            "zip_code": "52101",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6297",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6297,
+            "team_name_short": "Game Over",
+            "team_name_long": "Regina High School/MidAmerican Energy Company&Regina Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Iowa City",
+            "state_prov": "IA",
+            "zip_code": "52245",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6309",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6309,
+            "team_name_short": "ICE Queens",
+            "team_name_long": "John Deere & Waukee High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6340",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6340,
+            "team_name_short": "ICE",
+            "team_name_long": "Timberline School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee, IA",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6420",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6420,
+            "team_name_short": "SabreHOOF Tigers",
+            "team_name_long": "Cedar Falls Community Schools / John Deere & Cedar Falls High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": "http://cedarfallsftc.weebly.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "6458",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6458,
+            "team_name_short": "Burgbots",
+            "team_name_long": "Kinze Manufacturing/Mediacom /Bayer /House of Flowers/Casa Tequila/Crush I.T./Kirkwood Community College/US Bank/US Bank/Heitman Insurance/Heitman Insurance/Elite Sports/Elite Sports/Uhlmanns Home Furnishings/The Woolen Needle/Edward Jones&Williamsburg Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Williamsburg",
+            "state_prov": "IA",
+            "zip_code": "52361",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": "http://www.tinyurl.com/burgbots"
+        }
+    ],
+    [
+        {
+            "team_key": "6474",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6474,
+            "team_name_short": "Space Gears",
+            "team_name_long": "Rockwell Collins & North Cedar Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Clarence",
+            "state_prov": "IA",
+            "zip_code": "52216",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6475",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6475,
+            "team_name_short": "ICE Tech",
+            "team_name_long": "John Deere & Valley High School & Valley Southwoods Freshman HS",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "West Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50265",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6492",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6492,
+            "team_name_short": "Beaver Bots",
+            "team_name_long": "Wilton Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Wilton",
+            "state_prov": "IA",
+            "zip_code": "52778",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6499",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6499,
+            "team_name_short": "Warrior Bots",
+            "team_name_long": "Rockwell International & George Washington High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52403",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6532",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6532,
+            "team_name_short": "RoboBears",
+            "team_name_long": "Mckinley Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52403",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6545",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6545,
+            "team_name_short": "Knight Riders",
+            "team_name_long": "Assumption High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Davenport",
+            "state_prov": "IA",
+            "zip_code": "52804",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6546",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6546,
+            "team_name_short": "RoboCats",
+            "team_name_long": "Humboldt High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Humboldt",
+            "state_prov": "IA",
+            "zip_code": "50548",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6583",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6583,
+            "team_name_short": "Bionikats",
+            "team_name_long": "Keokuk High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Keokuk",
+            "state_prov": "IA",
+            "zip_code": "52632",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6600",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6600,
+            "team_name_short": "Ballen Pretzels Central Lyon",
+            "team_name_long": "Central Lyon High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Rock Rapids",
+            "state_prov": "IA",
+            "zip_code": "51246",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": "http://www.team6600.com"
+        }
+    ],
+    [
+        {
+            "team_key": "6603",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6603,
+            "team_name_short": "Guild of Gears",
+            "team_name_long": "Skyline Tree Service/Jimmy Nichols&North Scott Senior High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Eldridge",
+            "state_prov": "IA",
+            "zip_code": "52748",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6624",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6624,
+            "team_name_short": "NERDS",
+            "team_name_long": "Estherville Lincoln Ctl HS",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Estherville",
+            "state_prov": "IA",
+            "zip_code": "51334",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6625",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6625,
+            "team_name_short": "Enginerds",
+            "team_name_long": "John Deere / Hawkeye Precision, Inc / Master Tool and Manufacturing / Ledford Engineering / Cy and Charley's & Independence Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Independence",
+            "state_prov": "IA",
+            "zip_code": "50644",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6638",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6638,
+            "team_name_short": "RoboHawks",
+            "team_name_long": "Hinton Community School&Hinton Middle High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Hinton",
+            "state_prov": "IA",
+            "zip_code": "51024",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6661",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6661,
+            "team_name_short": "Starmont Sundevils",
+            "team_name_long": "Technical Drainage Solutions & Starmont High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Arlington",
+            "state_prov": "IA",
+            "zip_code": "50606",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": "http://sundevils6661.weebly.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "6662",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6662,
+            "team_name_short": "Robo Falcons A",
+            "team_name_long": "West Sioux Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Hawarden",
+            "state_prov": "IA",
+            "zip_code": "51023",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6666",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6666,
+            "team_name_short": "Robo-Sapiens",
+            "team_name_long": "Timberline",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "6723",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 6723,
+            "team_name_short": "Flatline",
+            "team_name_long": "Rivermont Collegiate School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2012,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7110",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7110,
+            "team_name_short": "The Element of Surprise",
+            "team_name_long": "Marion High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Marion",
+            "state_prov": "IA",
+            "zip_code": "52302",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7130",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7130,
+            "team_name_short": "Royal Robots",
+            "team_name_long": "Regis Middle School & Regis Catholic Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52402",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7196",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7196,
+            "team_name_short": "Everything That is Radical",
+            "team_name_long": "Pleasant Valley High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7229",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7229,
+            "team_name_short": "bzBots",
+            "team_name_long": "Trinity Christian High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Hull",
+            "state_prov": "IA",
+            "zip_code": "51239",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7236",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7236,
+            "team_name_short": "Recharged Green",
+            "team_name_long": "Home School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Pella",
+            "state_prov": "IA",
+            "zip_code": "50219",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7247",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7247,
+            "team_name_short": "The H2O Loo Bots",
+            "team_name_long": "Waterloo Community School District / John Deere / Waterloo Schools Foundation / MidAmerican Energy Company & West High School & East High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waterloo",
+            "state_prov": "IA",
+            "zip_code": "50703",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7248",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7248,
+            "team_name_short": "Pluto",
+            "team_name_long": "John Deere Waterloo Operations/Waterloo Community Schools&East High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waterloo",
+            "state_prov": "IA",
+            "zip_code": "50703",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7258",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7258,
+            "team_name_short": "Epsilon Robotics",
+            "team_name_long": "Sioux City Community Schools & East High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Sioux City",
+            "state_prov": "IA",
+            "zip_code": "51106",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7259",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7259,
+            "team_name_short": "Void Robotics",
+            "team_name_long": "East High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Sioux City",
+            "state_prov": "IA",
+            "zip_code": "51106",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7260",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7260,
+            "team_name_short": "StarTech",
+            "team_name_long": "North High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Sioux City",
+            "state_prov": "IA",
+            "zip_code": "51104",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7332",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7332,
+            "team_name_short": "DodgerBOTS",
+            "team_name_long": "Ft Dodge High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Fort Dodge",
+            "state_prov": "IA",
+            "zip_code": "50501",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7400",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7400,
+            "team_name_short": "Exo Eagles",
+            "team_name_long": "John Deere & Wahlert Catholic High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Dubuque",
+            "state_prov": "IA",
+            "zip_code": "52001",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7491",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7491,
+            "team_name_short": "Robot Corps",
+            "team_name_long": "4-H",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Nevada",
+            "state_prov": "IA",
+            "zip_code": "50201",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7495",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7495,
+            "team_name_short": "In Theory",
+            "team_name_long": "John Deere / Hawkeye Precision, Inc / Master Tool and Manufacturing / Ledford Engineering / Cy and Charley's & Independence Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Independence",
+            "state_prov": "IA",
+            "zip_code": "50644",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7529",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7529,
+            "team_name_short": "BAYR  (bear)",
+            "team_name_long": "Belmond Area Arts Council/Family Friends",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Belmond",
+            "state_prov": "IA",
+            "zip_code": "50421",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7618",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7618,
+            "team_name_short": "The Pi-neapples",
+            "team_name_long": "Dowling Catholic High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "West Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50265",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7823",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7823,
+            "team_name_short": "Roadrunner Robotics",
+            "team_name_long": "Interstate 35 Secondary School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Truro",
+            "state_prov": "IA",
+            "zip_code": "50257",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7841",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7841,
+            "team_name_short": "Ballen Pretzels 2",
+            "team_name_long": "Central Lyon High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Rock Rapids",
+            "state_prov": "IA",
+            "zip_code": "51246",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "7880",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 7880,
+            "team_name_short": "The Carnivorous Rabbits",
+            "team_name_long": "Cedar Falls Schools",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8008",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8008,
+            "team_name_short": "Wolves",
+            "team_name_long": "Bunger Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Evansdale",
+            "state_prov": "IA",
+            "zip_code": "50707",
+            "country": "USA",
+            "rookie_year": 2013,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8562",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8562,
+            "team_name_short": "The Wolverine Machine",
+            "team_name_long": "First National Bank/Dixon Construction Co./Casey's General Stores, Inc.&River Valley Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Correctionville",
+            "state_prov": "IA",
+            "zip_code": "51016",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8588",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8588,
+            "team_name_short": "Finger Puppet Mafia",
+            "team_name_long": "Guardian Industries/John Deere&Central High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "De Witt",
+            "state_prov": "IA",
+            "zip_code": "52742",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": "https://www.thefingerpuppetmafia.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "8611",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8611,
+            "team_name_short": "Murray High School",
+            "team_name_long": "Murray School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Murray",
+            "state_prov": "IA",
+            "zip_code": "50174",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8649",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8649,
+            "team_name_short": "Warewolves",
+            "team_name_long": "Ikm -Manning High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Manning",
+            "state_prov": "IA",
+            "zip_code": "51455",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8650",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8650,
+            "team_name_short": "Firebreathing Rubber Duckies",
+            "team_name_long": "Hoover Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waterloo",
+            "state_prov": "IA",
+            "zip_code": "50701",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8672",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8672,
+            "team_name_short": "UBett",
+            "team_name_long": "John Deere / Alcoa & Bettendorf High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": "http://ubettrobotics.weebly.com"
+        }
+    ],
+    [
+        {
+            "team_key": "8695",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8695,
+            "team_name_short": "Tri Hards",
+            "team_name_long": "Iowa Fluid Power/Rockwell Collins/General Mills&Trinity Lutheran School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52404",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8696",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8696,
+            "team_name_short": "Trobotix",
+            "team_name_long": "ACT/Iowa City School District Foundation/Hoover Presidential Foundation/NXT Bank/Green State Credit Union&West Senior High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Iowa City",
+            "state_prov": "IA",
+            "zip_code": "52246",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8732",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8732,
+            "team_name_short": "Thunderbotz",
+            "team_name_long": "Franklin Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52402",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8743",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8743,
+            "team_name_short": "Raw Bacon",
+            "team_name_long": "Iowa City High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Iowa City",
+            "state_prov": "IA",
+            "zip_code": "52245",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8749",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8749,
+            "team_name_short": "Robota White",
+            "team_name_long": "Union High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "La Porte City",
+            "state_prov": "IA",
+            "zip_code": "50651",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8801",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8801,
+            "team_name_short": "Sioux Center",
+            "team_name_long": "Sioux Center High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Sioux Center",
+            "state_prov": "IA",
+            "zip_code": "51250",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8807",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8807,
+            "team_name_short": "Molten Sprockets",
+            "team_name_long": "Washington High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cherokee",
+            "state_prov": "IA",
+            "zip_code": "51012",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8813",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8813,
+            "team_name_short": "The Winter Soldiers",
+            "team_name_long": "John Deere/ARCONIC/PTC Corporation/MidAmerican Energy/QC Elite Team 648&Neighborhood Group",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": "https://tinyurl.com/ftc8813"
+        }
+    ],
+    [
+        {
+            "team_key": "8887",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8887,
+            "team_name_short": "Marshalltown BotCats",
+            "team_name_long": "Marshalltown High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Marshalltown",
+            "state_prov": "IA",
+            "zip_code": "50158",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8922",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8922,
+            "team_name_short": "STEAMpunks",
+            "team_name_long": "Central Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waterloo",
+            "state_prov": "IA",
+            "zip_code": "50701",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8930",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8930,
+            "team_name_short": "Tech-Nical Difficulties",
+            "team_name_long": "4-H Youth Development Organization & East Mills Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Malvern",
+            "state_prov": "IA",
+            "zip_code": "51551",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8953",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8953,
+            "team_name_short": "Bosco Botz",
+            "team_name_long": "Don Bosco High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Gilbertville",
+            "state_prov": "IA",
+            "zip_code": "50634",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "8988",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 8988,
+            "team_name_short": "Bellevue Blockheads",
+            "team_name_long": "Bellevue Middle High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bellevue",
+            "state_prov": "IA",
+            "zip_code": "52031",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9025",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9025,
+            "team_name_short": "Minty Fresh",
+            "team_name_long": "John Deere & Wahlert Catholic High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Dubuque",
+            "state_prov": "IA",
+            "zip_code": "52001",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9052",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9052,
+            "team_name_short": "Recharged Orange",
+            "team_name_long": "Home School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Pella",
+            "state_prov": "IA",
+            "zip_code": "50219",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9203",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9203,
+            "team_name_short": "Chaotic Cool Cats",
+            "team_name_long": "Cedar Falls Schools",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9215",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9215,
+            "team_name_short": "Team Talos",
+            "team_name_long": "Eastern Iowa Inspection Services & North-Linn Cmty School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Troy Mills",
+            "state_prov": "IA",
+            "zip_code": "52344",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9356",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9356,
+            "team_name_short": "EngiNerds",
+            "team_name_long": "Waukee High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9566",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9566,
+            "team_name_short": "Tech Bam",
+            "team_name_long": "Villisca Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Villisca",
+            "state_prov": "IA",
+            "zip_code": "50864",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9569",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9569,
+            "team_name_short": "BK Robo",
+            "team_name_long": "Eaton Corporation / Iowa Specialty Hospital - Belmond & Belmond-Klemme Jr Sr HS",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Belmond",
+            "state_prov": "IA",
+            "zip_code": "50421",
+            "country": "USA",
+            "rookie_year": 2014,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9925",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9925,
+            "team_name_short": "Delta Robotics",
+            "team_name_long": "Delta Robotics",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52402",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": "http://www.deltaroboticsftc.org"
+        }
+    ],
+    [
+        {
+            "team_key": "9967",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9967,
+            "team_name_short": "Geared Up",
+            "team_name_long": "Le Mars High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Le Mars",
+            "state_prov": "IA",
+            "zip_code": "51031",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9973",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9973,
+            "team_name_short": "Scrap Mechanics",
+            "team_name_long": "Manson Nw Webster High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Manson",
+            "state_prov": "IA",
+            "zip_code": "50563",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": "http://mnwftc.weebly.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "9974",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9974,
+            "team_name_short": "T.H.O.R.",
+            "team_name_long": "John Deere/Mid American Energy/T.H.O.R. Robotics Foundation/Stratospheric Ballooning Association&T.H.O.R. Robotics Foundation",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9978",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9978,
+            "team_name_short": "Avengers Tech",
+            "team_name_long": "4-H",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Sergeant Bluff",
+            "state_prov": "IA",
+            "zip_code": "51054",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": "http://www.avengerstech.com"
+        }
+    ],
+    [
+        {
+            "team_key": "9983",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9983,
+            "team_name_short": "Robo Falcons B",
+            "team_name_long": "West Sioux Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Hawarden",
+            "state_prov": "IA",
+            "zip_code": "51023",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "9988",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 9988,
+            "team_name_short": "Taft Robotics",
+            "team_name_long": "Taft Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52405",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10012",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10012,
+            "team_name_short": "Nevada Nerds Anonymous",
+            "team_name_long": "Nevada High School & Nevada Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Nevada",
+            "state_prov": "IA",
+            "zip_code": "50201",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10038",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10038,
+            "team_name_short": "Illuminati Confirmed",
+            "team_name_long": "Iowa State Extension and Outreach: Jefferson County Extension/John Deere&4-H Youth Development Organization",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Fairfield",
+            "state_prov": "IA",
+            "zip_code": "52556",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10069",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10069,
+            "team_name_short": "Autonomous Anonymous",
+            "team_name_long": "Grundy Ctr Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Grundy Center",
+            "state_prov": "IA",
+            "zip_code": "50638",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10082",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10082,
+            "team_name_short": "Mechanicats",
+            "team_name_long": "John Deere & Durant High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Durant",
+            "state_prov": "IA",
+            "zip_code": "52747",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10107",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10107,
+            "team_name_short": "A League Of Their Own",
+            "team_name_long": "Collins Aerospace/Linn-Mar Booster Club/Linn-Mar Foundation&Linn-Mar High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Marion",
+            "state_prov": "IA",
+            "zip_code": "52302",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10110",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10110,
+            "team_name_short": "Pixel Knights",
+            "team_name_long": "Harding Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52402",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10139",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10139,
+            "team_name_short": "Glitch Mob",
+            "team_name_long": "FedEx & Sudlow Intermediate School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Davenport",
+            "state_prov": "IA",
+            "zip_code": "52803",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10160",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10160,
+            "team_name_short": "Dungeons and Robots",
+            "team_name_long": "Keokuk Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Keokuk",
+            "state_prov": "IA",
+            "zip_code": "52632",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10181",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10181,
+            "team_name_short": "Bluejay Robotics",
+            "team_name_long": "Altoona Facebook Data Center & Bondurant-Farrar High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bondurant",
+            "state_prov": "IA",
+            "zip_code": "50035",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10185",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10185,
+            "team_name_short": "From The Island Of Misfit Robots",
+            "team_name_long": "Ft Dodge High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Fort Dodge",
+            "state_prov": "IA",
+            "zip_code": "50501",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10198",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10198,
+            "team_name_short": "G.L.O.W.",
+            "team_name_long": "Timberline School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10256",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10256,
+            "team_name_short": "Robotic Wolves Green",
+            "team_name_long": "IKM-Manning Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Manning",
+            "state_prov": "IA",
+            "zip_code": "51455",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10257",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10257,
+            "team_name_short": "Metal Maniacs",
+            "team_name_long": "IKM-Manning Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Manning",
+            "state_prov": "IA",
+            "zip_code": "51455",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10383",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10383,
+            "team_name_short": "Robo Warriors",
+            "team_name_long": "Wapsie Valley Jr Sr High Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Fairbank",
+            "state_prov": "IA",
+            "zip_code": "50629",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10435",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10435,
+            "team_name_short": "Circuit Breakers",
+            "team_name_long": "Waukee High School & Family/Community",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": "https://circuitbreakersrobotics.com"
+        }
+    ],
+    [
+        {
+            "team_key": "10599",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10599,
+            "team_name_short": "GMG Robotics",
+            "team_name_long": "Gmg Community School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Garwin",
+            "state_prov": "IA",
+            "zip_code": "50632",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10602",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10602,
+            "team_name_short": "Nut and Bolt",
+            "team_name_long": "Maharishi School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Fairfield",
+            "state_prov": "IA",
+            "zip_code": "52556",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10646",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10646,
+            "team_name_short": "Titanium-Griffins",
+            "team_name_long": "Cedar Falls Schools",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "10656",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 10656,
+            "team_name_short": "Falcon Bots",
+            "team_name_long": "Aplington-Parkersburg High Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Aplington",
+            "state_prov": "IA",
+            "zip_code": "50604",
+            "country": "USA",
+            "rookie_year": 2015,
+            "website": "https://falconbots.weebly.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "11142",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11142,
+            "team_name_short": "Robo Minions",
+            "team_name_long": "The Quad City Engineering and Science Council (QCESC) / John Deere / ALCOA / PTC / Yash Technologies / Icon Charities / Cobham / R3 Services / ColoHub & Pleasant Valley Jr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": "http://ftc-team11142.weebly.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "11222",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11222,
+            "team_name_short": "TROJAN TERABYTES",
+            "team_name_long": "4-H Youth Development Organization",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Neola",
+            "state_prov": "IA",
+            "zip_code": "51559",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11252",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11252,
+            "team_name_short": "RoboCats Black",
+            "team_name_long": "Central City High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Central City",
+            "state_prov": "IA",
+            "zip_code": "52214",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": "http://www.ccrobocats.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "11268",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11268,
+            "team_name_short": "Atomic",
+            "team_name_long": "Rockwell Collins / Wilton Candy Kitchen / Bluebird Diner & Southeast Junior High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Iowa City",
+            "state_prov": "IA",
+            "zip_code": "52240",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11316",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11316,
+            "team_name_short": "Weapons of Mass Construction",
+            "team_name_long": "Family/Community",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Indianola",
+            "state_prov": "IA",
+            "zip_code": "50125",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11384",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11384,
+            "team_name_short": "Thunderstruck",
+            "team_name_long": "St Albert Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Council Bluffs",
+            "state_prov": "IA",
+            "zip_code": "51503",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11391",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11391,
+            "team_name_short": "Robotic Rails",
+            "team_name_long": "Lincoln High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50315",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11418",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11418,
+            "team_name_short": "Clipper Robotics 1.0",
+            "team_name_long": "Clear Creek Amana Middle Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Tiffin",
+            "state_prov": "IA",
+            "zip_code": "52340",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11721",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11721,
+            "team_name_short": "Outlaws",
+            "team_name_long": "John Deere / Rockwell Collins & Central High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Davenport",
+            "state_prov": "IA",
+            "zip_code": "52803",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "11834",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 11834,
+            "team_name_short": "Norwegian Ninjas",
+            "team_name_long": "Decorah High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Decorah",
+            "state_prov": "IA",
+            "zip_code": "52101",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12152",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12152,
+            "team_name_short": "Comets",
+            "team_name_long": "Bellevue Middle High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bellevue",
+            "state_prov": "IA",
+            "zip_code": "52031",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12168",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12168,
+            "team_name_short": "Plainsmen Robotics",
+            "team_name_long": "John Deere&4-H Youth Development Organization",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Belle Plaine",
+            "state_prov": "IA",
+            "zip_code": "52208",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": "https://www.facebook.com/12168BPRobotics/"
+        }
+    ],
+    [
+        {
+            "team_key": "12233",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12233,
+            "team_name_short": "Not fast, Just Furious",
+            "team_name_long": "Lincoln High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50315",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12419",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12419,
+            "team_name_short": "Stripped Servos",
+            "team_name_long": "Dubuque Senior High School & Stephen Hempstead High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Dubuque",
+            "state_prov": "IA",
+            "zip_code": "52002",
+            "country": "USA",
+            "rookie_year": 2016,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12745",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12745,
+            "team_name_short": "Danville Team Harambe",
+            "team_name_long": "Rockwell Collins, Danville Community School District & Danville Cmty School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Danville",
+            "state_prov": "IA",
+            "zip_code": "52623",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12753",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12753,
+            "team_name_short": "Interdimensional Robotics",
+            "team_name_long": "North High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Davenport",
+            "state_prov": "IA",
+            "zip_code": "52806",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12754",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12754,
+            "team_name_short": "Wired Up",
+            "team_name_long": "John Deere/PTC Inc/Society of Manufacturing Engineers - Chapter 186&Denver Middle School&Denver High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Denver",
+            "state_prov": "IA",
+            "zip_code": "50622",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12783",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12783,
+            "team_name_short": "Norwalk RoboWarriors Purple",
+            "team_name_long": "John Deere / Norwalk Student Education Foundation & Norwalk High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Norwalk",
+            "state_prov": "IA",
+            "zip_code": "50211",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "12863",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12863,
+            "team_name_short": "Flourish & Bots",
+            "team_name_long": "Family/Community",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": "http://www.FlourishAndBots.com"
+        }
+    ],
+    [
+        {
+            "team_key": "12999",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 12999,
+            "team_name_short": "Giraffic Spark",
+            "team_name_long": "4-H",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Creston",
+            "state_prov": "IA",
+            "zip_code": "50801",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13016",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13016,
+            "team_name_short": "Jigabots",
+            "team_name_long": "Central Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Muscatine",
+            "state_prov": "IA",
+            "zip_code": "52761",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13085",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13085,
+            "team_name_short": "Bionic Dutch",
+            "team_name_long": "Vermeer Corporation/Pella Car Care/HyVee/Fareway/Walmart/Home Reality/Marion County Bank&Pella Cmty High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Pella",
+            "state_prov": "IA",
+            "zip_code": "50219",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13186",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13186,
+            "team_name_short": "Killer Ducks",
+            "team_name_long": "Grundy Ctr Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Grundy Center",
+            "state_prov": "IA",
+            "zip_code": "50638",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13206",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13206,
+            "team_name_short": "Wave Droids",
+            "team_name_long": "Waverly-Shell Rock Sr High Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waverly",
+            "state_prov": "IA",
+            "zip_code": "50677",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13244",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13244,
+            "team_name_short": "Riverside Bulldogs",
+            "team_name_long": "Riverside Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Oakland",
+            "state_prov": "IA",
+            "zip_code": "51560",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13322",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13322,
+            "team_name_short": "Boom Bots",
+            "team_name_long": "West Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Muscatine",
+            "state_prov": "IA",
+            "zip_code": "52761",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13352",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13352,
+            "team_name_short": "Rosie's Riveters",
+            "team_name_long": "Harding Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52402",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13415",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13415,
+            "team_name_short": "Electric Storm",
+            "team_name_long": "Center Point-Urbana High Sch & Center Point-Urbana Middle Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Center Point",
+            "state_prov": "IA",
+            "zip_code": "52213",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13416",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13416,
+            "team_name_short": "JagWires",
+            "team_name_long": "Southeast Valley High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Gowrie",
+            "state_prov": "IA",
+            "zip_code": "50543",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": "https://svjagwires.weebly.com/"
+        }
+    ],
+    [
+        {
+            "team_key": "13460",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13460,
+            "team_name_short": "Phantastix Phoenixes",
+            "team_name_long": "Cedar Falls High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13497",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13497,
+            "team_name_short": "FTC Pathfinders",
+            "team_name_long": "John Deere & Prairieview School & Waukee High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waukee",
+            "state_prov": "IA",
+            "zip_code": "50263",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": "https://www.pathfindersrobotics.org"
+        }
+    ],
+    [
+        {
+            "team_key": "13532",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13532,
+            "team_name_short": "EagleBots",
+            "team_name_long": "Kirkwood Community College Washington Regional Center",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Washington",
+            "state_prov": "IA",
+            "zip_code": "52353",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13732",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13732,
+            "team_name_short": "J-Hawk Robotics",
+            "team_name_long": "Heartland Technology&Jesup Cmty School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Jesup",
+            "state_prov": "IA",
+            "zip_code": "50648",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "13875",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 13875,
+            "team_name_short": "B-K Battle Bots",
+            "team_name_long": "Belmond-Klemme Jr Sr HS",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Belmond",
+            "state_prov": "IA",
+            "zip_code": "50421",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14172",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14172,
+            "team_name_short": "Disco Duckbots",
+            "team_name_long": "Summit Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2017,
+            "website": "http://jcsdftc.weebly.com"
+        }
+    ],
+    [
+        {
+            "team_key": "14375",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14375,
+            "team_name_short": "Anti-intellectualism",
+            "team_name_long": "Grundy Ctr Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Grundy Center",
+            "state_prov": "IA",
+            "zip_code": "50638",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14452",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14452,
+            "team_name_short": "Biohazard Bots",
+            "team_name_long": "Manson Nw Webster High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Manson",
+            "state_prov": "IA",
+            "zip_code": "50563",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": "http://www.mnwcougars.com"
+        }
+    ],
+    [
+        {
+            "team_key": "14474",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14474,
+            "team_name_short": "Polaris FC",
+            "team_name_long": "TSB Bank/Cybersmith Engineering/Eddy's Glass/Al's Snow Removal/Craft Communications/Edward Jones Investments&4H",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Forest City",
+            "state_prov": "IA",
+            "zip_code": "50436",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14507",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14507,
+            "team_name_short": "Ride The Lightning",
+            "team_name_long": "St Albert Jr Sr High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Council Bluffs",
+            "state_prov": "IA",
+            "zip_code": "51503",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14546",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14546,
+            "team_name_short": "Central Processing Units",
+            "team_name_long": "Central High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Davenport",
+            "state_prov": "IA",
+            "zip_code": "52803",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14560",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14560,
+            "team_name_short": "Mischief Managed",
+            "team_name_long": "Johnston High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14568",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14568,
+            "team_name_short": "Norwalk RoboWarriors Gold",
+            "team_name_long": "Norwalk High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Norwalk",
+            "state_prov": "IA",
+            "zip_code": "50211",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14622",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14622,
+            "team_name_short": "Cyber-Tooth Tigers",
+            "team_name_long": "Spencer Community School District / Ryan and Amanda Bare / BP & Spencer High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Spencer",
+            "state_prov": "IA",
+            "zip_code": "51301",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "14736",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 14736,
+            "team_name_short": "Shell Bots",
+            "team_name_long": "Waverly-Shell Rock Sr High Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waverly",
+            "state_prov": "IA",
+            "zip_code": "50677",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": "https://wavedroid13206.wixsite.com/wavedroids-ftc"
+        }
+    ],
+    [
+        {
+            "team_key": "15050",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15050,
+            "team_name_short": "Lightning Bots",
+            "team_name_long": "Liberty High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "North Liberty",
+            "state_prov": "IA",
+            "zip_code": "52317",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15055",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15055,
+            "team_name_short": "501st Legion",
+            "team_name_long": "Solon Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Solon",
+            "state_prov": "IA",
+            "zip_code": "52333",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15071",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15071,
+            "team_name_short": "Gear Heads",
+            "team_name_long": "Southeast Valley High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Gowrie",
+            "state_prov": "IA",
+            "zip_code": "50543",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": "https://www.svjagwires.weebly.com"
+        }
+    ],
+    [
+        {
+            "team_key": "15111",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15111,
+            "team_name_short": "Clockwork",
+            "team_name_long": "Stephen Hempstead High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Dubuque",
+            "state_prov": "IA",
+            "zip_code": "52001",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15125",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15125,
+            "team_name_short": "Team Thunder",
+            "team_name_long": "Secure Guard Consulting&Family/Community",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": "http://ftcteamthunder.weebly.com"
+        }
+    ],
+    [
+        {
+            "team_key": "15180",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15180,
+            "team_name_short": "Robotic Mustangs",
+            "team_name_long": "Morning Star Academy",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bettendorf",
+            "state_prov": "IA",
+            "zip_code": "52722",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15201",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15201,
+            "team_name_short": "Palladium Pandas",
+            "team_name_long": "Cedar Falls High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Falls",
+            "state_prov": "IA",
+            "zip_code": "50613",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15480",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15480,
+            "team_name_short": "Teenage Mutant Ninja Jimbos",
+            "team_name_long": "George Washington Carver Acad",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Waterloo",
+            "state_prov": "IA",
+            "zip_code": "50703",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15523",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15523,
+            "team_name_short": "Diagonal HotSpots",
+            "team_name_long": "Excel Engineering & Diagonal Cmty School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Diagonal",
+            "state_prov": "IA",
+            "zip_code": "50845",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "15650",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 15650,
+            "team_name_short": "Central Lyon Middle School",
+            "team_name_long": "Central Lyon Elem Middle Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Rock Rapids",
+            "state_prov": "IA",
+            "zip_code": "51246",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16070",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16070,
+            "team_name_short": "ICE D League",
+            "team_name_long": "John Deere&Valley High School&Valley Southwoods Freshman HS",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "West Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50266",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": "http://www.iowaice.org"
+        }
+    ],
+    [
+        {
+            "team_key": "16155",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16155,
+            "team_name_short": "Davis County Mustangs",
+            "team_name_long": "Davis Co Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Bloomfield",
+            "state_prov": "IA",
+            "zip_code": "52537",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16156",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16156,
+            "team_name_short": "R-cubed",
+            "team_name_long": "STEAM On&STEAM On",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Cedar Rapids",
+            "state_prov": "IA",
+            "zip_code": "52404",
+            "country": "USA",
+            "rookie_year": 2018,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16651",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16651,
+            "team_name_short": "Galactic Robo Geese",
+            "team_name_long": "Johnston Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16673",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16673,
+            "team_name_short": "Comets",
+            "team_name_long": "LULAC&West Liberty Youth Dream Catchers&West Liberty High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "West Liberty",
+            "state_prov": "IA",
+            "zip_code": "52776",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16736",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16736,
+            "team_name_short": "Atomic Narwhales",
+            "team_name_long": "Johnston Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Johnston",
+            "state_prov": "IA",
+            "zip_code": "50131",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16995",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16995,
+            "team_name_short": "bzBots Green",
+            "team_name_long": "Trinity Christian High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Hull",
+            "state_prov": "IA",
+            "zip_code": "51239",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "16997",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 16997,
+            "team_name_short": "Gears",
+            "team_name_long": "Valley High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "West Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50266",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "17448",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 17448,
+            "team_name_short": "North High 2",
+            "team_name_long": "North High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Sioux City",
+            "state_prov": "IA",
+            "zip_code": "51104",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "17671",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 17671,
+            "team_name_short": "Bionic Broncos  1",
+            "team_name_long": "Belmond-Klemme Jr Sr HS",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Belmond",
+            "state_prov": "IA",
+            "zip_code": "50421",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "18050",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 18050,
+            "team_name_short": "Team Photon",
+            "team_name_long": "Ames Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Ames",
+            "state_prov": "IA",
+            "zip_code": "50014",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "18062",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 18062,
+            "team_name_short": "Techno Eagles HS",
+            "team_name_long": "Ankeny Christian Academy",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Ankeny",
+            "state_prov": "IA",
+            "zip_code": "50023",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "18070",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 18070,
+            "team_name_short": "AGWSR 6609",
+            "team_name_long": "Agwsr Cmty High School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Ackley",
+            "state_prov": "IA",
+            "zip_code": "50601",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "18098",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 18098,
+            "team_name_short": "Mustang Machines 59",
+            "team_name_long": "Shenandoah Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Shenandoah",
+            "state_prov": "IA",
+            "zip_code": "51601",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "18200",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 18200,
+            "team_name_short": "MSTM Techno Devils",
+            "team_name_long": "Martensdale-St Marys Cmty Sch",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Martensdale",
+            "state_prov": "IA",
+            "zip_code": "50160",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ],
+    [
+        {
+            "team_key": "18204",
+            "region_key": "IA",
+            "league_key": null,
+            "team_number": 18204,
+            "team_name_short": "Merrill Mustangs",
+            "team_name_long": "Merrill Middle School",
+            "robot_name": null,
+            "last_active": "1920",
+            "city": "Des Moines",
+            "state_prov": "IA",
+            "zip_code": "50312",
+            "country": "USA",
+            "rookie_year": 2019,
+            "website": null
+        }
+    ]
+]
