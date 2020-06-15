@@ -51,8 +51,7 @@ function download() {
             <td><%= results[i]['league'] %></td>
             <td><%= results[i]['opr'] %></td>
             <td><%= results[i]['wl'] %></td>
-            <td><a class="mdl-navigation__link" href="/api/<%=results[i]['team_number']%>"><i
-                        class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a>
+            <td>
                 <a class="mdl-navigation__link" href="/teamEdit/<%=results[i]['idteam']%>"><i
                         class="mdl-color-text--black material-icons" role="presentation">edit</i></a><a
                     class="mdl-navigation__link" href="/teamEdit/delete/<%=results[i]['idteam']%>"><i
@@ -61,9 +60,7 @@ function download() {
         </tr>
         <% } %>
     </table>
-
-
-
+    
     <a href="/data" id="backButton"
         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
         <i class="material-icons">arrow_back</i>

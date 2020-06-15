@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../db');
-const year = 1920
-const apis = require('../controllers/api')
-const { API } = require('@the-orange-alliance/api');
+const api = require('../controllers/api')
 const fs = require('fs')
-const api = new API("afeb37ef9fbd75eb154868d60b312be1ba893163518a2607937d3f64a88dedf8", "hawk");
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
@@ -28,7 +24,7 @@ router.get('/api/event/:event_key/rankings', checkAuthenticated,async(req, res) 
 
 router.get('/teamApi/:search', checkAuthenticated, (req, res) => {
         res.render('api/teamApi', {
-            teams: apis.search(req.params.search),
+            teams: api.search(req.params.search),
             name: req.params.search
     })
 
@@ -40,49 +36,52 @@ router.get('/gettt',checkAuthenticated, (req, res) => {
         array: []
     });
 });
-router.get('/api/event/:event_name/:match_key',checkAuthenticated, async (req, res) => {
-    let json = await apis.call("match/" + req.params.match_key + "/details")
+router.get('/api/event/:event_name/:match_key', async (req, res) => {
+    let details = fs.readFileSync('app/apiData/matches/allMatchesDetails.json')
+    details = JSON.parse(details)
+    let json = details.find(element => element[0].match_key == req.params.match_key)
     res.render('api/matchView', {
-        data: apis.match(json[0])
+        data: api.match(json[0])
     })
 })
 
 
 router.get('/api/team/search/:results', (req, res) => {
-    apis.results(req, res)
+    api.results(req, res)
 });
 router.get("/update", checkAuthenticated, function (req, res) {
-    apis.updateOPR(res)
+    api.updateOPR(res)
 })
 router.get('/apiData',checkAuthenticated, (req, res) => {
     return res.render('api/apiData')
 });
-router.get('/simalAdd',checkAuthenticated, (req, res) => {
-    return res.render('api/simalAdd.ejs', {
+router.get('/simulAdd',checkAuthenticated, (req, res) => {
+    return res.render('api/simulAdd.ejs', {
         length: 0,
         test: [[]],
         data: [""],
         name: [["", ""]],
-        results: [["", "", "", "", "", "", ""]]
+        results: [["", "", "", "", "", "", ""]],
+        key: ""
     })
 });
 router.get('/api/team/search',checkAuthenticated, (req, res) => {
-    apis.teamSearch(res)
+    api.teamSearch(res)
 })
-router.get('/other',checkAuthenticated, (req, res) => {
-    return res.render('api/otherSimal')
+router.get('/generate',checkAuthenticated, (req, res) => {
+    return res.render('api/othersimul')
 });
 router.get('/api/event/:keyword',checkAuthenticated, (req, res) => {
         res.render('api/tournamentApi.ejs', {
-            array: apis.keyword(req.params.keyword),
+            array: api.keyword(req.params.keyword),
             keyword: req.params.keyword
         })
 });
 router.get('/api/:key/1920/matches', (req, res) => {
-    apis.teamMatches(req, res)
+    api.teamMatches(req, res)
 });
 router.get('/api/:key/1920/events', checkAuthenticated,(req, res) => {
-    apis.teamEvents(req, res)
+    api.teamEvents(req, res)
 });
 router.get('/teamApi',checkAuthenticated, (req, res) => {
     res.render('api/teamApi', {
@@ -96,14 +95,14 @@ router.get('teamEvent/:eventKey', checkAuthenticated,(req, res) => {
 })
 
 router.get('/team/add/:value',checkAuthenticated, (req, res) => {
-    apis.add(req, res)
+    api.add(req, res)
 })
 // router.get("/updateOPR", checkAuthenticated, function (req, res) {
-//     apis.updateOPR(res)
+//     api.updateOPR(res)
 // });
 
 // router.get("/updateWLT", checkAuthenticated, function (req, res) {
-//     apis.updateWLT(res)
+//     api.updateWLT(res)
 // })
 
 

@@ -21,7 +21,7 @@
         <label class="mdl-textfield__label mdl-color-text--grey" for="search">Query Event Names by Name</label>
         <input class="mdl-textfield__input" type="numeric" id="search" value="<%=keyword%>" name="search" autofocus
             onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"
-            oninput="window.open('/api/event/' + this.value , '_self')" />
+            oninput="research(this.value)" />
         <span class="mdl-textfield__error"></span>
     </div>
 </div>
@@ -91,3 +91,22 @@
     class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-color-text--yellow">
     <i class="material-icons">arrow_back</i>
 </a>
+
+<script>
+    function delay(t, val) {
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                resolve(val);
+            }, t);
+        });
+    }
+    research = async function (value) {
+        await delay(500)
+        if (document.getElementById('search').value == value) {
+            if (value != "") window.open('/api/event/' + value, '_self')
+            else window.open('/gettt', '_self')
+            
+        }
+        
+    }
+</script>

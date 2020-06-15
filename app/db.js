@@ -47,10 +47,6 @@ var insertStatement = function(values) {
   return string
 }
 
-var register = function (f, l, g, e, t, p) {
-  connection.query("INSERT INTO hawk.user (first_name, last_name, grade, email, team, password, create_time) VALUES ('" + f + "','" + l + "','" + g + "','" + e + "','" + t + "','" + p + "', NOW());");
-}
-//var result = [];
 connection.insert = function (table, columns, values, now, callback) {
   let date = "";
   if (now) date = ",NOW()"

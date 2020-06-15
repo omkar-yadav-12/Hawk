@@ -5,13 +5,7 @@ const { API } = require('@the-orange-alliance/api');
 const api = new API("afeb37ef9fbd75eb154868d60b312be1ba893163518a2607937d3f64a88dedf8", "hawk");
 const fs = require('fs')
 const year = 1920
-function delay(t, val) {
-    return new Promise(function (resolve) {
-        setTimeout(function () {
-            resolve(val);
-        }, t);
-    });
-}
+
 exports.opr = function (req, res) {
     db.get(null, "team", null, null, null, "team_number", function (err, team) {
         if (err) console.log("error")
@@ -171,19 +165,6 @@ exports.configure = function (req, res) {
     })
 }
 
-function sort(teams, data) {
-    for (let i = 0; i < data.length; i++) {
-        //console.log(teams.find(element => element['event_key'] == teams['_eventKey'])['_startDate'])
-        let event = teams.find(element => element['event_key'] == data[i]['event_key'])
-        if (event == undefined) data[i]['date'] = 0
-        else data[i]['date'] = event['start_date']
-    }
-    data = data.sort(function (a, b) {
-        return new Date(a.date) - new Date(b.date)
-    })
-    return data
-}
-
 exports.tourneyConfigure = async function (req, res) {
     let event = fs.readFileSync('app/apiData/events/allEventsMatches.json')
     event = JSON.parse(event)
@@ -214,7 +195,6 @@ exports.tourneyConfigure = async function (req, res) {
             event.splice(i, 1)
         }
     }
-
     //let array = [];
     let teams_array = []
     let simulated_matches = []
@@ -222,13 +202,13 @@ exports.tourneyConfigure = async function (req, res) {
     let team_data = []
     //for (obj in event) array.push([event[obj]['red_score'], event[obj]['blue_score']])
     console.log(teams.length)
+    console.log(teamResults[0][0].team_key)
     for (let i = 0; i < teams.length; i++) {
         let data = teamResults.find(element => element[0].team_key == teams[i]['team_key'])
         if (data == undefined) data = await apis.call('team/' + teams[i]['team_key'] + '/results/1920')
         // let data = await apis.call('team/' + teams[i]['teamKey'] + '/results/1920')
-        teams_array.push(sort(allEvents, data))
+        teams_array.push(apis.sort(allEvents, data))
     }
-    let q = 0
     for (obj in teams_array) {
         let opr = 0;
         let wins = 0;

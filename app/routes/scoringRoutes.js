@@ -1,11 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const moment = require('moment')
 const db = require('../db');
 const score = require('../controllers/score')
 
-global.validate;
-global.validate = true;
 
 function check(value) {
     if (value == undefined) return 0
@@ -48,8 +45,7 @@ router.get('/dataEdit/:dataId', checkAuthenticated, (req, res) => {
 });
 
 router.get('/score', checkAuthenticated, (req, res) => {
-    return res.render('score/score.ejs', {
-    });
+    return res.render('score/score.ejs');
 });
 
 

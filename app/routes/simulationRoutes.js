@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../db');
-const simal = require('../controllers/simulation');
+const simul = require('../controllers/simulation');
 const fetch = require('node-fetch')
 const headers = {
     'Content-Type': 'application/json',
@@ -18,11 +18,11 @@ function checkAuthenticated(req, res, next) {
     res.redirect('/login')
 }
 router.post('/simulation=?', checkAuthenticated, (req, res) => {
-    simal.opr(req, res)
+    simul.opr(req, res)
 });
 router.get('/simSel', checkAuthenticated, (req, res) => {
     db.get(null, "team", null, null, null, "team_number", function (err, results) {
-        return res.render('simulation/simalSelect.ejs', {
+        return res.render('simulation/simulSelect.ejs', {
             results: results,
         });
     })
@@ -34,11 +34,7 @@ router.get('/testCreation', checkAuthenticated, (req, res) => {
     return res.render('simulation/createTourney')
 })
 router.get('/eventSimulation/:event_name', (req, res) => {
-    simal.tourneyConfigure(req, res)
-})
-
-router.get('/eventSimulation1/:event_name', (req, res) => {
-    res.render('simulation/tournamentSimulation1')
+    simul.tourneyConfigure(req, res)
 })
 
 router.get('/simulation', checkAuthenticated, (req, res) => {
@@ -46,14 +42,14 @@ router.get('/simulation', checkAuthenticated, (req, res) => {
 });
 router.get('/simSel', checkAuthenticated, (req, res) => {
     db.get(null, "team", null, null, null, "team_number", function (err, results) {
-        return res.render('simulation/simalSelect.ejs', {
+        return res.render('simulation/simulSelect.ejs', {
             results: results,
         });
     })
 
 });
 router.post('/configure=?', checkAuthenticated, (req, res) => {
-    simal.configure(req, res)
+    simul.configure(req, res)
 })
 
 

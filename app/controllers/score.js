@@ -1,8 +1,6 @@
 const db = require('../db')
 const moment = require('moment')
-global.ID;
-global.ID = "omyad21@icstudents.org";
-global.validate = true;
+const fs = require('fs')
 query = (a, b, c, d) => {
   db.query("SELECT * FROM hawk.score_data WHERE event_name = '" + a + "' AND  match_num =  " + b + " AND field_num = " + c + " AND alliance = '" + d + "';", function (err, penalties) {
     if (err) throw err;
@@ -132,6 +130,14 @@ exports.dataEdit = function (dataId, res) {
 
 exports.score = function (req, res, color) {
     db.get(null, "team", null, null, null, "team_number", function (err, results) {
+      let events = fs.readFileSync('app/apiData/events/allEventsInfo.json')
+      events = JSON.parse(events)
+      let event_teams = fs.readFileSync('app/apiData/events/allEventsTeams.json')
+      event_teams = JSON.parse(event_teams)
+      let teams = [];
+      for (let i = 0; i < events.length; i++) {
+         teams.push(event_teams.find(element => element.event_key == events[0]. event_key))
+      }
       var name = [];
       for (var i = 0; i < results.length; i++) {
         name.push("(" + results[i]['team_number'] + ") " + results[i]['name'])
@@ -142,11 +148,16 @@ exports.score = function (req, res, color) {
         for(let i = 0; i < results1.length; i++) console.log(results1[i]['Name'])
         let rb = "Red"
         if (color) rb = "Blue"
-        console.log(req.user)
+        console.log(event_teams[0][0])
+        events = events.sort(function (a, b) {
+          return new Date(b[0].start_date) - new Date(a[0].start_date)
+      })
         return res.render('score/score' + rb + '.ejs', {
           name: name,
           results: results,
           results1: results1,
+          events: events,
+          teams: event_teams
         });
       })
     })
@@ -157,7 +168,6 @@ exports.scoringData = function (res) {
     db.get(null, "score_data", null, null, null, "create_time DESC", function (err, results) {
       return res.render('score/scoringData.ejs', {
         alert: "",
-        id: ID,
         results: total_score(teams, results),
       });
     })

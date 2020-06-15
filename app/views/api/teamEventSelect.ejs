@@ -39,9 +39,9 @@
             <td><%= events[i][0].city %></td>
             <td><%= events[i][0].state_prov %></td>
             <td><%= events[i][0].start_date%></td>
-            <td><a class="mdl-navigation__link" href="/api/event/<%=events[i].event_key%>/matches"><i
+            <td><a class="mdl-navigation__link" href="/api/event/<%=events[i][0].event_key%>/matches"><i
                         class="mdl-color-text--black material-icons" role="presentation">remove_red_eye</i></a>
-                <a class="mdl-navigation__link" href="/eventSimulation/<%=events[i].event_key%>"><i
+                <a class="mdl-navigation__link" href="/eventSimulation/<%=events[i][0].event_key%>"><i
                         class="mdl-color-text--black material-icons" role="presentation">event</i></a></td>
         </tr>
         <% } %>

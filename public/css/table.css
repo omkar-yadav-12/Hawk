@@ -76,7 +76,6 @@ h2 a {
 .container tr:nth-child(odd) {
 	  background-color: #323C50;
 }
-
 /* Background-color of the even rows */
 .container tr:nth-child(even) {
 	  background-color: #2C3446;

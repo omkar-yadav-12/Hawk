@@ -8,10 +8,6 @@ const calendarController = require('../controllers/calendar');
 const other = require('../controllers/other')
 const authenticate = require('../controllers/authenticate')
 const passport = require('passport')
-const bcrypt = require('bcrypt')
-const methodOverride = require('method-override')
-global.ID = "omyad21@icstudents.org";
-global.validate = true;
 router.get('/settings/edit', checkAuthenticated, (req, res) => {
   return res.render('misc/settingsEdit', {
     results: req.user
@@ -21,7 +17,7 @@ router.get('/', checkNotAuthenticated, (req, res) => {
   return res.redirect('/login');
 });
 router.post('/register=True', checkNotAuthenticated, (req, res) => {
-  authenticate.register(req, res)
+  user.register(req, res)
 });
 
 router.post('/teamEdit/update/:dataId', checkAuthenticated, (req, res) => {
@@ -60,11 +56,6 @@ router.delete('/logout', checkAuthenticated, (req, res) => {
   res.redirect('/')
 })
 
-// router.get('/logout', (req, res) => {
-//   global.validate = false;
-//   global.ID = null;
-//   return res.redirect('/')
-// })
 
 router.post('/team=True', checkAuthenticated, (req, res) => {
   db.query("INSERT INTO Hawk.team(team_number, name, school, location, league) VALUES (" + req.body.team_number + ",'" + req.body.name + "','" + req.body.school + "','" + req.body.location + "','" + req.body.league + "');");
@@ -96,6 +87,7 @@ router.get('/drop', checkAuthenticated, (req, res) => {
   })
 })
 router.get('/home', checkAuthenticated, (req, res) => {
+  console.log(req.user.first_name.length)
   return res.render('main/home.ejs', {
     disable: false,
     results: req.user,
@@ -134,14 +126,7 @@ router.get('/teamData', checkAuthenticated, (req, res) => {
 });
 
 router.get('/data', checkAuthenticated, (req, res) => {
-  if (validate) {
-    return res.render('misc/data.ejs', {
-      id: ID,
-    });
-  }
-  else {
-    return res.redirect('/');
-  }
+    return res.render('misc/data.ejs');
 });
 
 

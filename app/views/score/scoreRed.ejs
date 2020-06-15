@@ -61,14 +61,13 @@
                 <label class="mdl-textfield__label" for="team_two">Team 2</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label  mdl-color-text--yellow">
-                <select class="mdl-textfield__input" id="event_name" name="event_name" required>
+                <select class="mdl-textfield__input" id="event_name" oninput = teams(this.value) name="event_name" required>
                     <option></option>
-                    <!-- <script>alert("<%=results1[0][0]%>")</script> -->
-                    <% for (var i = 0; i < results1.length; i++) { %>
+                    <% for (var i = 0; i < events.length; i++) { %>
                     <% if (i == 0) { %>
-                    <option selected="selected" value="<%=results1[i]['Name']%>"><%=results1[i]['Name']%></option>
+                    <option selected="selected" value="<%=events[i][0]['event_key']%>"><%=events[i][0]['event_name']%></option>
                     <% } else { %>
-                    <option value="<%=results1[i]['Name']%>"><%=results1[i]['Name']%></option>
+                    <option value="<%=events[i][0]['event_key']%>"><%=events[i][0]['event_name']%></option>
                     <% } %>
                     <% } %>
                 </select>

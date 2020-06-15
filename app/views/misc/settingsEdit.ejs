@@ -31,24 +31,24 @@
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow ">
             <label class="mdl-textfield__label mdl-color-text--grey " for="first_name">First Name</label>
-            <input class="mdl-textfield__input" type="text" name="first_name" value="<%=results['first_name']%>" />
+            <input class="mdl-textfield__input" type="text" name="first_name" pattern="^[A-z]{1,12}$" value="<%=results['first_name']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey " for="last_name">Last Name</label>
-            <input class="mdl-textfield__input" type="text" name=last_name value="<%=results['last_name']%>" />
+            <input class="mdl-textfield__input" type="text" name=last_name pattern="^[A-z]{1,12}$" value="<%=results['last_name']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>
     <div class=container>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey " for="email">Email</label>
-            <input class="mdl-textfield__input" type="text" name=email value="<%=results['email']%>" />
+            <input class="mdl-textfield__input" type="text" name=email pattern="^[A-z0-9@.]{5,30}$"value="<%=results['email']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col mdl-color-text--yellow">
             <label class="mdl-textfield__label mdl-color-text--grey " for="grade">Grade</label>
-            <input class="mdl-textfield__input" type="text" name=grade value="<%=results['grade']%>" />
+            <input class="mdl-textfield__input" type="text" name=grade pattern="^[0-9]{1,2}$" value="<%=results['grade']%>" />
             <span class="mdl-textfield__error"></span>
         </div>
     </div>

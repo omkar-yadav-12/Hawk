@@ -49,8 +49,7 @@ exports.scoutingData = function (res) {
     })
 }
 
-exports.scout = function (validate, res) {
-    if (validate == true) {
+exports.scout = function (res) {
         db.get(null, "user", null, null, null, null, function (err, users) {
             db.get(null, "team", null, null, null, "team_number", function (err, results) {
                 db.get(null, "events", null, null, null, "Date DESC", function (err, results1) {
@@ -68,9 +67,6 @@ exports.scout = function (validate, res) {
                 })
             })
         })
-    } else {
-        return res.redirect('/');
-    }
 }
 
 exports.scoutEdit = function (res, dataId) {

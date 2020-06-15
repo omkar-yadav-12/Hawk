@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const moment = require('moment')
 const db = require('../db');
 const scout = require('../controllers/scout')
-global.ID;
-global.ID = "omyad21@icstudents.org";
-global.validate;
-global.validate = true;
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
@@ -55,7 +50,7 @@ router.get('/scoutingData', checkAuthenticated, (req, res) => {
     scout.scoutingData(res)
 })
 router.get('/scout', checkAuthenticated, (req, res) => {
-    scout.scout(global.validate, res)
+    scout.scout(res)
 });
 
 router.get('/add/:num', checkAuthenticated, (req, res) => {
