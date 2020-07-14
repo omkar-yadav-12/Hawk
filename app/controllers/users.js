@@ -6,7 +6,7 @@ exports.user_list = function (res) {
   db.get(null, "user", null, null, null, "last_name", async function (err, results) {
     if (err) throw err;
     let teamName = []
-    let team = fs.readFileSync('app/apiData/teams/allTeamsDetails.json')
+    let team = fs.readFileSync('app/data/teams/allTeamsDetails.json')
     team = JSON.parse(team)
     for (let i = 0; i < results.length; i++) {
       results[i]['create_time'] = moment(results[i]['create_time']).format('LL')

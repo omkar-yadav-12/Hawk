@@ -130,9 +130,9 @@ exports.dataEdit = function (dataId, res) {
 
 exports.score = function (req, res, color) {
     db.get(null, "team", null, null, null, "team_number", function (err, results) {
-      let events = fs.readFileSync('app/apiData/events/allEventsInfo.json')
+      let events = fs.readFileSync('app/data/events/allEventsInfo.json')
       events = JSON.parse(events)
-      let event_teams = fs.readFileSync('app/apiData/events/allEventsTeams.json')
+      let event_teams = fs.readFileSync('app/data/events/allEventsTeams.json')
       event_teams = JSON.parse(event_teams)
       let teams = [];
       for (let i = 0; i < events.length; i++) {

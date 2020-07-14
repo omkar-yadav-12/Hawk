@@ -48,7 +48,7 @@ function sort(teams, data) {
 }
 
 search = function (keyword) {
-    let allTeams = fs.readFileSync('app/apiData/teams/allTeams.json')
+    let allTeams = fs.readFileSync('app/data/teams/allTeams.json')
     let data = JSON.parse(allTeams)
     let teams = data.filter(event => event.team_key.includes(keyword))
     for (obj in teams) if (teams[obj].team_name_short === null) team[obj].team_name_short = team[obj].team_name_long
@@ -66,7 +66,7 @@ exports.match = function (json) {
 }
 
 exports.keyword = function (keyword) {
-    let allEvents = fs.readFileSync('app/apiData/events/allEvents.json')
+    let allEvents = fs.readFileSync('app/data/events/allEvents.json')
     let data = JSON.parse(allEvents)
     let events = data.filter(event => event.event_name.includes(keyword))
     events = events.sort(function (a, b) {
@@ -78,8 +78,8 @@ exports.keyword = function (keyword) {
 
 
 exports.results = async function (req, res) {
-    let teamResults = fs.readFileSync('app/apiData/teams/allTeamsResults.json')
-    let allEvents = fs.readFileSync('app/apiData/events/allEvents.json')
+    let teamResults = fs.readFileSync('app/data/teams/allTeamsResults.json')
+    let allEvents = fs.readFileSync('app/data/events/allEvents.json')
     allEvents = JSON.parse(allEvents)
     teamResults = JSON.parse(teamResults)
     let teams = search(req.params.results)
@@ -106,7 +106,7 @@ exports.results = async function (req, res) {
             x = teams_array[obj].length - 2
             y = 2
         }
-        let matches = fs.readFileSync('app/apiData/events/allEventsMatches.json')
+        let matches = fs.readFileSync('app/data/events/allEventsMatches.json')
         matches = JSON.parse(matches)
         // final league tournaments have ten additional matches added on from the past, so account for this in the rankings data here by calculating actual matches that were played 
         for (let i = x; i < teams_array[obj].length; i++) {
@@ -177,8 +177,8 @@ exports.updateOPR = function (res) {
     db.get(["team_number"], "team", null, null, null, "opr", async function (err, results) {
         if (err) console.log("error")
         console.log("EEE")
-        let events = fs.readFileSync('app/apiData/events/allEvents.json')
-        let teamResults = fs.readFileSync('app/apiData/teams/allTeamsResults.json')
+        let events = fs.readFileSync('app/data/events/allEvents.json')
+        let teamResults = fs.readFileSync('app/data/teams/allTeamsResults.json')
         teamResults = JSON.parse(teamResults)
         events = JSON.parse(events)
         try {
@@ -223,7 +223,7 @@ exports.add = async function (req, res) {
     let results1 = [];
     let id = req.params.value
     if (id != null && id != undefined) {
-        let data = fs.readFileSync('app/apiData/teams/allTeamsDetails.json')
+        let data = fs.readFileSync('app/data/teams/allTeamsDetails.json')
         data = JSON.parse(data)
         data = data.find(element => element[0].team_key == id)
         results1 = ["", "", "", "", id];
@@ -269,15 +269,15 @@ exports.teamSearch = function (res) {
 }
 
 exports.teamMatches = async function (req, res) {
-    let results = fs.readFileSync('app/apiData/teams/allTeamsMatches.json')
+    let results = fs.readFileSync('app/data/teams/allTeamsMatches.json')
     results = JSON.parse(results)
     results = results.find(element => element[0].team_key == req.params.key)
     res.send(results)
 }
 
 exports.teamEvents = async function (req, res) {
-    let event = fs.readFileSync('app/apiData/teams/allTeamsEvents.json')
-    let allEvents = fs.readFileSync('app/apiData/events/allEventsInfo.json')
+    let event = fs.readFileSync('app/data/teams/allTeamsEvents.json')
+    let allEvents = fs.readFileSync('app/data/events/allEventsInfo.json')
     let data1 = JSON.parse(allEvents)
     let data = JSON.parse(event)
     data = data.find(element => element.team_key == req.params.eventKey)

@@ -10,13 +10,13 @@ function checkAuthenticated(req, res, next) {
     res.redirect('/login')
 }
 router.get('/api/event/:event_key/matches', checkAuthenticated, async(req, res) => {
-    let matches = fs.readFileSync('app/apiData/events/allEventsMatches.json')
+    let matches = fs.readFileSync('app/data/events/allEventsMatches.json')
     matches = JSON.parse(matches)
     matches = matches.find(element => element[0].event_key == req.params.event_key)
     res.render('api/matchApi.ejs', {array: matches})
 });
 router.get('/api/event/:event_key/rankings', checkAuthenticated,async(req, res) => {
-    let rankings = fs.readFileSync('app/apiData/events/allEventsRankings.json')
+    let rankings = fs.readFileSync('app/data/events/allEventsRankings.json')
     rankings = JSON.parse(rankings)
     rankings = rankings.find(element => element[0].event_key == req.params.event_key)
     res.render('api/eventRankings.ejs', {json: rankings})
@@ -37,7 +37,7 @@ router.get('/gettt',checkAuthenticated, (req, res) => {
     });
 });
 router.get('/api/event/:event_name/:match_key', async (req, res) => {
-    let details = fs.readFileSync('app/apiData/matches/allMatchesDetails.json')
+    let details = fs.readFileSync('app/data/matches/allMatchesDetails.json')
     details = JSON.parse(details)
     let json = details.find(element => element[0].match_key == req.params.match_key)
     res.render('api/matchView', {

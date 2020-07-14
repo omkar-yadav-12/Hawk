@@ -94,13 +94,13 @@ async function updateMatches() {
 }
 
 async function updateMatchesDetails (){
-    let allTeams = fs.readFileSync('/Users/omkaryadav/Documents/GitHub/Hawk/app/apiData/matches/allMatches.json')
+    let allTeams = fs.readFileSync('app/apiData/matches/allMatches.json')
     let data = JSON.parse(allTeams) 
     let details = []
     for (let i = 0; i < data.length; i++) {
         details.push(await api.call('match/' + data[i].match_key + '/details'))
     }
-    fs.writeFile("/Users/omkaryadav/Documents/GitHub/Hawk/app/apiData/matches/allMatchesDetails.json", JSON.stringify(details), (err) => {
+    fs.writeFile("app/apiData/matches/allMatchesDetails.json", JSON.stringify(details), (err) => {
         if (err) console.error(err)
         else console.log("COMPLETE")
     })

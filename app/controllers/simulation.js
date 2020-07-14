@@ -166,24 +166,24 @@ exports.configure = function (req, res) {
 }
 
 exports.tourneyConfigure = async function (req, res) {
-    let event = fs.readFileSync('app/apiData/events/allEventsMatches.json')
+    let event = fs.readFileSync('app/data/events/allEventsMatches.json')
     event = JSON.parse(event)
     event = event.find(element => element[0].event_key == req.params.event_name)
-    let rankings = fs.readFileSync('app/apiData/events/allEventsRankings.json')
+    let rankings = fs.readFileSync('app/data/events/allEventsRankings.json')
     rankings = JSON.parse(rankings)
     rankings = rankings.find(element => element[0].event_key == req.params.event_name)
-    let events = fs.readFileSync('app/apiData/events/allEventsInfo.json')
+    let events = fs.readFileSync('app/data/events/allEventsInfo.json')
     events = JSON.parse(events)
     events = events.find(element => element[0].event_key == req.params.event_name)
     events = events[0]
-    let allEvents = fs.readFileSync('app/apiData/events/allEvents.json')
+    let allEvents = fs.readFileSync('app/data/events/allEvents.json')
     allEvents = JSON.parse(allEvents)
     // console.log(event[0])
     // console.log(event[0]['_matchParticipants'][0]['_teamKey'])
-    let teams = fs.readFileSync('app/apiData/events/allEventsTeams.json')
+    let teams = fs.readFileSync('app/data/events/allEventsTeams.json')
     teams = JSON.parse(teams)
     teams = teams.find(element => element[0].event_key == req.params.event_name)
-    let teamResults = fs.readFileSync('app/apiData/teams/allTeamsResults.json')
+    let teamResults = fs.readFileSync('app/data/teams/allTeamsResults.json')
     teamResults = JSON.parse(teamResults)
     for (obj in teams) {
         teams[obj]['wins_'] = 0
@@ -224,7 +224,7 @@ exports.tourneyConfigure = async function (req, res) {
             x = teams_array[obj].length - 2
             y = 2
         }
-        let matches = fs.readFileSync('app/apiData/events/allEventsMatches.json')
+        let matches = fs.readFileSync('app/data/events/allEventsMatches.json')
         matches = JSON.parse(matches)
         // final league tournaments have ten additional matches added on from the past, so account for this in the rankings data here by calculating actual matches that were played 
         for (let i = x; i < teams_array[obj].length; i++) {
