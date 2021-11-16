@@ -15,7 +15,7 @@
   "dependencies": {
     "@material/select": "^4.0.0",
     "@the-orange-alliance/api": "0.0.4",
-    "aws-sdk": "^2.713.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "clientside-require": "^4.7.2",
